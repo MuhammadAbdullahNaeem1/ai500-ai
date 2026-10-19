@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mock Quiz 2B · AI 500</title>
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#fbfbfa" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#16161a" media="(prefers-color-scheme: dark)">
+<script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<header class="topbar">
+  <button class="iconbtn" id="menuBtn" aria-label="Open contents" aria-expanded="false"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+  <a class="topbrand" href="index.html">AI 500<span>Mock Quiz 2B</span></a>
+  <button class="iconbtn themebtn" aria-label="Toggle dark mode"><svg class="i-moon" viewBox="0 0 24 24" width="19" height="19"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg><svg class="i-sun" viewBox="0 0 24 24" width="19" height="19"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg></button>
+</header>
+<div class="scrim" id="scrim"></div>
+<div class="wrap">
+<aside class="side" id="side">
+  <div class="side-head">
+    <a class="brand" href="index.html">AI 500 — Foundations of AI<span>Foundations of AI · Fall 2026</span></a>
+    <button class="iconbtn themebtn" aria-label="Toggle dark mode"><svg class="i-moon" viewBox="0 0 24 24" width="17" height="17"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg><svg class="i-sun" viewBox="0 0 24 24" width="17" height="17"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg></button>
+  </div>
+  <nav><a href="index.html">Home</a>
+<a href="start-here.html">Start here (how to use)</a>
+<div class="nav-section">Modules</div>
+<details class="grp"><summary>M1 · AI Landscape & Problem Framing</summary><a href="m1a-notes.html">Notes A — roots, philosophy, landscape</a><a href="m1b-notes.html">Notes B — pipeline, framing, failures</a><a href="m1-answers.html">Answers Q1–100</a><a href="m1-cases.html">Answers S, R, A</a></details>
+<details class="grp"><summary>M2 · Data Collection, Cleaning, Governance & Ethics</summary><a href="m2a-notes.html">Notes A — constructed data, sources, quality</a><a href="m2b-notes.html">Notes B — curation, cleaning, leakage</a><a href="m2c-notes.html">Notes C — documentation, governance, cases</a><a href="m2-answers-1.html">Answers Q1–50</a><a href="m2-answers-2.html">Answers Q51–100</a><a href="m2-scenarios.html">Scenarios S1–S5</a><a href="m2-reflections.html">Reflections R1–R5</a></details>
+<div class="nav-section">Quiz 2 (24 Oct)</div>
+<a href="quiz2-guide.html">Quiz 2 guide</a>
+<a href="quiz2-mock-a.html">★ Mock Quiz 2A</a>
+<a href="quiz2-mock-b.html" class="on" aria-current="page">Mock Quiz 2B</a>
+<a href="quiz2-mock-c.html">Mock Quiz 2C</a>
+<div class="nav-section">Archive</div>
+<a href="quiz1-solved.html">Real Quiz 1 (solved)</a>
+<a href="assignments.html">Assignments & computational training</a>
+<a href="a2-missedcare.html">A2 Part A — MissedCare (your answers)</a>
+<a href="resources.html">PDFs, assignments & past material</a></nav>
+  <div class="toc"><div class="toc-title">On this page</div><a href="#basic-definitions-clo-4-9-points" class="">Basic Definitions [CLO 4] — 9 points</a><a href="#short-conceptual-questions-clo-4-12-points" class="">Short, Conceptual Questions [CLO 4] — 12 points</a><a href="#scenario-based-question-clo-4-21-points" class="">Scenario-based Question [CLO 4] — 21 points</a><a href="#identifying-failures-clo-4-8-points" class="">Identifying Failures [CLO 4] — 8 points</a></div>
+</aside>
+<main>
+  
+  <div class="quiz-tools"><button data-sol="open">Show all solutions</button><button data-sol="close">Hide all</button><button onclick="window.print()">Print</button></div>
+  <h1>Mock Quiz 2B — Module 2</h1>
+<p><strong>50 points · 60 minutes · closed book.</strong> Emphasis: data sources, documentation, consent and licensing.</p>
+<div class="pdf-links">
+<a href="quiz2-guide.html">Quiz 2 guide</a>
+<a href="quiz2-mock-a.html">Mock 2A</a>
+<a href="quiz2-mock-c.html">Mock 2C</a>
+</div>
+
+<h2 id="basic-definitions-clo-4-9-points"><a class="anchor" href="#basic-definitions-clo-4-9-points" aria-hidden="true">#</a>Basic Definitions [CLO 4] — 9 points</h2>
+
+<section class="question"><div class="q-head">1(a) [3 points] Define construct validity. Give one proxy from the notes that fails it and explain why.</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><p><strong>Construct validity</strong> is the degree to which a measured variable or label faithfully represents the <strong>concept we actually intend</strong> to measure. Example: <strong>healthcare cost as a proxy for health need</strong> — cost also depends on access, insurance, provider behaviour and historical inequality, so patients with equal need but less access appear &quot;low need&quot; (Obermeyer et al.). (Also: arrests for crime, clicks for satisfaction, exam scores for intelligence, absence for disengagement.)</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Correct definition</td>
+<td>1.5</td>
+</tr>
+<tr>
+<td>Valid proxy example</td>
+<td>0.5</td>
+</tr>
+<tr>
+<td>Explains how the proxy diverges from the construct</td>
+<td>1</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">1(b) [3 points] Define the four timestamps of a logged event. Why does confusing them matter?</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><p><strong>Event time</strong> (real action), <strong>recording time</strong> (logged locally), <strong>arrival time</strong> (reached central pipeline), <strong>processing time</strong> (handled by pipeline). Confusing them causes <strong>temporal leakage</strong> and <strong>wrong feature windows</strong>: a feature may be assigned to before the prediction time although it was only available later.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>All four correct (½ each)</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Consequence: temporal leakage/incorrect windows</td>
+<td>1</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">1(c) [3 points] Define data minimization and state the decision rule given in the notes.</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><p><strong>Data minimization:</strong> organizations should collect, retain and process only the information <strong>reasonably necessary</strong> for a clearly defined, legitimate purpose. Rule: <strong>collect <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">X_j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0785em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span> only if Benefit<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><msub><mi>X</mi><mi>j</mi></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(X_j)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0361em;vertical-align:-0.2861em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0785em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> &gt; Risk<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><msub><mi>X</mi><mi>j</mi></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(X_j)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0361em;vertical-align:-0.2861em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0785em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></strong>, considering the intended use and available safeguards (e.g. keep postal code, drop full address and national ID; keep ethnicity only for restricted fairness auditing).</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Definition (necessary for defined purpose)</td>
+<td>1.5</td>
+</tr>
+<tr>
+<td>Benefit &gt; Risk rule</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Example or mention of safeguards/retention</td>
+<td>0.5</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+<h2 id="short-conceptual-questions-clo-4-12-points"><a class="anchor" href="#short-conceptual-questions-clo-4-12-points" aria-hidden="true">#</a>Short, Conceptual Questions [CLO 4] — 12 points</h2>
+
+<section class="question"><div class="q-head">2(a) [4 points] Explain why a social-media platform should be treated as part of the measurement instrument. Give two consequences for an AI model trained on its posts.</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><p>Observed behaviour is a <strong>reaction within an engineered environment</strong> — recommendation algorithm, interface, moderation, trending topics and engagement incentives decide what users see, create and what remains. So posts are not direct measures of stable opinion. Consequences: (1) the model learns <strong>platform-specific language, amplified polarized topics and bot activity</strong>, and its accuracy <strong>drops on representative survey data</strong>; (2) <strong>platform changes</strong> (e.g. favouring short video) create shifts the model misreads as changes in opinion; also non-representative users, duplicates.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Engineered environment explanation</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Consequence 1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Consequence 2</td>
+<td>1</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">2(b) [4 points] Distinguish consent, licensing, copyright and privacy. Why does satisfying one not satisfy the others?</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><p><strong>Consent</strong> — what participants agreed to (purposes, commercial use, transfer, withdrawal). <strong>Licence</strong> — what users are legally permitted to do with the dataset. <strong>Copyright</strong> — intellectual-property rights in the content. <strong>Privacy</strong> — obligations protecting personal information. They come from different sources (participants, data provider, creators, law) and constrain different things: an <strong>openly licensed</strong> dataset may still contain personal data; <strong>de-identified</strong> data may still be under copyright or contract; &quot;Consent: Yes&quot; doesn&#39;t permit uses the licence forbids (Example 57).</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Four correct definitions (½ each)</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Independence explained</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Example</td>
+<td>1</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">2(c) [4 points] Why should a sepsis model&#39;s evaluation include a hold-out of entire hospitals? What does a random patient-level split fail to test?</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><p>If the model will be deployed at <strong>previously unseen hospitals</strong>, evaluation must mimic that. Patients from the same hospital share <strong>equipment, units, EHR systems, coding and ordering practices and populations</strong>; a random patient split puts the same hospitals in train and test, so the model can exploit <strong>site-specific shortcuts</strong> and evaluation overestimates transfer (<strong>site leakage</strong>). Holding out whole sites tests <strong>generalization to new clinical environments</strong> (covariate/concept shift).</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Deployment to new sites → evaluation must mirror it</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Site-specific characteristics shared within hospital</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Random split overestimates/shortcuts (site leakage)</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Whole-site hold-out tests real generalization</td>
+<td>1</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+<h2 id="scenario-based-question-clo-4-21-points"><a class="anchor" href="#scenario-based-question-clo-4-21-points" aria-hidden="true">#</a>Scenario-based Question [CLO 4] — 21 points</h2>
+
+<div class="orig-q"><div class="oq-head"><span class="oq-lab">📄 Original question</span><span class="oq-src">Voice-assistant dataset for a national helpline</span></div><div class="oq-body"><p>A telecom regulator funds a <strong>speech-recognition model</strong> for an emergency helpline. A university releases a public dataset of <strong>200,000 voice clips</strong> collected through a smartphone app: volunteers read prompts aloud. Its page says <em>&quot;Free for research&quot;</em>. Most volunteers are <strong>urban university students</strong>; about <strong>4%</strong> of clips are in regional languages. Transcripts were produced by a <strong>single annotator per clip</strong>; disputed clips were resolved by majority vote among three crowd workers. The developer merges this dataset with a <strong>commercial call-centre dataset</strong> licensed for internal use only, re-encodes all audio, removes clips longer than 20 seconds, and keeps no record of these steps. The documentation reads only <em>&quot;Consent obtained: Yes&quot;</em>. The finished model will be sold to helplines in <strong>three countries</strong>.</p>
+</div></div><div class="oq-sol">Worked solution</div>
+
+<section class="question"><div class="q-head">3(a) [4 points] Evaluate the dataset using <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo stretchy="false">(</mo><mi>D</mi><mo separator="true">,</mo><mi>T</mi><mo separator="true">,</mo><mi>C</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">Q(D,T,C)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">Q</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mclose">)</span></span></span></span>. Define D, T and C explicitly.</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><ul>
+<li><strong>D:</strong> 200k read-aloud smartphone clips, mostly urban students, 4% regional languages, single-annotator transcripts, merged with call-centre audio, undocumented preprocessing.</li>
+<li><strong>T:</strong> transcribe <strong>spontaneous emergency calls</strong> accurately in real time.</li>
+<li><strong>C:</strong> national helplines in three countries — distressed, noisy, phone-line audio; many languages and accents; older and rural callers; high stakes.</li>
+<li><strong>Judgement: low fitness</strong> — read speech ≠ distressed spontaneous speech; smartphone ≠ phone-line audio; demographic and language coverage inadequate; label quality uncertain; legal status unclear. Possibly fit for <strong>research benchmarking</strong> of urban read speech, not for this deployment.</li>
+</ul>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>D, T, C each explicit (1 each)</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Reasoned verdict</td>
+<td>1</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">3(b) [5 points] Identify the representativeness problems and explain why collecting 200,000 more clips from the same app would not solve them.</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><ul>
+<li><strong>Demographic:</strong> urban students; missing older, rural, less-educated callers, children.</li>
+<li><strong>Linguistic:</strong> 4% regional languages; accents under-represented.</li>
+<li><strong>Situational (missing deployment scenarios):</strong> read prompts vs spontaneous, emotional, panicked speech; background noise; phone codecs vs smartphone microphone (covariate shift).</li>
+<li><strong>Geographic:</strong> one country vs three.</li>
+<li>More clips from the same app sample the <strong>same population and setting</strong>; size reduces variance but <strong>not systematic absence</strong> — under-represented groups stay under-represented (Table 15 logic). Need targeted collection with subgroup minimums.</li>
+</ul>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Three distinct representativeness gaps (1 each)</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Why more data doesn&#39;t fix it</td>
+<td>2</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">3(c) [4 points] Assess the transcript labelling process. What should the annotation record preserve?</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><p>Single annotators give <strong>no agreement estimate</strong> (no κ), so error rates are unknown; regional languages may be transcribed by non-speakers. <strong>Majority voting</strong> among crowd workers may suppress legitimate alternative transcriptions and hide genuinely ambiguous audio — <em>consensus ≠ truth</em>. Test-set label errors would distort evaluation. Preserve: <strong>original transcripts, annotator identity/expertise (language proficiency), consensus label, adjudication decisions, uncertainty flags, acceptable alternative transcripts</strong>; measure inter-annotator agreement on a double-annotated sample.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Problem with single annotator</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Problem with majority vote</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Items to preserve (≥4)</td>
+<td>2</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">3(d) [4 points] Identify the consent and licensing problems with selling the merged model in three countries.</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><ul>
+<li>&quot;Free for research&quot; signals a <strong>research-only licence</strong> → commercial sale likely not permitted.</li>
+<li>Call-centre data <strong>licensed for internal use only</strong> → can&#39;t be used in a product sold externally; combined data <strong>inherit the most restrictive terms</strong> (licence compatibility).</li>
+<li><strong>&quot;Consent obtained: Yes&quot;</strong> doesn&#39;t record whether volunteers agreed to <strong>commercial use, international transfer</strong>, or how withdrawal applies to the model.</li>
+<li><strong>Privacy:</strong> voices are biometric/personal data; de-identification of voice is weak; cross-border transfer rules apply. Model weights don&#39;t escape these constraints (memorization).</li>
+</ul>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Research-only licence vs commercial sale</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Internal-use licence / incompatibility</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Consent inadequacy</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Privacy/transfer issue</td>
+<td>1</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">3(e) [4 points] The developer kept no record of re-encoding and removing long clips. Explain why this matters and list what should have been recorded.</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><p>Without <strong>lineage</strong>, results are <strong>not reproducible</strong>, errors can&#39;t be debugged or rolled back, and users can&#39;t judge suitability — e.g. dropping clips &gt; 20 s may disproportionately remove long, distressed emergency calls or certain languages (undocumented <strong>exclusion</strong> → representation bias). For each transformation record: <strong>input dataset version, code/software version, parameters (codec, bitrate, 20 s threshold), output version, timestamp, responsible person, validation results</strong> — plus counts of excluded clips by language/group.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Reproducibility/audit/rollback consequence</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Hidden bias from undocumented exclusion</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Lineage fields (≥5 → 2, 3–4 → 1)</td>
+<td>2</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+<h2 id="identifying-failures-clo-4-8-points"><a class="anchor" href="#identifying-failures-clo-4-8-points" aria-hidden="true">#</a>Identifying Failures [CLO 4] — 8 points</h2>
+
+<section class="question"><div class="q-head">4 [8 points] For each of the following, name the bias type from Table 27 and justify it in one sentence (2 points each): (i) a fall-detection wearable validated on young volunteers is deployed in care homes; (ii) one model predicts diabetes complications for all ethnic groups although risk factors differ between them; (iii) a loan model is trained on approvals made under a past discriminatory policy; (iv) a triage assistant validated for nurse support is used by a call centre to refuse ambulances automatically.</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><p>(i) <strong>Evaluation bias</strong> (or representation bias) — validation population didn&#39;t reflect deployment (elderly care-home residents). (ii) <strong>Aggregation bias</strong> — one model for populations with different predictor–outcome relationships. (iii) <strong>Historical bias</strong> — past inequities embedded in labels. (iv) <strong>Deployment bias</strong> — used outside its validated purpose and without human review. 1 point for the name, 1 for the justification.</p>
+</div></details>
+</section>
+
+  <nav class="pagenav">
+    <a class="pv" href="quiz2-mock-a.html">← Previous<b>★ Mock Quiz 2A</b></a>
+    <a class="nx" href="quiz2-mock-c.html">Next →<b>Mock Quiz 2C</b></a>
+  </nav>
+  <div class="foot">AI 500 · Fall 2026 · study notes</div>
+</main>
+</div>
+<div class="lightbox" id="lightbox" hidden><img alt=""><button class="iconbtn lb-close" aria-label="Close">✕</button></div>
+<script src="assets/site.js" defer></script>
+</body></html>

@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Assignments & computational training · AI 500</title>
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#fbfbfa" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#16161a" media="(prefers-color-scheme: dark)">
+<script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<header class="topbar">
+  <button class="iconbtn" id="menuBtn" aria-label="Open contents" aria-expanded="false"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+  <a class="topbrand" href="index.html">AI 500<span>Assignments & computational training</span></a>
+  <button class="iconbtn themebtn" aria-label="Toggle dark mode"><svg class="i-moon" viewBox="0 0 24 24" width="19" height="19"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg><svg class="i-sun" viewBox="0 0 24 24" width="19" height="19"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg></button>
+</header>
+<div class="scrim" id="scrim"></div>
+<div class="wrap">
+<aside class="side" id="side">
+  <div class="side-head">
+    <a class="brand" href="index.html">AI 500 — Foundations of AI<span>Foundations of AI · Fall 2026</span></a>
+    <button class="iconbtn themebtn" aria-label="Toggle dark mode"><svg class="i-moon" viewBox="0 0 24 24" width="17" height="17"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg><svg class="i-sun" viewBox="0 0 24 24" width="17" height="17"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg></button>
+  </div>
+  <nav><a href="index.html">Home</a>
+<a href="start-here.html">Start here (how to use)</a>
+<div class="nav-section">Modules</div>
+<details class="grp"><summary>M1 · AI Landscape & Problem Framing</summary><a href="m1a-notes.html">Notes A — roots, philosophy, landscape</a><a href="m1b-notes.html">Notes B — pipeline, framing, failures</a><a href="m1-answers.html">Answers Q1–100</a><a href="m1-cases.html">Answers S, R, A</a></details>
+<details class="grp"><summary>M2 · Data Collection, Cleaning, Governance & Ethics</summary><a href="m2a-notes.html">Notes A — constructed data, sources, quality</a><a href="m2b-notes.html">Notes B — curation, cleaning, leakage</a><a href="m2c-notes.html">Notes C — documentation, governance, cases</a><a href="m2-answers-1.html">Answers Q1–50</a><a href="m2-answers-2.html">Answers Q51–100</a><a href="m2-scenarios.html">Scenarios S1–S5</a><a href="m2-reflections.html">Reflections R1–R5</a></details>
+<div class="nav-section">Quiz 2 (24 Oct)</div>
+<a href="quiz2-guide.html">Quiz 2 guide</a>
+<a href="quiz2-mock-a.html">★ Mock Quiz 2A</a>
+<a href="quiz2-mock-b.html">Mock Quiz 2B</a>
+<a href="quiz2-mock-c.html">Mock Quiz 2C</a>
+<div class="nav-section">Archive</div>
+<a href="quiz1-solved.html">Real Quiz 1 (solved)</a>
+<a href="assignments.html" class="on" aria-current="page">Assignments & computational training</a>
+<a href="a2-missedcare.html">A2 Part A — MissedCare (your answers)</a>
+<a href="resources.html">PDFs, assignments & past material</a></nav>
+  <div class="toc"><div class="toc-title">On this page</div><a href="#assignment-1-ai-landscape-and-computational-foundations" class="">Assignment 1 — AI Landscape and Computational Foundations</a><a href="#assignment-2-data-collection-curation-cleaning-governance-amp-eda-missedcare" class="">Assignment 2 — Data Collection, Curation, Cleaning, Governance &amp; EDA (MissedCare)</a><a href="#computational-training-module-2-in-code" class="">Computational training — Module 2 in code</a><a href="#python-tutorials" class="">Python tutorials</a><a href="#assignment-1-likely-quiz-questions-about-your-report-from-your-prep-guide" class="">Assignment 1 — likely quiz questions about your report (from your prep guide)</a><a href="#3-1-report-overview" class="h3">3.1 Report overview</a><a href="#3-2-likely-questions-from-problem-1-ryda-worksheet" class="h3">3.2 Likely questions from Problem 1 (RYDA worksheet)</a><a href="#3-3-likely-questions-from-problem-2-weprep-model-card" class="h3">3.3 Likely questions from Problem 2 (WePrep Model Card)</a><a href="#3-4-likely-questions-from-problem-3-crop-disease-datasheet" class="h3">3.4 Likely questions from Problem 3 (Crop disease Datasheet)</a><a href="#3-5-likely-questions-from-problem-4-r-sum-screening-failure" class="h3">3.5 Likely questions from Problem 4 (Résumé screening failure)</a><a href="#3-6-notebook-pa1-worked-answers" class="h3">3.6 Notebook (PA1) — worked answers</a></div>
+</aside>
+<main>
+  
+  
+  <h1>Assignments &amp; computational training</h1>
+<p>Both written assignments, your submissions, and the Module 2 computational tutorial. Assignment 1 covered Module 1 (problem framing, model card, datasheet, failure analysis); Assignment 2 covers Module 2 (MissedCare) — its Part A is the closest thing to Quiz 2 practice you have already done.</p>
+<div class="pdf-links">
+<a href="a2-missedcare.html">★ A2 Part A — your answers (Module 2)</a>
+<a href="pdfs/assignments/Assignment-1.pdf">Assignment 1</a>
+<a href="pdfs/assignments/Assignment-2.pdf">Assignment 2</a>
+<a href="pdfs/tutorials/Computational-Tutorial-2026.pdf">Computational tutorial</a>
+</div>
+
+<h2 id="assignment-1-ai-landscape-and-computational-foundations"><a class="anchor" href="#assignment-1-ai-landscape-and-computational-foundations" aria-hidden="true">#</a>Assignment 1 — AI Landscape and Computational Foundations</h2>
+<p><strong>Section 1 (80 points, theory):</strong> P1 problem formulation (RYDA youth-unemployment, 20) · P2 model card (WePrep) · P3 datasheet (crop-disease images) · P4 failure analysis (résumé screening). <strong>Section 2 (programming):</strong> vectors/matrices, probability, optimization, complexity in Python.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>File</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Assignment brief</td>
+<td><a href="pdfs/assignments/Assignment-1.pdf">PDF</a></td>
+</tr>
+<tr>
+<td>Your report (26280047)</td>
+<td><a href="pdfs/assignments/Assignment-1-Report-26280047.pdf">PDF</a></td>
+</tr>
+<tr>
+<td>Your PA1 notebook</td>
+<td><a href="files/26280047_Naeem_PA1.ipynb">.ipynb</a></td>
+</tr>
+</tbody></table></div>
+<h2 id="assignment-2-data-collection-curation-cleaning-governance-amp-eda-missedcare"><a class="anchor" href="#assignment-2-data-collection-curation-cleaning-governance-amp-eda-missedcare" aria-hidden="true">#</a>Assignment 2 — Data Collection, Curation, Cleaning, Governance &amp; EDA (MissedCare)</h2>
+<p><strong>Section 1 (50 points, Module 2 theory):</strong> A1 constructing the dataset (8) · A2 synthetic data (3) · A3 data-quality flaws + Cohen&#39;s κ (10) · A4 missingness MCAR/MAR/MNAR (9) · A5 leakage in a pipeline (8) · A6 calculations: IQR/z-scores, preprocessing contamination, accuracy vs recall, Platt scaling, fairness from counts (12). <strong>Section 2 (50 points, programming):</strong> dataset assessment, distributions, subgroup and intersectional no-show rates, temporal features (WaitingDays), leakage-free preprocessing.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>File</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Assignment brief</td>
+<td><a href="pdfs/assignments/Assignment-2.pdf">PDF</a></td>
+</tr>
+<tr>
+<td>Coding guide (Part B)</td>
+<td><a href="pdfs/assignments/Assignment-2-Coding-Guide.pdf">PDF</a></td>
+</tr>
+<tr>
+<td>Your PA2 notebook</td>
+<td><a href="files/26280047_Naeem_PA2.ipynb">.ipynb</a></td>
+</tr>
+<tr>
+<td>Your Part A answers, readable</td>
+<td><a href="a2-missedcare.html">A2 Part A page</a></td>
+</tr>
+</tbody></table></div>
+<h2 id="computational-training-module-2-in-code"><a class="anchor" href="#computational-training-module-2-in-code" aria-hidden="true">#</a>Computational training — Module 2 in code</h2>
+<p>Synthetic multi-hospital deterioration dataset (~250,000 encounters, 118,000 patients, 8 hospitals, 2021–2026): predict deterioration in the next 12 h using only information available 1 h after admission. Leakage fields: ICU transfer, rapid-response activation, discharge disposition, length of stay. (<a href="pdfs/tutorials/Computational-Tutorial-2026.pdf">Tutorial PDF</a> · <a href="files/computational/AI500_synthetic_multihospital_data_dictionary.csv">data dictionary</a> · <a href="files/computational/tutorial_common.py">shared helpers</a>)</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Topic</th>
+<th>Notes section</th>
+<th>Script</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Data acquisition from heterogeneous sources</td>
+<td>2.2</td>
+<td><a href="files/computational/topic_01_data_acquisition_from_heterogeneous_sources.py">py</a></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Initial dataset inventory</td>
+<td>2.4.3</td>
+<td><a href="files/computational/topic_02_initial_dataset_inventory.py">py</a></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Automated data profiling</td>
+<td>2.4.4</td>
+<td><a href="files/computational/topic_03_automated_data_profiling.py">py</a></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Schema and data validation</td>
+<td>2.4.5</td>
+<td><a href="files/computational/topic_04_schema_and_data_validation.py">py</a></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Data-quality dimensions</td>
+<td>2.3</td>
+<td><a href="files/computational/topic_05_data_quality_dimensions.py">py</a></td>
+</tr>
+<tr>
+<td>6</td>
+<td>Missing-data investigation</td>
+<td>2.5.1</td>
+<td><a href="files/computational/topic_06_missing_data_investigation.py">py</a></td>
+</tr>
+<tr>
+<td>7</td>
+<td>Missing-value treatment</td>
+<td>2.5.1</td>
+<td><a href="files/computational/topic_07_missing_value_treatment.py">py</a></td>
+</tr>
+<tr>
+<td>8</td>
+<td>Outlier and anomaly investigation</td>
+<td>2.5.2</td>
+<td><a href="files/computational/topic_08_outlier_and_anomaly_investigation.py">py</a></td>
+</tr>
+<tr>
+<td>9</td>
+<td>Duplicates and entity resolution</td>
+<td>2.5.3</td>
+<td><a href="files/computational/topic_09_duplicate_and_entity_resolution_problems.py">py</a></td>
+</tr>
+<tr>
+<td>10</td>
+<td>Units, labels and consistency checks</td>
+<td>2.5.3</td>
+<td><a href="files/computational/topic_10_units_labels_and_consistency_checks.py">py</a></td>
+</tr>
+<tr>
+<td>11</td>
+<td>Class imbalance</td>
+<td>2.5.4</td>
+<td><a href="files/computational/topic_11_class_imbalance.py">py</a></td>
+</tr>
+<tr>
+<td>12</td>
+<td>Split before preprocessing</td>
+<td>2.6.3</td>
+<td><a href="files/computational/topic_12_train_validation_test_splitting_before_preprocessing.py">py</a></td>
+</tr>
+<tr>
+<td>13</td>
+<td>Data-leakage demonstration</td>
+<td>2.6</td>
+<td><a href="files/computational/topic_13_data_leakage_demonstration.py">py</a></td>
+</tr>
+<tr>
+<td>14</td>
+<td>Cross-validation appropriate to data structure</td>
+<td>2.6.4</td>
+<td><a href="files/computational/topic_14_cross_validation_appropriate_to_data_structure.py">py</a></td>
+</tr>
+</tbody></table></div>
+<h2 id="python-tutorials"><a class="anchor" href="#python-tutorials" aria-hidden="true">#</a>Python tutorials</h2>
+<p><a href="files/tutorials/01_numpy_tutorial.ipynb">NumPy</a> · <a href="files/tutorials/02_pandas_tutorial.ipynb">pandas</a> · <a href="files/tutorials/03_matplotlib_tutorial.ipynb">matplotlib</a> · <a href="files/tutorials/Colab_quickstart.ipynb">Colab quick-start</a> · <a href="files/tutorials/environment_and_notebook_guide.ipynb">Environment &amp; notebook guide</a> · <a href="files/tutorials/requirements.txt">requirements.txt</a></p>
+<h2 id="assignment-1-likely-quiz-questions-about-your-report-from-your-prep-guide"><a class="anchor" href="#assignment-1-likely-quiz-questions-about-your-report-from-your-prep-guide" aria-hidden="true">#</a>Assignment 1 — likely quiz questions about your report (from your prep guide)</h2>
+<p>Sir said one quiz question will come from the report or the notebook. This part summarizes what you submitted and gives ready answers to the questions most likely to be asked. Learn the numbers and the reasoning, not just the conclusions.</p>
+<h3 id="3-1-report-overview"><a class="anchor" href="#3-1-report-overview" aria-hidden="true">#</a>3.1 Report overview</h3>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>What you produced</th>
+<th>Core concepts tested</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1. RYDA problem framing</td>
+<td>Completed the Figure 6 worksheet for allocating 300 bootcamp seats; justified index time, leakage, outcome definition, capacity rule, error costs and subgroups.</td>
+<td>Index time, horizon, temporal leakage, label definition, ranking under capacity (precision@k), C(t), subgroup analysis</td>
+</tr>
+<tr>
+<td>2. WePrep Model Card</td>
+<td>Model card for a multimodal mock-interview emotion and &quot;Interview Readiness&quot; system; recommended Conditionally Approve (self-practice only).</td>
+<td>Model card sections, subgroup performance, calibration, construct validity, appropriate vs prohibited uses, monitoring triggers</td>
+</tr>
+<tr>
+<td>3. Crop disease Datasheet</td>
+<td>Datasheet for an 80,000-image leaf dataset; concluded it is not suitable on its own for smallholders on low-cost phones.</td>
+<td>Datasheet sections, selection bias, proxies and shortcuts, device shift, label verification, versioning</td>
+</tr>
+<tr>
+<td>4. Résumé screening failure (2014 to 2015)</td>
+<td>End-to-end failure analysis of the automated hiring tool; listed mandatory safeguards for a controlled pilot.</td>
+<td>Status quo bias, proxy encoding, feedback loops, technical debt, automation bias, procedural fairness, NIST functions</td>
+</tr>
+</tbody></table></div>
+<h3 id="3-2-likely-questions-from-problem-1-ryda-worksheet"><a class="anchor" href="#3-2-likely-questions-from-problem-1-ryda-worksheet" aria-hidden="true">#</a>3.2 Likely questions from Problem 1 (RYDA worksheet)</h3>
+<p>Why did you choose &quot;end of orientation&quot; as the index time rather than registration or the three-month mark?</p>
+<p>At registration the record is thin (no aptitude score) and the population is unstable, and early registration depends on internet access (the source of the first-come bias). At three months the model would be more accurate, but half of the 180-day window is gone; as the notes say about sepsis, a prediction made after the problem is visible &quot;may be accurate but operationally unhelpful&quot;. End of orientation is the only point where all pre-intervention features exist and almost the whole horizon remains, so the horizon matches the window to act.</p>
+<p>Which variables would cause temporal leakage in RYDA?</p>
+<p>Interview callbacks during the job search (future information and almost a direct measure of the outcome); verified employment at six months (the label itself, target leakage); anything created after orientation (support tier received, module completion, workshop attendance, three-month status); and fields edited after the fact (updated education or skills, aptitude score recorded late). The rule: every input must be known at or before the index time, and timestamp semantics (event time vs recording time) must be checked.</p>
+<p>How did you make &quot;high risk of remaining unemployed&quot; measurable?</p>
+<p>Event: Y = 1 if the candidate is not in verified employment at day 180 (paid work of at least 20 hours a week, lasting at least four consecutive weeks, confirmed by a document). Formal, temporary, apprenticeship and freelance work count; one-off gigs and unpaid internships do not; full-time education is a separate outcome; unreachable candidates are recorded as missing, not coded 0 (the meaning of &quot;negative&quot;). High risk: inside the top 300 by p̂ and above a minimum floor t. Label checks: construct validity, measurement disparity (informal rural work is harder to verify), status quo bias, and the fact that high risk does not prove the bootcamp will help (a causal question).</p>
+<p>Why is the output a ranking with k = 300 rather than a binary classifier?</p>
+<p>With a fixed 0.5 threshold the number of positives changes every cycle (it might flag 700 people for 300 seats, or fewer than 300 and leave seats empty). The capacity constraint turns the problem into ranking under a fixed budget, evaluated with Precision@300 and Recall@300; the effective threshold is the p̂ of the 300th candidate. Calibration still matters for assigning lower tiers, showing unmet need, and judging whether the 300th and 320th candidates are really different. Borderline and incomplete records go to human review (abstention).</p>
+<p>What are the consequences of false positives and false negatives in RYDA?</p>
+<p>A false positive spends an expensive seat on someone who would have found work anyway, and because seats are fixed it displaces someone who needed it. A false negative leaves a vulnerable candidate with only job alerts: six more months unsupported, lost income, and a risk of long-term unemployment, which is harder to reverse. Therefore c_FN &gt; c_FP, Recall@300 is the primary metric, and subgroups (rural vs urban, income, gender, education, intersections such as rural × female) are reported separately with sample sizes and confidence intervals.</p>
+<h3 id="3-3-likely-questions-from-problem-2-weprep-model-card"><a class="anchor" href="#3-3-likely-questions-from-problem-2-weprep-model-card" aria-hidden="true">#</a>3.3 Likely questions from Problem 2 (WePrep Model Card)</h3>
+<p>What did the WePrep subgroup results show, and why does 84% overall accuracy mislead?</p>
+<p>Native English speakers 89% vs non-native 62% (27-point gap); lighter skin 87% vs darker 68% (19 points); glasses or low light 55%. The aggregate hides these gaps (aggregation bias). Errors from the speech-to-text branch and the facial branch compound for users who belong to several groups, and intersectional results were not reported.</p>
+<p>Why is calibration a concern for WePrep even though no calibration was reported?</p>
+<p>A CNN trained mostly on well-lit, lighter-skinned faces still produces confident outputs on dark, poorly lit or partly covered faces, because nothing tells it the input is out of distribution. Confidence stays high while accuracy falls to 55 to 68%, so the gap between confidence and accuracy is widest for the worst-served groups. The 0 to 100 Readiness score makes it worse by compressing two uncertain outputs into one precise-looking number. Remedy: reliability diagrams per subgroup and abstention (&quot;conditions insufficient for feedback&quot;).</p>
+<p>What was your deployment recommendation and why?</p>
+<p>Conditionally approve, for low-stakes voluntary self-practice only: hide the numeric score until the worst subgroups reach an accuracy floor, disclose accuracy gaps before recording, make scores impossible to share with employers, abstain on low-quality input, provide a correction channel, and monitor per subgroup. Any hiring or assessment use is not approved. This mirrors the notes: &quot;information is not automatically meaning&quot; (a smile can signal politeness or nervousness, the facial-emotion example).</p>
+<h3 id="3-4-likely-questions-from-problem-3-crop-disease-datasheet"><a class="anchor" href="#3-4-likely-questions-from-problem-3-crop-disease-datasheet" aria-hidden="true">#</a>3.4 Likely questions from Problem 3 (Crop disease Datasheet)</h3>
+<p>Why is the dataset not suitable for smallholder farmers using low-cost phones?</p>
+<p>Every factor deployment depends on is missing: no smallholder farms; no drought images (drought stress can look like disease); 95% high-resolution camera images vs a phone deployment (train-serving mismatch and device shift); 70% of images from two regions; 90% of labels unverified by pathologists; healthy plants under-sampled (pushes the model toward over-diagnosis); and farm backgrounds available as shortcuts. The model would be &quot;confidently wrong rather than obviously broken&quot;, and the cost falls on the farmers least able to absorb it. It is still useful for pre-training, benchmarking and research on shift and label noise.</p>
+<p>What shortcuts or proxies could a model learn from this dataset?</p>
+<p>Background (soil, mulch, staking, irrigation equipment differ by farm and farms differ in disease); device characteristics; photographer framing (lesions framed closely and centrally); lighting and time of day; and resizing artifacts. Splits should be made by farm code (or plot) to avoid group leakage.</p>
+<h3 id="3-5-likely-questions-from-problem-4-r-sum-screening-failure"><a class="anchor" href="#3-5-likely-questions-from-problem-4-r-sum-screening-failure" aria-hidden="true">#</a>3.5 Likely questions from Problem 4 (Résumé screening failure)</h3>
+<p>How did the model learn to prefer men without a gender field?</p>
+<p>The label was ten years of past hiring decisions, which records what past recruiters did (status quo bias), not candidate quality. In a male-dominated corpus the model learned what a historically successful résumé looks like, and many features correlate with gender (women&#39;s clubs, women&#39;s colleges, verbs, career gaps). A high-capacity model combines these weak signals and effectively reconstructs gender (proxy encoding).</p>
+<p>Why was &quot;neutralizing&quot; specific words flawed, and what technical debt did it create?</p>
+<p>It treats the symptom, not the cause (the label); it can never be shown to be complete; it hides the evidence, turning a visible failure into a silent one; and the list grows with every retraining. It creates hidden post-processing and configuration debt (an unversioned, ownerless list outside the model), entanglement (changing one term shifts the whole decision surface), and a monitoring gap.</p>
+<p>Describe the feedback loop in the hiring tool.</p>
+<p>Biased labels in → the ranking decides who is interviewed (biased exposure) → low-ranked women are never observed (selective labels) → new hires chosen under the model&#39;s influence become fresh training data → the model appears more accurate because it is evaluated on people it selected (self-confirmation).</p>
+<p>What safeguards are mandatory for a controlled pilot?</p>
+<p>Fix the label first (a validated, job-relevant target) and pre-register the evaluation with a stop rule; staged deployment (silent/shadow mode, then advisory with a comparison group, with rollback ready); interface controls (show the full pool with confidence and explanations, never auto-reject, log overrides with reasons); continuous monitoring and release gates (subgroup selection rates, counterfactual logging, automated model validation); procedural safeguards (notice, appeal, audit, a model card, a named accountable owner, NIST Govern-Map-Measure-Manage, and a sunset condition).</p>
+<h3 id="3-6-notebook-pa1-worked-answers"><a class="anchor" href="#3-6-notebook-pa1-worked-answers" aria-hidden="true">#</a>3.6 Notebook (PA1) — worked answers</h3>
+<p><strong>Problem 1: Forward pass of an MLP (one hidden layer)</strong></p>
+<p>Layer rule: z = W·x + b. Hidden activation: ReLU, f(x) = max(0, x). Output activation: sigmoid, σ(x) = 1 / (1 + e^(−x)).</p>
+<p>Input x = [0.5, −1.2, 3.0]. Hidden layer (4 neurons), b1 = [0.1, −0.1, 0.2, 0.0]:</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Neuron</th>
+<th>W1 row · x + b1</th>
+<th>z1</th>
+<th>a1 = ReLU(z1)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>0.2(0.5) + (−0.5)(−1.2) + 0.1(3.0) + 0.1 = 0.1 + 0.6 + 0.3 + 0.1</td>
+<td>1.10</td>
+<td>1.10</td>
+</tr>
+<tr>
+<td>2</td>
+<td>(−0.4)(0.5) + 0.8(−1.2) + (−0.2)(3.0) − 0.1 = −0.2 − 0.96 − 0.6 − 0.1</td>
+<td>−1.86</td>
+<td>0</td>
+</tr>
+<tr>
+<td>3</td>
+<td>0.6(0.5) + 0.1(−1.2) + (−0.3)(3.0) + 0.2 = 0.3 − 0.12 − 0.9 + 0.2</td>
+<td>−0.52</td>
+<td>0</td>
+</tr>
+<tr>
+<td>4</td>
+<td>(−0.1)(0.5) + (−0.2)(−1.2) + 0.9(3.0) + 0.0 = −0.05 + 0.24 + 2.7</td>
+<td>2.89</td>
+<td>2.89</td>
+</tr>
+</tbody></table></div>
+<p>Output layer: W2 = [0.5, −0.6, 0.3, −0.1], b2 = −0.2.</p>
+<p>z2 = 0.5(1.1) − 0.6(0) + 0.3(0) − 0.1(2.89) − 0.2 = 0.55 − 0.289 − 0.2 = 0.061</p>
+<p>final output = σ(0.061) = 1 / (1 + e^(−0.061)) ≈ 0.5152</p>
+<p>Matches the notebook output: a1 = [1.1, 0, 0, 2.89], final output = 0.51524527.</p>
+<p>Why is ReLU used in the hidden layer and sigmoid at the output?</p>
+<p>ReLU adds non-linearity cheaply (without it, stacked linear layers collapse into one linear map) and zeroes negative pre-activations (neurons 2 and 3 above are &quot;switched off&quot;). Sigmoid squashes the final value into (0, 1) so it can be read as a probability p̂. Link to the notes: an MLP is a deep learning model f_θ: X → Y whose parameters θ are the weights and biases; a probability output is preferable to a hard label because it keeps uncertainty and lets the threshold t be set by error costs and capacity. Note that sigmoid output is not automatically calibrated.</p>
+<p><strong>Problem 2: Bayes&#39; theorem (spam given &quot;urgent&quot;)</strong></p>
+<p>P(Spam) = 2000/10000 = 0.2     P(Not Spam) = 8000/10000 = 0.8</p>
+<p>P(&quot;urgent&quot;) = 0.80 × 0.2 + 0.05 × 0.8 = 0.16 + 0.04 = 0.20   (law of total probability)</p>
+<p>P(Spam | &quot;urgent&quot;) = (0.80 × 0.2) / 0.20 = 0.16 / 0.20 = 0.80</p>
+<p>Interpret the Bayes result. Why is the posterior (0.8) much higher than the prior (0.2)?</p>
+<p>The word &quot;urgent&quot; is 16 times more likely in spam (0.80) than in non-spam (0.05), so observing it strongly updates the belief toward spam. This is the notes&#39; view of probabilistic intelligence: &quot;learning uncertain relationships from evidence; updating beliefs when new information becomes available; quantifying confidence&quot;. Note the base rate still matters: even with a strong signal, 20% of emails containing &quot;urgent&quot; are legitimate, so auto-deleting them would cause false positives (quarantining a critical client email is costly, per the notes&#39; asymmetric-cost example). Naive Bayes extends this by multiplying likelihoods of many words under a conditional-independence assumption.</p>
+<p><strong>Problem 3: List vs set lookup (algorithmic complexity)</strong></p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Vocabulary size N</th>
+<th>List time (s)</th>
+<th>Set time (s)</th>
+<th>List/Set ratio</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>10,000</td>
+<td>0.000163</td>
+<td>0.0000027</td>
+<td>~60×</td>
+</tr>
+<tr>
+<td>50,000</td>
+<td>0.000967</td>
+<td>0.0000032</td>
+<td>~300×</td>
+</tr>
+<tr>
+<td>100,000</td>
+<td>0.002044</td>
+<td>0.0000034</td>
+<td>~600×</td>
+</tr>
+<tr>
+<td>250,000</td>
+<td>0.005821</td>
+<td>0.0000041</td>
+<td>~1,400×</td>
+</tr>
+<tr>
+<td>500,000</td>
+<td>0.009852</td>
+<td>0.0000031</td>
+<td>~3,200×</td>
+</tr>
+</tbody></table></div>
+<p>How do the curves confirm O(N) for a list and O(1) for a set?</p>
+<p>The target is the last token, so the list must compare against every element: time grows roughly in proportion to N (500,000 costs about 60 times 10,000; a straight line through the origin). The set computes one hash and probes one bucket, so its time stays flat near the timer&#39;s resolution regardless of N.</p>
+<p>What is the trade-off of a hash set in a memory-constrained production environment?</p>
+<p>Memory and construction cost. The hash table is kept deliberately sparse to limit collisions, so it takes several times the list&#39;s memory, and building it requires hashing every token once. On a memory-limited edge device, a sorted array with binary search (O(log N)) may be preferable. Link to the notes: this is exactly the operational constraints criterion of model and system selection (latency, memory footprint, computational limits) and the technical and infrastructure constraints of Section 1.7.9; lower latency is not free.</p>
+
+  <nav class="pagenav">
+    <a class="pv" href="quiz1-solved.html">← Previous<b>Real Quiz 1 (solved)</b></a>
+    <a class="nx" href="a2-missedcare.html">Next →<b>A2 Part A — MissedCare (your answers)</b></a>
+  </nav>
+  <div class="foot">AI 500 · Fall 2026 · study notes</div>
+</main>
+</div>
+<div class="lightbox" id="lightbox" hidden><img alt=""><button class="iconbtn lb-close" aria-label="Close">✕</button></div>
+<script src="assets/site.js" defer></script>
+</body></html>

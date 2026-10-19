@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Real Quiz 1 (solved) · AI 500</title>
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#fbfbfa" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#16161a" media="(prefers-color-scheme: dark)">
+<script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<header class="topbar">
+  <button class="iconbtn" id="menuBtn" aria-label="Open contents" aria-expanded="false"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+  <a class="topbrand" href="index.html">AI 500<span>Real Quiz 1 (solved)</span></a>
+  <button class="iconbtn themebtn" aria-label="Toggle dark mode"><svg class="i-moon" viewBox="0 0 24 24" width="19" height="19"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg><svg class="i-sun" viewBox="0 0 24 24" width="19" height="19"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg></button>
+</header>
+<div class="scrim" id="scrim"></div>
+<div class="wrap">
+<aside class="side" id="side">
+  <div class="side-head">
+    <a class="brand" href="index.html">AI 500 — Foundations of AI<span>Foundations of AI · Fall 2026</span></a>
+    <button class="iconbtn themebtn" aria-label="Toggle dark mode"><svg class="i-moon" viewBox="0 0 24 24" width="17" height="17"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg><svg class="i-sun" viewBox="0 0 24 24" width="17" height="17"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg></button>
+  </div>
+  <nav><a href="index.html">Home</a>
+<a href="start-here.html">Start here (how to use)</a>
+<div class="nav-section">Modules</div>
+<details class="grp"><summary>M1 · AI Landscape & Problem Framing</summary><a href="m1a-notes.html">Notes A — roots, philosophy, landscape</a><a href="m1b-notes.html">Notes B — pipeline, framing, failures</a><a href="m1-answers.html">Answers Q1–100</a><a href="m1-cases.html">Answers S, R, A</a></details>
+<details class="grp"><summary>M2 · Data Collection, Cleaning, Governance & Ethics</summary><a href="m2a-notes.html">Notes A — constructed data, sources, quality</a><a href="m2b-notes.html">Notes B — curation, cleaning, leakage</a><a href="m2c-notes.html">Notes C — documentation, governance, cases</a><a href="m2-answers-1.html">Answers Q1–50</a><a href="m2-answers-2.html">Answers Q51–100</a><a href="m2-scenarios.html">Scenarios S1–S5</a><a href="m2-reflections.html">Reflections R1–R5</a></details>
+<div class="nav-section">Quiz 2 (24 Oct)</div>
+<a href="quiz2-guide.html">Quiz 2 guide</a>
+<a href="quiz2-mock-a.html">★ Mock Quiz 2A</a>
+<a href="quiz2-mock-b.html">Mock Quiz 2B</a>
+<a href="quiz2-mock-c.html">Mock Quiz 2C</a>
+<div class="nav-section">Archive</div>
+<a href="quiz1-solved.html" class="on" aria-current="page">Real Quiz 1 (solved)</a>
+<a href="assignments.html">Assignments & computational training</a>
+<a href="a2-missedcare.html">A2 Part A — MissedCare (your answers)</a>
+<a href="resources.html">PDFs, assignments & past material</a></nav>
+  <div class="toc"><div class="toc-title">On this page</div><a href="#basic-definitions" class="">Basic Definitions</a><a href="#short-conceptual-questions" class="">Short Conceptual Questions</a><a href="#scenario-ai-assisted-water-pipe-failure-management-21-points" class="">Scenario — AI-assisted water-pipe failure management (21 points)</a><a href="#identifying-biases-8-points" class="">Identifying biases (8 points)</a></div>
+</aside>
+<main>
+  
+  <div class="quiz-tools"><button data-sol="open">Show all solutions</button><button data-sol="close">Hide all</button><button onclick="window.print()">Print</button></div>
+  <h1>Real Quiz 1 (solved) — 3 October 2026</h1>
+<p><strong>50 points · 60 minutes · Module 1.</strong> The instructor&#39;s solution scheme, condensed, with what each question tested. Quiz 2 &quot;will follow the style of Quiz #1&quot;, so this is the template for everything on the <a href="quiz2-guide.html">Quiz 2 guide</a>.</p>
+<div class="pdf-links">
+<a href="pdfs/quizzes/Quiz-1-Solution.pdf">Quiz 1 solution scheme (PDF)</a>
+<a href="m1a-notes.html">Module 1 notes</a>
+<a href="quiz2-guide.html">Quiz 2 guide</a>
+</div>
+
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Q</th>
+<th>Marks</th>
+<th>Topic</th>
+<th>Module</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1(a)</td>
+<td>3</td>
+<td>Define AI (science <strong>and</strong> engineering, not just ML)</td>
+<td>M1 §1.3</td>
+</tr>
+<tr>
+<td>1(b)</td>
+<td>3</td>
+<td>Define temporal leakage; why it makes strong results unreliable</td>
+<td>M1 §1.9.3 / <strong>M2 §2.6.5</strong></td>
+</tr>
+<tr>
+<td>1(c)</td>
+<td>3</td>
+<td>Define calibration; distinguish from discrimination</td>
+<td>M1 §1.5.5</td>
+</tr>
+<tr>
+<td>2(a)</td>
+<td>4</td>
+<td>AI ≠ ML; a non-learning AI example</td>
+<td>M1 §1.4.1</td>
+</tr>
+<tr>
+<td>2(b)</td>
+<td>4</td>
+<td>0.62 readmission risk is a prediction, not a decision; 3 considerations</td>
+<td>M1 §1.5.6</td>
+</tr>
+<tr>
+<td>2(c)</td>
+<td>4</td>
+<td>Why the more accurate model isn&#39;t automatically deployed; 3 criteria</td>
+<td>M1 §1.5.4</td>
+</tr>
+<tr>
+<td>3(a–e)</td>
+<td>21</td>
+<td>Water-pipe failure: formulation, data risks, evaluation, threshold vs capacity, fallback &amp; monitoring</td>
+<td>M1 §1.5–1.9</td>
+</tr>
+<tr>
+<td>4</td>
+<td>8</td>
+<td>Hiring ranker: four distinct biases / feedback mechanisms</td>
+<td>M1 §1.1, §1.2 / <strong>M2 §2.8.7</strong></td>
+</tr>
+</tbody></table></div>
+<h2 id="basic-definitions"><a class="anchor" href="#basic-definitions" aria-hidden="true">#</a>Basic Definitions</h2>
+
+<section class="question"><div class="q-head">1(a) [3] Define artificial intelligence (scientific and engineering character, not just ML).</div>
+<details class="solution solution"><summary>Official answer</summary><div class="sol-body"><p>AI is the <strong>scientific and engineering discipline</strong> concerned with developing computational systems that can <strong>receive or perceive information, construct useful representations, reason or learn from evidence, and generate actions or outputs in pursuit of specified objectives under uncertainty and constraints.</strong><br><em>Rubric:</em> discipline (science + engineering) 1 · capabilities (representation, reasoning, learning, perception, action) 1 · objectives + uncertainty/constraints, not reduced to ML 1.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">1(b) [3] Define temporal leakage. Why does it make an apparently strong evaluation unreliable?</div>
+<details class="solution solution"><summary>Official answer</summary><div class="sol-body"><p>Temporal leakage occurs when a model uses <strong>information that would not have been available at the time the prediction is supposed to be made</strong>, usually because the feature was measured or recorded later. The model effectively gains information <strong>from the future</strong>, so test performance appears <strong>artificially high</strong> though that information won&#39;t exist during real-world prediction.<br><em>Rubric:</em> post-index/future information 1.5 · unavailable at prediction time 0.5 · inflated evaluation / fails to reflect deployment 1.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">1(c) [3] Define probabilistic calibration; distinguish from discrimination.</div>
+<details class="solution solution"><summary>Official answer</summary><div class="sol-body"><p>A model is <strong>well calibrated</strong> when predictions assigned probability <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> occur approximately a proportion <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> of the time (of cases given 0.8, about 80% have the outcome). <strong>Discrimination</strong> is how well the model <strong>ranks/separates</strong> cases with and without the outcome.<br><em>Rubric:</em> definition 1.5 · predicted probability ↔ observed frequency 0.5 · distinction 1.</p>
+</div></details>
+</section>
+<h2 id="short-conceptual-questions"><a class="anchor" href="#short-conceptual-questions" aria-hidden="true">#</a>Short Conceptual Questions</h2>
+
+<section class="question"><div class="q-head">2(a) [4] Why is AI not synonymous with ML? Give a non-learning AI example.</div>
+<details class="solution solution"><summary>Official answer</summary><div class="sol-body"><p>ML is <strong>one approach within</strong> AI. AI also includes search, symbolic reasoning, planning, constraint satisfaction, optimization, expert systems and rule-based control. Example: a <strong>shortest-path search</strong> explores a state space to choose a route without learning from data — still AI because it performs <strong>goal-directed computational reasoning</strong>.<br><em>Rubric:</em> ML ⊂ AI 1.5 · valid non-learning example 1 · why it is AI 1 · clear distinction (automation alone ≠ AI) 0.5.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">2(b) [4] Why is a 0.62 readmission probability a prediction, not a decision? Three considerations for triggering an intervention.</div>
+<details class="solution solution"><summary>Official answer</summary><div class="sol-body"><p>0.62 is an <strong>estimated risk</strong>; it specifies no action. A decision needs a <strong>rule/threshold/policy</strong> linking prediction to action. Considerations (any three): relative costs of <strong>FP vs FN</strong>; <strong>capacity</strong> to intervene; expected <strong>benefit</strong> of intervention; <strong>calibration</strong>/reliability; uncertainty; <strong>fairness</strong> and subgroup consequences; availability of <strong>human review</strong>; costs and workflow; alternative interventions/thresholds.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">2(c) [4] Model A slightly more accurate; Model B simpler, faster, interpretable, cheaper. Why not automatically pick A? Three criteria.</div>
+<details class="solution solution"><summary>Official answer</summary><div class="sol-body"><p>Higher test accuracy ≠ greater real-world utility. Criteria: <strong>interpretability</strong>, <strong>latency</strong>, <strong>compute requirements</strong>, <strong>maintenance burden</strong>, <strong>robustness</strong> to missing/shifted data, <strong>calibration</strong>, <strong>governance/auditability</strong>, data requirements, team expertise, <strong>lifecycle cost</strong>.</p>
+</div></details>
+</section>
+<h2 id="scenario-ai-assisted-water-pipe-failure-management-21-points"><a class="anchor" href="#scenario-ai-assisted-water-pipe-failure-management-21-points" aria-hidden="true">#</a>Scenario — AI-assisted water-pipe failure management (21 points)</h2>
+
+<div class="orig-q"><div class="oq-head"><span class="oq-lab">📄 Original question</span><span class="oq-src">Case</span></div><div class="oq-body"><p>40,000 pipes; data: age, material, diameter, pressure-sensor readings, rainfall, maintenance records, complaints, <strong>date/time emergency repair completed</strong>, neighbourhood, recorded failures. Random 80/20 split, <strong>95% accuracy</strong>. Policy: probability &gt; 0.5 → <strong>automatically shut valve and dispatch</strong>. Sensors intermittent; coverage poorer in <strong>older neighbourhoods</strong>; repair-completed recorded <strong>after failure</strong>; capacity <strong>20 inspections/day</strong>; shut-offs disrupt supply; missed failures cause flooding and damage.</p>
+</div></div><div class="oq-sol">Worked solution</div>
+
+<section class="question"><div class="q-head">3(a) [5] Formulate: unit of analysis, index time, horizon, decision-maker, action.</div>
+<details class="solution solution"><summary>Official answer</summary><div class="sol-body"><p><strong>Unit:</strong> one pipe at an index time. <strong>Index time:</strong> start of each day, before inspection assignment. <strong>Horizon:</strong> failure within next 24 h / 48 h / 7 days (justified operationally). <strong>Decision-maker:</strong> maintenance/operations manager or dispatch team. <strong>Action:</strong> prioritize pipes for inspection, preventive maintenance, monitoring, or (very high risk) controlled shutdown. <em>&quot;At the beginning of each day, estimate for every operating pipe the probability of failure in the next seven days using only information available then, so the team can prioritize its limited daily capacity.&quot;</em> 1 mark each.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">3(b) [4] Two data risks (one must use emergency-repair-completed).</div>
+<details class="solution solution"><summary>Official answer</summary><div class="sol-body"><p><strong>Temporal leakage:</strong> repair-completed is recorded <strong>after</strong> failure → future information → unrealistically high performance (2). Plus one of: <strong>intermittent sensors/missingness</strong> (possibly related to condition); <strong>unequal sensor coverage / representation bias</strong> in older neighbourhoods; <strong>neighbourhood as proxy</strong>; <strong>selection/measurement bias</strong>; <strong>random split</strong> doesn&#39;t test future deployment (2).</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">3(c) [4] Why is &quot;95% accuracy, ready to deploy&quot; inadequate? Two more evaluations.</div>
+<details class="solution solution"><summary>Official answer</summary><div class="sol-body"><p>Accuracy ignores FP vs FN, misleads under <strong>class imbalance</strong> (failures rare), says nothing about <strong>calibration</strong>, hides <strong>neighbourhood subgroup</strong> differences, robustness to missing sensors, operational usefulness, and came from a random split. Add: <strong>recall/FNR</strong>, <strong>calibration</strong>, <strong>subgroup performance</strong>, <strong>robustness</strong>, <strong>temporal validation</strong>, <strong>decision utility/cost</strong>, <strong>baseline</strong> comparison.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">3(d) [4] Why is 0.5 not automatically appropriate? Use FP/FN costs and the 20/day capacity.</div>
+<details class="solution solution"><summary>Official answer</summary><div class="sol-body"><p>0.5 is just a number. <strong>Asymmetric costs:</strong> missed failures (flooding) may justify a lower threshold, but false positives interrupt water supply. <strong>Capacity:</strong> 20 inspections/day — a threshold yielding 200 alerts is useless. Best: <strong>rank pipes by risk and select the top cases within capacity</strong>, with triage and human review before any shutdown.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">3(e) [4] One abstention/fallback condition; one quantity to monitor.</div>
+<details class="solution solution"><summary>Official answer</summary><div class="sol-body"><p><strong>Abstain</strong> if critical sensor values are missing/invalid, inputs violate schema/ranges or are out of distribution, confidence inadequate, pipeline failure, or the pipe is from an unvalidated population → fall back to <strong>manual engineering review / legacy rules / intensified monitoring</strong>. <strong>Monitor:</strong> missing-sensor rate, input drift, calibration, sensitivity/FNR, FPR, missed failures, subgroup performance, alert volume, inspection yield, latency, override rate, real failures after deployment — and say why it matters.</p>
+</div></details>
+</section>
+<h2 id="identifying-biases-8-points"><a class="anchor" href="#identifying-biases-8-points" aria-hidden="true">#</a>Identifying biases (8 points)</h2>
+
+<section class="question"><div class="q-head">4 [8] Hiring ranker trained on ten years of decisions; favoured universities score higher; dashboard highlights top candidates; recruiters rarely look lower; retrained on system-assisted decisions. Four distinct mechanisms.</div>
+<details class="solution solution"><summary>Official answer</summary><div class="sol-body"><p><strong>Historical bias</strong> (past preferences encoded) · <strong>Proxy bias</strong> (university as proxy for socioeconomic opportunity — only if mechanism explained) · <strong>Automation/interface bias</strong> (highlighting changes recruiter behaviour) · <strong>Self-reinforcing feedback loop</strong> (retraining on decisions the model influenced). Also: selective exposure, <strong>selective labels</strong> (outcomes observed only for hired candidates), sampling/representation bias, measurement bias. <strong>Avoid double counting</strong> — &quot;recruiters look at the top&quot; and &quot;lower candidates are rarely reviewed&quot; are one mechanism.</p>
+</div></details>
+</section>
+
+  <nav class="pagenav">
+    <a class="pv" href="quiz2-mock-c.html">← Previous<b>Mock Quiz 2C</b></a>
+    <a class="nx" href="assignments.html">Next →<b>Assignments & computational training</b></a>
+  </nav>
+  <div class="foot">AI 500 · Fall 2026 · study notes</div>
+</main>
+</div>
+<div class="lightbox" id="lightbox" hidden><img alt=""><button class="iconbtn lb-close" aria-label="Close">✕</button></div>
+<script src="assets/site.js" defer></script>
+</body></html>

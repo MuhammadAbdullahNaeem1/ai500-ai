@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>M2 · Data Collection, Cleaning, Governance & Ethics — Reflections R1–R5 · AI 500</title>
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#fbfbfa" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#16161a" media="(prefers-color-scheme: dark)">
+<script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<header class="topbar">
+  <button class="iconbtn" id="menuBtn" aria-label="Open contents" aria-expanded="false"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+  <a class="topbrand" href="index.html">AI 500<span>M2 · Data Collection, Cleaning, Governance & Ethics</span></a>
+  <button class="iconbtn themebtn" aria-label="Toggle dark mode"><svg class="i-moon" viewBox="0 0 24 24" width="19" height="19"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg><svg class="i-sun" viewBox="0 0 24 24" width="19" height="19"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg></button>
+</header>
+<div class="scrim" id="scrim"></div>
+<div class="wrap">
+<aside class="side" id="side">
+  <div class="side-head">
+    <a class="brand" href="index.html">AI 500 — Foundations of AI<span>Foundations of AI · Fall 2026</span></a>
+    <button class="iconbtn themebtn" aria-label="Toggle dark mode"><svg class="i-moon" viewBox="0 0 24 24" width="17" height="17"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg><svg class="i-sun" viewBox="0 0 24 24" width="17" height="17"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg></button>
+  </div>
+  <nav><a href="index.html">Home</a>
+<a href="start-here.html">Start here (how to use)</a>
+<div class="nav-section">Modules</div>
+<details class="grp"><summary>M1 · AI Landscape & Problem Framing</summary><a href="m1a-notes.html">Notes A — roots, philosophy, landscape</a><a href="m1b-notes.html">Notes B — pipeline, framing, failures</a><a href="m1-answers.html">Answers Q1–100</a><a href="m1-cases.html">Answers S, R, A</a></details>
+<details class="grp" open><summary>M2 · Data Collection, Cleaning, Governance & Ethics</summary><a href="m2a-notes.html">Notes A — constructed data, sources, quality</a><a href="m2b-notes.html">Notes B — curation, cleaning, leakage</a><a href="m2c-notes.html">Notes C — documentation, governance, cases</a><a href="m2-answers-1.html">Answers Q1–50</a><a href="m2-answers-2.html">Answers Q51–100</a><a href="m2-scenarios.html">Scenarios S1–S5</a><a href="m2-reflections.html" class="on" aria-current="page">Reflections R1–R5</a></details>
+<div class="nav-section">Quiz 2 (24 Oct)</div>
+<a href="quiz2-guide.html">Quiz 2 guide</a>
+<a href="quiz2-mock-a.html">★ Mock Quiz 2A</a>
+<a href="quiz2-mock-b.html">Mock Quiz 2B</a>
+<a href="quiz2-mock-c.html">Mock Quiz 2C</a>
+<div class="nav-section">Archive</div>
+<a href="quiz1-solved.html">Real Quiz 1 (solved)</a>
+<a href="assignments.html">Assignments & computational training</a>
+<a href="a2-missedcare.html">A2 Part A — MissedCare (your answers)</a>
+<a href="resources.html">PDFs, assignments & past material</a></nav>
+  <div class="toc"><div class="toc-title">On this page</div><a href="#r1-national-student-success-and-intervention-system" class="">R1 — National student success and intervention system</a><a href="#r2-smart-city-predictive-policing-platform" class="">R2 — Smart-city predictive policing platform</a><a href="#r3-multihospital-sepsis-early-warning-system" class="">R3 — Multihospital sepsis early-warning system</a><a href="#r4-synthetic-financial-data-for-credit-approval" class="">R4 — Synthetic financial data for credit approval</a><a href="#r5-commercial-reuse-of-an-international-medical-imaging-repository" class="">R5 — Commercial reuse of an international medical imaging repository</a></div>
+</aside>
+<main>
+  <div class="crumb">M2 · Data Collection, Cleaning, Governance & Ethics</div>
+  
+  <h1>M2 · Reflection answers R1–R5</h1>
+<p>Take-home reflection questions (Module 2 notes, PDF pages 138–145). The notes say there is <strong>no single correct answer</strong> — these are model answers that apply every Module 2 tool to one system. They are the best preparation for a <strong>long scenario question</strong> in Quiz 2 or the mid: each bullet below is a ready-made 3–5 mark paragraph.</p>
+<div class="pdf-links">
+<a href="m2-scenarios.html">Scenario answers S1–S5</a>
+<a href="m2c-notes.html">Part C notes (governance, case studies)</a>
+<a href="pdfs/notes/Module-2-Notes.pdf#page=138">Reflections in the PDF (p.138)</a>
+</div>
+
+<h2 id="r1-national-student-success-and-intervention-system"><a class="anchor" href="#r1-national-student-success-and-intervention-system" aria-hidden="true">#</a>R1 — National student success and intervention system</h2>
+
+<div class="orig-q"><div class="oq-head"><span class="oq-lab">📄 Original question</span><span class="oq-src">R1 (summary)</span></div><div class="oq-body"><p>National authority; universities submit GPA/grades, attendance, tuition history, library/online activity, disciplinary records, scholarship status, accommodation location, counselling usage, family income, disability status. Dropout defined differently (one semester vs two years; transfers in or out). Attendance by scanner, register, or not at all. Mostly large urban universities; rural, online, small private and vocational poorly represented. Proposal: mean-impute everything and remove unusual histories. Some universities will use the score for support, others to <strong>reduce scholarships</strong>.</p>
+</div></div><div class="oq-sol">Worked solution</div>
+
+<section class="question"><div class="q-head">1. A precise operational definition of dropout</div>
+<details class="solution solution"><summary>Model answer</summary><div class="sol-body"><p><strong>Dropout (at index time <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span></span></span></span> = start of semester <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi></mrow><annotation encoding="application/x-tex">s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">s</span></span></span></span>):</strong> a student enrolled in a degree programme in semester <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">s-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">s</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> who, by the <strong>census date of semester <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo>+</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">s+2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">s</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span></span></span></span></strong> (one academic year later), is <strong>not enrolled in any degree programme at any institution in the national registry</strong>, has <strong>not graduated</strong>, and has <strong>no approved leave</strong> in force.</p>
+<ul>
+<li><strong>Temporary approved leave:</strong> <em>not</em> dropout while the leave is valid; becomes dropout only if the student does not return by the end of approved leave + one semester.</li>
+<li><strong>Delayed registration:</strong> not dropout if registered by the census date (late fee cases).</li>
+<li><strong>Transfer:</strong> <em>not</em> dropout (student continues education) — tracked as a separate outcome &quot;institutional transfer&quot; via the national registry.</li>
+<li><strong>Expulsion:</strong> a <strong>separate category</strong> (&quot;institution-initiated exit&quot;), not voluntary dropout — mixing them confuses disciplinary policy with student risk.</li>
+<li><strong>Late graduation:</strong> not dropout (still enrolled / eventually graduates).</li>
+<li><strong>Administrative registration errors:</strong> corrected through a verification step before labelling; never counted as dropout.<br>The same definition must be applied by <strong>all</strong> universities (harmonized data dictionary), with the raw institutional codes preserved for audit.</li>
+</ul>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">2. Apply <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo stretchy="false">(</mo><mi>D</mi><mo separator="true">,</mo><mi>T</mi><mo separator="true">,</mo><mi>C</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">Q(D,T,C)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">Q</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mclose">)</span></span></span></span> to national deployment</div>
+<details class="solution solution"><summary>Model answer</summary><div class="sol-body"><ul>
+<li><strong><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi></mrow><annotation encoding="application/x-tex">D</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span></span></span></span>:</strong> pooled records from participating universities with heterogeneous dropout labels, three attendance regimes, sensitive attributes, over-representation of large urban universities.</li>
+<li><strong><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi></mrow><annotation encoding="application/x-tex">T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span>:</strong> estimate each student&#39;s probability of leaving within one year, at the start of each semester, to <strong>target support</strong> (advising, financial, psychological).</li>
+<li><strong><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi></mrow><annotation encoding="application/x-tex">C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span>:</strong> national deployment across urban, rural, online, private and vocational institutions; decisions affect funding and wellbeing; legal duties of fairness and privacy.<br><strong>Verdict:</strong> currently <strong>not fit</strong>. Labels are inconsistent (construct problem), attendance is incomparable, key populations are under-represented, imputation plan erases information, and some intended uses are punitive. It may be fit for <strong>descriptive national reporting</strong> after harmonization, and for a <strong>pilot support tool</strong> in well-represented institutions — not national deployment until the gaps below are fixed.</li>
+</ul>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">3. The dataset as a constructed institutional record</div>
+<details class="solution solution"><summary>Model answer</summary><div class="sol-body"><p>The data do not measure motivation or ability; they record <strong>institutional processes</strong>:</p>
+<ul>
+<li><strong>Human decisions:</strong> what counts as dropout, what to measure (no mental health, no part-time work), who is included.</li>
+<li><strong>Technical:</strong> scanners vs registers vs nothing; online-platform logging (clicks ≠ learning); missing values encoded differently.</li>
+<li><strong>Administrative:</strong> grading standards differ by university; disciplinary records reflect local enforcement; scholarship status reflects funding rules; counselling usage reflects <strong>service availability and stigma</strong>, not need.</li>
+<li><strong>Policy:</strong> fee deadlines, leave rules, transfer recognition, and which universities chose to participate.<br>So a &quot;risk score&quot; partly reflects <strong>which university and department a student is in</strong>, not just the student.</li>
+</ul>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">4. A representativeness audit</div>
+<details class="solution solution"><summary>Model answer</summary><div class="sol-body"><p>For each axis — <strong>institution type</strong> (public/private/vocational), <strong>region</strong> (urban/rural, province), <strong>mode</strong> (on-campus/online), <strong>socioeconomic status</strong> (income band, scholarship), <strong>disability</strong>, <strong>gender</strong>, <strong>programme level</strong> (UG/PG), and <strong>intersections</strong> (e.g. rural × female × low-income; online × disability) — compare <strong>dataset share vs national enrolment share</strong>, outcome prevalence, and data completeness. Then evaluate model <strong>sensitivity, false-negative rate, calibration and CIs per group</strong>, requiring minimum sample sizes <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>n</mi><mi>g</mi></msub><mo>≥</mo><msub><mi>n</mi><mi>min</mi><mo>⁡</mo></msub></mrow><annotation encoding="application/x-tex">n_g\ge n_{\min}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9221em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">g</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3175em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mop mtight"><span class="mtight">m</span><span class="mtight">i</span><span class="mtight">n</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> for precise estimates.<br><strong>Evidence for national deployment:</strong> adequate coverage of every major group; subgroup performance and calibration within agreed tolerances; external validation on held-out <strong>institutions</strong> (site-level hold-out); and a pilot in under-represented institutions. Otherwise restrict deployment to validated institution types.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">5. Missing-data strategy</div>
+<details class="solution solution"><summary>Model answer</summary><div class="sol-body"><ul>
+<li><strong>Attendance:</strong> missing mainly where no system exists → <strong>MNAR/structural (by department/university)</strong>; absence is informative about the <em>institution</em>, not the student. Don&#39;t impute a mean; record <code>attendance_system</code> and <code>attendance_missing</code>; use attendance only where measured, or build models that don&#39;t depend on it.</li>
+<li><strong>Income:</strong> likely <strong>MNAR</strong> (high or very low earners withhold; non-applicants for aid have no form) or MAR by scholarship status. Use an indicator + groupwise or multiple imputation fitted on training data; consider income bands.</li>
+<li><strong>Counselling usage:</strong> missing = didn&#39;t use <strong>or</strong> service unavailable/not shared → absence is <strong>informative and ambiguous</strong>; also highly sensitive. Better excluded (see 6).</li>
+<li><strong>Online activity:</strong> missing for on-campus courses without LMS use → <strong>MAR given mode/course</strong>; encode &quot;not applicable&quot; separately from &quot;zero activity&quot;.<br>All imputation <strong>inside training folds</strong>; never mean-impute the whole dataset; never delete students with unusual histories — they may be exactly those needing support.</li>
+</ul>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">6. Counselling usage and disability status — predict, audit or exclude?</div>
+<details class="solution solution"><summary>Model answer</summary><div class="sol-body"><p><strong>Counselling usage:</strong> <strong>exclude from prediction</strong>. It&#39;s highly sensitive health information; using it would penalize help-seeking (students may avoid counselling), it reflects availability more than need, and benefit &lt; risk (data minimization). Possibly retain aggregated, restricted data for evaluating whether the system serves students in distress.<br><strong>Disability status:</strong> <strong>exclude from prediction, retain under restricted access for fairness auditing</strong> — without it you cannot detect whether disabled students receive lower-quality scores; access limited to the audit team, with retention limits and consent/lawful basis. Using it as a predictor risks discriminatory treatment, especially where scores restrict scholarships.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">7. Governance structure</div>
+<details class="solution solution"><summary>Model answer</summary><div class="sol-body"><ul>
+<li><strong>National regulator / higher-education authority (data owner):</strong> ultimate accountability, approves purpose and uses, bans punitive uses.</li>
+<li><strong>Data stewards</strong> (national + each university): harmonized dictionary, label definition, quality reports, access policy.</li>
+<li><strong>Data custodians / technical team:</strong> secure platform, lineage, leakage-safe pipelines, monitoring dashboards.</li>
+<li><strong>University administrators:</strong> act on scores only through approved support policies; ensure human review.</li>
+<li><strong>Ethics committee / IRB and data-protection office:</strong> consent/lawful basis, sensitive data, secondary use, retention.</li>
+<li><strong>Student representatives:</strong> co-design, review of uses, appeals oversight.</li>
+<li><strong>Independent auditor:</strong> periodic fairness and performance audits, published summaries.<br>Clear assignment avoids &quot;everyone uses it, no one owns it&quot;.</li>
+</ul>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">8. Assistance vs scholarship restriction</div>
+<details class="solution solution"><summary>Model answer</summary><div class="sol-body"><p>The <strong>model is identical; the decision policy changes the ethics</strong>. As <strong>assistance</strong>, a false positive costs an unnecessary advising email; a true positive gets help → errors are cheap and the intervention reduces dropout. As <strong>restriction</strong>, a false positive removes funding from a student who wasn&#39;t leaving and a true positive is pushed out faster → <strong>self-fulfilling prophecy</strong>, feedback loop, and disproportionate harm to low-income and under-represented groups whose scores are least reliable. Restriction also changes behaviour (students hide difficulties). Hence approve the system <strong>only for supportive interventions</strong>, with thresholds set by support capacity.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">9. Contestability and human review</div>
+<details class="solution solution"><summary>Model answer</summary><div class="sol-body"><p>Students are <strong>notified</strong> that a score exists and what it is used for; can <strong>view the data</strong> behind it (grades, attendance, flags) and the main contributing factors; can <strong>correct errors</strong> (e.g. attendance recorded as missing, wrong registration status) through a registrar process with deadlines; can <strong>appeal</strong> any adverse decision to a human panel that may override the score; overrides and appeals are <strong>logged</strong> and fed back to data stewards; no decision is made on the score alone. Periodic reports on appeal rates by subgroup act as an early-warning signal for bias.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">10. When to delay, redesign, limit or reject</div>
+<details class="solution solution"><summary>Model answer</summary><div class="sol-body"><ul>
+<li><strong>Delay:</strong> until a harmonized dropout definition and dictionary are adopted and data corrected.</li>
+<li><strong>Redesign:</strong> if labels remain inconsistent, if attendance can&#39;t be standardized, or if subgroup calibration fails.</li>
+<li><strong>Limit to selected institutions:</strong> where data coverage and validation are adequate (e.g. large urban universities) while collecting data elsewhere.</li>
+<li><strong>Reject:</strong> if universities insist on <strong>punitive uses</strong> (scholarship cuts), if sensitive data can&#39;t be lawfully used or protected, if severe subgroup disparities can&#39;t be fixed, or if no contestability/human review can be guaranteed.</li>
+</ul>
+</div></details>
+</section>
+<h2 id="r2-smart-city-predictive-policing-platform"><a class="anchor" href="#r2-smart-city-predictive-policing-platform" aria-hidden="true">#</a>R2 — Smart-city predictive policing platform</h2>
+
+<div class="orig-q"><div class="oq-head"><span class="oq-lab">📄 Original question</span><span class="oq-src">R2 (summary)</span></div><div class="oq-body"><p>Predict where serious crime will occur next week from arrests, emergency calls, patrol logs, reported crimes, CCTV detections, social media, geographic/demographic data, court and correctional records. <strong>Arrest counts treated as crime prevalence</strong>; high-scoring areas get more patrols → more stops, searches, arrests → added to training. Residents say some neighbourhoods were historically over-policed and that poverty, density and ethnicity act as proxies. Police want to keep identity and location data <strong>indefinitely</strong>.</p>
+</div></div><div class="oq-sol">Worked solution</div>
+
+<section class="question"><div class="q-head">1. Construct validity of arrests; alternative outcomes</div>
+<details class="solution solution"><summary>Model answer</summary><div class="sol-body"><p>Arrests measure <strong>enforcement</strong>, not offending: they depend on patrol intensity, discretion, reporting and surveillance (Table 29). Similar true offending yields more arrests where police are present. <strong>Alternatives:</strong> (i) <strong>victim-reported serious crimes</strong> — closer to harm, but reporting rates vary with trust in police; (ii) <strong>emergency calls for service</strong> — citizen-initiated, but include non-crime and duplicate calls, vary by community; (iii) <strong>victimization surveys</strong> — capture unreported crime, but small samples, recall/social-desirability bias, coarse geography; (iv) <strong>injury/hospital data for violent crime</strong> — objective harm measure, but only for some crimes and has privacy issues. A composite of victim reports + surveys for serious violent crime, validated against each other, is more defensible than arrests.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">2. Map the data-generating process</div>
+<details class="solution solution"><summary>Model answer</summary><div class="sol-body"><p><strong>Underlying events</strong> (offences) → <strong>detection/reporting</strong> (victims call or not; CCTV coverage; social media visibility) → <strong>police response</strong> (where patrols are, what&#39;s prioritized) → <strong>stops/searches/arrests</strong> (officer discretion) → <strong>charging/courts/convictions</strong> (prosecutorial and judicial decisions, legal aid) → <strong>administrative records</strong> (coding rules) → <strong>model training</strong> → <strong>predictions</strong> → <strong>patrol allocation</strong> → back to detection. Institutional behaviour shapes the data at <strong>detection, response, arrest, charging and recording</strong> — every arrow except the first.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">3. The feedback loop</div>
+<details class="solution solution"><summary>Model answer</summary><div class="sol-body"><p>Historical over-policing → more recorded arrests in area A → model predicts higher risk in A → <strong>more patrols</strong> in A → more stops/searches → more <strong>minor</strong> incidents recorded → arrests rise → model &quot;confirmed&quot; and even more confident (<strong>feedback bias</strong>, selective labels, performative prediction — Example 5). Areas with less policing look safer because offences go unrecorded. The loop <strong>amplifies historical inequality</strong> independent of true crime rates. Breaking it needs outcomes not generated by patrol presence, randomized/held-out allocation, and monitoring of how much new data comes from model-directed patrols.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">4. Proxies for sensitive attributes</div>
+<details class="solution solution"><summary>Model answer</summary><div class="sol-body"><p>Neighbourhood/geography (segregation), <strong>housing density</strong>, poverty indicators, demographic composition, school and income data, prior arrests/convictions (shaped by historical policing), social-media language/dialect, CCTV density, call volumes. Removing race/ethnicity does not remove discrimination because these variables are <strong>correlated with it</strong> (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mtext>proxy</mtext></msub><mo>↔</mo><mi>A</mi></mrow><annotation encoding="application/x-tex">X_{\text{proxy}}\leftrightarrow A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0785em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">proxy</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">↔</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span>) and because the <strong>label itself</strong> (arrests) carries historical bias — the model reproduces disparities through location and history (Example 59 logic).</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">5. Fairness evaluation design</div>
+<details class="solution solution"><summary>Model answer</summary><div class="sol-body"><p>Compare across <strong>areas grouped by demographic composition, income and geography</strong>, and their <strong>intersections</strong>: predicted-risk distributions; patrol allocation; stops, searches and arrests <strong>per resident</strong> and per <strong>victim-reported crime</strong>; <strong>hit rates</strong> (share of stops finding wrongdoing — lower hit rates suggest over-stopping); false-positive rates against victim-reported serious crime; changes in community outcomes. <strong>Handle unequal measurement</strong> by using outcomes less dependent on policing (victimization surveys, hospital data), estimating reporting rates by area, and reporting uncertainty. Track trends over time to detect feedback amplification.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">6. Data-minimization policy</div>
+<details class="solution solution"><summary>Model answer</summary><div class="sol-body"><ul>
+<li><strong>Identity data:</strong> not needed for <strong>place-based</strong> weekly forecasting → do not ingest names/IDs into the model; keep only in the source police systems under existing law.</li>
+<li><strong>Location:</strong> aggregate to grid cells/weeks; delete precise coordinates after aggregation.</li>
+<li><strong>Social media:</strong> exclude (low validity, chilling effects, consent issues) or use only aggregated public-safety signals with legal review.</li>
+<li><strong>CCTV:</strong> use only counts of verified detections, not footage or face data; footage retained ≤ statutory short period (e.g. 30 days) unless evidence.</li>
+<li><strong>Retention:</strong> model features kept for a fixed period (e.g. 1–2 years) for auditing, then deleted; <strong>no indefinite retention</strong> &quot;for future investigations&quot; — that&#39;s a secondary use requiring separate legal authority.<br>Benefit &gt; Risk test for every variable, documented.</li>
+</ul>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">7. Oversight and accountability framework</div>
+<details class="solution solution"><summary>Model answer</summary><div class="sol-body"><p><strong>Elected officials/city council</strong> approve the purpose and publish policy; <strong>police leadership</strong> owns operational use (model owner) and is accountable; <strong>courts</strong> set legal limits on stops/searches and admissibility; <strong>community representatives</strong> sit on an oversight board with review rights; <strong>civil-rights experts</strong> assess discrimination; <strong>data stewards</strong> manage definitions, quality, lineage; <strong>independent auditors</strong> run annual fairness and effectiveness audits with public reports; an <strong>ethics/privacy office</strong> reviews data uses. Include sunset clauses, public registers of model versions, and the power to suspend the system.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">8. Should individuals be informed?</div>
+<details class="solution solution"><summary>Model answer</summary><div class="sol-body"><p>At least <strong>collective transparency</strong>: publish that the system exists, what data sources are used, how neighbourhoods are scored, accuracy and fairness audits — required for <strong>procedural justice</strong> and public trust. <strong>Individual notification</strong> is warranted where personal data (arrest/court records, social media) are used for training, unless it would compromise specific active investigations; a place-based model that uses only aggregated data reduces the need. Balance: public safety interest in not revealing tactics vs privacy rights and the legitimacy of policing; default to openness about <strong>methods and impacts</strong>.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">9. Safeguards against automatic justification</div>
+<details class="solution solution"><summary>Model answer</summary><div class="sol-body"><p>Policy that a risk score is <strong>never</strong> grounds for reasonable suspicion, stops, searches, surveillance or arrests; scores inform <strong>resource planning only</strong> (e.g. non-enforcement services, lighting, community programmes); officer training on <strong>automation bias</strong>; documentation of the independent basis for every stop; audit of stops in high-score areas; prohibition on individual-level scores; interface design that shows uncertainty; and an appeal/complaint channel for residents.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">10. Can it be made ethically acceptable?</div>
+<details class="solution solution"><summary>Model answer</summary><div class="sol-body"><p>Technical controls (better targets, debiasing, audits) can reduce harm but <strong>cannot fix the core problems</strong>: the outcome data are generated by the very institution being optimized, crime is under-observed unevenly, and deploying police changes the data (feedback). These are <strong>measurement and power-structure</strong> limits, not modelling errors. A defensible position: predictive <strong>policing</strong> for enforcement allocation is <strong>not acceptable</strong> in its proposed form; a narrowly scoped, transparent, community-governed tool using <strong>victimization-based</strong> outcomes for <strong>non-punitive</strong> prevention resources might be, subject to independent audit and sunset.</p>
+</div></details>
+</section>
+<h2 id="r3-multihospital-sepsis-early-warning-system"><a class="anchor" href="#r3-multihospital-sepsis-early-warning-system" aria-hidden="true">#</a>R3 — Multihospital sepsis early-warning system</h2>
+
+<div class="orig-q"><div class="oq-head"><span class="oq-lab">📄 Original question</span><span class="oq-src">R3 (summary)</span></div><div class="oq-body"><p>Predict sepsis <strong>6 hours before clinical recognition</strong>, 12 hospitals; vitals, labs, medication orders, diagnosis codes, notes, devices, ICU transfers, mortality/discharge. <strong>AUC 0.98</strong> internally. Strongest predictors: <strong>antibiotic orders</strong> and <strong>ICU transfer requests</strong> (often after suspicion). Different lab equipment, units, EHRs; <strong>firmware update</strong> shifts heart-rate distribution mid-collection; repeated patients across partitions; <strong>lactate mostly missing</strong> (ordered for the very ill), team plans <strong>population-mean imputation</strong>; few rural patients and some age/ethnic groups.</p>
+</div></div><div class="oq-sol">Worked solution</div>
+
+<section class="question"><div class="q-head">1. Prediction time, outcome window and timeline</div>
+<details class="solution solution"><summary>Model answer</summary><div class="sol-body"><p><strong>Unit:</strong> an inpatient encounter, evaluated <strong>every hour</strong> (index time <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span></span></span></span>). <strong>Outcome:</strong> at index time <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span></span></span></span> the model predicts whether <strong>clinical recognition of sepsis</strong> (adjudicated onset, e.g. Sepsis-3 criteria, timed at the first sepsis-suspicion order or diagnosis) will occur in the window <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>t</mi><mo separator="true">,</mo><mtext> </mtext><mi>t</mi><mo>+</mo><mn>6</mn><mtext>h</mtext><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">(t,\ t+6\text{h}]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mpunct">,</span><span class="mspace"> </span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">6</span><span class="mord text"><span class="mord">h</span></span><span class="mclose">]</span></span></span></span>. Patients are no longer scored once sepsis has been recognized.<br><strong>Timeline:</strong> admission → vitals and device data (available within minutes, by <strong>availability</strong> time) → labs (available at <strong>result-finalized</strong> time, not draw time) → <strong>clinician suspicion</strong> (blood cultures, antibiotic orders, ICU request) → recognition/diagnosis code → ICU transfer → discharge/mortality. <strong>Legitimate at <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span></span></span></span>:</strong> demographics, comorbidities from prior encounters, vitals and device data up to <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span></span></span></span>, labs <strong>finalized</strong> before <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span></span></span></span>, lab-ordering patterns before <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span></span></span></span> (with care). <strong>Not legitimate:</strong> antibiotic orders, ICU requests, diagnosis codes, notes and anything time-stamped after <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span></span></span></span> or recorded at discharge.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">2. Leakage types and how they inflate performance</div>
+<details class="solution solution"><summary>Model answer</summary><div class="sol-body"><ul>
+<li><strong>Target leakage:</strong> antibiotic orders, ICU transfer requests, sepsis diagnosis codes, notes mentioning sepsis encode clinician recognition → the model &quot;predicts&quot; recognition by seeing it.</li>
+<li><strong>Temporal leakage:</strong> labs/notes stamped by event time but available later; discharge and mortality records used as features.</li>
+<li><strong>Group leakage:</strong> repeated encounters of the same patient across train/test → patient memorization.</li>
+<li><strong>Site leakage:</strong> random splits across 12 hospitals don&#39;t test a new hospital; site-specific practices (ordering habits) become shortcuts.</li>
+<li><strong>Preprocessing contamination:</strong> lactate mean and any scaling computed on the full dataset.<br>Each lets the model use information unavailable 6 hours before recognition → AUC 0.98 that collapses prospectively (cf. external validation of the Epic Sepsis Model).</li>
+</ul>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">3. Antibiotic orders and ICU requests as predictors?</div>
+<details class="solution solution"><summary>Model answer</summary><div class="sol-body"><p><strong>Exclude them.</strong> They are <strong>clinician responses</strong> — they occur <em>because</em> sepsis is suspected, so they encode recognition rather than <strong>early physiological risk</strong>. The model would fire only after clinicians already know, adding nothing (and the 6-hour lead would vanish). Keep <strong>early physiological risk factors</strong>: rising heart and respiratory rate, temperature, falling BP, mental-status change, lab trends (WBC, creatinine, lactate when available), comorbidities. Borderline features (e.g. &quot;blood culture ordered&quot;) must be time-gated and usually excluded too.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">4. Partitioning and validation strategy</div>
+<details class="solution solution"><summary>Model answer</summary><div class="sol-body"><ol>
+<li>Hold out <strong>2 whole hospitals</strong> (incl. a rural one) as an <strong>external test set</strong>, untouched.</li>
+<li>From the remaining 10, hold out the <strong>most recent period</strong> as a temporal test set.</li>
+<li>On the training portion use <strong>GroupKFold by patient</strong> (stratified where possible) with <strong>leave-one-hospital-out</strong> folds for model selection; all preprocessing (unit harmonization fits, imputation, scaling) inside training folds.</li>
+<li>Final evaluation once on temporal + external sets: AUROC, <strong>PPV at the alert threshold</strong>, sensitivity, lead time, calibration, alerts per bed-day.</li>
+<li>Silent prospective deployment before go-live.</li>
+</ol>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">5. Missing lactate</div>
+<details class="solution solution"><summary>Model answer</summary><div class="sol-body"><p>Lactate is ordered when clinicians <strong>suspect serious illness</strong>, so its presence is a marker of clinician concern (possibly itself near-leakage if ordered close to recognition) and its absence signals lower suspected severity — <strong>informative, MNAR-like missingness</strong>. Population-mean imputation gives the 70%+ unmeasured patients a fabricated &quot;moderately abnormal&quot; value, <strong>erasing</strong> the difference between &quot;not ordered&quot; and &quot;measured normal&quot;, shrinking variance and blurring the real lactate signal. Instead: a <code>lactate_measured_before_t</code> indicator, last value carried forward only within a validity window, time since last measurement; and check that ordering itself isn&#39;t a recognition proxy.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">6. Harmonization plan</div>
+<details class="solution solution"><summary>Model answer</summary><div class="sol-body"><ul>
+<li><strong>Lab units:</strong> unit-aware schema; map every lab to a standard code (e.g. LOINC) and unit with explicit conversions (lactate mg/dL ↔ mmol/L); range validation.</li>
+<li><strong>Lab equipment:</strong> compare reference ranges across analyzers; site-level calibration offsets if needed.</li>
+<li><strong>Devices/firmware:</strong> record device model and <strong>firmware version</strong> as metadata; detect the change point; re-calibrate or model pre/post separately; test performance on both periods.</li>
+<li><strong>Sampling frequency:</strong> resample vitals to a common grid (e.g. hourly summaries) with measurement-count features.</li>
+<li><strong>Clocks:</strong> synchronize to a single time standard; use <strong>availability timestamps</strong>; check device vs server time.</li>
+<li><strong>EHR systems:</strong> common data model mapping, data dictionary per field, validation of cross-site consistency; document all mappings in lineage.</li>
+</ul>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">7. Subgroup and intersectional evaluation</div>
+<details class="solution solution"><summary>Model answer</summary><div class="sol-body"><p>Report for each <strong>hospital</strong> (rural vs urban), <strong>age band</strong>, <strong>sex</strong>, <strong>ethnicity</strong>, and intersections (e.g. elderly × rural × ethnic minority): sensitivity/<strong>false-negative rate</strong> (missed sepsis), <strong>false-positive rate</strong> and alerts per patient (alert fatigue), PPV, AUROC with CIs, <strong>calibration curves</strong>, median <strong>lead time</strong>, and <strong>measurement quality</strong> (missingness of vitals/labs, device accuracy across skin tones for SpO₂). Set minimum sample sizes; where groups are too small, collect more data before claiming validity. Choose <strong>equal opportunity</strong> (equal TPR) as the main fairness target because missed cases are most harmful (Example 62).</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">8. Data-lineage plan</div>
+<details class="solution solution"><summary>Model answer</summary><div class="sol-body"><p>Every model version links to: <strong>source extracts</strong> per hospital (system, extraction query, date range, version hash); each transformation step <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">T_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> (harmonization, cohort selection, labelling algorithm, feature generation, imputation, splitting) with <strong>code commit, parameters, input/output dataset versions, timestamp, responsible engineer, validation results</strong>; the <strong>split specification</strong> (patients/hospitals per partition); training configuration and random seeds; evaluation reports; <strong>approval sign-off</strong>. Stored in a versioned registry (e.g. dataset and model versioning tools) so any prediction can be traced and the model rebuilt or rolled back.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">9. Deployment policy with clinical judgement</div>
+<details class="solution solution"><summary>Model answer</summary><div class="sol-body"><p>The model <strong>supports</strong>, never replaces, clinical judgement. <strong>Alert threshold</strong> chosen by expected alerts per nurse-shift and target sensitivity (capacity-aware, like Quiz 1&#39;s 20 inspections/day); tiered alerts (watch vs urgent). <strong>Escalation:</strong> urgent alert → bedside nurse assessment within 30 min → rapid-response team if criteria met. <strong>Override:</strong> clinicians can dismiss with a reason code; overrides logged. <strong>Audit logs</strong> of every score, alert, action and outcome. <strong>Monitoring:</strong> alert rate, PPV, sensitivity, lead time, override rates, alert fatigue surveys, calibration drift, data drift (firmware, units), subgroup performance; <strong>fallback</strong> to standard screening (qSOFA/NEWS) when inputs are missing or the system fails.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">10. Evidence before deploying at a new hospital</div>
+<details class="solution solution"><summary>Model answer</summary><div class="sol-body"><p><strong>External validation</strong> on that hospital&#39;s own retrospective data (or a held-out site similar to it) after <strong>harmonization checks</strong> (units, devices, EHR mapping); acceptable sensitivity, PPV, lead time and <strong>calibration</strong> (recalibrate locally if needed); subgroup performance for its population; a <strong>silent (shadow) deployment</strong> period comparing alerts with real outcomes; workflow integration and staff training plan; governance approval (clinical governance, IRB if research) and a monitoring plan with stop criteria.</p>
+</div></details>
+</section>
+<h2 id="r4-synthetic-financial-data-for-credit-approval"><a class="anchor" href="#r4-synthetic-financial-data-for-credit-approval" aria-hidden="true">#</a>R4 — Synthetic financial data for credit approval</h2>
+
+<div class="orig-q"><div class="oq-head"><span class="oq-lab">📄 Original question</span><span class="oq-src">R4 (summary)</span></div><div class="oq-body"><p>Generative model trained on historical loan applications produces synthetic income, occupation, age, region, repayment history, property, previous defaults, loan amount, <strong>approval decisions</strong>. Overall distributions match; external developers&#39; classifier does well on a <strong>synthetic test set</strong>. Source data have few <strong>rural, informal-sector and low-income</strong> applicants; historical approvals may be <strong>discriminatory</strong>; <strong>rare default patterns</strong> poorly represented; some synthetic records <strong>very similar to real customers</strong>. Management: synthetic ⇒ consent, privacy, fairness and licensing no longer apply.</p>
+</div></div><div class="oq-sol">Worked solution</div>
+
+<section class="question"><div class="q-head">1. Challenge the claim that synthetic data are automatically anonymous, fair, representative and unrestricted</div>
+<details class="solution solution"><summary>Model answer</summary><div class="sol-body"><p><strong>Not anonymous:</strong> generators can memorize; records &quot;unusually similar to real customers&quot; enable <strong>membership inference and reconstruction</strong> — residual disclosure risk. <strong>Not fair:</strong> the generator copies <strong>historically discriminatory approvals</strong>. <strong>Not representative:</strong> it reproduces the source&#39;s <strong>under-representation</strong> of rural, informal and low-income applicants and misses rare defaults. <strong>Not unrestricted:</strong> it is a <strong>derived product</strong> of personal data — the original <strong>consent, privacy law, contracts and licences</strong> still constrain its use and sharing. Synthetic changes the risk profile; it doesn&#39;t remove obligations.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">2. Validation framework</div>
+<details class="solution solution"><summary>Model answer</summary><div class="sol-body"><div class="tbl"><table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>Tests</th>
+<th>Acceptable evidence</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Fidelity</strong></td>
+<td>Marginals, pairwise correlations, conditional distributions, tails; distance metrics</td>
+<td>Close agreement overall <strong>and by subgroup</strong></td>
+</tr>
+<tr>
+<td><strong>Utility</strong></td>
+<td>Train on synthetic, <strong>test on real</strong> (TSTR) vs train-on-real</td>
+<td>Small performance gap on real held-out data</td>
+</tr>
+<tr>
+<td><strong>Privacy</strong></td>
+<td>Membership-inference attack, nearest-neighbour distance to real records, attribute inference</td>
+<td>Attack success ≈ chance; no near-copies beyond threshold</td>
+</tr>
+<tr>
+<td><strong>Fairness</strong></td>
+<td>Approval rates, error rates by group in synthetic vs real; downstream model disparity</td>
+<td>No amplification; disparities documented</td>
+</tr>
+<tr>
+<td><strong>Coverage</strong></td>
+<td>Counts of rare defaults, rural/informal/low-income cells</td>
+<td>Minimum counts per critical cell</td>
+</tr>
+<tr>
+<td><strong>Realism</strong></td>
+<td>Domain-rule checks (age vs employment length, loan vs income limits)</td>
+<td>Near-zero impossible records</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">3. Why matching overall distributions is insufficient</div>
+<details class="solution solution"><summary>Model answer</summary><div class="sol-body"><p>Overall marginals can match while <strong>subgroups, intersections, tails and dependencies</strong> are wrong. Examine: rural × low-income × informal applicants; age × occupation; <strong>joint</strong> income–loan–default relationships; <strong>tail</strong> behaviour (rare defaults, very large loans); temporal structure of repayment histories; and the <strong>conditional relationship <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false">(</mo><mtext>approval</mtext><mo>∣</mo><mi>X</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">P(\text{approval}\mid X)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord text"><span class="mord">approval</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mclose">)</span></span></span></span></strong> within groups. A model can look good overall yet fail on exactly the applicants who need fair treatment (Gender Shades logic: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>E</mi><mtext>overall</mtext></msub><mo>=</mo><mo>∑</mo><mi>P</mi><mo stretchy="false">(</mo><mi>g</mi><mo stretchy="false">)</mo><msub><mi>E</mi><mi>g</mi></msub></mrow><annotation encoding="application/x-tex">E_{\text{overall}}=\sum P(g)E_g</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0576em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">overall</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.0361em;vertical-align:-0.2861em;"></span><span class="mop op-symbol small-op" style="position:relative;top:0em;">∑</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mclose">)</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0576em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">g</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span>).</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">4. Historical discrimination reproduced or amplified</div>
+<details class="solution solution"><summary>Model answer</summary><div class="sol-body"><p>The generator learns <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false">(</mo><mi>X</mi><mo separator="true">,</mo><mtext>approval</mtext><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">P(X,\text{approval})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord text"><span class="mord">approval</span></span><span class="mclose">)</span></span></span></span> from <strong>biased past decisions</strong>; synthetic data encode the same rejections for disadvantaged groups. The downstream model trained on &quot;approval&quot; as a label then learns to <strong>imitate discrimination</strong> (historical bias, label = past decision, not creditworthiness). Amplification arises because generators under-sample sparse groups (fewer, more stereotyped examples), smooth away counter-examples, and the classifier optimizes accuracy on majority patterns. A better target is <strong>actual repayment</strong>, with selective-labels caveats (we only see repayment for approved applicants).</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">5. Evaluating membership inference, reconstruction, memorization</div>
+<details class="solution solution"><summary>Model answer</summary><div class="sol-body"><p>Run <strong>membership-inference attacks</strong> (shadow models, distance-to-closest-record tests: are training records closer to synthetic records than held-out real records are?); <strong>attribute-inference/reconstruction</strong> tests (can an attacker with partial info recover income/defaults?); <strong>memorization checks</strong> (exact/near-duplicate search, rare-combination uniqueness); and consider training the generator with <strong>differential privacy</strong> and reporting the privacy budget. Remove or regenerate records too close to real customers.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">6. Protected attributes</div>
+<details class="solution solution"><summary>Model answer</summary><div class="sol-body"><p><strong>Preserve them in the synthetic dataset under restricted access</strong> so fairness can be audited (Example 60 logic); <strong>exclude them from the credit model&#39;s inputs</strong>, while checking proxies (region, occupation). Governance distinguishes prediction use from fairness evaluation; external developers get versions without protected attributes unless they are performing an approved audit.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">7. Why synthetic-only evaluation is insufficient; secure real evaluation</div>
+<details class="solution solution"><summary>Model answer</summary><div class="sol-body"><p>A synthetic test set comes from the <strong>same generator</strong> — it shares its biases, gaps and simplifications, so high scores measure agreement with the generator, not real applicants (no utility evidence, no coverage of real tails). Propose: the company keeps a <strong>real, representative held-out set</strong> in a <strong>secure enclave</strong>; developers submit models that are evaluated there (<strong>remote/&quot;code-to-data&quot; evaluation</strong>), returning only aggregate metrics (performance, calibration, subgroup gaps), optionally with differential-privacy noise; or federated evaluation.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">8. Documentation package</div>
+<details class="solution solution"><summary>Model answer</summary><div class="sol-body"><p><strong>Motivation</strong> (enable external development without sharing records); <strong>source data</strong> (period, population, known gaps — rural/informal/low-income, discriminatory approvals); <strong>generation method</strong> (model type, training data version, hyperparameters, <strong>model version</strong>, random seeds); <strong>privacy safeguards</strong> (DP budget, membership-inference results, record-distance threshold); <strong>validation results</strong> across all six dimensions; <strong>known limitations</strong> (rare defaults, under-represented groups); <strong>intended uses</strong> (prototyping, pipeline testing) and <strong>discouraged uses</strong> (operational credit decisions, fairness claims); licence and access terms; <strong>maintenance</strong> (owner, versioning, regeneration schedule, issue reporting).</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">9. Privacy vs fairness vs utility trade-off</div>
+<details class="solution solution"><summary>Model answer</summary><div class="sol-body"><p>Stronger privacy (more DP noise, suppressing rare records) disproportionately <strong>erases small groups</strong> — marginalized applicants become even rarer. The organization should: set <strong>minimum coverage targets</strong> for those groups as a hard constraint; use privacy methods that preserve subgroup structure (stratified generation, targeted oversampling of under-represented cells with privacy accounting); accept slightly lower overall fidelity/utility to protect both privacy and representation; <strong>document</strong> the trade-off; and, where synthetic data can&#39;t serve those groups, evaluate on real data in a secure environment instead. Decisions should be approved by governance, not left to engineers.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">10. Approval levels</div>
+<details class="solution solution"><summary>Model answer</summary><div class="sol-body"><ul>
+<li><strong>Internal experimentation / pipeline testing:</strong> <strong>approve</strong>, with documentation and access control.</li>
+<li><strong>External research/development:</strong> <strong>conditional approval</strong> — after privacy validation (no near-copies, attack ≈ chance), data-use agreement, no re-identification, limited access, and evaluation on real data via enclave.</li>
+<li><strong>Operational credit decisions:</strong> <strong>do not approve</strong> a model validated only on synthetic data; requires real-data validation, fairness audit, regulatory compliance, monitoring.</li>
+<li><strong>None</strong> if privacy tests fail — regenerate first.</li>
+</ul>
+</div></details>
+</section>
+<h2 id="r5-commercial-reuse-of-an-international-medical-imaging-repository"><a class="anchor" href="#r5-commercial-reuse-of-an-international-medical-imaging-repository" aria-hidden="true">#</a>R5 — Commercial reuse of an international medical imaging repository</h2>
+
+<div class="orig-q"><div class="oq-head"><span class="oq-lab">📄 Original question</span><span class="oq-src">R5 (summary)</span></div><div class="oq-body"><p>Multi-country repository; consent forms vary (academic only; commercial research; no international transfer; future unspecified health research; withdrawal anytime; silent on AI). Released under a <strong>research-only licence</strong>; de-identified by removing names/IDs but keeping <strong>exact exam dates, rare diagnoses, age, sex, hospital location</strong>. Company wants to combine with <strong>two open datasets</strong>, train a commercial diagnostic model, <strong>distribute it globally</strong> (not the images), arguing <strong>model weights aren&#39;t personal data</strong> and that open access makes it permissible. Team finds inconsistent labels, undocumented exclusions, duplicated scans, incompatible licences, missing preprocessing records.</p>
+</div></div><div class="oq-sol">Worked solution</div>
+
+<section class="question"><div class="q-head">1. Distinguish consent, privacy, licensing, copyright, institutional approval, ethical acceptability</div>
+<details class="solution solution"><summary>Model answer</summary><div class="sol-body"><p><strong>Consent</strong> — what each participant agreed to (varies by source). <strong>Privacy</strong> — legal duty to protect personal data and prevent re-identification. <strong>Licensing</strong> — the repository&#39;s research-only terms and the open datasets&#39; terms. <strong>Copyright</strong> — rights in images/compilations. <strong>Institutional approval</strong> — ethics/IRB and data-protection sign-off for the specific project. <strong>Ethical acceptability</strong> — whether the use respects participants and communities and balances benefit and harm. They are <strong>independent</strong>: open access (licence) doesn&#39;t give consent; de-identification (privacy) doesn&#39;t grant licence; IRB approval doesn&#39;t make an unfair use ethical.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">2. Consent matrix</div>
+<details class="solution solution"><summary>Model answer</summary><div class="sol-body"><div class="tbl"><table>
+<thead>
+<tr>
+<th>Source / consent type</th>
+<th>Permitted purposes</th>
+<th>Commercial</th>
+<th>Intl transfer</th>
+<th>Withdrawal</th>
+<th>Redistribution</th>
+<th>AI development</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Academic-only</td>
+<td>Academic research</td>
+<td>✗</td>
+<td>? (per form)</td>
+<td>per form</td>
+<td>✗</td>
+<td>Unclear → ✗ without renewal</td>
+</tr>
+<tr>
+<td>Commercial research</td>
+<td>Research incl. commercial</td>
+<td>✓</td>
+<td>per form</td>
+<td>per form</td>
+<td>✗ (licence)</td>
+<td>Likely ✓ if research-framed</td>
+</tr>
+<tr>
+<td>No international transfer</td>
+<td>Research</td>
+<td>per form</td>
+<td><strong>✗</strong></td>
+<td>per form</td>
+<td>✗</td>
+<td>Only in-country</td>
+</tr>
+<tr>
+<td>Future unspecified health research</td>
+<td>Broad health research</td>
+<td>Unclear</td>
+<td>Unclear</td>
+<td>per form</td>
+<td>✗</td>
+<td>Possibly ✓ (needs ethics review)</td>
+</tr>
+<tr>
+<td>Withdrawal at any time</td>
+<td>per form</td>
+<td>per form</td>
+<td>per form</td>
+<td><strong>✓ — must honour</strong></td>
+<td>✗</td>
+<td>✓ but with deletion/retraining duties</td>
+</tr>
+<tr>
+<td>Silent on AI</td>
+<td>per form</td>
+<td>per form</td>
+<td>per form</td>
+<td>per form</td>
+<td>✗</td>
+<td><strong>Unclear → renewed consent or ethics waiver</strong></td>
+</tr>
+<tr>
+<td>Each record is tagged with its consent profile; the training set for a commercial global model is the <strong>intersection</strong> of permissions.</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">3. Do model weights resolve the concerns?</div>
+<details class="solution solution"><summary>Model answer</summary><div class="sol-body"><p><strong>No.</strong> Models can <strong>memorize</strong> training data (especially rare cases), enabling <strong>membership inference</strong> (was this patient in training?) and <strong>model inversion</strong> (reconstruct images/attributes). A model is a <strong>derived product</strong>: research-only licences and consent forbidding commercial use or international transfer restrict derived products too. Distributing weights globally is effectively <strong>commercial use and international transfer</strong> of what was learned from the data. Mitigations (DP training, memorization audits) reduce risk but don&#39;t override consent and licence terms.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">4. Re-identification risk and risk reduction</div>
+<details class="solution solution"><summary>Model answer</summary><div class="sol-body"><p><strong>Exact exam dates + rare diagnosis + age + sex + hospital location</strong> is a highly unique combination — linkable to hospital records, news or social media (<strong>linkage attacks</strong>). Reduce: shift dates by a random per-patient offset (preserving intervals); generalize age to bands (top-code 90+); coarsen location to region; suppress or group rare diagnoses where counts &lt; k (k-anonymity); strip DICOM header metadata and burned-in text; restrict access for rare-disease subsets; assess residual risk with a formal re-identification test.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">5. Licence-compatibility review</div>
+<details class="solution solution"><summary>Model answer</summary><div class="sol-body"><p>List each dataset&#39;s licence and version: research-only repository; open dataset A; open dataset B (check: commercial allowed? share-alike? attribution? no-derivatives?). Determine for the <strong>combined</strong> use: redistribution — blocked by research-only terms; <strong>commercial deployment</strong> — blocked by research-only terms unless a commercial licence is negotiated; share-alike terms may force release of derived works. <strong>The most restrictive terms govern</strong>: the commercial global model can be trained only on components whose licences allow commercial derivatives, or after obtaining new permissions. Record outcomes alongside the dataset artifact.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">6. Participant withdrawal after training</div>
+<details class="solution solution"><summary>Model answer</summary><div class="sol-body"><p>Delete the participant&#39;s <strong>source records</strong> and derived features from all dataset versions; mark them in the lineage register; determine whether the model must be <strong>retrained</strong> (or machine-unlearning applied) — set a policy (e.g. retrain at the next scheduled release, immediately for high-risk cases); update model version and documentation; <strong>notify downstream users</strong> to replace older versions; keep an auditable log of withdrawal handling. Consent forms should state this policy in advance.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">7. Quality-control workflow</div>
+<details class="solution solution"><summary>Model answer</summary><div class="sol-body"><p>Inventory and profile all sources → <strong>duplicate detection</strong> (image hashing/near-duplicate search; patient-level linkage) and group-aware splits → <strong>label harmonization</strong> (common taxonomy, re-adjudication of inconsistent labels by experts, record uncertainty and acceptable alternatives) → document <strong>exclusions</strong> with reasons → reconstruct <strong>historical preprocessing</strong> where possible, otherwise flag versions as non-reproducible and regenerate from raw → validate → version (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mo stretchy="false">(</mo><mn>1.0</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">D(1.0)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mopen">(</span><span class="mord">1.0</span><span class="mclose">)</span></span></span></span>…) → approve. All changes in an immutable audit trail.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">8. Minimum datasheet and data dictionary</div>
+<details class="solution solution"><summary>Model answer</summary><div class="sol-body"><p><strong>Datasheet:</strong> motivation; sources/countries/hospitals and periods; instances (scan, patient, study); counts by modality and diagnosis; <strong>consent profiles and licence per source</strong>; collection and de-identification methods with residual risk; preprocessing and exclusions; label process and inter-rater agreement; known biases (sites, devices, demographics); intended and prohibited uses (no commercial use for research-only subsets); access procedure; maintenance and withdrawal process; versions.<br><strong>Data dictionary (per field):</strong> patient/study IDs (pseudonymous), exam date (shifted), age band, sex, site region, modality, device/vendor, diagnosis label (taxonomy, allowed values, uncertainty), consent profile code, licence code, missing-value codes, time semantics, transformations, sensitivity, quality notes.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">9. Approval process</div>
+<details class="solution solution"><summary>Model answer</summary><div class="sol-body"><ol>
+<li><strong>Data custodians</strong> of each source confirm licence and consent constraints. 2. <strong>Privacy officers</strong> assess re-identification and cross-border transfer (DPIA). 3. <strong>Legal experts</strong> review licences, copyright, contracts, applicable laws per country. 4. <strong>Ethics committees</strong> (each consortium institution) review purpose, consent scope, need for renewed consent. 5. <strong>Clinical specialists</strong> validate labels and clinical safety. 6. <strong>Technical team</strong> presents lineage, QC, memorization/privacy tests. 7. <strong>Participant representatives</strong> review acceptability. 8. <strong>Organizational leadership</strong> makes the final decision with conditions, monitoring and sunset/renewal dates. Each step documented; any veto stops the project.</li>
+</ol>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">10. Final recommendation</div>
+<details class="solution solution"><summary>Model answer</summary><div class="sol-body"><p><strong>Do not proceed as proposed.</strong> <strong>Proceed under restrictions</strong> using <strong>only data sources whose consent permits commercial research and international transfer and whose licences allow commercial derivatives</strong>, after QC fixes and privacy-preserving training, with a formal approval from all bodies. For academic-only, no-transfer or AI-silent sources: <strong>seek renewed consent</strong> (or exclude). <strong>Assumptions:</strong> consent forms can be mapped to records; licences can be renegotiated. <strong>Evidence needed:</strong> consent matrix, licence review, re-identification and memorization tests, external validation. <strong>Unresolved uncertainties:</strong> legal status of model weights across jurisdictions; whether enough permitted data remain for a clinically valid model — if not, the commercial project should be <strong>rejected</strong>.</p>
+</div></details>
+</section>
+
+  <nav class="pagenav">
+    <a class="pv" href="m2-scenarios.html">← Previous<b>M2 · Scenarios S1–S5</b></a>
+    <a class="nx" href="quiz2-guide.html">Next →<b>Quiz 2 guide</b></a>
+  </nav>
+  <div class="foot">AI 500 · Fall 2026 · study notes</div>
+</main>
+</div>
+<div class="lightbox" id="lightbox" hidden><img alt=""><button class="iconbtn lb-close" aria-label="Close">✕</button></div>
+<script src="assets/site.js" defer></script>
+</body></html>

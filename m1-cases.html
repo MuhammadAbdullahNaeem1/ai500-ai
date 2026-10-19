@@ -1,0 +1,1977 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>M1 · AI Landscape & Problem Framing — Answers S, R, A · AI 500</title>
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#fbfbfa" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#16161a" media="(prefers-color-scheme: dark)">
+<script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<header class="topbar">
+  <button class="iconbtn" id="menuBtn" aria-label="Open contents" aria-expanded="false"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+  <a class="topbrand" href="index.html">AI 500<span>M1 · AI Landscape & Problem Framing</span></a>
+  <button class="iconbtn themebtn" aria-label="Toggle dark mode"><svg class="i-moon" viewBox="0 0 24 24" width="19" height="19"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg><svg class="i-sun" viewBox="0 0 24 24" width="19" height="19"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg></button>
+</header>
+<div class="scrim" id="scrim"></div>
+<div class="wrap">
+<aside class="side" id="side">
+  <div class="side-head">
+    <a class="brand" href="index.html">AI 500 — Foundations of AI<span>Foundations of AI · Fall 2026</span></a>
+    <button class="iconbtn themebtn" aria-label="Toggle dark mode"><svg class="i-moon" viewBox="0 0 24 24" width="17" height="17"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg><svg class="i-sun" viewBox="0 0 24 24" width="17" height="17"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg></button>
+  </div>
+  <nav><a href="index.html">Home</a>
+<a href="start-here.html">Start here (how to use)</a>
+<div class="nav-section">Modules</div>
+<details class="grp" open><summary>M1 · AI Landscape & Problem Framing</summary><a href="m1a-notes.html">Notes A — roots, philosophy, landscape</a><a href="m1b-notes.html">Notes B — pipeline, framing, failures</a><a href="m1-answers.html">Answers Q1–100</a><a href="m1-cases.html" class="on" aria-current="page">Answers S, R, A</a></details>
+<details class="grp"><summary>M2 · Data Collection, Cleaning, Governance & Ethics</summary><a href="m2a-notes.html">Notes A — constructed data, sources, quality</a><a href="m2b-notes.html">Notes B — curation, cleaning, leakage</a><a href="m2c-notes.html">Notes C — documentation, governance, cases</a><a href="m2-answers-1.html">Answers Q1–50</a><a href="m2-answers-2.html">Answers Q51–100</a><a href="m2-scenarios.html">Scenarios S1–S5</a><a href="m2-reflections.html">Reflections R1–R5</a></details>
+<div class="nav-section">Quiz 2 (24 Oct)</div>
+<a href="quiz2-guide.html">Quiz 2 guide</a>
+<a href="quiz2-mock-a.html">★ Mock Quiz 2A</a>
+<a href="quiz2-mock-b.html">Mock Quiz 2B</a>
+<a href="quiz2-mock-c.html">Mock Quiz 2C</a>
+<div class="nav-section">Archive</div>
+<a href="quiz1-solved.html">Real Quiz 1 (solved)</a>
+<a href="assignments.html">Assignments & computational training</a>
+<a href="a2-missedcare.html">A2 Part A — MissedCare (your answers)</a>
+<a href="resources.html">PDFs, assignments & past material</a></nav>
+  <div class="toc"><div class="toc-title">On this page</div><a href="#scenarios-s1-s5" class="">Scenarios S1–S5</a><a href="#s1-university-student-support-system" class="h3">S1: University Student Support System</a><a href="#s2-hospital-sepsis-prediction" class="h3">S2: Hospital Sepsis Prediction</a><a href="#s3-automated-loan-underwriting" class="h3">S3: Automated Loan Underwriting</a><a href="#s4-ai-based-recruitment-ranking" class="h3">S4: AI-Based Recruitment Ranking</a><a href="#s5-smart-warehouse-robot" class="h3">S5: Smart Warehouse Robot</a><a href="#reflections-r1-r5" class="">Reflections R1–R5</a><a href="#r1-national-early-warning-system-for-disease-outbreaks" class="h3">R1: National Early Warning System for Disease Outbreaks</a><a href="#r2-adaptive-traffic-management-for-a-large-city" class="h3">R2: Adaptive Traffic Management for a Large City</a><a href="#r3-generative-ai-adviser-for-university-students" class="h3">R3: Generative AI Adviser for University Students</a><a href="#r4-ai-for-climate-smart-agricultural-support" class="h3">R4: AI for Climate-Smart Agricultural Support</a><a href="#r5-automated-prioritization-of-social-welfare-applications" class="h3">R5: Automated Prioritization of Social-Welfare Applications</a><a href="#application-problems-a1-a7" class="">Application problems A1–A7</a><a href="#a1-formulating-an-ai-problem-reducing-unplanned-hospital-readmissions" class="h3">A1: Formulating an AI Problem (Reducing Unplanned Hospital Readmissions)</a><a href="#a2-preparing-a-model-card-heart-disease-risk-prediction-model" class="h3">A2: Preparing a Model Card (Heart Disease Risk Prediction Model)</a><a href="#a3-preparing-a-datasheet-for-a-dataset-crop-disease-image-dataset" class="h3">A3: Preparing a Datasheet for a Dataset (Crop Disease Image Dataset)</a><a href="#a4-deciding-which-model-to-deploy-predictive-maintenance" class="h3">A4: Deciding Which Model to Deploy (Predictive Maintenance)</a><a href="#a5-identifying-hidden-technical-debt-food-delivery-recommendation-system" class="h3">A5: Identifying Hidden Technical Debt (Food Delivery Recommendation System)</a><a href="#a6-completing-a-problem-framing-worksheet-university-tutoring-allocation" class="h3">A6: Completing a Problem-Framing Worksheet (University Tutoring Allocation)</a><a href="#a7-identifying-possible-failures-in-an-ai-project-automated-recruitment-screening" class="h3">A7: Identifying Possible Failures in an AI Project (Automated Recruitment Screening)</a><a href="#last-minute-revision-module-1" class="">Last-minute revision (Module 1)</a><a href="#9-1-what-is-most-likely-to-come" class="h3">9.1 What is most likely to come</a><a href="#9-2-one-line-answers-to-memorize" class="h3">9.2 One-line answers to memorize</a><a href="#9-3-common-traps" class="h3">9.3 Common traps</a><a href="#9-4-numbers-worth-remembering-from-the-notes" class="h3">9.4 Numbers worth remembering from the notes</a></div>
+</aside>
+<main>
+  <div class="crumb">M1 · AI Landscape & Problem Framing</div>
+  
+  <h1>M1 · Scenario, reflection &amp; application answers</h1>
+<p>Module 1&#39;s scenario questions <strong>S1–S5</strong>, reflection questions <strong>R1–R5</strong> and application problems <strong>A1–A7</strong>, each with the original case (tap to show) and a full answer from your Quiz 1 preparation guide. Real Quiz 1&#39;s 21-mark water-pipe scenario followed the S-question pattern; the A-problems mirror Assignment 1 (problem-framing worksheet, model card, datasheet, failure analysis).</p>
+<div class="pdf-links">
+<a href="m1-answers.html">Answers Q1–100</a>
+<a href="m1b-notes.html">Part B notes</a>
+<a href="quiz1-solved.html">Real Quiz 1 (solved)</a>
+<a href="pdfs/notes/Module-1-Notes.pdf#page=151">Questions in the PDF</a>
+</div>
+
+
+<h2 id="scenarios-s1-s5"><a class="anchor" href="#scenarios-s1-s5" aria-hidden="true">#</a>Scenarios S1–S5</h2>
+<p>These are the most &quot;quiz-like&quot; questions: a short case, then diagnosis questions. Practise answering each bullet in 3 to 6 lines using the named concept.</p>
+<h3 id="s1-university-student-support-system"><a class="anchor" href="#s1-university-student-support-system" aria-hidden="true">#</a>S1: University Student Support System</h3>
+
+<details class="orig-q oq-fold"><summary><span class="oq-lab">📄 Original question</span><span class="oq-src">S1 (Module 1 notes)</span><span class="oq-hint">tap to show</span></summary><div class="oq-body"><p>S1: University Student Support System A university plans to build an AI system to identify students who may fail a course. The initial proposal states: Build a machine learning model that predicts student failure. The available data include attendance, assignment grades, learning-platform activity, prior academic performance, financial-aid status, and final examination results. The university intends to use the predictions to allocate a limited number of tutoring appointments. However, the proposal does not specify when the prediction will be made, which students will be included, how failure will be defined, or how many tutoring appointments are available. Questions</p>
+<ul>
+<li>Why is the original problem statement inadequately formulated?</li>
+<li>Rewrite the problem statement by specifying the target population, index time, prediction horizon, outcome, decision-maker, and intended action.</li>
+<li>Which variables may create temporal leakage if the prediction is required during the first four weeks of the semester?</li>
+<li>What are the likely consequences of false-positive and false-negative predictions?</li>
+<li>Should the university evaluate only predictive accuracy, or should it also measure calibration, subgroup performance, and decision utility? Explain briefly.</li>
+</ul>
+</div></details>
+
+<section class="question"><div class="q-head">S1(a). Why is the original problem statement (&quot;Build a machine learning model that predicts student failure&quot;) inadequately formulated?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>It is the &quot;poor framing&quot; pattern from the notes. It starts from an algorithm instead of a decision and leaves every key element undefined:</p>
+<ul>
+<li>No index time: we do not know when the prediction is made, so we cannot tell which features are legitimate (leakage risk).</li>
+<li>No target population: which course, which students (all enrolled, first-years, repeaters)? Who is excluded (students who withdrew before the census date)?</li>
+<li>No outcome definition: does &quot;failure&quot; mean a final grade below the pass mark, withdrawal, or both? Over what period?</li>
+<li>No link to the action or capacity: the purpose is to allocate a limited number of tutoring appointments, but the number is not stated, so we cannot design a ranking or threshold.</li>
+<li>No decision-maker, baseline, metrics, error costs or subgroup analysis. This risks &quot;Failure 1: predicting student failure without an effective support intervention.&quot;</li>
+</ul>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">S1(b). Rewrite the problem statement by specifying the target population, index time, prediction horizon, outcome, decision-maker, and intended action.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>&quot;At the end of week 4 of the semester, for every student enrolled in [Course X] on the census date (one student-course enrolment is the unit of analysis), using only information recorded by the end of week 4 (prior academic performance, attendance and assignment grades from weeks 1 to 4, learning-platform activity in weeks 1 to 4, and financial-aid status as recorded at enrolment), produce a calibrated probability that the student will fail the course (final grade below the pass mark, or withdraw after the census date) by the end of the semester, together with a ranked list, so that the course coordinator and academic-support office can offer the N available tutoring appointments to the highest-ranked students after human review. The system will be compared with the current process (self-referral and instructor referral) and evaluated using recall@N, precision@N, calibration and subgroup performance, accounting for the cost of missed struggling students, stigma from being flagged, and fairness across financial-aid and demographic groups.&quot;</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">S1(c). Which variables may create temporal leakage if the prediction is required during the first four weeks of the semester?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
+<li>Final examination results: these happen at the end of the semester and are part of the outcome itself (target leakage).</li>
+<li>Assignment grades after week 4 and cumulative course grades that include later work.</li>
+<li>Attendance and learning-platform activity after week 4 (future behaviour; declining activity late in the term reflects the outcome developing).</li>
+<li>Midterm results if the midterm occurs after week 4.</li>
+<li>Financial-aid status if it was updated later (for example aid suspended because of poor grades); only the value recorded at the index time can be used. Also any withdrawal records or academic-probation flags.</li>
+</ul>
+<p>Rule: every feature must be recorded and available by the end of week 4 (t_feature availability ≤ t).</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">S1(d). What are the likely consequences of false-positive and false-negative predictions?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
+<li>False positive (flagged but would have passed): a scarce tutoring slot is spent on a student who did not need it, displacing someone who did; possible stigma, anxiety or feeling labelled; wasted tutor time.</li>
+<li>False negative (not flagged but fails): the student misses support when it could have helped, fails or withdraws, loses time, money, scholarship eligibility, and may drop out. This is usually the more costly and less reversible error, so recall on at-risk students is important, bounded by the appointment capacity.</li>
+</ul>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">S1(e). Should the university evaluate only predictive accuracy, or also calibration, subgroup performance, and decision utility?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>It should evaluate all of them. Accuracy is misleading when most students pass (class imbalance) and treats all errors equally. Calibration matters because probabilities are used to rank students and decide who gets scarce appointments. Subgroup performance matters because financial-aid status and platform activity may act as proxies for socioeconomic status, and errors may concentrate in some groups. Decision utility matters because the real goal is fewer failures: the system must be compared with the current referral process and ideally tested (for example a pilot) to see whether tutoring the flagged students actually improves outcomes.</p>
+</div></details>
+</section>
+<h3 id="s2-hospital-sepsis-prediction"><a class="anchor" href="#s2-hospital-sepsis-prediction" aria-hidden="true">#</a>S2: Hospital Sepsis Prediction</h3>
+
+<details class="orig-q oq-fold"><summary><span class="oq-lab">📄 Original question</span><span class="oq-src">S2 (Module 1 notes)</span><span class="oq-hint">tap to show</span></summary><div class="oq-body"><p>S2: Hospital Sepsis Prediction A hospital develops a model to predict sepsis within the next six hours. During training, missing blood-pressure values are replaced with the median value for the relevant hospital ward. In production, the software team replaces missing values with zero. The training data also include the number of broad-spectrum antibiotic doses administered. In many records, this value is updated after a physician has already suspected or diagnosed sepsis. The model achieves 98 percent accuracy during development but produces a large number of false alerts after deployment. Questions</p>
+<ul>
+<li>Identify the train-serving mismatch in this case.</li>
+<li>Explain why the antibiotic-dose feature may introduce temporal leakage.</li>
+<li>Why can high offline accuracy coexist with poor real-world performance?</li>
+<li>Which data validation checks should be placed between data ingestion and model inference?</li>
+<li>What fallback action should occur when critical clinical inputs are missing or invalid?</li>
+</ul>
+</div></details>
+
+<section class="question"><div class="q-head">S2(a). Identify the train-serving mismatch in this case.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>In training, missing blood-pressure values were imputed with the median for the relevant ward. In production, the software team imputes missing values with zero. A blood pressure of 0 is physiologically impossible and looks like extreme shock to the model, so it produces floods of high-priority false alarms. This is exactly the notes&#39; train-serving mismatch: different preprocessing pipelines in training and live inference, causing &quot;silent and often catastrophic performance degradation&quot; and alert fatigue.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">S2(b). Explain why the antibiotic-dose feature may introduce temporal leakage.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>The number of broad-spectrum antibiotic doses is often updated after a physician has already suspected or diagnosed sepsis. So in historical records the feature carries information about the diagnosis itself. The model learns to &quot;wait for the doctor&#39;s order&quot;: it detects sepsis by detecting the treatment. At the real index time (six hours before sepsis), those doses have not yet been given, so the feature is unavailable or systematically different. It is future information leaking into the past (and a form of target leakage because the feature is a consequence of the outcome).</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">S2(c). Why can high offline accuracy coexist with poor real-world performance?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
+<li>The leaked antibiotic feature inflates offline accuracy but is absent at prediction time.</li>
+<li>The imputation mismatch changes inputs in production.</li>
+<li>Accuracy is dominated by the many non-sepsis patients (low prevalence), so 98% accuracy can hide poor detection of actual sepsis and a low positive predictive value.</li>
+<li>Offline evaluation may have used random splits and not tested temporal, external or workflow claims. The Epic Sepsis Model shows the same pattern: AUROC 0.63 externally, alerts on 18% of hospitalizations, 67% of cases missed.</li>
+</ul>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">S2(d). Which data validation checks should be placed between data ingestion and model inference?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
+<li>Schema checks: required fields present, correct data types and units (mmHg).</li>
+<li>Range checks: physiologically plausible values (reject BP = 0, heart rate &gt; 300).</li>
+<li>Missingness checks: rate of missing values per feature compared with the reference; flag spikes.</li>
+<li>Imputation consistency test: the same versioned transformation code used in training and serving (feature store); automated test comparing training and serving outputs for the same record.</li>
+<li>Timestamp checks: event time, recording time, availability time; reject features whose availability time is after the index time.</li>
+<li>Distribution/drift checks: compare incoming distributions with training statistics (TFX-style statistics + schema + validation).</li>
+<li>Identity checks: patient and encounter IDs resolve correctly (no split identities after transfers).</li>
+</ul>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">S2(e). What fallback action should occur when critical clinical inputs are missing or invalid?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>The model should abstain rather than impute a misleading value: no risk score is produced (or it is clearly marked &quot;insufficient data&quot;), and the case is routed to the standard clinical process, such as the existing early-warning score or nurse assessment, with a prompt to re-measure the vital sign. Missing-input events should be logged and monitored; if the rate spikes, a circuit breaker should suspend alerts and fall back to the legacy protocol while the pipeline is fixed.</p>
+</div></details>
+</section>
+<h3 id="s3-automated-loan-underwriting"><a class="anchor" href="#s3-automated-loan-underwriting" aria-hidden="true">#</a>S3: Automated Loan Underwriting</h3>
+
+<details class="orig-q oq-fold"><summary><span class="oq-lab">📄 Original question</span><span class="oq-src">S3 (Module 1 notes)</span><span class="oq-hint">tap to show</span></summary><div class="oq-body"><p>S3: Automated Loan Underwriting<br>A bank compares two models for predicting loan default: (a) A deep neural network with 94% accuracy (b) A logistic regression model with 91% accuracy. The deep neural network uses thousands of behavioral features and requires substantial computing resources. Its explanations vary when different post-hoc methods are applied. The logistic regression model uses 15 established financial variables, runs on standard hardware, and provides directly interpretable coefficients. The bank must provide applicants with clear reasons for rejected applications and has limited machine-learning engineering capacity. Questions</p>
+<ul>
+<li>Which model should the bank consider for deployment, and why?</li>
+<li>Why is the model with the highest predictive accuracy not automatically the best operational choice?</li>
+<li>Which criteria beyond accuracy should guide model selection?</li>
+<li>How do interpretability, latency, maintenance cost, and governance requirements affect the decision?</li>
+<li>What information should be documented in a Model Card before deployment?</li>
+</ul>
+</div></details>
+
+<section class="question"><div class="q-head">S3(a). Which model should the bank consider for deployment, and why?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>The logistic regression model (91%). This is the notes&#39; Example 25. The bank must give applicants clear reasons for rejection (adverse-action reasons, as under the Equal Credit Opportunity Act); logistic regression gives directly interpretable coefficients, while the DNN&#39;s explanations vary across post-hoc methods (unstable SHAP-type explanations). The bank also has limited ML engineering capacity, and logistic regression uses 15 established financial variables on standard hardware, making it easier to maintain, audit, recalibrate and monitor. The 3-point accuracy gain does not outweigh legal, governance and lifecycle costs.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">S3(b). Why is the model with the highest predictive accuracy not automatically the best operational choice?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Because accuracy is only one criterion. &quot;The most complex model is not automatically the best model.&quot; A model must also meet legal explainability requirements, run within compute and latency budgets, be maintainable by the available team, be robust to drift (thousands of behavioural features may shift or act as proxies), and be auditable. A model that cannot be explained or maintained will be unusable or risky, however accurate offline.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">S3(c). Which criteria beyond accuracy should guide model selection?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Data characteristics (size relative to model complexity; about 50,000 applications a year is small for a large DNN); task requirements (calibrated default probabilities); operational constraints (latency, memory, compute); governance and trust (interpretability, explainability, robustness, fairness across groups, proxy risk in behavioural features); lifecycle costs (maintenance burden, team expertise, retraining frequency); plus calibration, subgroup performance and external/temporal validation.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">S3(d). How do interpretability, latency, maintenance cost, and governance requirements affect the decision?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
+<li>Interpretability: decisive. Regulations require specific reasons; coefficients provide stable, auditable reasons, while variable post-hoc explanations do not.</li>
+<li>Latency: both may respond in milliseconds, but the DNN needs much more computing resources (CPUs/GPUs) to keep that speed at scale; logistic regression runs cheaply on standard CPUs.</li>
+<li>Maintenance cost: when macroeconomic conditions shift (inflation spike), relationships change; a DNN needs specialized ML engineers to monitor, recalibrate and retrain, whereas standard risk analysts can maintain logistic regression.</li>
+<li>Governance: auditors and regulators need to understand and challenge decisions; thousands of behavioural features raise proxy-discrimination and privacy risks that are hard to audit.</li>
+</ul>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">S3(e). What information should be documented in a Model Card before deployment?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Model overview (name, version, type: logistic regression binary classifier of default within a defined horizon; purpose; intended use as decision support for underwriters); data description (source and period of loan records, the 15 features and definitions, preprocessing and missing-value handling, exclusions); performance (accuracy, precision, recall, AUROC, calibration curve, confidence intervals, temporal validation results); subgroup performance by protected and proxy-sensitive groups (age, sex, region, thin-credit-file applicants); fairness observations; known limitations (limited credit history, economic regime changes); intended and inappropriate uses (not for automated rejection without review, not for other products or countries without validation); the decision threshold and its justification; adverse-action reason generation; monitoring plan and triggers for recalibration or rollback; and the accountable owner.</p>
+</div></details>
+</section>
+<h3 id="s4-ai-based-recruitment-ranking"><a class="anchor" href="#s4-ai-based-recruitment-ranking" aria-hidden="true">#</a>S4: AI-Based Recruitment Ranking</h3>
+
+<details class="orig-q oq-fold"><summary><span class="oq-lab">📄 Original question</span><span class="oq-src">S4 (Module 1 notes)</span><span class="oq-hint">tap to show</span></summary><div class="oq-body"><p>S4: AI Based Recruitment Ranking A company trains a ranking model using ten years of historical recruitment data. The model gives higher scores to applicants from a small group of universities because candidates from these institutions were hired more frequently in the past. Recruiters receive a dashboard containing a ranked list of applicants. The interface highlights the top ten candidates in green, while all remaining candidates appear in grey. Recruiters are instructed to review all applications, but most interview invitations are sent only to the highlighted candidates. After one year, the company retrains the model using the new hiring data generated under this process. Questions</p>
+<ul>
+<li>Why should this system be understood as a socio-technical system rather than only as a ranking algorithm?</li>
+<li>How may historical hiring data encode institutional bias?</li>
+<li>How can the dashboard design influence human decisions and create automation bias?</li>
+<li>Explain how retraining on the new hiring data may create a self-reinforcing feedback loop.</li>
+<li>Which stakeholders should be responsible for governing, measuring, and managing the risks of this system?</li>
+</ul>
+</div></details>
+
+<section class="question"><div class="q-head">S4(a). Why should this system be understood as a socio-technical system rather than only as a ranking algorithm?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Its impact depends on all five layers: the model (ranks applicants), the data infrastructure (ten years of past hiring decisions), the interface (top ten in green, the rest grey), the human workflow (recruiters told to review all, but invitations go mostly to the highlighted ten), and the institutional rules (retraining on new hires, employment law, fairness policy). The outcome, who gets interviewed, is produced by this whole composite, not by the ranking function alone. This is the notes&#39; Example 12.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">S4(b). How may historical hiring data encode institutional bias?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>The label is &quot;who was hired in the past&quot;, which records past recruiter decisions, not true candidate quality (status quo bias). If recruiters favoured a small group of universities (because of networks, prestige or familiarity), the model learns university as a strong signal. University then acts as a proxy for socioeconomic status, geography and other protected attributes (proxy encoding). The model reproduces the old preference &quot;faster and at a much larger scale&quot;.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">S4(c). How can the dashboard design influence human decisions and create automation bias?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Colour-highlighting the top ten signals &quot;these are the right ones&quot; and makes accepting the ranking the easiest option; the grey candidates look pre-rejected. Automation bias is &quot;the tendency of humans to place excessive trust in automated systems and accept their outputs without sufficient independent evaluation&quot;. Although recruiters are instructed to review everyone, most invitations go to the green candidates, so the formal instruction is overridden by the interface. There is no uncertainty information, so small score differences look meaningful.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">S4(d). Explain how retraining on the new hiring data may create a self-reinforcing feedback loop.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Candidates from the favoured universities are ranked high → highlighted → interviewed and hired → recorded as successful. Candidates from other universities are rarely interviewed, so their potential success is never observed (selective labels). Retraining on these new hires therefore shows an even stronger link between the favoured universities and hiring. The model&#39;s output has become its input: past exposure → observed interaction → training data → future exposure. The bias grows and the model looks increasingly &quot;accurate&quot; because it is judged on people it selected.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">S4(e). Which stakeholders should be responsible for governing, measuring, and managing the risks of this system?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Apply NIST: Govern: senior HR leadership and the organization&#39;s AI governance/ethics committee, with legal/compliance, set policy and name an accountable owner who can suspend the system. Map: HR, legal, diversity and inclusion teams and data scientists identify risks (proxy discrimination, automation bias, feedback loops) and affected groups (applicants from non-favoured universities). Measure: data scientists and independent auditors track selection rates and error rates by subgroup, override rates, drift and feedback effects. Manage: product/interface designers remove the green/grey framing and add uncertainty; recruiters and hiring managers keep decision authority and log overrides; ML engineers use counterfactual logging and stop naive retraining; an appeal channel for applicants. Applicants and regulators are stakeholders who must be informed and consulted.</p>
+</div></details>
+</section>
+<h3 id="s5-smart-warehouse-robot"><a class="anchor" href="#s5-smart-warehouse-robot" aria-hidden="true">#</a>S5: Smart Warehouse Robot</h3>
+
+<details class="orig-q oq-fold"><summary><span class="oq-lab">📄 Original question</span><span class="oq-src">S5 (Module 1 notes)</span><span class="oq-hint">tap to show</span></summary><div class="oq-body"><p>S5: Smart Warehouse Robot A warehouse deploys a robot that identifies packages using cameras, calculates routes through the facility, and transports items to shipping stations. The robot uses:</p>
+<ul>
+<li>A deep learning model for package and obstacle recognition</li>
+<li>A search algorithm for route selection</li>
+<li>An optimization procedure for reducing travel time</li>
+<li>Explicit rules that prohibit entry into restricted areas</li>
+<li>A safety controller that stops the robot when collision risk becomes high</li>
+<li>Human review when damaged packages are detected During peak season, the layout of the warehouse changes, new packaging materials are introduced, and the number of workers in the facility increases. The robot begins taking longer routes and occasionally fails to recognize reflective packages. Questions</li>
+<li>Why is this system an example of hybrid AI?</li>
+<li>Which components are statistical, symbolic, search-based, optimization-based, and human-controlled?</li>
+<li>What types of data drift or environmental change are present?</li>
+<li>Which operational indicators should be monitored after deployment?</li>
+<li>Under what conditions should the robot abstain, stop, use a fallback procedure, or request human review? These are take-home reflection questions intended to encourage deep thinking and planning. There are no single correct answers. Each question can’t be answered in a couple sentences. It will push you to think deeply about the concepts, principles, and practices in this module.</li>
+</ul>
+</div></details>
+
+<section class="question"><div class="q-head">S5(a). Why is this system an example of hybrid AI?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>It combines several computational approaches, each used where it fits: deep learning for noisy visual perception, search for routing, optimization for travel time, explicit rules for restricted areas, a safety controller for collisions, and human review for damaged packages. Neither a purely symbolic system (cannot interpret noisy camera images) nor a purely statistical system (might violate safety rules in unfamiliar situations) would be sufficient. This is the notes&#39; Example 9.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">S5(b). Which components are statistical, symbolic, search-based, optimization-based, and human-controlled?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><div class="tbl"><table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Component</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Statistical (learned)</td>
+<td>Deep learning model for package and obstacle recognition</td>
+</tr>
+<tr>
+<td>Symbolic (rule-based)</td>
+<td>Explicit rules prohibiting entry into restricted areas; the safety controller&#39;s stop rule (collision-risk threshold)</td>
+</tr>
+<tr>
+<td>Search-based</td>
+<td>Search algorithm for route selection</td>
+</tr>
+<tr>
+<td>Optimization-based</td>
+<td>Procedure that minimizes travel time</td>
+</tr>
+<tr>
+<td>Human-controlled</td>
+<td>Review and final decision on damaged packages</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">S5(c). What types of data drift or environmental change are present?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
+<li>Environment/layout change: the warehouse layout changes, so the map and learned traversable paths are outdated (the search space and costs changed); routes get longer.</li>
+<li>Input distribution drift (new device/appearance): new reflective packaging materials look different from training images, so the perception model fails to recognize them (covariate shift and possibly a new unseen class).</li>
+<li>Population/context change: more workers in the facility (more people and obstacles, more congestion), which changes traffic patterns and the frequency of safety stops.</li>
+<li>Seasonal effect: peak season raises volume and changes the operating regime.</li>
+</ul>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">S5(d). Which operational indicators should be monitored after deployment?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Recognition confidence and failure rate by package type (especially reflective); abstention/unknown-object rate; route length, travel time and delivery time vs planned; frequency of re-planning and blocked paths; safety-stop and near-miss counts; congestion and throughput (packages per hour); collision-risk events near workers; human-review volume for damaged packages and override rates; map-version/layout-change logs; operational health (latency, battery, uptime); and input drift statistics of camera images (lighting, reflectance).</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">S5(e). Under what conditions should the robot abstain, stop, use a fallback procedure, or request human review?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
+<li>Abstain: when recognition confidence for a package is below a threshold (for example a reflective package it cannot classify), do not pick or sort it; flag it.</li>
+<li>Stop: when the safety controller detects high collision risk or a person in its path, or when entering a restricted area is possible; safety rules always override the learned policy.</li>
+<li>Fallback: when the map does not match observed layout (repeated failed routes, blocked paths), switch to a conservative mode (lower speed, pre-approved safe routes, re-mapping) or a manual dispatch procedure; roll back to a previous model if a new version increases failures.</li>
+<li>Request human review: damaged packages, unrecognized or unusual objects, repeated recognition failures, and ambiguous situations near workers.</li>
+</ul>
+</div></details>
+</section>
+<h2 id="reflections-r1-r5"><a class="anchor" href="#reflections-r1-r5" aria-hidden="true">#</a>Reflections R1–R5</h2>
+<p>The notes say these have &quot;no single correct answers&quot; and cannot be answered in a couple of sentences. The answers below give a complete, defensible structure. In a quiz, use the headings as your skeleton and add two or three points under each.</p>
+<h3 id="r1-national-early-warning-system-for-disease-outbreaks"><a class="anchor" href="#r1-national-early-warning-system-for-disease-outbreaks" aria-hidden="true">#</a>R1: National Early Warning System for Disease Outbreaks</h3>
+
+<details class="orig-q oq-fold"><summary><span class="oq-lab">📄 Original question</span><span class="oq-src">R1 (Module 1 notes)</span><span class="oq-hint">tap to show</span></summary><div class="oq-body"><p>R1: National Early Warning System for Disease Outbreaks A national public health agency proposes an AI system to identify emerging infectious disease outbreaks before hospitals become overwhelmed. The proposed system will combine hospital admission records, pharmacy sales, laboratory test orders, school absenteeism, internet search activity, weather conditions, and social media posts. The project team initially defines the objective as follows: Use AI to detect disease outbreaks as early as possible. A machine learning model performs well when tested retrospectively. However, several concerns emerge. Internet search activity changes after media reports about a disease. Laboratory testing is more frequent in wealthy urban areas than in rural regions. Pharmacy sales include purchases made for prevention rather than illness. Social media activity is<br>concentrated among younger populations. The system may also influence future data because issuing an outbreak warning can increase testing, hospital visits, online searches, and public concern. Questions</p>
+<ul>
+<li>Reformulate the problem comprehensively. Define the target population, unit of analysis, index time, prediction horizon, output, decision-maker, intended intervention, resource constraints, and acceptable delay. Explain whether the primary task should be classification, anomaly detection, forecasting, causal estimation, or a hybrid of several problem types.</li>
+<li>Examine the meaning of the available data. For every major source, discuss what phenomenon it directly measures, what it only approximates, and how the data- generation process may differ across regions and populations. Identify the proxies, missing populations, selective labels, and possible measurement biases.</li>
+<li>Design an evaluation strategy that matches the deployment claims. Explain how temporal validation, geographic validation, calibration assessment, subgroup analysis, detection delay, false-alarm rate, and comparison with existing epidemiological surveillance should be incorporated. Discuss why a random train- test split would be inadequate.</li>
+<li>Analyze the feedback loop created by deployment. Explain how an alert could change testing, reporting, public behavior, and future training data. Propose a logging, monitoring, and retraining strategy that distinguishes changes in actual disease prevalence from changes caused by the warning system itself.</li>
+<li>Develop a governance plan. Allocate responsibility across public health officials, data engineers, epidemiologists, model developers, hospitals, communication teams, and government leaders. Apply the Govern, Map, Measure, and Manage functions to determine when the system should issue a warning, abstain, request expert review, or be suspended.</li>
+</ul>
+</div></details>
+
+<section class="question"><div class="q-head">R1(a). Reformulate the problem comprehensively and choose the problem type.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Worksheet statement: &quot;Every Monday (index time), for each district in the country (unit of analysis: district-week), using only data received and validated by Sunday midnight (hospital admissions for respiratory and gastrointestinal syndromes, laboratory test orders and positivity, pharmacy sales, school absenteeism, weather, search and social-media signals, each with its reporting lag), produce (i) a calibrated probability that confirmed cases of a target disease will exceed the district&#39;s seasonal epidemic threshold within the next 2 to 4 weeks, (ii) a forecast with prediction intervals of cases and hospital admissions, and (iii) an anomaly flag for unusual syndromic patterns, so that the national public-health agency&#39;s epidemiology team can decide whether to issue an alert, dispatch investigation teams, pre-position test kits, or notify hospitals to prepare surge capacity. The system will be compared with the existing surveillance system and seasonal baselines and evaluated with detection delay, false-alarm rate, sensitivity, calibration, and regional and subgroup performance, while accounting for the cost of missed and late outbreaks, alert fatigue and public panic, data inequality between urban and rural areas, investigation-team capacity, and privacy governance.&quot;</p>
+<ul>
+<li>Target population: the national population, represented by districts; include rural and urban districts; separate pathogens (for example influenza-like illness, cholera, dengue) because signals differ.</li>
+<li>Unit of analysis: district-week (not individuals), which keeps privacy and matches the response unit.</li>
+<li>Index time: weekly (daily during active alerts), after data arrive and pass validation.</li>
+<li>Prediction horizon: 2 to 4 weeks ahead, the lead time needed to mobilize staff, supplies and hospital beds (a horizon too short is useless, like the six-minute flood warning).</li>
+<li>Output: probabilities, forecast intervals and anomaly flags with uncertainty, plus abstention when data are too incomplete.</li>
+<li>Decision-maker: the national epidemiology/surveillance unit, with regional health officers; not an automatic public announcement.</li>
+<li>Intended intervention: field investigation, confirmatory testing, hospital preparedness, targeted communication, vaccination or supplies.</li>
+<li>Resource constraints: limited investigation teams and test kits; limited ability to respond to many alerts at once.</li>
+<li>Acceptable delay: alerts must arrive before hospitals are overwhelmed (for example at least two weeks earlier than the current surveillance signal).</li>
+</ul>
+<p>Problem type: hybrid. Forecasting (future admissions with intervals, temporal ordering), anomaly detection (new or unexpected patterns, where &quot;unusual is not the same as undesirable&quot; and an investigation policy is required), classification (probability of exceeding a threshold), and decision optimization (allocating limited teams). Causal estimation is needed later to judge whether interventions worked. A single classifier would ignore time, uncertainty and capacity.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">R1(b). Examine the meaning of the available data (proxies, missing populations, selective labels, measurement bias).</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><div class="tbl"><table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Directly measures</th>
+<th>Only approximates</th>
+<th>Bias and variation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Hospital admissions</td>
+<td>People admitted with certain diagnoses</td>
+<td>Community disease activity (severe cases only)</td>
+<td>Access to hospitals differs; coding practices vary; lag; late-stage signal</td>
+</tr>
+<tr>
+<td>Laboratory test orders/results</td>
+<td>Tests ordered and positives</td>
+<td>Infection prevalence</td>
+<td>Testing much more frequent in wealthy urban areas; rural areas look &quot;healthy&quot; because unobserved (selective labels, access bias)</td>
+</tr>
+<tr>
+<td>Pharmacy sales</td>
+<td>Purchases of medicines</td>
+<td>Illness in the community</td>
+<td>Includes preventive purchases, stockpiling after news, promotions; pharmacy coverage uneven</td>
+</tr>
+<tr>
+<td>School absenteeism</td>
+<td>Children absent from school</td>
+<td>Illness among children</td>
+<td>Holidays, weather, strikes; covers only school-age children</td>
+</tr>
+<tr>
+<td>Internet search</td>
+<td>Search queries</td>
+<td>Symptoms and concern</td>
+<td>Changes after media reports; platform changes (Google Flu Trends); requires internet access</td>
+</tr>
+<tr>
+<td>Social media</td>
+<td>Posts by users</td>
+<td>Public concern and symptoms</td>
+<td>Concentrated among younger, urban users; bots; rumours</td>
+</tr>
+<tr>
+<td>Weather</td>
+<td>Temperature, rainfall, humidity</td>
+<td>Conditions favouring transmission</td>
+<td>Station coverage; a driver, not a measure of disease</td>
+</tr>
+</tbody></table></div>
+<ul>
+<li>Proxies: almost every source is a proxy for disease; their relationship to true prevalence can change (proxy instability).</li>
+<li>Missing populations: rural, poor, elderly, offline populations and people who do not seek care.</li>
+<li>Selective labels: confirmed cases exist only where tests were done; negatives in low-testing areas mean &quot;not observed&quot;, not &quot;no disease&quot; (the meaning of &quot;negative&quot;).</li>
+<li>Measurement bias: case definitions, lab capacity and reporting lags differ by region and change over time.</li>
+</ul>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">R1(c). Design an evaluation strategy that matches the deployment claims.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
+<li>Temporal validation: train on earlier seasons and test on later ones (rolling-origin validation), because the claim is about predicting future outbreaks. A random train-test split would leak future information (weeks from the same outbreak on both sides, autocorrelated data) and make performance look better than reality.</li>
+<li>Geographic validation: hold out entire regions (especially rural, low-testing regions) to test transportability.</li>
+<li>Calibration: check that a predicted 30% chance of exceeding the threshold matches the observed frequency; check interval coverage for forecasts.</li>
+<li>Subgroup/regional analysis: sensitivity, false-alarm rate and delay by region, urban vs rural, income level and age group.</li>
+<li>Detection delay: how many weeks earlier than the current surveillance system the alert fires (the key utility metric).</li>
+<li>False-alarm rate: alerts per region per season, because false alarms cause alert fatigue, wasted teams and public panic.</li>
+<li>Baseline comparison: compare with existing epidemiological surveillance and seasonal/naive baselines; Google Flu Trends showed that combining new signals with lagged official data beat either alone.</li>
+<li>Stress tests: high-media periods, new pathogens, data outages.</li>
+<li>Prospective silent evaluation before any public use.</li>
+</ul>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">R1(d). Analyze the feedback loop created by deployment and propose a logging, monitoring and retraining strategy.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>An alert changes the data-generating process: more testing is ordered (more positives found), more people go to hospital, searches and social-media posts increase, pharmacies sell more. The next week&#39;s data therefore look worse partly because of the alert (a performative effect), and retraining on these data would teach the model that its alert was correct (self-reinforcing bias). Conversely, a successful intervention reduces cases and may make the alert look like a false alarm.</p>
+<p>Strategy:</p>
+<ul>
+<li>Log every alert and response (counterfactual logging): which districts were alerted, when, what actions were taken, testing volumes before and after.</li>
+<li>Adjust for testing effort: track test positivity rate and tests per capita, not just case counts; use lab-confirmed cases and hospital admissions as more stable anchors.</li>
+<li>Mark post-alert periods in training data, or model them explicitly, so the model does not learn from its own influence.</li>
+<li>Keep held-out comparison areas or use staggered rollout where ethically acceptable to estimate the alert&#39;s effect.</li>
+<li>Monitor input drift, residual error, calibration, alert volume, media events and platform changes; persistent residual growth should trigger recalibration or suspension (Google Flu Trends lesson).</li>
+<li>Retrain on a schedule with human epidemiologist review, not automatically after each alert.</li>
+</ul>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">R1(e). Develop a governance plan using Govern, Map, Measure and Manage.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Responsibilities: public-health officials (own the decision to warn and the response); epidemiologists (define case definitions and thresholds, review every alert); data engineers (pipelines, validation, lineage, privacy); model developers (models, calibration, documentation, model card); hospitals (timely, consistent reporting, surge planning); communication teams (clear public messages that avoid panic); government leaders (mandate, resources, legal basis, accountability).</p>
+<ul>
+<li>Govern: a surveillance governance board chaired by the national public-health authority; a named accountable owner; privacy rules (aggregate district data, no individual social-media tracking), data-sharing agreements, documentation (datasheets, model card), and escalation rules.</li>
+<li>Map: identify risks: under-detection in rural/low-testing areas, false alarms and panic, stigma of alerted districts, privacy harms, proxy instability, feedback loops.</li>
+<li>Measure: detection delay, false-alarm rate, calibration, regional and subgroup performance, data completeness, feedback indicators.</li>
+<li>Manage: decision rules for action:</li>
+<li>Issue a warning when the calibrated probability exceeds the agreed threshold and an epidemiologist confirms with at least one anchored source (lab or hospital data).</li>
+<li>Abstain when key sources are missing or delayed (for example a district&#39;s lab reports absent), and show &quot;insufficient data&quot;.</li>
+<li>Request expert review for anomalies driven mainly by search or social-media signals, or for new patterns.</li>
+<li>Suspend the model if residual error or false alarms exceed limits, if a data-source definition changes, or if the system is shown to systematically miss certain regions; fall back to traditional surveillance.</li>
+</ul>
+</div></details>
+</section>
+<h3 id="r2-adaptive-traffic-management-for-a-large-city"><a class="anchor" href="#r2-adaptive-traffic-management-for-a-large-city" aria-hidden="true">#</a>R2: Adaptive Traffic Management for a Large City</h3>
+
+<details class="orig-q oq-fold"><summary><span class="oq-lab">📄 Original question</span><span class="oq-src">R2 (Module 1 notes)</span><span class="oq-hint">tap to show</span></summary><div class="oq-body"><p>R2: Adaptive Traffic Management for a Large City A city plans to replace fixed traffic-light schedules with an AI-based traffic-management system. The system will use road cameras, vehicle sensors, mobile-phone location data, public-transport schedules, emergency-service requests, weather information, and historical traffic records. The stated goal is to minimize average travel time. The optimization system learns to give longer green signals to roads with the largest traffic volumes. After deployment, average travel time decreases by 12 percent, but buses become less reliable, pedestrian waiting times increase, cyclists report more dangerous crossings, and traffic is redirected through low-income residential areas.<br>The city argues that the system is successful because it achieved the objective that engineers specified. Questions</p>
+<ul>
+<li>Critique the objective function. Explain why minimizing average vehicle travel time may be mathematically clear but socially incomplete. Propose a multi-objective formulation that accounts for public transport, pedestrians, cyclists, emergency vehicles, air pollution, neighborhood disruption, safety, and equity.</li>
+<li>Distinguish prediction, planning, optimization, and control within this system. Identify the role played by each component and explain why the complete system cannot be described merely as a traffic-prediction model.</li>
+<li>Analyze the representation of the city. Discuss which road users are visible to the data infrastructure and which may be poorly represented. Explain how mobile-phone ownership, camera placement, sensor coverage, and historical planning decisions could produce aggregation bias or proxy encoding.</li>
+<li>Propose a decision-cost framework. Identify the costs of false congestion alarms, missed congestion, delayed emergency vehicles, pedestrian risk, pollution, and workflow failure. Explain how these costs should influence real-time control decisions rather than relying only on average accuracy or travel time.</li>
+<li>Treat the system as a socio-technical composite. Analyze how the model, data infrastructure, public interface, traffic-control workflow, transport policy, legal rules, and public accountability mechanisms jointly determine outcomes. Explain who should have authority to modify objectives, thresholds, and safety constraints.</li>
+</ul>
+</div></details>
+
+<section class="question"><div class="q-head">R2(a). Critique the objective function and propose a multi-objective formulation.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Minimizing average vehicle travel time is mathematically clear but socially incomplete: it counts only vehicles (not people), weights every vehicle equally (a bus with 60 passengers counts like a car with one), ignores pedestrians and cyclists, ignores safety, pollution and where traffic goes, and ignores the distribution of costs. Optimization is &quot;ethically blind&quot;; it found the most efficient path to the specified objective by pushing costs onto buses, pedestrians, cyclists and low-income neighbourhoods. The 12% improvement is a success on a proxy objective.</p>
+<p>Multi-objective formulation (minimize over signal plans):</p>
+<p>J = w1·(person-weighted travel time) + w2·(bus delay and schedule deviation) + w3·(pedestrian waiting time) + w4·(cyclist risk) + w5·(emergency response delay) + w6·(emissions) + w7·(neighbourhood through-traffic)</p>
+<p>Subject to hard constraints: maximum pedestrian wait (for example ≤ 60 s), minimum safe crossing times, emergency-vehicle priority, speed and safety rules, and equity constraints (no neighbourhood&#39;s through-traffic or pollution may increase by more than an agreed limit). Weights should be set by the city through public consultation, not by engineers alone, and results reported by group and area.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">R2(b). Distinguish prediction, planning, optimization and control within this system.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
+<li>Prediction/forecasting: forecasting traffic volumes, congestion and bus arrivals over the next minutes to hours from cameras, sensors, phone data and history.</li>
+<li>Planning: choosing sequences of signal plans and coordination across corridors (green waves), and planning routes for emergency vehicles.</li>
+<li>Optimization: selecting signal timings that minimize the chosen objective under constraints.</li>
+<li>Control: continuously observing the network and adjusting signals in real time: x_{t+1} = F(x_t, u_t, w_t); the actions change the traffic being predicted.</li>
+</ul>
+<p>It cannot be described as a traffic-prediction model because its signals act on the city: it changes routes, travel behaviour and neighbourhood traffic, creating feedback loops. Harm came from the optimization objective and control actions, not from prediction error.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">R2(c). Analyze the representation of the city: who is visible and who is poorly represented?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
+<li>Vehicles are highly visible (cameras and sensors at intersections); pedestrians and cyclists are poorly represented (sensors often detect only vehicles; camera placement on major roads).</li>
+<li>Mobile-phone location data over-represent people who own smartphones and share location (younger, wealthier); under-represent elderly and poor residents; phone density can be mistaken for demand (proxy encoding).</li>
+<li>Camera and sensor coverage is uneven, often concentrated on arterial roads and wealthy districts; low-income areas may have fewer sensors, so extra traffic there is not seen.</li>
+<li>Historical planning decisions (which roads were built wide, where sensors were installed) are embedded in the data; optimizing on them reproduces past priorities.</li>
+<li>Aggregation bias: citywide average travel time hides that some groups (bus riders, pedestrians, residents of certain neighbourhoods) are worse off.</li>
+</ul>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">R2(d). Propose a decision-cost framework.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>C(t) = c_FP·P(false congestion alarm) + c_FN·P(missed congestion) + c_emerg·E[emergency delay] + c_ped·(pedestrian risk) + c_poll·(pollution) + c_workflow</p>
+<ul>
+<li>False congestion alarms: unnecessary signal changes, diverted traffic into neighbourhoods, wasted green time.</li>
+<li>Missed congestion: gridlock, delays, spillback.</li>
+<li>Delayed emergency vehicles: very high cost (lives), so emergency priority is a hard constraint.</li>
+<li>Pedestrian risk: injury and death; hard safety constraints on crossing times.</li>
+<li>Pollution: health costs concentrated in exposed neighbourhoods.</li>
+<li>Workflow failure: operators overwhelmed, manual overrides, system outages.</li>
+</ul>
+<p>These costs should decide real-time control actions (for example do not shorten pedestrian phases even if it improves average travel time), rather than average accuracy or travel time alone.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">R2(e). Treat the system as a socio-technical composite and decide who may modify objectives, thresholds and safety constraints.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
+<li>Model: forecasting and optimization/control algorithms.</li>
+<li>Data infrastructure: cameras, sensors, phone data, transit feeds, their coverage and quality.</li>
+<li>Public interface: signals, public dashboards, travel apps, and channels for complaints.</li>
+<li>Traffic-control workflow: operators who monitor, override and respond to incidents.</li>
+<li>Transport policy: priorities for public transport, walking, cycling, safety (Vision Zero).</li>
+<li>Legal rules: traffic law, safety standards, environmental and equity law, data protection.</li>
+<li>Accountability: council oversight, audits, public reporting.</li>
+</ul>
+<p>Authority: objectives and weights should be set by the elected city council/transport authority after public consultation; safety constraints by the transport safety authority and traffic engineers (and they cannot be traded away by the optimizer); thresholds and operational parameters by the traffic-control centre within approved limits, with changes versioned and logged; independent auditors review equity impacts. Engineers implement but should not alone define what &quot;success&quot; means.</p>
+</div></details>
+</section>
+<h3 id="r3-generative-ai-adviser-for-university-students"><a class="anchor" href="#r3-generative-ai-adviser-for-university-students" aria-hidden="true">#</a>R3: Generative AI Adviser for University Students</h3>
+
+<details class="orig-q oq-fold"><summary><span class="oq-lab">📄 Original question</span><span class="oq-src">R3 (Module 1 notes)</span><span class="oq-hint">tap to show</span></summary><div class="oq-body"><p>R3: Generative AI Adviser for University Students A university introduces a generative AI adviser to help students select courses, understand degree requirements, prepare study plans, and identify academic-support services. The system uses curriculum documents, course descriptions, student records, prerequisite rules, historical enrolment data, and university policies. During a pilot, students report that the adviser is fluent, patient, and available at all hours. However, it occasionally invents course prerequisites, recommends classes that are not being offered, exposes information from another student record, and presents outdated academic regulations with high confidence. Some students begin following its recommendations without consulting faculty advisers. University leadership proposes allowing the system to register students automatically in order to reduce administrative workload. Questions</p>
+<ul>
+<li>Locate this system within the AI landscape. Explain which parts involve generative AI, information retrieval, symbolic rules, search, recommendation, optimization,<br>automation, and human decision support. Develop a hybrid architecture that uses each approach only where it is appropriate.</li>
+<li>Define the boundary between intelligence and autonomy. Discuss whether the adviser should remain passive, operate as decision support, execute routine actions semi-autonomously, or be permitted to register students without immediate human approval. Justify different autonomy levels for low-risk and high-risk actions.</li>
+<li>Design mechanisms for grounding and reliability. Explain how retrieval from authoritative university sources, rule-based prerequisite checking, source citation, uncertainty communication, abstention, version control, and human escalation could reduce confabulation and outdated advice.</li>
+<li>Examine human-system interaction risks. Discuss automation bias, overreliance, interface design, unequal access to human advisers, and the possibility that professionally written but incorrect advice may be accepted without verification. Propose interface features that encourage critical review.</li>
+<li>Develop an end-to-end monitoring plan. Specify indicators for factual accuracy, privacy violations, outdated knowledge, student overrides, human escalations, harmful recommendations, subgroup differences, response latency, system availability, and real-world academic outcomes. Explain what events should trigger rollback or temporary suspension.</li>
+</ul>
+</div></details>
+
+<section class="question"><div class="q-head">R3(a). Locate the system in the AI landscape and develop a hybrid architecture.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><div class="tbl"><table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Role and appropriate use</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Generative AI (LLM)</td>
+<td>Natural-language conversation, explanation and drafting of study plans; should not be the source of facts.</td>
+</tr>
+<tr>
+<td>Information retrieval</td>
+<td>Retrieve current curriculum documents, course offerings, policies (retrieval-augmented generation) so answers are grounded.</td>
+</tr>
+<tr>
+<td>Symbolic rules</td>
+<td>Prerequisite checking, degree-requirement audits, credit limits, eligibility rules; deterministic and verifiable.</td>
+</tr>
+<tr>
+<td>Search</td>
+<td>Search over the space of course combinations and schedules that satisfy constraints.</td>
+</tr>
+<tr>
+<td>Recommendation</td>
+<td>Rank suitable courses for the student&#39;s goals and history (with care about feedback loops from historical enrolment).</td>
+</tr>
+<tr>
+<td>Optimization</td>
+<td>Build timetables that satisfy constraints (clashes, workload).</td>
+</tr>
+<tr>
+<td>Automation</td>
+<td>Routine actions such as booking an appointment with a faculty adviser or saving a draft plan.</td>
+</tr>
+<tr>
+<td>Human decision support</td>
+<td>Faculty advisers approve study plans and handle exceptions.</td>
+</tr>
+</tbody></table></div>
+<p>Hybrid design: the LLM is only the interface. Facts come from retrieval over authoritative, versioned sources; every recommendation passes a rule-based prerequisite and requirement checker; schedule options come from search/optimization; outputs are shown as a draft with citations; registration and exceptions go to a human adviser. Student records are accessed only through an access-controlled service that returns the current user&#39;s data.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">R3(b). Define the boundary between intelligence and autonomy.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Fluency is not authority: &quot;autonomy must not be conflated with intelligence.&quot; Levels by risk:</p>
+<ul>
+<li>Passive/informational (allowed): explaining policies, describing courses with citations.</li>
+<li>Decision support (default): proposing course lists and study plans that the student and adviser review.</li>
+<li>Semi-autonomous (low-risk actions only): booking an advising appointment, saving a plan, sending reminders, with undo.</li>
+<li>Not permitted without human approval: registering or dropping courses, changing degree programmes, anything affecting graduation, fees, visas, scholarships or academic standing.</li>
+</ul>
+<p>Automatic registration is inappropriate now, because the pilot shows invented prerequisites, unavailable classes, outdated rules and privacy leaks; errors would be costly and hard to reverse (missed prerequisites delay graduation). If ever introduced, it should be semi-autonomous: only rule-verified, low-risk registrations, with student confirmation, an adviser sign-off queue and easy reversal.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">R3(c). Design mechanisms for grounding and reliability.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
+<li>Retrieval from authoritative sources: answers generated only from the current, official catalogue, timetable and regulations.</li>
+<li>Rule-based prerequisite checking: every recommended course is checked by a deterministic rule engine against the student&#39;s record and current offerings.</li>
+<li>Source citation: every factual statement links to the document and version used.</li>
+<li>Uncertainty communication: state confidence and when information may be incomplete.</li>
+<li>Abstention: &quot;I cannot confirm this; please contact your adviser&quot; when no authoritative source is found or sources conflict.</li>
+<li>Version control: documents and rules versioned with effective dates; outdated regulations retired; the model and prompts versioned.</li>
+<li>Human escalation: exceptions, conflicting rules, high-stakes questions go to a faculty adviser.</li>
+</ul>
+<p>Together these reduce confabulation (NIST&#39;s first generative risk) and outdated advice.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">R3(d). Examine human-system interaction risks and propose interface features.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Risks: automation bias and overreliance (students follow fluent advice without checking); interface design that presents answers as authoritative; information integrity (professionally written but incorrect advice accepted without verification, like the junior associate and the NDA); unequal access (students with fewer human advisers or less confidence rely more on the AI, so errors fall unevenly); privacy fears.</p>
+<p>Interface features: visible citations and &quot;last updated&quot; dates; a clear banner that advice is not official until approved; confidence indicators; highlighting any requirement the checker could not verify; a &quot;check with adviser&quot; button and easy booking; showing alternatives rather than one answer; requiring confirmation of key facts before any action; reporting of wrong answers; and guaranteed human-adviser availability for disadvantaged students.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">R3(e). Develop an end-to-end monitoring plan and rollback triggers.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><div class="tbl"><table>
+<thead>
+<tr>
+<th>Indicator</th>
+<th>How measured</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Factual accuracy</td>
+<td>Audited sample of answers vs official sources; hallucinated prerequisites or courses</td>
+</tr>
+<tr>
+<td>Privacy violations</td>
+<td>Any exposure of another student&#39;s data (target: zero); access-log audits</td>
+</tr>
+<tr>
+<td>Outdated knowledge</td>
+<td>Answers citing superseded document versions</td>
+</tr>
+<tr>
+<td>Student overrides</td>
+<td>How often students or advisers reject recommendations</td>
+</tr>
+<tr>
+<td>Human escalations</td>
+<td>Volume and reasons for referral to advisers</td>
+</tr>
+<tr>
+<td>Harmful recommendations</td>
+<td>Plans that would delay graduation or break rules</td>
+</tr>
+<tr>
+<td>Subgroup differences</td>
+<td>Accuracy, escalation and outcome by programme, year, international status, first-generation students</td>
+</tr>
+<tr>
+<td>Latency and availability</td>
+<td>Response time, uptime</td>
+</tr>
+<tr>
+<td>Real-world outcomes</td>
+<td>Registration errors, graduation delays, satisfaction, adviser workload</td>
+</tr>
+</tbody></table></div>
+<p>Triggers: any confirmed exposure of another student&#39;s record → immediate suspension of record access and incident response; a rise in hallucinated prerequisites or outdated-regulation answers above an agreed rate → rollback to the previous version or retrieval-only mode; policy changes not yet ingested → temporary suspension of affected topics; subgroup gaps or harmful plans above limits → restrict to informational mode until fixed.</p>
+</div></details>
+</section>
+<h3 id="r4-ai-for-climate-smart-agricultural-support"><a class="anchor" href="#r4-ai-for-climate-smart-agricultural-support" aria-hidden="true">#</a>R4: AI for Climate-Smart Agricultural Support</h3>
+
+<details class="orig-q oq-fold"><summary><span class="oq-lab">📄 Original question</span><span class="oq-src">R4 (Module 1 notes)</span><span class="oq-hint">tap to show</span></summary><div class="oq-body"><p>R4: AI for Climate-Smart Agricultural Support An agricultural ministry wants to help smallholder farmers decide when to irrigate, fertilize, plant, and harvest. The proposed system combines satellite images, weather forecasts, soil sensors, crop records, market prices, and farmer-reported observations. It generates personalized recommendations through a mobile application. Most historical data come from large commercial farms with reliable irrigation, high-quality sensors, and stable internet connectivity. Small farms often have incomplete records, different crop varieties, irregular access to water, and limited ability to act on recommendations. The model predicts crop yield accurately, and the ministry assumes that following its recommendations will therefore increase yield. Questions</p>
+<ul>
+<li>Separate prediction from causal reasoning. Explain why accurately predicting yield does not prove that a recommended intervention will improve yield. Formulate the counterfactual questions that must be answered before recommending irrigation, fertilizer, or planting changes.</li>
+<li>Evaluate the target population and data representativeness. Compare the historical training population with the intended deployment population. Discuss distribution shift, missingness, sensor inequality, regional variation, and whether a Datasheet for Datasets would reveal limitations before deployment.</li>
+<li>Design a meaningful representation of the farming process. Explain whether static feature vectors are sufficient or whether temporal sequences, spatial maps, weather uncertainty, resource constraints, and mechanistic crop models are required. Discuss the costs of losing temporal or local context.</li>
+<li>Choose an appropriate combination of computational methods. Consider statistical learning, weather forecasting, optimization, rule-based agronomic constraints, causal estimation, and human expert review. Explain why a single highly complex model may be inferior to a transparent hybrid system.</li>
+<li>Assess the broader decision workflow. A recommendation is useful only if the farmer has water, credit, fertilizer, labor, transport, and market access. Explain how these constraints should affect problem formulation, evaluation, interface design, and claims of system success.</li>
+</ul>
+</div></details>
+
+<section class="question"><div class="q-head">R4(a). Separate prediction from causal reasoning.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Predicting yield accurately answers &quot;What is likely to happen?&quot; Recommending irrigation or fertilizer requires &quot;What would happen if the farmer did X instead of Y?&quot; (a causal question). The yield model learned associations from commercial farms, where irrigation and fertilizer use are confounded with wealth, soil quality, seed varieties and management skill; high-yield farms irrigate more, but that does not prove irrigation causes the extra yield on a smallholder plot (like attendance and exam scores). Counterfactual questions to answer:</p>
+<ul>
+<li>Would this farmer&#39;s yield be higher if they irrigated on day d rather than day d + 5, given their water access?</li>
+<li>Would applying fertilizer amount a at time t increase yield on this soil and crop variety, and by how much relative to its cost?</li>
+<li>Would changing the planting date by two weeks increase yield under this season&#39;s uncertain rainfall?</li>
+<li>What is the effect for smallholders specifically, not averaged over commercial farms?</li>
+</ul>
+<p>These need causal estimation τ = E[Y(1) − Y(0)] with field trials (randomized plots), agronomic mechanistic crop models, and careful control of confounding.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">R4(b). Evaluate the target population and data representativeness.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Training population: large commercial farms with reliable irrigation, good sensors, stable internet, standard varieties. Deployment population: smallholders with incomplete records, different varieties, irregular water and limited capacity. This is distribution shift (population, device and context). Missingness is not random (small farms lack sensors and records, so missing data are correlated with being poor). Sensor inequality means features available in training are absent or noisier in deployment (train-serving mismatch). Regional variation in soils, climate and pests is likely under-represented. A Datasheet for Datasets would reveal all this before deployment by documenting composition (farm types, regions, varieties), collection process (sensor types), missing populations (smallholders) and recommended uses, just as the skin-lesion datasheet would have revealed the skin-tone gap.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">R4(c). Design a meaningful representation of the farming process.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Static feature vectors (one row per farm-season) are insufficient: they cause loss of context. Farming is temporal and spatial: timing of rainfall relative to planting, soil moisture over time, growth stages. A good representation includes temporal sequences (daily weather, soil moisture, crop stage), spatial maps (satellite imagery, soil maps, neighbouring plots), weather uncertainty (probabilistic forecasts, not single values), resource constraints (water availability, labour, credit, fertilizer access) and mechanistic crop models that encode known plant physiology. Losing temporal context can make the model recommend irrigation after the critical window; losing local context can apply commercial-farm patterns to very different plots.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">R4(d). Choose an appropriate combination of computational methods.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
+<li>Statistical learning: satellite-based crop monitoring, pest and disease detection, yield estimation.</li>
+<li>Weather forecasting: probabilistic short- and seasonal forecasts.</li>
+<li>Mechanistic crop models: simulate how water and nutrients affect growth, filling gaps where smallholder data are scarce.</li>
+<li>Rule-based agronomic constraints: do not recommend irrigation when no water is available; fertilizer limits; local regulations.</li>
+<li>Causal estimation: field trials to estimate the benefit of each recommendation for smallholders.</li>
+<li>Optimization: choose the best feasible action given the farmer&#39;s budget, water and labour.</li>
+<li>Human expert review: extension officers validate recommendations and handle unusual cases.</li>
+</ul>
+<p>A single complex black-box model trained on commercial farms may be inferior: it cannot encode constraints, extrapolates poorly under shift, cannot explain itself to farmers or extension workers, and confuses prediction with intervention effect. A transparent hybrid is more robust, auditable and trusted.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">R4(e). Assess the broader decision workflow.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>A recommendation is useful only if the farmer can act on it: water, credit, fertilizer, labour, transport and market access. Therefore:</p>
+<ul>
+<li>Problem formulation: the decision is &quot;what is the best feasible action for this farmer given their resources&quot;, not &quot;maximize yield&quot;; the objective may be income or risk reduction, not yield.</li>
+<li>Evaluation: measure adoption, feasibility, farmer income, yield variance and harm (debt from inputs), by farm size and region; compare with extension-officer advice (baseline).</li>
+<li>Interface design: low-bandwidth, local language, voice or SMS, offline mode, explanations and uncertainty, and options at different costs.</li>
+<li>Claims of success: do not claim impact from accurate yield prediction; claim only what field evidence shows, and report where the system does not work.</li>
+</ul>
+</div></details>
+</section>
+<h3 id="r5-automated-prioritization-of-social-welfare-applications"><a class="anchor" href="#r5-automated-prioritization-of-social-welfare-applications" aria-hidden="true">#</a>R5: Automated Prioritization of Social-Welfare Applications</h3>
+
+<details class="orig-q oq-fold"><summary><span class="oq-lab">📄 Original question</span><span class="oq-src">R5 (Module 1 notes)</span><span class="oq-hint">tap to show</span></summary><div class="oq-body"><p>R5: Automated Prioritization of Social-Welfare Applications A government agency receives more social-welfare applications than its staff can process quickly. It proposes an AI system that assigns each applicant a priority score based on income, employment history, family size, location, housing status, prior benefit use, and administrative records. The model is trained to predict which applications were approved historically. It achieves high accuracy and is used to place applicants into three queues:</p>
+<ul>
+<li>Immediate processing</li>
+<li>Standard processing</li>
+<li>Low priority processing After deployment, applicants from informal employment sectors and remote areas are frequently assigned low priority because their records are incomplete. These cases are reviewed less often, so fewer positive outcomes are observed for these groups. The agency later retrains the model using the newly collected decisions. Questions</li>
+<li>Determine whether the label represents the real objective. Discuss the difference between predicting historical approval and identifying present need or eligibility. Explain how historical administrative decisions may encode policy choices, documentation inequality, resource constraints, and institutional bias.</li>
+<li>Analyze the emerging feedback loop. Explain how low-priority assignment reduces review, how reduced review creates selective labels, and how retraining on these outcomes may make the model increasingly confident in its original decisions.</li>
+<li>Reformulate the problem around a decision or capability. Define the real operational need, target population, index time, prediction horizon, decision alternatives, capacity constraints, and consequences of delay. Consider whether<br>prioritization should be based on need, eligibility uncertainty, urgency, expected benefit, or review complexity.</li>
+<li>Design an evaluation and fairness framework. Identify appropriate measures beyond aggregate accuracy, including false-negative rates, waiting time, calibration, subgroup performance, appeal outcomes, human override rates, and harm caused by delayed assistance. Discuss how evaluation should account for incomplete ground truth.</li>
+<li>Assign responsibility across the socio-technical lifecycle. Explain the responsibilities of policy designers, data collectors, software developers, model developers, caseworkers, agency leaders, auditors, and appeal bodies. Propose safeguards such as human review, explanation requirements, an appeal channel, abstention for incomplete records, monitoring, and decommissioning criteria. Below is a list of application problems designed to help students translate the concepts into concrete planning, documentation, evaluation, and governance artifacts. They reflect the end-to-end view of AI presented in this module, including problem formulation, data documentation, model selection, deployment, monitoring, and failure analysis.</li>
+</ul>
+</div></details>
+
+<section class="question"><div class="q-head">R5(a). Does the label represent the real objective?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>No. The label is &quot;approved historically&quot;, but the real objective is present need or eligibility. Historical approvals encode policy choices (past rules and quotas), documentation inequality (applicants with complete records were easier to approve), resource constraints (limited staff approved easy cases), and institutional bias (caseworker discretion, stereotypes). Informal-sector workers and remote applicants had incomplete records, so they were approved less, not because they were less needy. The model reproduces &quot;historical, potentially biased institutional decisions rather than discovering an objective, optimal truth&quot; (status quo bias). This mirrors the Obermeyer cost-as-proxy example.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">R5(b). Analyze the emerging feedback loop.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Incomplete records → low-priority queue → reviewed less often and later → fewer approvals observed for these groups (many never get a decision, or give up) → these outcomes become new labels (selective labels: we only see outcomes for cases that were reviewed) → retraining learns an even stronger link between incomplete records, informal work, remote location and non-approval → the model becomes increasingly confident in its original decisions (self-reinforcing bias). The model is judged on outcomes it produced, so it looks more accurate while harming the most vulnerable.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">R5(c). Reformulate the problem around a decision or capability.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
+<li>Real operational need: process applications so that people in urgent need receive assistance quickly and eligible applicants are not wrongly delayed, given limited staff.</li>
+<li>Target population: all applicants in the current period; unit: one application.</li>
+<li>Index time: at submission (and again when missing documents arrive).</li>
+<li>Prediction horizon: harm from delay over the next 2 to 4 weeks.</li>
+<li>Decision alternatives: fast-track, standard review, request documents with assistance, outreach visit.</li>
+<li>Capacity constraints: caseworker hours per week.</li>
+<li>Consequences of delay: hunger, eviction, loss of medical care; delay is itself harm.</li>
+</ul>
+<p>Prioritization should be based on urgency and need (for example housing loss, dependants, no income), combined with review complexity (incomplete records get help, not lower priority), not on predicted historical approval. Eligibility uncertainty should trigger assistance and human review, not demotion. A transparent rule-based urgency score may be better than an opaque model.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">R5(d). Design an evaluation and fairness framework.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
+<li>False-negative rate (truly needy applicants placed in low priority) overall and by group (informal sector, remote, gender, disability, ethnicity).</li>
+<li>Waiting time to decision, by group and queue.</li>
+<li>Calibration of any urgency/need probability by group.</li>
+<li>Subgroup performance and intersections (remote × informal).</li>
+<li>Appeal outcomes: share of appeals upheld, by group.</li>
+<li>Human override rates: how often caseworkers move cases between queues and why.</li>
+<li>Harm from delayed assistance: evictions, debt, health events.</li>
+<li>Incomplete ground truth: outcomes are missing for unreviewed cases. Handle by randomly auditing a sample of low-priority cases (reviewing them fully to learn true eligibility), counterfactual logging of queue assignment, and not treating unreviewed as ineligible (the meaning of &quot;negative&quot;).</li>
+</ul>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">R5(e). Assign responsibility across the socio-technical lifecycle and propose safeguards.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><div class="tbl"><table>
+<thead>
+<tr>
+<th>Actor</th>
+<th>Responsibility</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Policy designers</td>
+<td>Define the objective (need, urgency) and eligibility rules; decide what the system may do</td>
+</tr>
+<tr>
+<td>Data collectors</td>
+<td>Make record-keeping accessible; record why data are missing; avoid penalizing informal work</td>
+</tr>
+<tr>
+<td>Software developers</td>
+<td>Build interfaces and pipelines; log decisions; enforce access control and privacy</td>
+</tr>
+<tr>
+<td>Model developers</td>
+<td>Choose appropriate labels, test for proxies (location, employment type), calibrate, document a model card</td>
+</tr>
+<tr>
+<td>Caseworkers</td>
+<td>Review and override priorities; record reasons; flag errors</td>
+</tr>
+<tr>
+<td>Agency leaders</td>
+<td>Accountable owner; approve deployment; fund capacity; suspend if harmful</td>
+</tr>
+<tr>
+<td>Auditors</td>
+<td>Independent fairness and performance audits, including random audits of low-priority cases</td>
+</tr>
+<tr>
+<td>Appeal bodies</td>
+<td>Hear challenges and feed results back into monitoring</td>
+</tr>
+</tbody></table></div>
+<p>Safeguards: human review for every low-priority assignment; explanation of the priority and missing documents to applicants; an appeal channel with a response time; abstention for incomplete records (route to assisted review rather than low priority); monitoring by subgroup, waiting time and appeal outcomes; no automatic retraining on biased decisions (counterfactual logging, audits); and decommissioning criteria (if disparities are not reduced within an agreed period, or if the label cannot be fixed, stop using the model and revert to need-based rules).</p>
+</div></details>
+</section>
+<h2 id="application-problems-a1-a7"><a class="anchor" href="#application-problems-a1-a7" aria-hidden="true">#</a>Application problems A1–A7</h2>
+<p>These are the assignment-style tasks. Your Assignment 1 already had four of these types (worksheet, model card, datasheet, failure analysis), so the quiz may ask you to produce a short version of any of them. Each answer below is complete; for the quiz, keep the headings and shorten the bullets.</p>
+<h3 id="a1-formulating-an-ai-problem-reducing-unplanned-hospital-readmissions"><a class="anchor" href="#a1-formulating-an-ai-problem-reducing-unplanned-hospital-readmissions" aria-hidden="true">#</a>A1: Formulating an AI Problem (Reducing Unplanned Hospital Readmissions)</h3>
+
+<details class="orig-q oq-fold"><summary><span class="oq-lab">📄 Original question</span><span class="oq-src">A1 (Module 1 notes)</span><span class="oq-hint">tap to show</span></summary><div class="oq-body"><p>A1: Formulating an AI Problem Scenario: Reducing Unplanned Hospital Readmissions A regional hospital reports that many adult patients return to the hospital shortly after discharge. Hospital leadership proposes the following project: Build an AI model that predicts which patients will be readmitted. The hospital has access to demographic information, diagnoses, medications, laboratory results, previous admissions, discharge summaries, appointment history, insurance status, and future claims data. Predictions could be generated at admission, during hospitalization, at discharge, or several days after discharge. The hospital has only 100 follow-up appointment slots each week. The discharge team must decide which patients should receive an early follow-up appointment, a telephone call, standard discharge instructions, or no additional intervention. Task Develop a complete AI problem formulation for this project. Your response must specify:</p>
+<ul>
+<li>The real-world decision or operational capability to be improved.</li>
+<li>The target population and exclusion criteria.</li>
+<li>The unit of analysis.</li>
+<li>The index time at which the prediction will be generated.</li>
+<li>The prediction horizon.</li>
+<li>The precise outcome definition.</li>
+<li>The information available at the index time.</li>
+<li>The decision-maker who will receive the output.</li>
+<li>The actions that may follow from the prediction.</li>
+<li>The current baseline or status quo.</li>
+<li>The consequences of false positives and false negatives.</li>
+<li>The intervention-capacity constraint.</li>
+<li>The primary performance and calibration measures.</li>
+<li>The subgroup and fairness analyses required.</li>
+<li>The conditions under which the system should abstain or request human review.</li>
+<li>A final problem statement written as one precise paragraph. Also identify any variables in the proposed data that could produce temporal leakage.</li>
+</ul>
+</div></details>
+
+<section class="question"><div class="q-head">A1. Develop a complete AI problem formulation for the readmission project and identify variables that could cause temporal leakage.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><div class="tbl"><table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Specification</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Real-world decision</td>
+<td>Which discharged adult patients should receive one of the 100 weekly early follow-up appointments, a telephone call, standard discharge instructions, or no additional intervention, so that preventable unplanned readmissions fall.</td>
+</tr>
+<tr>
+<td>Target population and exclusions</td>
+<td>Adult (18+) patients discharged alive from medical and surgical wards. Exclude: planned readmissions (scheduled chemotherapy, staged surgery), patients discharged to hospice or palliative care, transfers to another acute hospital, patients who leave against medical advice (handled separately), obstetric admissions, and deaths in hospital.</td>
+</tr>
+<tr>
+<td>Unit of analysis</td>
+<td>One index hospitalization (discharge episode). Patients with several admissions are kept in one data partition (patient-level split) to avoid group leakage.</td>
+</tr>
+<tr>
+<td>Index time</td>
+<td>At discharge: when the discharge order is signed, before the patient leaves (so the discharge team can book the follow-up).</td>
+</tr>
+<tr>
+<td>Prediction horizon</td>
+<td>30 days after discharge.</td>
+</tr>
+<tr>
+<td>Outcome definition</td>
+<td>Y = 1 if the patient has an unplanned (emergency or urgent) inpatient readmission to any hospital in the network within 30 days of discharge; planned readmissions and ED visits without admission are not counted. Deaths within 30 days are recorded as a separate outcome, not coded as &quot;no readmission&quot;.</td>
+</tr>
+<tr>
+<td>Information available at index time</td>
+<td>Demographics; diagnoses and procedures of the current stay; medications at discharge; laboratory results finalized before discharge; number of previous admissions and ED visits in the past 12 months; length of stay; appointment history before discharge (for example previous no-shows); insurance status as recorded at admission; discharge destination.</td>
+</tr>
+<tr>
+<td>Decision-maker</td>
+<td>The discharge team (discharge nurse/coordinator with the attending physician).</td>
+</tr>
+<tr>
+<td>Actions</td>
+<td>Tier 1 (highest risk, within capacity): early follow-up appointment within 7 days. Tier 2: structured telephone call within 48 to 72 hours. Tier 3: standard discharge instructions. Low risk: no additional intervention.</td>
+</tr>
+<tr>
+<td>Baseline / status quo</td>
+<td>Current clinician judgment and existing practice (for example follow-up based on discharge nurse assessment), plus a simple heuristic score (such as the LACE index: length of stay, acuity, comorbidity, ED visits) as a second comparator.</td>
+</tr>
+<tr>
+<td>False positives</td>
+<td>A low-risk patient takes one of the 100 slots, displacing someone who needed it; wasted clinic time and patient inconvenience.</td>
+</tr>
+<tr>
+<td>False negatives</td>
+<td>A high-risk patient receives only standard instructions, deteriorates at home and is readmitted (or dies); more serious and less reversible, so c_FN &gt; c_FP.</td>
+</tr>
+<tr>
+<td>Intervention-capacity constraint</td>
+<td>Exactly 100 follow-up appointment slots per week; telephone-call capacity set by nursing staff hours. The decision rule is ranking: the top 100 by p̂ each week (k = 100) after review; the next band receives calls.</td>
+</tr>
+<tr>
+<td>Primary performance and calibration measures</td>
+<td>Primary: precision@100 and recall@100 (share of readmissions captured by the slots). Secondary: AUROC (discrimination), calibration curve and calibration slope, positive predictive value, number of preventable readmissions averted in a pilot.</td>
+</tr>
+<tr>
+<td>Subgroup and fairness analyses</td>
+<td>Age groups, sex, ethnicity, primary language, insurance type, socioeconomic area, diagnosis group, and discharge destination; report selection rates and recall per group with confidence intervals. Check whether insurance status acts as a proxy that lowers priority for uninsured patients (access bias).</td>
+</tr>
+<tr>
+<td>Abstention / human review</td>
+<td>Abstain and send to clinician review when key inputs are missing (for example no discharge medications recorded), when the patient is in a group poorly represented in training, or when p̂ lies in an uncertainty band around the slot cut-off. Clinicians can override with a logged reason.</td>
+</tr>
+</tbody></table></div>
+<p>Final problem statement (one paragraph): At the time the discharge order is signed, for every adult medical or surgical patient discharged alive (excluding planned readmissions, hospice discharges and transfers), using only information recorded and available before discharge, estimate the calibrated probability of an unplanned inpatient readmission within 30 days, and rank patients each week so that the discharge team can allocate the 100 early follow-up appointments to the highest-ranked patients after clinical review and offer telephone follow-up to the next risk band. The system will be compared with current clinician judgment and the LACE index and evaluated using precision@100, recall@100, calibration and discrimination, reported overall and by age, sex, ethnicity, language, insurance and diagnosis group, while accounting for the higher cost of missed readmissions, the fixed appointment capacity, abstention for incomplete records, and governance requirements including a model card and post-deployment monitoring.</p>
+<p>Temporal leakage variables:</p>
+<ul>
+<li>Future claims data: claims after discharge reveal the readmission itself (target leakage).</li>
+<li>Appointment history after discharge (whether they attended follow-up), which also reflects the intervention.</li>
+<li>Laboratory results finalized after discharge (pending labs).</li>
+<li>Discharge summaries completed or edited after discharge (often written days later and may mention complications).</li>
+<li>Diagnoses coded after discharge for billing (ICD codes finalized later).</li>
+<li>Predictions generated &quot;several days after discharge&quot; would use post-discharge information and leave little time to act; that option is rejected.</li>
+<li>Insurance status updated later (only the value at admission/discharge can be used).</li>
+</ul>
+</div></details>
+</section>
+<h3 id="a2-preparing-a-model-card-heart-disease-risk-prediction-model"><a class="anchor" href="#a2-preparing-a-model-card-heart-disease-risk-prediction-model" aria-hidden="true">#</a>A2: Preparing a Model Card (Heart Disease Risk Prediction Model)</h3>
+
+<details class="orig-q oq-fold"><summary><span class="oq-lab">📄 Original question</span><span class="oq-src">A2 (Module 1 notes)</span><span class="oq-hint">tap to show</span></summary><div class="oq-body"><p>A2: Preparing a Model Card Scenario: Heart Disease Risk Prediction Model A hospital has developed a random forest model to estimate the probability that an adult patient has clinically significant heart disease. The following information is available:</p>
+<ul>
+<li>Training data: 12,000 patient records from two urban hospitals</li>
+<li>Evaluation data: 3,000 records collected later from the same hospitals</li>
+<li>Inputs: age, sex, blood pressure, cholesterol, chest pain category, maximum heart rate, diabetes status, body mass index, and electrocardiogram findings</li>
+<li>Output: probability of heart disease</li>
+<li>Overall accuracy: 86 percent</li>
+<li>Precision: 0.82</li>
+<li>Recall: 0.74</li>
+<li>F1 score: 0.78</li>
+<li>Recall for male patients: 0.80</li>
+<li>Recall for female patients: 0.62</li>
+<li>Recall for patients younger than 40 years: 0.55</li>
+<li>The predicted probabilities are moderately overconfident</li>
+<li>Family history, smoking status, ethnicity, and genetic information are unavailable</li>
+<li>The model has not been externally validated</li>
+<li>The intended use is clinical decision support</li>
+<li>Some administrators have proposed using the model to automatically reject requests for further cardiac testing Task Prepare a complete Model Card for this system. The Model Card must contain:</li>
+<li>Model name, version, type, and architecture.</li>
+<li>Purpose and intended clinical role.</li>
+<li>Intended users.</li>
+<li>Inputs and outputs.</li>
+<li>Training and evaluation data.</li>
+<li>Preprocessing and missing-value handling.</li>
+<li>Overall performance measures.</li>
+<li>Subgroup performance.</li>
+<li>Calibration findings.</li>
+<li>Fairness observations.</li>
+<li>Known limitations.</li>
+<li>Appropriate uses.</li>
+<li>Inappropriate or prohibited uses.</li>
+<li>Human-review requirements.</li>
+<li>Potential harms resulting from false positives and false negatives.</li>
+<li>Generalizability limitations.</li>
+<li>Monitoring requirements after deployment.</li>
+<li>Conditions that should trigger recalibration, retraining, rollback, or withdrawal.</li>
+<li>Future work required before broader deployment. Conclude the Model Card with a clear deployment recommendation: approve, conditionally approve, or do not approve.</li>
+</ul>
+</div></details>
+<p>This Model Card follows the structure of the notes&#39; &quot;Instructive Example of a Model Card&quot; (Section 4.8.1): Model Overview, Data Description, Performance Metrics, Known Limitations, Intended and Inappropriate Uses, Ethical Considerations, Additional Considerations, then Takeaways. Extra items required by the task (calibration, human review, monitoring, triggers, recommendation) are added inside the most relevant section.</p>
+
+<section class="question"><div class="q-head">A2. Prepare a complete Model Card for the heart disease system and give a deployment recommendation.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p><strong>Model Card: Heart Disease Risk Prediction Model</strong></p>
+<p>Model Overview</p>
+<ul>
+<li>Model Name: Heart Disease Risk Prediction Model.</li>
+<li>Version: 1.0 (first evaluated release; internal validation only).</li>
+<li>Type: Binary classification (clinically significant heart disease: Yes/No), producing a probability of heart disease.</li>
+<li>Model Architecture: Random Forest Classifier trained on structured patient data (age, sex, blood pressure, cholesterol, chest pain category, maximum heart rate, diabetes status, BMI, ECG findings).</li>
+<li>Purpose: To estimate the probability that an adult patient has clinically significant heart disease based on clinical measurements.</li>
+<li>Intended clinical role: Clinical decision support. The model is intended to assist healthcare professionals by providing an additional tool to help identify higher-risk patients who may require further diagnostic testing (for example stress testing or angiography) or preventive care. It does not make or execute decisions.</li>
+<li>Intended users: Physicians, cardiologists and trained clinical staff in the two developing hospitals (and similar urban hospitals after local validation). Not patients, insurers or administrators acting without a clinician.</li>
+</ul>
+<p>Data Description</p>
+<ul>
+<li>Training data: 12,000 adult patient records from two urban hospitals.</li>
+<li>Evaluation data: 3,000 records collected later from the same two hospitals (a temporal holdout from the same sites; this is not external validation).</li>
+<li>Features (inputs): age, sex, blood pressure, cholesterol, chest pain category, maximum heart rate, diabetes status, body mass index, and electrocardiogram findings.</li>
+<li>Output: a probability (0 to 1) of clinically significant heart disease.</li>
+<li>Data Preprocessing and missing-value handling: not stated in the scenario and must be documented. Recommended (following the notes&#39; example): missing numerical values imputed with the mean or median and categorical values with the mode, using the same versioned transformation in training and serving (to avoid train-serving mismatch); a missing-value indicator retained; records with missing critical inputs (for example ECG findings) flagged for abstention rather than silently imputed.</li>
+<li>Exclusions: the model does not include family history, smoking status, ethnicity or genetic information, as these were not available in the dataset.</li>
+</ul>
+<p>Performance Metrics</p>
+<ul>
+<li>Overall Accuracy: 86%</li>
+<li>Precision: 0.82 (82% of patients flagged as positive truly have heart disease)</li>
+<li>Recall: 0.74 (the model misses about 26% of patients who have heart disease)</li>
+<li>F1 Score: 0.78</li>
+<li>Performance by Subgroup:</li>
+<li>Male patients: Recall = 0.80</li>
+<li>Female patients: Recall = 0.62 (about 38% of women with heart disease are missed)</li>
+<li>Patients younger than 40 years: Recall = 0.55 (about 45% missed)</li>
+<li>Not reported and required: precision by subgroup, older adults, diabetic vs non-diabetic patients, ethnicity (unavailable), and intersections (for example young women).</li>
+<li>Calibration findings: the predicted probabilities are moderately overconfident: when the model outputs a high probability, the observed rate of heart disease is lower (and low probabilities may be too low). Probabilities should not be read literally until the model is recalibrated (for example Platt scaling or isotonic regression on held-out data) and a calibration curve is published overall and by subgroup.</li>
+<li>Fairness Observations: The model performs substantially better on male patients than female patients (recall 0.80 vs 0.62), indicating potential gender bias, and performs worst for patients under 40 (recall 0.55). The model therefore tends to miss heart disease in women and younger adults, groups whose symptoms are often atypical and who are already at risk of under-diagnosis.</li>
+</ul>
+<p>Known Limitations</p>
+<ul>
+<li>Bias in Data: the dataset likely contains fewer female and younger patients with heart disease, and women often present with atypical chest pain categories, leading to weaker performance for these groups.</li>
+<li>Generalizability: the model was trained and evaluated only on two urban hospitals and has not been externally validated. Performance may differ in rural hospitals, other regions, other countries, primary care or populations with different demographics and equipment.</li>
+<li>Feature Limitations: family history, smoking status, ethnicity and genetic information were unavailable; these are important risk factors, which may reduce accuracy and hide ethnic disparities that cannot be measured.</li>
+<li>Calibration: probabilities are moderately overconfident.</li>
+<li>Recall: overall recall of 0.74 means one in four patients with disease is missed; this is too low for the model to be used to rule patients out.</li>
+</ul>
+<p>Intended and Inappropriate Uses</p>
+<ul>
+<li>Intended (appropriate) Use: to support clinicians in identifying patients at higher risk of heart disease who may benefit from further diagnostic testing or preventive care. It should be used as an additional decision support tool alongside clinical judgment and standard risk tools, never as the sole basis for diagnosis.</li>
+<li>Inappropriate or prohibited Uses:</li>
+<li>Automatically rejecting requests for further cardiac testing (as some administrators proposed). This is prohibited: with recall of 0.74 overall, 0.62 for women and 0.55 for under-40s, a &quot;low-risk&quot; output would deny testing to many patients who actually have heart disease.</li>
+<li>Using the model as the sole basis for diagnosis or for ruling out disease.</li>
+<li>Use for populations not represented in training (other regions, rural settings, children) without local validation.</li>
+<li>Use by insurers or employers for pricing, eligibility or employment decisions.</li>
+<li>Using the probability as a precise value before recalibration.</li>
+</ul>
+<p>Ethical Considerations</p>
+<ul>
+<li>Fairness: the model has potential gender and age biases, which should be addressed before full-scale deployment. Regular audits should be conducted to ensure fair treatment of all patient subgroups; thresholds should not produce much higher false-negative rates for women or younger patients.</li>
+<li>Harms from false negatives: a patient with heart disease is classified as low risk, so testing and treatment may be delayed, risking myocardial infarction or death. Because false negatives are concentrated in women and younger adults, the harm is unequal and could exacerbate health inequalities (the notes: &quot;under-predicting heart disease in women could delay necessary interventions&quot;).</li>
+<li>Harms from false positives: unnecessary invasive tests (angiography carries bleeding and infection risk), anxiety, cost, and wasted diagnostic capacity.</li>
+<li>Human-review requirements: a clinician must review every output; the model can prompt further testing but must never block it. Low-probability outputs for patients with symptoms, women, under-40s, or incomplete records must receive full clinical assessment. Clinicians should be able to override the model with a logged reason, and outputs should be shown with uncertainty and the main contributing features.</li>
+<li>Impact of Misuse: using the model to automatically deny testing, or in under-represented populations, could cause serious harm and erode trust.</li>
+</ul>
+<p>Additional Considerations</p>
+<ul>
+<li>Generalizability limitations: valid only for adult patients similar to those in the two urban hospitals; any new site must perform local external validation and calibration before use.</li>
+<li>Monitoring requirements after deployment: input quality and missingness; input drift (age, sex mix, new ECG machines, coding changes); output distribution and share of patients flagged; calibration on new outcomes; recall and precision overall and by sex, age group and site; clinician override and acceptance rates (automation bias); time to diagnosis for flagged vs non-flagged patients; adverse events among patients classified low risk.</li>
+<li>Conditions that should trigger action:</li>
+<li>Recalibration: calibration error above the agreed limit overall or in any subgroup, or a change in disease prevalence.</li>
+<li>Retraining: input drift (new population, equipment or coding), or subgroup recall gaps that persist after recalibration.</li>
+<li>Rollback: a new version lowers recall for any subgroup or widens the male-female gap; rollback requires versioned models and data.</li>
+<li>Withdrawal: evidence the model is being used to deny testing, adverse events linked to false negatives, or failure to reach an agreed minimum recall for women and younger patients within a set period.</li>
+<li>Future Work: integrate family history, smoking status and relevant genetic markers; collect a more diverse dataset (more women, younger patients, other ethnicities and rural hospitals); perform external validation at independent sites; recalibrate; examine threshold choice using the decision-cost function; and conduct a prospective silent evaluation before broader deployment.</li>
+</ul>
+<p>Deployment Recommendation: Conditionally Approve (as clinical decision support only, within the two development hospitals).</p>
+<p>Conditions: (1) recalibrate and publish calibration curves before use; (2) use a lower threshold or a separate review pathway so that recall for women and patients under 40 is raised to an agreed minimum; (3) the model may only recommend further testing and must never be used to automatically reject requests for cardiac testing; (4) every output is reviewed by a clinician, with overrides logged; (5) subgroup monitoring and the triggers above are in place at launch; (6) external validation before any use at other sites. If recall for women and younger patients cannot be improved, the recommendation becomes do not approve for general use.</p>
+<p>Takeaways from the Model Card (as in the notes): Data transparency (users see where data came from and what is excluded); Performance by group (subgroup recall reveals the gender and age gaps that 86% accuracy hides); Known limitations (no external validation, missing risk factors, overconfidence); Ethical guidance (it supports but never replaces clinical judgment and must not be used to deny testing).</p>
+</div></details>
+</section>
+<h3 id="a3-preparing-a-datasheet-for-a-dataset-crop-disease-image-dataset"><a class="anchor" href="#a3-preparing-a-datasheet-for-a-dataset-crop-disease-image-dataset" aria-hidden="true">#</a>A3: Preparing a Datasheet for a Dataset (Crop Disease Image Dataset)</h3>
+
+<details class="orig-q oq-fold"><summary><span class="oq-lab">📄 Original question</span><span class="oq-src">A3 (Module 1 notes)</span><span class="oq-hint">tap to show</span></summary><div class="oq-body"><p>A3: Preparing a Datasheet for a Dataset Scenario: Crop Disease Image Dataset An agricultural research institute releases a dataset for developing AI systems that identify crop diseases from leaf images. The dataset contains: o 80,000 images</p>
+<ul>
+<li>Four crops: wheat, maize, tomato, and potato</li>
+<li>Twelve disease categories and one healthy category</li>
+<li>Images collected from 35 commercial farms</li>
+<li>Seventy percent of the images collected from two regions</li>
+<li>Most images captured during daylight using high-resolution cameras</li>
+<li>Only 5 percent captured using low-cost mobile phones</li>
+<li>Disease labels assigned by field technicians</li>
+<li>Ten percent of labels independently reviewed by plant pathologists</li>
+<li>Diseased plants photographed more frequently than healthy plants</li>
+<li>Images resized to 512 by 512 pixels</li>
+<li>Backgrounds not removed</li>
+<li>Farm identifiers replaced with coded values</li>
+<li>No images collected during drought conditions</li>
+<li>No data from smallholder farms</li>
+<li>No formal procedure for adding future disease categories</li>
+<li>Intended use described only as crop disease AI research Task Prepare a Datasheet for this dataset. The datasheet must document:</li>
+<li>Motivation for creating the dataset.</li>
+<li>Dataset creators, funders, and responsible maintainers.</li>
+<li>Dataset composition.</li>
+<li>Unit of observation.</li>
+<li>Geographic and seasonal coverage.</li>
+<li>Crop and disease distributions.</li>
+<li>Data-collection process.</li>
+<li>Sampling procedure.</li>
+<li>Label definitions.</li>
+<li>Labeling and verification procedures.</li>
+<li>Preprocessing and transformations.</li>
+<li>Known missing populations and conditions.</li>
+<li>Potential proxies and dataset artifacts.</li>
+<li>Possible class imbalance and selection bias.</li>
+<li>Consent, privacy, licensing, and access considerations.</li>
+<li>Recommended uses.</li>
+<li>Uses that are not supported.</li>
+<li>Risks associated with mobile-phone deployment.</li>
+<li>Generalization limitations.</li>
+<li>Maintenance, correction, versioning, and retirement procedures. Conclude by explaining whether the dataset is suitable for training a system intended for smallholder farmers using low-cost mobile phones.</li>
+</ul>
+</div></details>
+<p>This follows the notes&#39; Datasheet structure (motivation, composition, collection process, preprocessing, recommended uses, limitations) and your Assignment Problem 3.</p>
+
+<section class="question"><div class="q-head">A3. Prepare a Datasheet for the crop disease image dataset and decide whether it suits smallholder farmers using low-cost mobile phones.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Motivation. Created to support research on AI systems that identify crop diseases from leaf images, enabling early, low-cost detection without waiting for a plant pathologist. The stated intended use is only &quot;crop disease AI research&quot;, which is too vague and must be made specific.</p>
+<p>Creators, funders and maintainers. The agricultural research institute&#39;s field and data teams, with 35 commercial partner farms. The funder must be stated. A named maintainer and contact address are required (currently missing).</p>
+<p>Composition.</p>
+<ul>
+<li>80,000 images; 4 crops (wheat, maize, tomato, potato); 12 disease classes + 1 healthy class.</li>
+<li>Unit of observation: one leaf image with one crop and one class label. Several images may come from the same plant, plot or farm, so images are not independent.</li>
+<li>Crop and disease distributions: counts per crop and per class must be reported; diseased plants were photographed more often than healthy plants.</li>
+</ul>
+<p>Geographic and seasonal coverage. 35 commercial farms; 70% of images from two regions; no images during drought; most images captured in daylight.</p>
+<p>Data-collection process. Field technicians photographed leaves on site, mostly with high-resolution cameras; only 5% (about 4,000 images) with low-cost mobile phones.</p>
+<p>Sampling procedure. Not random: farms chosen through partnership (all commercial, concentrated in two regions); within farms, symptom-driven (diseased plants over-sampled). Two selection effects: site selection and outcome-dependent selection.</p>
+<p>Label definitions. One of 13 classes per image. Must document the definition of each disease, how co-infections and abiotic stress (nutrient, water, drought stress) were handled, and that severity/stage is not recorded.</p>
+<p>Labelling and verification. Labels assigned by field technicians; only 10% independently reviewed by plant pathologists; the agreement rate must be reported. 90% rely on non-specialist judgment, so noise is likely in visually similar diseases.</p>
+<p>Preprocessing and transformations. Resized to 512 × 512 (may distort lesions and remove absolute scale); backgrounds not removed; farm identifiers replaced with coded values; no colour normalization reported. Transformation code and versions must be published.</p>
+<p>Known missing populations and conditions. Smallholder farms (entirely absent); drought conditions; regions outside the two main regions; low-light, overcast, rainy or dusty conditions; low-cost phone images; other crops and diseases; no &quot;unknown/other&quot; class.</p>
+<p>Potential proxies and dataset artifacts. Background (soil, mulch, irrigation equipment, row spacing) linked to farm and disease; device characteristics; photographer framing (lesions framed centrally); lighting/time of day; resizing artifacts. A model may learn these shortcuts rather than leaf symptoms.</p>
+<p>Class imbalance and selection bias. Healthy leaves are under-represented, so a model will over-diagnose disease in the field; rare diseases have fewer images and fewer verified labels; commercial and two-region dominance is selection bias.</p>
+<p>Consent, privacy, licensing and access. Written agreements with each farm for photography, release and model training; workers visible in images must consent or be blurred; farm codes are a start but backgrounds and EXIF/GPS metadata can re-identify farms, so strip metadata and restrict access to the code key; an explicit licence stating commercial use, redistribution and attribution.</p>
+<p>Recommended uses. Research and benchmarking with farm-grouped splits; pre-training/transfer learning before fine-tuning on local expert-labelled data; research on distribution shift, label noise and shortcut learning; prototype decision support for large commercial farms in the two well-represented regions with agronomist confirmation.</p>
+<p>Uses that are not supported. Sole basis for diagnosis or pesticide decisions; deployment on smallholder farms; drought regions or seasons; crops or diseases outside the 13 classes; severity grading or yield-loss estimation; insurance or regulatory decisions; identifying individual farms.</p>
+<p>Risks associated with mobile-phone deployment. Train-serving mismatch and device shift: phone images have lower resolution, stronger compression, different colour balance, blur and variable framing and lighting; fine disease distinctions depend on exactly the texture and colour detail phones lose. Accuracy may collapse while the model stays confident. False &quot;diseased&quot; → unnecessary pesticide costs; false &quot;healthy&quot; → outbreaks spread. Need a phone-specific validation set, calibrated confidence with abstention, image-quality checks, and a route to a human agronomist.</p>
+<p>Generalization limitations. Performance should be expected to drop with new regions, smallholder settings, drought or other stress, different lighting, cultivars, seasons or devices, especially several at once.</p>
+<p>Maintenance, correction, versioning and retirement. A named maintainer; a process to report and correct mislabelled images with a public changelog; fixed, reproducible versions (v1.0 remains available); a formal procedure to add new disease categories; planned additions targeting the gaps (smallholders, drought, phones, new regions); a retirement policy (for example when cultivars or pathogen strains change) with user notification.</p>
+<p>Conclusion: not suitable on its own for a system for smallholder farmers using low-cost mobile phones. The target users (smallholders), the target device (phones: only 5% of data), and the target conditions (irregular water, possible drought, varied regions) are exactly what the dataset lacks; labels are mostly unverified and healthy plants are under-sampled. The model would be &quot;confidently wrong rather than obviously broken&quot;. It can be used for pre-training, but a purpose-built dataset from smallholder fields, captured on farmers&#39; phones, labelled by pathologists, across seasons, is required before deployment.</p>
+</div></details>
+</section>
+<h3 id="a4-deciding-which-model-to-deploy-predictive-maintenance"><a class="anchor" href="#a4-deciding-which-model-to-deploy-predictive-maintenance" aria-hidden="true">#</a>A4: Deciding Which Model to Deploy (Predictive Maintenance)</h3>
+
+<details class="orig-q oq-fold"><summary><span class="oq-lab">📄 Original question</span><span class="oq-src">A4 (Module 1 notes)</span><span class="oq-hint">tap to show</span></summary><div class="oq-body"><p>A4: Deciding Which Model to Deploy Scenario: Predictive Maintenance in a Manufacturing Plant A manufacturing company wants to predict whether a critical machine will fail within the next 24 hours. The system must generate a prediction every minute using vibration, temperature, pressure, load, and maintenance-history data. Three models have been evaluated (Table 3). Additional constraints include:</p>
+<ul>
+<li>The production controller requires a response within 100 milliseconds.</li>
+<li>The plant has no GPU infrastructure.</li>
+<li>Engineers require understandable reasons before stopping a machine.</li>
+<li>Every unnecessary shutdown costs 20,000 dollars.</li>
+<li>A missed failure can cost more than 1 million dollars and may injure workers.</li>
+<li>The internal team has experience with statistical models and tree-based systems but limited deep-learning expertise. Task Select the model that should be deployed and justify the decision. Your analysis must consider:</li>
+<li>Predictive performance.</li>
+<li>Failure recall.</li>
+<li>Calibration.</li>
+<li>False-positive and false-negative costs.</li>
+<li>Latency.</li>
+<li>Hardware and memory requirements.</li>
+<li>Robustness to missing sensor values.</li>
+<li>Interpretability and explanation needs.</li>
+<li>External validation.</li>
+<li>Maintenance burden.</li>
+<li>Available team expertise.</li>
+<li>Long-term lifecycle cost.</li>
+<li>Monitoring and retraining requirements.</li>
+<li>Whether the selected model should operate automatically or as decision support.</li>
+<li>Whether a hybrid arrangement involving more than one model would be preferable. Do not select a model solely because it has the highest accuracy.</li>
+</ul>
+</div></details>
+<p>Table 3 in the notes (page 167) compares the three models:</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Criterion</th>
+<th>Model A: Logistic Regression</th>
+<th>Model B: Random Forest</th>
+<th>Model C: Deep Neural Network</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Accuracy</td>
+<td>88%</td>
+<td>92%</td>
+<td>94%</td>
+</tr>
+<tr>
+<td>Failure recall</td>
+<td>76%</td>
+<td>87%</td>
+<td>90%</td>
+</tr>
+<tr>
+<td>Calibration</td>
+<td>Good</td>
+<td>Moderate</td>
+<td>Poor</td>
+</tr>
+<tr>
+<td>Inference latency</td>
+<td>5 ms</td>
+<td>35 ms</td>
+<td>240 ms</td>
+</tr>
+<tr>
+<td>Explanation</td>
+<td>Direct coefficients</td>
+<td>Feature importance and local explanations</td>
+<td>Unstable post-hoc explanations</td>
+</tr>
+<tr>
+<td>Memory requirement</td>
+<td>Very low</td>
+<td>Moderate</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Specialist maintenance</td>
+<td>Low</td>
+<td>Moderate</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Performance with missing sensors</td>
+<td>Moderate</td>
+<td>Good</td>
+<td>Poor</td>
+</tr>
+<tr>
+<td>External-site validation</td>
+<td>Completed</td>
+<td>Completed</td>
+<td>Not completed</td>
+</tr>
+<tr>
+<td>Retraining frequency</td>
+<td>Every six months</td>
+<td>Every three months</td>
+<td>Every month</td>
+</tr>
+</tbody></table></div>
+
+<section class="question"><div class="q-head">A4. Select the model that should be deployed and justify the decision (do not choose on accuracy alone).</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Decision: deploy Model B (Random Forest) as the primary model, in a hybrid arrangement, operating as decision support with an automatic safety layer. Reject Model C. Keep Model A as the interpretable fallback and benchmark.</p>
+<p>Step 1: eliminate models that violate hard constraints. Model C&#39;s 240 ms latency breaks the controller&#39;s 100 ms requirement; the plant has no GPU and C needs high memory; its explanations are unstable, while engineers &quot;require understandable reasons before stopping a machine&quot;; it has poor calibration, poor performance with missing sensors, and no external validation; it needs monthly retraining and high specialist maintenance, but the team has limited deep-learning expertise. Its extra 3 points of recall cannot compensate. Model C is out.</p>
+<p>Step 2: compare A and B using error costs, not accuracy.</p>
+<ul>
+<li>Failure recall: B catches 87% of failures vs 76% for A. For every 100 real impending failures, B catches about 11 more.</li>
+<li>False-positive vs false-negative costs: a missed failure costs more than $1,000,000 and may injure workers; an unnecessary shutdown costs $20,000. So c_FN / c_FP ≥ 50. Eleven extra caught failures are worth at least $11 million plus avoided injuries; B would have to cause more than 550 extra unnecessary shutdowns per 100 failures before it became worse than A. The notes&#39; rule: the best threshold and model minimize real-world cost, C(t) = c_FP·P(FP|t) + c_FN·P(FN|t) + c_delay·E[D|t] + c_workflow(t), not maximize accuracy.</li>
+<li>Predictive performance: B is also more accurate (92% vs 88%).</li>
+<li>Calibration: A is better (good vs moderate). B&#39;s probabilities must be recalibrated (for example isotonic regression or Platt scaling on held-out data) before a threshold is set; calibration is checked after every retraining.</li>
+<li>Latency: both are well within 100 ms (5 ms and 35 ms), leaving room for data validation within the budget.</li>
+<li>Hardware and memory: B needs moderate memory and no GPU; runs on the existing CPUs.</li>
+<li>Robustness to missing sensors: B is good (A moderate); important because sensors fail in a factory.</li>
+<li>Interpretability: B gives feature importance and local explanations (&quot;vibration in the last 30 min and bearing temperature raised the risk&quot;), which is understandable enough for engineers; A is even clearer.</li>
+<li>External validation: completed for both.</li>
+<li>Maintenance burden and team expertise: B is moderate; the team has experience with statistical and tree-based models, so B is maintainable in-house.</li>
+<li>Long-term lifecycle cost: B requires retraining every three months (moderate), far less than C; A is cheapest but its lower recall costs far more in missed failures.</li>
+<li>Monitoring and retraining: monitor sensor data quality and missingness, input drift (new machines, loads, seasons), score distribution, alert rate and shutdowns, calibration, recall and precision as outcomes arrive (failures and maintenance findings), explanation stability, latency, and engineer override rates. Retrain every three months or when drift or recall drops trigger it; validate each new version against the current one and block release if recall or calibration worsens (TFX model validation); keep rollback.</li>
+</ul>
+<p>Step 3: automatic operation or decision support? Decision support for normal alerts: stopping a machine costs $20,000, and engineers want reasons, so the model raises a prioritized alert with its probability and explanation, and an engineer decides (within a defined response time). However, for imminent-danger conditions, an explicit safety rule (symbolic, not learned) should stop the machine automatically, for example vibration or temperature above a hard engineering limit, because worker safety cannot wait for review. This is the semi-autonomous pattern: routine low-risk handling automated, ambiguous cases escalated.</p>
+<p>Step 4: hybrid arrangement (preferable).</p>
+<ul>
+<li>Model B as the primary risk scorer (every minute), recalibrated, with a threshold set by C(t) and by maintenance-crew capacity, plus alert suppression so the same machine does not alert every minute (avoid alert fatigue).</li>
+<li>Model A runs in parallel as an interpretable benchmark and fallback: if B&#39;s service fails, or if too many sensors are missing, the system falls back to A (or to rules) rather than giving no prediction; large disagreement between A and B triggers review.</li>
+<li>Hard safety rules and a safety controller for extreme readings (automatic stop).</li>
+<li>Human engineers make the final stop decision for model-driven alerts, with overrides logged.</li>
+<li>Abstention: if critical sensors are missing or invalid, show &quot;insufficient data&quot; and schedule a manual inspection.</li>
+</ul>
+<p>Conclusion: Random Forest (B) best balances high failure recall, latency, CPU-only deployment, robustness to missing sensors, explanation needs, external validation and team skills. Highest accuracy (C) is not the best choice because it breaks latency, hardware, explanation and maintenance constraints.</p>
+</div></details>
+</section>
+<h3 id="a5-identifying-hidden-technical-debt-food-delivery-recommendation-system"><a class="anchor" href="#a5-identifying-hidden-technical-debt-food-delivery-recommendation-system" aria-hidden="true">#</a>A5: Identifying Hidden Technical Debt (Food Delivery Recommendation System)</h3>
+
+<details class="orig-q oq-fold"><summary><span class="oq-lab">📄 Original question</span><span class="oq-src">A5 (Module 1 notes)</span><span class="oq-hint">tap to show</span></summary><div class="oq-body"><p>A5: Identifying Hidden Technical Debt Scenario: Food Delivery Recommendation System<br>A food delivery company uses a machine-learning model to rank restaurants for each customer. The system has operated for three years. The following conditions are discovered during an internal review:</p>
+<ul>
+<li>Customer, restaurant, payment, location, and promotion data are joined through several undocumented scripts.</li>
+<li>The mobile application team recently renamed several event fields without informing the machine-learning team.</li>
+<li>Training uses one implementation of restaurant distance, while production uses another.</li>
+<li>Fifteen separate configuration files contain ranking weights and thresholds.</li>
+<li>Some configuration files are edited manually on production servers.</li>
+<li>More than twenty internal services consume model scores, but no central list of consumers exists.</li>
+<li>The recommendation interface accepts only five fixed restaurant categories.</li>
+<li>The new model produces twelve categories and a continuous relevance score.</li>
+<li>A large block of custom glue code maps the new outputs into the old interface.</li>
+<li>User clicks are treated as direct measures of preference.</li>
+<li>Restaurants shown near the top receive more clicks and therefore appear more frequently in future training data.</li>
+<li>Promotion teams modify ranking scores after model inference.</li>
+<li>Feature definitions are duplicated across training, testing, and production pipelines.</li>
+<li>Restaurant availability is refreshed every hour, even though many restaurants open and close within minutes.</li>
+<li>No single person owns the complete pipeline.</li>
+<li>Only recommendation click-through rate is monitored. Task Prepare a hidden technical debt register. For each identified debt item, record:</li>
+<li>The evidence in the scenario.</li>
+<li>The technical debt category.</li>
+<li>The affected component.</li>
+<li>The likely failure mode.</li>
+<li>The possible business, fairness, or operational consequence.</li>
+<li>The method for detecting the problem.</li>
+<li>The proposed corrective action.</li>
+<li>The person or team that should own the corrective action.</li>
+<li>The urgency level. Your register should consider at least:</li>
+<li>Undeclared consumers</li>
+<li>Unstable data dependencies</li>
+<li>Train-serving mismatch</li>
+<li>Configuration debt</li>
+<li>Glue-code debt</li>
+<li>Pipeline entanglement</li>
+<li>Stale features</li>
+<li>Feedback loops</li>
+<li>Selective exposure</li>
+<li>Monitoring gaps</li>
+<li>Ownership gaps</li>
+<li>Interface rigidity</li>
+<li>Hidden post-processing Conclude by identifying the three items that create the greatest production risk.</li>
+</ul>
+</div></details>
+
+<section class="question"><div class="q-head">A5. Prepare a hidden technical debt register and identify the three items that create the greatest production risk.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Summary register</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Debt item (category)</th>
+<th>Affected component</th>
+<th>Owner</th>
+<th>Urgency</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Undeclared consumers</td>
+<td>Model score output / 20+ services</td>
+<td>ML platform lead + consuming teams</td>
+<td>High</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Unstable data dependencies (renamed event fields)</td>
+<td>Event ingestion / feature pipeline</td>
+<td>Mobile app team + data engineering</td>
+<td>Critical</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Train-serving mismatch (two distance implementations)</td>
+<td>Feature computation</td>
+<td>ML engineering</td>
+<td>Critical</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Configuration debt (15 config files, manual production edits)</td>
+<td>Ranking weights and thresholds</td>
+<td>ML platform / SRE</td>
+<td>Critical</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Glue-code debt (mapping 12 categories to 5)</td>
+<td>Output-to-interface adapter</td>
+<td>ML engineering + app team</td>
+<td>High</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Pipeline entanglement (undocumented join scripts)</td>
+<td>Data joins (customer, restaurant, payment, location, promotion)</td>
+<td>Data engineering</td>
+<td>High</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Stale features (hourly availability refresh)</td>
+<td>Restaurant availability feature</td>
+<td>Data engineering</td>
+<td>High</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Feedback loop (top positions get more clicks)</td>
+<td>Training data / ranking</td>
+<td>ML team + product</td>
+<td>High</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Selective exposure (clicks treated as preference)</td>
+<td>Label definition</td>
+<td>ML team + data science</td>
+<td>High</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Monitoring gap (only CTR monitored)</td>
+<td>Monitoring</td>
+<td>ML platform / MLOps</td>
+<td>Critical</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Ownership gap (no pipeline owner)</td>
+<td>Whole pipeline</td>
+<td>Engineering leadership</td>
+<td>Critical</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Interface rigidity (5 fixed categories)</td>
+<td>Recommendation UI</td>
+<td>Product + app team</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Hidden post-processing (promotion teams change scores)</td>
+<td>Post-inference scoring</td>
+<td>Promotions + ML team + leadership</td>
+<td>High</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Duplicated feature definitions</td>
+<td>Train/test/production pipelines</td>
+<td>ML engineering</td>
+<td>High</td>
+</tr>
+</tbody></table></div>
+<p>Detailed register entries</p>
+<p><strong>1. Undeclared consumers</strong></p>
+<ul>
+<li>Evidence: more than twenty internal services consume model scores, with no central list.</li>
+<li>Category / component: undeclared consumers (data dependency) / model output.</li>
+<li>Failure mode: a model update changes score scale or meaning and silently breaks downstream services (pricing, marketing, ETA) that assumed the old behaviour; the ML team cannot safely change the model.</li>
+<li>Consequence: wrong promotions, broken features, revenue loss; hidden coupling blocks improvement.</li>
+<li>Detection: access logs and API-key audit of who calls the score endpoint; dependency tracing.</li>
+<li>Correction: a registry of consumers, access control on the score API, versioned score contracts, notice before changes.</li>
+<li>Owner / urgency: ML platform lead with consuming teams / High.</li>
+</ul>
+<p><strong>2. Unstable data dependencies</strong></p>
+<ul>
+<li>Evidence: the mobile team renamed event fields without informing the ML team.</li>
+<li>Category / component: unstable data dependency / event ingestion.</li>
+<li>Failure mode: features become null or default silently; the model ranks on corrupted inputs (like the notes&#39; UTC-to-local timestamp change).</li>
+<li>Consequence: poor recommendations, lower orders; no error is thrown (silent failure).</li>
+<li>Detection: schema validation and missingness checks on incoming events; alerts on sudden feature distribution changes.</li>
+<li>Correction: data contracts between app and ML teams; schema registry; pipeline pauses on schema violations.</li>
+<li>Owner / urgency: mobile app team and data engineering / Critical.</li>
+</ul>
+<p><strong>3. Train-serving mismatch</strong></p>
+<ul>
+<li>Evidence: training uses one implementation of restaurant distance, production another.</li>
+<li>Category / component: train-serving mismatch (skew) / feature computation.</li>
+<li>Failure mode: the model sees different distance values in production than in training; learned relationships no longer apply.</li>
+<li>Consequence: far restaurants recommended, longer deliveries, cold food, cancellations.</li>
+<li>Detection: compare training vs serving feature values for the same requests; skew monitoring.</li>
+<li>Correction: a single shared, versioned transformation (feature store) for training and serving; automated consistency tests.</li>
+<li>Owner / urgency: ML engineering / Critical.</li>
+</ul>
+<p><strong>4. Configuration debt</strong></p>
+<ul>
+<li>Evidence: fifteen separate configuration files with ranking weights and thresholds; some edited manually on production servers.</li>
+<li>Category / component: configuration debt / ranking parameters.</li>
+<li>Failure mode: nobody knows which configuration produced current behaviour; changes are untracked; rollback impossible.</li>
+<li>Consequence: unexplained ranking changes, outages, inability to reproduce or audit.</li>
+<li>Detection: configuration diff audits; file-integrity monitoring on production servers.</li>
+<li>Correction: consolidate into one version-controlled configuration with review, testing and deployment through the pipeline; ban manual production edits.</li>
+<li>Owner / urgency: ML platform / SRE / Critical.</li>
+</ul>
+<p><strong>5. Glue-code debt</strong></p>
+<ul>
+<li>Evidence: a large block of custom glue code maps the new model&#39;s 12 categories and continuous score into the old interface&#39;s 5 categories.</li>
+<li>Category / component: glue code / output adapter.</li>
+<li>Failure mode: brittle mapping silently fails when outputs change (like the notes&#39; collections example where everyone defaulted to &quot;Standard&quot;).</li>
+<li>Consequence: the new model&#39;s value is lost or distorted without any error.</li>
+<li>Detection: monitor the distribution of final displayed categories vs model outputs.</li>
+<li>Correction: redesign the interface to accept the new outputs; replace glue code with a tested, documented adapter; unit tests.</li>
+<li>Owner / urgency: ML engineering + app team / High.</li>
+</ul>
+<p><strong>6. Pipeline entanglement</strong></p>
+<ul>
+<li>Evidence: customer, restaurant, payment, location and promotion data are joined through several undocumented scripts.</li>
+<li>Category / component: pipeline jungles / entanglement / data joins.</li>
+<li>Failure mode: a change in one source or script alters features elsewhere (changing anything changes everything); failed or delayed joins produce wrong features.</li>
+<li>Consequence: silent degradation; privacy risk from undocumented payment/location joins.</li>
+<li>Detection: lineage tracking; data-quality tests on join outputs (row counts, key matches).</li>
+<li>Correction: document and consolidate joins into an orchestrated, tested pipeline with lineage.</li>
+<li>Owner / urgency: data engineering / High.</li>
+</ul>
+<p><strong>7. Stale features</strong></p>
+<ul>
+<li>Evidence: restaurant availability refreshed hourly although restaurants open and close within minutes.</li>
+<li>Category / component: stale features / availability feature.</li>
+<li>Failure mode: closed restaurants recommended; open ones hidden.</li>
+<li>Consequence: failed orders, poor customer experience, unfair loss of orders for restaurants.</li>
+<li>Detection: measure order failures due to closure; feature freshness monitoring.</li>
+<li>Correction: streaming or event-driven availability updates; availability filter at serving time.</li>
+<li>Owner / urgency: data engineering / High.</li>
+</ul>
+<p><strong>8. Feedback loop</strong></p>
+<ul>
+<li>Evidence: restaurants shown near the top receive more clicks and therefore appear more often in future training data.</li>
+<li>Category / component: direct feedback loop / training data and ranking.</li>
+<li>Failure mode: past exposure → observed interaction → training data → future exposure; popular restaurants become more popular regardless of quality.</li>
+<li>Consequence: new and small restaurants starved of exposure (fairness to restaurants), less diversity, lock-in.</li>
+<li>Detection: track concentration of exposure and new-restaurant exposure over time.</li>
+<li>Correction: counterfactual logging of what was shown and at which position; position-bias correction; exploration traffic.</li>
+<li>Owner / urgency: ML team + product / High.</li>
+</ul>
+<p><strong>9. Selective exposure (clicks as preference)</strong></p>
+<ul>
+<li>Evidence: user clicks are treated as direct measures of preference.</li>
+<li>Category / component: label definition (proxy label) / training labels.</li>
+<li>Failure mode: clicks depend on position, interface and availability, not only preference; the model learns its own ranking.</li>
+<li>Consequence: optimizing clicks rather than long-term benefit (satisfaction, repeat orders).</li>
+<li>Detection: compare clicks with orders, ratings and retention; A/B tests.</li>
+<li>Correction: better labels (completed orders, ratings, repeat purchases), position-debiasing, long-term metrics.</li>
+<li>Owner / urgency: ML team + data science / High.</li>
+</ul>
+<p><strong>10. Monitoring gap</strong></p>
+<ul>
+<li>Evidence: only recommendation click-through rate is monitored.</li>
+<li>Category / component: monitoring debt / whole system.</li>
+<li>Failure mode: input corruption, skew, stale features, drift and fairness problems are invisible while CTR looks fine.</li>
+<li>Consequence: silent failures and revenue loss discovered late.</li>
+<li>Detection: (gap itself) audit of monitoring coverage.</li>
+<li>Correction: multi-dimensional monitoring: input quality, drift, feature pipelines, output distributions, order conversion, delivery time, cancellations, restaurant exposure fairness, latency, overrides.</li>
+<li>Owner / urgency: ML platform / MLOps / Critical.</li>
+</ul>
+<p><strong>11. Ownership gap</strong></p>
+<ul>
+<li>Evidence: no single person owns the complete pipeline.</li>
+<li>Category / component: governance / ownership debt / entire system.</li>
+<li>Failure mode: problems fall between teams; no one can approve, stop or roll back.</li>
+<li>Consequence: slow incident response; unmanaged risk (NIST Govern failure).</li>
+<li>Detection: RACI review; incident post-mortems showing unclear responsibility.</li>
+<li>Correction: name an accountable pipeline owner with authority; define team responsibilities.</li>
+<li>Owner / urgency: engineering leadership / Critical.</li>
+</ul>
+<p><strong>12. Interface rigidity</strong></p>
+<ul>
+<li>Evidence: the interface accepts only five fixed categories while the model produces twelve plus a continuous score.</li>
+<li>Category / component: rigid UI categories / recommendation interface.</li>
+<li>Failure mode: information lost; forces glue code.</li>
+<li>Consequence: the new model cannot deliver its value.</li>
+<li>Detection: compare model output richness with displayed categories.</li>
+<li>Correction: redesign the interface to support new categories and scores.</li>
+<li>Owner / urgency: product + app team / Medium.</li>
+</ul>
+<p><strong>13. Hidden post-processing</strong></p>
+<ul>
+<li>Evidence: promotion teams modify ranking scores after model inference.</li>
+<li>Category / component: hidden post-processing / scoring layer.</li>
+<li>Failure mode: the displayed ranking is not the model&#39;s ranking; evaluation and monitoring measure the wrong thing; the changed rankings feed back into training.</li>
+<li>Consequence: unexplained behaviour, possible unfair promotion, misleading metrics.</li>
+<li>Detection: log pre- and post-adjustment scores and compare.</li>
+<li>Correction: make promotion adjustments explicit, versioned and logged within the pipeline, with governance approval; train on logged exposure.</li>
+<li>Owner / urgency: promotions team + ML team + leadership / High.</li>
+</ul>
+<p><strong>14. Duplicated feature definitions</strong></p>
+<ul>
+<li>Evidence: feature definitions duplicated across training, testing and production pipelines.</li>
+<li>Category / component: duplicated logic (skew risk) / feature pipelines.</li>
+<li>Failure mode: definitions drift apart, causing train-serving and test-serving mismatch.</li>
+<li>Consequence: evaluation results do not reflect production.</li>
+<li>Detection: automated comparison of feature outputs across pipelines.</li>
+<li>Correction: one centralized, version-controlled feature store (Feast or Tecton, as in the notes).</li>
+<li>Owner / urgency: ML engineering / High.</li>
+</ul>
+<p>Three items with the greatest production risk:</p>
+<ol>
+<li><p>Train-serving mismatch plus duplicated feature definitions (items 3 and 14): the production model is effectively running on different inputs from the ones it was trained and tested on, so every offline result is unreliable.</p>
+</li>
+<li><p>Configuration debt with manual production edits (item 4): untracked changes make the system irreproducible and impossible to roll back; one mistaken edit can change rankings for all customers.</p>
+</li>
+<li><p>Monitoring gap combined with the ownership gap (items 10 and 11): with only CTR monitored and nobody owning the pipeline, all other debts (renamed fields, stale features, broken glue code) can fail silently with no one responsible for detecting or fixing them.</p>
+</li>
+</ol>
+</div></details>
+</section>
+<h3 id="a6-completing-a-problem-framing-worksheet-university-tutoring-allocation"><a class="anchor" href="#a6-completing-a-problem-framing-worksheet-university-tutoring-allocation" aria-hidden="true">#</a>A6: Completing a Problem-Framing Worksheet (University Tutoring Allocation)</h3>
+
+<details class="orig-q oq-fold"><summary><span class="oq-lab">📄 Original question</span><span class="oq-src">A6 (Module 1 notes)</span><span class="oq-hint">tap to show</span></summary><div class="oq-body"><p>A6: Completing a Problem-Framing Worksheet Scenario: University Tutoring Allocation A university can provide intensive tutoring to only 200 first-year students each semester. University leadership proposes using AI to identify students who are likely to experience serious academic difficulty. Available information includes:</p>
+<ul>
+<li>Admission scores</li>
+<li>Previous academic records</li>
+<li>Programme of study</li>
+<li>Course enrolment</li>
+<li>Attendance</li>
+<li>Weekly quizzes</li>
+<li>Assignment submissions</li>
+<li>Learning-platform activity</li>
+<li>Financial-aid information</li>
+<li>Midterm grades</li>
+<li>Final grades</li>
+<li>Withdrawal records Tutoring can begin at the end of week 3, week 6, or after the midterm examination. The existing process relies on voluntary student requests and faculty referrals. Some students may not seek help because of stigma, lack of awareness, or scheduling constraints. Task Complete the following problem-framing worksheet: At [decision time], for [target population or unit], using only [available information], produce [required output] concerning [prediction horizon or outcome period], so that [decision-maker] can [action]. The system will be compared with [baseline] and evaluated using [metrics], while accounting for [error costs, subgroup risks, operational constraints, and governance requirements]. After completing the statement, explain:</li>
+<li>Why the selected decision time is operationally appropriate.</li>
+<li>Which variables are available at that time.</li>
+<li>Which variables would cause temporal leakage.</li>
+<li>How serious academic difficulty should be defined.</li>
+<li>Whether the output should be a class, probability, ranking, or recommendation.</li>
+<li>How the 200-student capacity limit affects the decision rule.</li>
+<li>The consequences of false positives and false negatives.</li>
+<li>Which student groups require separate performance analysis.</li>
+<li>How students should be informed about the system.</li>
+<li>Whether students should be able to decline, appeal, or request human review.</li>
+<li>How the system should be compared with voluntary requests and faculty referrals.</li>
+<li>What evidence would justify deployment.</li>
+</ul>
+</div></details>
+
+<section class="question"><div class="q-head">A6. Complete the problem-framing worksheet for tutoring allocation and answer the follow-up questions.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Completed statement: At [the end of week 3 of the semester, before tutoring begins], for [every first-year student enrolled on the census date (one student is the unit of analysis)], using only [information recorded by the end of week 3: admission scores, previous academic records, programme of study, course enrolment, attendance in weeks 1 to 3, weekly quizzes 1 to 3, assignment submissions due by week 3, learning-platform activity in weeks 1 to 3, and financial-aid information as recorded at enrolment], produce [a calibrated probability of serious academic difficulty, a ranked list, and an uncertainty flag for borderline or incomplete records] concerning [the remainder of the semester, from week 3 to the release of final results], so that [the academic-support office, with faculty advisers] can [offer the 200 intensive-tutoring places to the highest-ranked students after human review, with lighter support (study-skills workshops, peer mentoring) for the next band]. The system will be compared with [the current process of voluntary requests and faculty referrals] and evaluated using [recall@200, precision@200, calibration and AUROC, reported overall and by subgroup], while accounting for [the higher cost of missing a struggling student, stigma from being flagged, fairness across financial-aid, programme, gender and first-generation groups, the hard limit of 200 places, and governance requirements including student notice, opt-out, appeal, human review and monitoring].</p>
+<ul>
+<li>Why week 3 is operationally appropriate: early enough that most of the semester remains for tutoring to change the outcome (the horizon must match the window to act), yet late enough to have real behavioural signals (attendance, first quizzes and submissions). After the midterm the model would be more accurate but &quot;accurate but operationally unhelpful&quot;: students may already have failed half the assessments. A defensible variant: allocate about 150 places at week 3 and hold 50 for a week-6 re-scoring of students who start to struggle.</li>
+<li>Variables available at week 3: admission scores, previous academic records, programme, course enrolment, attendance (weeks 1 to 3), weekly quizzes 1 to 3, assignment submissions to date, learning-platform activity to date, financial-aid status at enrolment.</li>
+<li>Variables that cause temporal leakage: midterm grades (after week 3 unless the index time is post-midterm), final grades (the outcome itself), withdrawal records (part of the outcome), attendance, quizzes, submissions and platform activity after week 3, and any financial-aid change made later (for example aid lost due to poor grades).</li>
+<li>Defining serious academic difficulty: Y = 1 if, by the end of the semester, the student fails one or more core first-year courses, or withdraws after the census date, or ends the term with a GPA below the academic-probation threshold. Students who leave for non-academic reasons (medical leave) are recorded separately, and missing outcomes are not coded as 0.</li>
+<li>Output type: a calibrated probability used to produce a ranking (not a hard class), because a fixed capacity of 200 makes this ranking under a budget; probabilities also let the team assign lighter support tiers and show unmet need. Recommendations (tutoring vs workshop) follow from risk tiers.</li>
+<li>Effect of the 200-student limit: the decision rule is top-200 by p̂ after review (k = 200), so the effective threshold is the p̂ of the 200th student; add a minimum risk floor so places are not wasted on low-risk students; send students near the cut-off or with incomplete records for human review.</li>
+<li>False positives: a place goes to a student who would have passed, displacing someone who needed it; possible stigma and wasted tutor time. False negatives: a struggling student gets no support and fails or drops out; this is more costly and harder to reverse, so recall@200 is the primary metric.</li>
+<li>Groups needing separate analysis: financial-aid recipients vs non-recipients; programme of study; gender; first-generation students; international and non-native speakers; students with disabilities; commuting or working students; admission route; and intersections. Report selection rate, recall and calibration with sample sizes and confidence intervals.</li>
+<li>Informing students: tell all students at orientation that early-warning analytics are used, what data are used, and that the goal is support, not punishment; invitations should be framed positively (&quot;you have been offered free tutoring&quot;) and kept confidential.</li>
+<li>Decline, appeal, human review: yes. Students may decline tutoring without penalty; students not selected can request support (voluntary route remains open); any student can ask for human review of their data; faculty advisers make the final allocation and can override with a logged reason.</li>
+<li>Comparison with voluntary requests and faculty referrals: compare on the same historical cohorts (temporal validation) which approach captures more students who later had serious difficulty (recall@200), and check whether the model finds students who do not seek help because of stigma or awareness. Ideally run a pilot comparing outcomes of students selected by each route, and randomize among borderline students to estimate the causal effect of tutoring.</li>
+<li>Evidence to justify deployment: better recall@200 than referrals on temporal validation; good calibration; no subgroup with much worse recall; a prospective silent run; evidence from a pilot that tutoring improves outcomes for flagged students; a model card, notice and appeal process in place; monitoring plan approved.</li>
+</ul>
+</div></details>
+</section>
+<h3 id="a7-identifying-possible-failures-in-an-ai-project-automated-recruitment-screening"><a class="anchor" href="#a7-identifying-possible-failures-in-an-ai-project-automated-recruitment-screening" aria-hidden="true">#</a>A7: Identifying Possible Failures in an AI Project (Automated Recruitment Screening)</h3>
+
+<details class="orig-q oq-fold"><summary><span class="oq-lab">📄 Original question</span><span class="oq-src">A7 (Module 1 notes)</span><span class="oq-hint">tap to show</span></summary><div class="oq-body"><p>A7: Identifying Possible Failures in an AI Project Scenario: Automated Recruitment Screening A technology company develops an AI system to rank job applicants. The project has the following characteristics:</p>
+<ul>
+<li>The objective is stated as finding the best applicants.</li>
+<li>Historical hiring decisions are used as ground-truth labels.</li>
+<li>Most previous hires came from five universities.</li>
+<li>Applicants without conventional employment histories are underrepresented.</li>
+<li>Postal code, name, university, and employment gaps are included as features.</li>
+<li>Resume information submitted after the interview is included in the training records.</li>
+<li>All applicant records from the same year are randomly divided into training and testing sets.</li>
+<li>The model achieves 96 percent accuracy.</li>
+<li>Accuracy is the only reported metric.</li>
+<li>No comparison is made with the existing recruiter-review process.</li>
+<li>The model has not been tested on applications from another country or a later hiring year.</li>
+<li>Recruiters receive only a ranked list and no uncertainty information.</li>
+<li>The top ten applicants are highlighted in green.</li>
+<li>Recruiters usually review only the highlighted applicants.</li>
+<li>Applicants cannot request an explanation or appeal.</li>
+<li>The model is automatically retrained every six months using the latest hiring decisions.</li>
+<li>No monitoring is performed for subgroup performance, drift, override rates, or feedback loops.</li>
+<li>No individual or committee has formal responsibility for model governance. Task Conduct an end-to-end failure analysis. Identify possible failures associated with:</li>
+<li>Problem definition.</li>
+<li>Target and label selection.</li>
+<li>Data provenance.</li>
+<li>Historical bias.</li>
+<li>Proxy variables.</li>
+<li>Population representativeness.</li>
+<li>Temporal leakage.</li>
+<li>Train-test splitting.</li>
+<li>Evaluation metrics.</li>
+<li>External and temporal validation.</li>
+<li>Calibration and uncertainty.</li>
+<li>Model interpretability.</li>
+<li>Interface design.</li>
+<li>Automation bias.</li>
+<li>Human workflow.</li>
+<li>Appeals and procedural fairness.</li>
+<li>Feedback loops.</li>
+<li>Selective labels.</li>
+<li>Retraining.</li>
+<li>Monitoring.</li>
+<li>Accountability and governance.</li>
+<li>Legal, ethical, and organizational constraints. For every failure identified, explain:</li>
+<li>Why it is a failure</li>
+<li>Which stage of the AI pipeline it affects</li>
+<li>The harm it could produce</li>
+<li>How it could be detected</li>
+<li>How it should be prevented or mitigated Conclude with one of the following recommendations and defend it:</li>
+<li>Proceed to a controlled pilot</li>
+<li>Redesign the project before any pilot</li>
+<li>Replace the machine-learning approach with a simpler process</li>
+<li>Cancel the project because the proposed use is not justified</li>
+</ul>
+</div></details>
+
+<section class="question"><div class="q-head">A7. Conduct an end-to-end failure analysis and recommend proceed, redesign, replace or cancel.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><div class="tbl"><table>
+<thead>
+<tr>
+<th>Failure (pipeline stage)</th>
+<th>Why it is a failure</th>
+<th>Harm</th>
+<th>Detection</th>
+<th>Prevention / mitigation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Problem definition (formulation)</td>
+<td>&quot;Find the best applicants&quot; is undefined: best at what job, measured how, over what horizon? No decision-maker or action defined.</td>
+<td>Model optimizes an arbitrary proxy; no way to judge success</td>
+<td>Framing review; cannot complete the worksheet</td>
+<td>Define the decision (who is interviewed), job-relevant criteria and outcome</td>
+</tr>
+<tr>
+<td>Target and label selection (formulation/data)</td>
+<td>Historical hiring decisions record past recruiter preferences, not quality (status quo bias).</td>
+<td>Reproduces past bias at scale</td>
+<td>Audit labels vs job performance; adverse-impact analysis</td>
+<td>Use a validated job-relevant outcome, or narrow to verified requirements</td>
+</tr>
+<tr>
+<td>Data provenance (data)</td>
+<td>Unknown how past decisions were made, by whom, under which policies.</td>
+<td>Hidden bias and policy changes baked in</td>
+<td>Provenance review, datasheet</td>
+<td>Document sources; datasheet; exclude unreliable periods</td>
+</tr>
+<tr>
+<td>Historical bias (data)</td>
+<td>Most hires from five universities; past discrimination in labels.</td>
+<td>Candidates from other universities excluded</td>
+<td>Selection rates by university and group</td>
+<td>Rebalance, remove biased labels, human review</td>
+</tr>
+<tr>
+<td>Proxy variables (representation)</td>
+<td>Postal code, name, university and employment gaps encode socioeconomic status, ethnicity, gender (gaps for caregiving) and disability.</td>
+<td>Indirect discrimination; legal liability</td>
+<td>Proxy tests: predict protected attributes from features; ablations</td>
+<td>Remove or justify each feature with a job analysis; fairness testing</td>
+</tr>
+<tr>
+<td>Population representativeness (data)</td>
+<td>Non-traditional applicants under-represented.</td>
+<td>Model is unreliable and unfair for them</td>
+<td>Subgroup sample sizes and performance</td>
+<td>Collect more data; abstain for out-of-distribution applicants</td>
+</tr>
+<tr>
+<td>Temporal leakage (representation)</td>
+<td>Résumé information submitted after the interview is in the training records.</td>
+<td>Inflated accuracy; fails at screening time</td>
+<td>Check timestamps and availability time</td>
+<td>Snapshot features at application time only</td>
+</tr>
+<tr>
+<td>Train-test splitting (evaluation)</td>
+<td>Random split within the same year: same roles, recruiters and possibly duplicate applicants on both sides (group and temporal leakage).</td>
+<td>Over-optimistic results</td>
+<td>Compare with temporal split</td>
+<td>Split by time (train on earlier years, test on later) and by applicant</td>
+</tr>
+<tr>
+<td>Evaluation metrics (evaluation)</td>
+<td>Accuracy alone (96%) with imbalance (few hires) can be achieved by rejecting almost everyone.</td>
+<td>Misleading success claims</td>
+<td>Report precision, recall, AUROC, selection rates</td>
+<td>Pre-registered metrics incl. subgroup and calibration</td>
+</tr>
+<tr>
+<td>External and temporal validation (evaluation)</td>
+<td>Not tested on another country or later year.</td>
+<td>Fails when deployed elsewhere or later</td>
+<td>External and temporal holdouts</td>
+<td>Validate before any use; restrict scope</td>
+</tr>
+<tr>
+<td>Calibration and uncertainty (evaluation/decision)</td>
+<td>No uncertainty shown; scores may be overconfident.</td>
+<td>Small, meaningless score gaps decide careers</td>
+<td>Calibration curves; intervals</td>
+<td>Show confidence; abstain on low confidence</td>
+</tr>
+<tr>
+<td>Model interpretability (model)</td>
+<td>No explanations of rankings.</td>
+<td>Recruiters cannot spot proxies; applicants cannot contest</td>
+<td>Explanation audits</td>
+<td>Interpretable model or stable explanations</td>
+</tr>
+<tr>
+<td>Interface design (deployment)</td>
+<td>Top ten highlighted in green; ranked list only.</td>
+<td>Nudges acceptance; others invisible</td>
+<td>Invitation rates by colour/rank</td>
+<td>Show full pool, remove colour ranking, show uncertainty</td>
+</tr>
+<tr>
+<td>Automation bias (human workflow)</td>
+<td>Recruiters trust the list without checking.</td>
+<td>Errors pass unchecked</td>
+<td>Override rates (very low = rubber-stamping)</td>
+<td>Training, required independent review, logged reasons</td>
+</tr>
+<tr>
+<td>Human workflow (deployment)</td>
+<td>Recruiters review only highlighted applicants.</td>
+<td>Human oversight is nominal</td>
+<td>Workflow audits</td>
+<td>Mandatory review of a wider pool; staffing</td>
+</tr>
+<tr>
+<td>Appeals and procedural fairness (governance)</td>
+<td>Applicants cannot get an explanation or appeal.</td>
+<td>Unchallengeable, possibly unlawful decisions</td>
+<td>Complaints, legal review</td>
+<td>Notice, explanation, appeal and human re-review</td>
+</tr>
+<tr>
+<td>Feedback loops (monitoring)</td>
+<td>Model-selected hires become new training data.</td>
+<td>Bias amplified over time</td>
+<td>Track selection concentration over retrains</td>
+<td>Counterfactual logging; do not retrain on own selections</td>
+</tr>
+<tr>
+<td>Selective labels (data/monitoring)</td>
+<td>Outcomes only observed for those hired.</td>
+<td>Rejected groups never get positive labels</td>
+<td>Compare exposure vs outcomes</td>
+<td>Random audits of rejected applicants; better labels</td>
+</tr>
+<tr>
+<td>Retraining (lifecycle)</td>
+<td>Automatic six-monthly retraining with no validation gate.</td>
+<td>Worse or more biased versions deployed</td>
+<td>Version comparison</td>
+<td>Model validation gate; human approval; rollback</td>
+</tr>
+<tr>
+<td>Monitoring (monitoring)</td>
+<td>No monitoring of subgroups, drift, overrides or loops.</td>
+<td>Silent failures and discrimination</td>
+<td>(Absence itself)</td>
+<td>Multi-dimensional monitoring dashboard</td>
+</tr>
+<tr>
+<td>Accountability and governance (governance)</td>
+<td>No person or committee responsible.</td>
+<td>No one can stop harm (NIST Govern failure)</td>
+<td>Governance review</td>
+<td>Named accountable owner, committee, audits</td>
+</tr>
+<tr>
+<td>Legal, ethical, organizational constraints</td>
+<td>Possible violation of anti-discrimination and data-protection law; reputational risk.</td>
+<td>Lawsuits, fines, loss of trust</td>
+<td>Legal and ethics review</td>
+<td>Compliance review before any pilot; model card; impact assessment</td>
+</tr>
+</tbody></table></div>
+<p>Recommendation: Redesign the project before any pilot.</p>
+<p>A controlled pilot is not justified now, because the core problems are in the foundations: the objective is undefined, the label encodes historical bias, proxies and post-interview leakage contaminate the features, the evaluation (random split, accuracy only, no baseline, no external or temporal validation) cannot support any claim, and there is no governance or appeal. Piloting would expose real applicants to discrimination and generate more biased data through the feedback loop. Cancelling outright is not necessary if a legitimate need exists (screening a large volume of applications), and a simpler process may be part of the redesign (for example, structured rule-based checks of verified requirements plus human review). The redesigned project must: define the decision and a job-relevant outcome; remove proxies and leaked features; use temporal and external validation with subgroup, calibration and baseline comparison against recruiter review; redesign the interface (full pool, uncertainty, no green highlighting); add notice, explanation and appeal; stop automatic retraining; add monitoring; and assign a named accountable owner. Only then should it proceed to a silent, then advisory, controlled pilot.</p>
+</div></details>
+</section>
+<h2 id="last-minute-revision-module-1"><a class="anchor" href="#last-minute-revision-module-1" aria-hidden="true">#</a>Last-minute revision (Module 1)</h2>
+<h3 id="9-1-what-is-most-likely-to-come"><a class="anchor" href="#9-1-what-is-most-likely-to-come" aria-hidden="true">#</a>9.1 What is most likely to come</h3>
+<p>Based on how the notes and the practice set are built, these are the highest-probability quiz items:</p>
+<ul>
+<li>Produce or critique an artifact: a problem-framing worksheet, a Model Card (heart-disease template), a Datasheet, or a failure analysis. Know the section headings by heart.</li>
+<li>Spot the flaw in a scenario: temporal leakage, train-serving mismatch, proxy encoding, feedback loop and selective labels, aggregation bias, random split for a temporal claim, accuracy-only evaluation, automation bias from interface design.</li>
+<li>Choose a model or threshold: explain why the most accurate model is not always the best (loan and predictive-maintenance examples), and how C(t), capacity and asymmetric costs set t.</li>
+<li>Definitions and comparisons: symbolic vs statistical, prediction vs causal reasoning, discrimination vs calibration, autonomy vs intelligence, AI vs ML vs DL vs data science, generative vs discriminative, the four Russell-Norvig views, the four autonomy levels, NIST Govern-Map-Measure-Manage.</li>
+<li>Case studies: Google Flu Trends, Epic Sepsis Model, TFX, Obermeyer (cost as proxy), predictive policing.</li>
+<li>One question from your assignment or notebook: RYDA index time and leakage, why ranking with k = 300, WePrep subgroup gaps and recommendation, datasheet suitability, résumé feedback loop and neutralization debt, MLP forward pass by hand, Bayes posterior, O(N) vs O(1).</li>
+</ul>
+<h3 id="9-2-one-line-answers-to-memorize"><a class="anchor" href="#9-2-one-line-answers-to-memorize" aria-hidden="true">#</a>9.2 One-line answers to memorize</h3>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>If asked...</th>
+<th>Say...</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Where must an AI project start?</td>
+<td>With the decision or capability, not the algorithm or dataset.</td>
+</tr>
+<tr>
+<td>What makes a feature legal to use?</td>
+<td>It is recorded and available at or before the index time.</td>
+</tr>
+<tr>
+<td>Why not a random split?</td>
+<td>For temporal claims it leaks the future; use temporal validation (train past, test future).</td>
+</tr>
+<tr>
+<td>Why not accuracy alone?</td>
+<td>It ignores asymmetric costs, calibration, subgroups, imbalance, baselines and decision utility.</td>
+</tr>
+<tr>
+<td>Discrimination vs calibration?</td>
+<td>Ranking positives above negatives vs predicted probabilities matching observed frequencies.</td>
+</tr>
+<tr>
+<td>Why probabilities over hard labels?</td>
+<td>They keep uncertainty and let the threshold follow costs and capacity.</td>
+</tr>
+<tr>
+<td>How to set t?</td>
+<td>Minimize C(t) = c_FP·P(FP∣t) + c_FN·P(FN∣t) + c_delay·E[D∣t] + c_workflow(t), within capacity, fairness and human review.</td>
+</tr>
+<tr>
+<td>Capacity-limited allocation?</td>
+<td>Rank and take the top k; evaluate with precision@k and recall@k.</td>
+</tr>
+<tr>
+<td>Train-serving mismatch?</td>
+<td>Different preprocessing in training vs production (median vs 0 imputation).</td>
+</tr>
+<tr>
+<td>Proxy encoding?</td>
+<td>Neutral features (postal code, university) encode protected attributes.</td>
+</tr>
+<tr>
+<td>Feedback loop in ranking?</td>
+<td>Past exposure → observed interaction → training data → future exposure.</td>
+</tr>
+<tr>
+<td>Selective labels?</td>
+<td>Outcomes only observed for cases the system (or people) chose to look at.</td>
+</tr>
+<tr>
+<td>Why optimization is blind?</td>
+<td>It solves the specified objective; it cannot validate the target, sample, loss or ethics.</td>
+</tr>
+<tr>
+<td>Autonomy vs intelligence?</td>
+<td>Thermostat: autonomous, not intelligent. LLM: intelligent, no agency.</td>
+</tr>
+<tr>
+<td>Socio-technical layers?</td>
+<td>Model, Data Infrastructure, Interface, Human Workflow, Institutional Rules.</td>
+</tr>
+<tr>
+<td>NIST functions?</td>
+<td>Govern (accountability), Map (identify risks), Measure (assess), Manage (act).</td>
+</tr>
+<tr>
+<td>Model Card sections?</td>
+<td>Overview; Data Description; Performance Metrics (incl. subgroups, fairness); Known Limitations; Intended and Inappropriate Uses; Ethical Considerations; Additional Considerations (future work).</td>
+</tr>
+<tr>
+<td>Datasheet sections?</td>
+<td>Motivation; composition; collection process; preprocessing; recommended uses; limitations (plus maintenance).</td>
+</tr>
+<tr>
+<td>8 pipeline stages?</td>
+<td>Problem, Data, Representation, Model, Evaluation, Decision, Deployment, Monitoring (iterative).</td>
+</tr>
+<tr>
+<td>8 failure modes?</td>
+<td>Wrong problem, poor data, leakage, weak evaluation, underspecification, distribution shift, ignored workflow, no monitoring.</td>
+</tr>
+<tr>
+<td>Leakage types?</td>
+<td>Target, temporal, group, preprocessing, label, benchmark contamination.</td>
+</tr>
+<tr>
+<td>Occam&#39;s razor?</td>
+<td>A heuristic: avoid unnecessary complexity, not necessary complexity (TB + arthritis).</td>
+</tr>
+<tr>
+<td>Google Flu Trends lesson?</td>
+<td>Volume does not remove measurement bias; proxies drift; anchor to ground truth; keep lineage.</td>
+</tr>
+<tr>
+<td>Epic Sepsis lesson?</td>
+<td>External validation; label must match the event; timing matters; alert volume is a system metric.</td>
+</tr>
+<tr>
+<td>TFX lesson?</td>
+<td>A training script is not a production system; schemas, validation, shared transforms, lineage, model validation.</td>
+</tr>
+</tbody></table></div>
+<h3 id="9-3-common-traps"><a class="anchor" href="#9-3-common-traps" aria-hidden="true">#</a>9.3 Common traps</h3>
+<ul>
+<li>Writing &quot;the AI decided&quot; instead of naming the human and institutional choices behind it.</li>
+<li>Using a default threshold of 0.5 without justification.</li>
+<li>Saying &quot;high accuracy, so deploy&quot; without calibration, subgroups, baseline and workflow.</li>
+<li>Forgetting exclusions, the unit of analysis, and the horizon in a problem statement.</li>
+<li>Treating missing or unobserved outcomes as negatives.</li>
+<li>Assuming high risk means high benefit from an intervention (a causal question).</li>
+<li>Forgetting the recommendation line at the end of a Model Card or failure analysis.</li>
+</ul>
+<h3 id="9-4-numbers-worth-remembering-from-the-notes"><a class="anchor" href="#9-4-numbers-worth-remembering-from-the-notes" aria-hidden="true">#</a>9.4 Numbers worth remembering from the notes</h3>
+<ul>
+<li>Epic Sepsis: AUROC 0.63; 18% of hospitalizations alerted; 67% of sepsis cases missed at score ≥ 6; 183 cases found before timely antibiotics.</li>
+<li>Google Flu Trends: overestimated in 100 of 108 weeks; more than 2× CDC in February 2013; about 50 million terms vs 1,152 observations; combined model MAE 0.232 vs 0.486 (GFT) and 0.311 (lagged CDC).</li>
+<li>Loan example: DNN 94% vs logistic regression 91% with 15 features; about 50,000 applications per year.</li>
+<li>Baggage screening: t = 0.4 gives 96% accuracy but breaks the checkpoint; t = 0.7 gives 94% and minimizes C(t).</li>
+<li>Readmission example: random split 85% vs temporal 68%; AUC 0.82 overall vs 0.55 for non-English speakers; 80% predicted vs 35% observed.</li>
+<li>Notes&#39; Model Card example: accuracy 85%, precision 0.80, recall 0.75, F1 0.77; male recall 0.78 vs female 0.70.</li>
+<li>A2 scenario: accuracy 86%, precision 0.82, recall 0.74, F1 0.78; male recall 0.80, female 0.62, under-40 0.55.</li>
+</ul>
+<p>Good luck with the quiz.</p>
+
+  <nav class="pagenav">
+    <a class="pv" href="m1-answers.html">← Previous<b>M1 · Answers Q1–100</b></a>
+    <a class="nx" href="m2a-notes.html">Next →<b>M2 · Notes A — constructed data, sources, quality</b></a>
+  </nav>
+  <div class="foot">AI 500 · Fall 2026 · study notes</div>
+</main>
+</div>
+<div class="lightbox" id="lightbox" hidden><img alt=""><button class="iconbtn lb-close" aria-label="Close">✕</button></div>
+<script src="assets/site.js" defer></script>
+</body></html>

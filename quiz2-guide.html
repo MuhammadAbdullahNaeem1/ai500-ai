@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Quiz 2 guide · AI 500</title>
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#fbfbfa" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#16161a" media="(prefers-color-scheme: dark)">
+<script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<header class="topbar">
+  <button class="iconbtn" id="menuBtn" aria-label="Open contents" aria-expanded="false"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+  <a class="topbrand" href="index.html">AI 500<span>Quiz 2 guide</span></a>
+  <button class="iconbtn themebtn" aria-label="Toggle dark mode"><svg class="i-moon" viewBox="0 0 24 24" width="19" height="19"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg><svg class="i-sun" viewBox="0 0 24 24" width="19" height="19"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg></button>
+</header>
+<div class="scrim" id="scrim"></div>
+<div class="wrap">
+<aside class="side" id="side">
+  <div class="side-head">
+    <a class="brand" href="index.html">AI 500 — Foundations of AI<span>Foundations of AI · Fall 2026</span></a>
+    <button class="iconbtn themebtn" aria-label="Toggle dark mode"><svg class="i-moon" viewBox="0 0 24 24" width="17" height="17"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg><svg class="i-sun" viewBox="0 0 24 24" width="17" height="17"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg></button>
+  </div>
+  <nav><a href="index.html">Home</a>
+<a href="start-here.html">Start here (how to use)</a>
+<div class="nav-section">Modules</div>
+<details class="grp"><summary>M1 · AI Landscape & Problem Framing</summary><a href="m1a-notes.html">Notes A — roots, philosophy, landscape</a><a href="m1b-notes.html">Notes B — pipeline, framing, failures</a><a href="m1-answers.html">Answers Q1–100</a><a href="m1-cases.html">Answers S, R, A</a></details>
+<details class="grp"><summary>M2 · Data Collection, Cleaning, Governance & Ethics</summary><a href="m2a-notes.html">Notes A — constructed data, sources, quality</a><a href="m2b-notes.html">Notes B — curation, cleaning, leakage</a><a href="m2c-notes.html">Notes C — documentation, governance, cases</a><a href="m2-answers-1.html">Answers Q1–50</a><a href="m2-answers-2.html">Answers Q51–100</a><a href="m2-scenarios.html">Scenarios S1–S5</a><a href="m2-reflections.html">Reflections R1–R5</a></details>
+<div class="nav-section">Quiz 2 (24 Oct)</div>
+<a href="quiz2-guide.html" class="on" aria-current="page">Quiz 2 guide</a>
+<a href="quiz2-mock-a.html">★ Mock Quiz 2A</a>
+<a href="quiz2-mock-b.html">Mock Quiz 2B</a>
+<a href="quiz2-mock-c.html">Mock Quiz 2C</a>
+<div class="nav-section">Archive</div>
+<a href="quiz1-solved.html">Real Quiz 1 (solved)</a>
+<a href="assignments.html">Assignments & computational training</a>
+<a href="a2-missedcare.html">A2 Part A — MissedCare (your answers)</a>
+<a href="resources.html">PDFs, assignments & past material</a></nav>
+  <div class="toc"><div class="toc-title">On this page</div><a href="#1-what-quot-the-style-of-quiz-1-quot-means" class="">1. What &quot;the style of Quiz 1&quot; means</a><a href="#2-coverage-checklist-module-2" class="">2. Coverage checklist — Module 2</a><a href="#3-most-likely-questions-ranked" class="">3. Most likely questions (ranked)</a><a href="#4-one-line-answers-to-memorize" class="">4. One-line answers to memorize</a><a href="#5-exam-strategy-60-minutes-50-points" class="">5. Exam strategy (60 minutes, 50 points)</a></div>
+</aside>
+<main>
+  
+  <div class="quiz-tools"><button data-sol="open">Show all solutions</button><button data-sol="close">Hide all</button><button onclick="window.print()">Print</button></div>
+  <h1>Quiz 2 guide — Module 2</h1>
+<p><strong>Quiz 2: Saturday 24 October 2026, in class.</strong> Module 2: <em>Data Collection, Curation, Cleaning, Governance, and Ethics</em>. Syllabus: everything up to the class of <strong>17 October</strong>. <strong>No programming, no numerical problems</strong> — case study, assessment, descriptive analysis, fundamental concepts and practice. <strong>Same style as Quiz 1.</strong> Practice questions: notes pages <strong>130–145</strong>.</p>
+<div class="pdf-links">
+<a href="quiz2-mock-a.html">Mock Quiz 2A</a>
+<a href="quiz2-mock-b.html">Mock Quiz 2B</a>
+<a href="quiz2-mock-c.html">Mock Quiz 2C</a>
+<a href="quiz1-solved.html">Real Quiz 1 (solved)</a>
+<a href="pdfs/quizzes/Quiz-1-Solution.pdf">Quiz 1 solution PDF</a>
+</div>
+
+<h2 id="1-what-quot-the-style-of-quiz-1-quot-means"><a class="anchor" href="#1-what-quot-the-style-of-quiz-1-quot-means" aria-hidden="true">#</a>1. What &quot;the style of Quiz 1&quot; means</h2>
+<p>Quiz 1 (3 October 2026): <strong>50 points, 60 minutes</strong>, four sections, all marked with a rubric that gives a point for <strong>naming</strong> a concept and a point for <strong>explaining it in context</strong>.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Section</th>
+<th>Quiz 1</th>
+<th>Marks</th>
+<th>What to expect in Quiz 2</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Basic definitions</strong> [CLO 1] — &quot;compact response&quot;</td>
+<td>(a) Define AI (3) · (b) Define temporal leakage + why results unreliable (3) · (c) Define calibration + distinguish from discrimination (3)</td>
+<td><strong>9</strong></td>
+<td>3 definitions, each with a twist (&quot;…and explain why…&quot;, &quot;…distinguish from…&quot;)</td>
+</tr>
+<tr>
+<td><strong>Short conceptual</strong></td>
+<td>(a) AI ≠ ML + non-learning example (4) · (b) 0.62 is a prediction not a decision + 3 considerations (4) · (c) Why not pick the more accurate model + 3 criteria (4)</td>
+<td><strong>12</strong></td>
+<td>3 × 4-mark &quot;explain why / give three…&quot;</td>
+</tr>
+<tr>
+<td><strong>Scenario</strong></td>
+<td>Water-pipe failure: formulation (5), data risks incl. leakage (4), why 95% accuracy is inadequate (4), threshold 0.5 vs costs &amp; capacity (4), abstain/monitor (4)</td>
+<td><strong>21</strong></td>
+<td>One Module 2 case like S1–S5 with 5 parts</td>
+</tr>
+<tr>
+<td><strong>Identify biases</strong></td>
+<td>Hiring ranker: 4 distinct bias/feedback mechanisms, 2 pts each</td>
+<td><strong>8</strong></td>
+<td>Name &amp; explain 4 <strong>distinct</strong> problems (biases, leakage types, quality failures, governance failures)</td>
+</tr>
+</tbody></table></div>
+
+<div class="callout warn"><div class="callout-title">Common trap: Rubric lessons from Quiz 1</div><ul>
+<li>&quot;Do not reduce AI to ML&quot; — <strong>don&#39;t reduce an answer to one word</strong>. Name it <em>and</em> tie it to the case.</li>
+<li><strong>Avoid double counting</strong>: two symptoms of one mechanism earn marks once. In a &quot;four distinct biases&quot; question, choose mechanisms from <strong>different stages</strong> (data → label → evaluation → deployment → feedback).</li>
+<li>Temporal leakage was worth <strong>1.5/3</strong> just for &quot;uses post-index/future information&quot; — learn the exact phrasing: <em>information not available at the time the prediction is made</em>.</li>
+<li>Beyond accuracy, the same evaluation checklist kept scoring: <strong>class imbalance, FP vs FN, calibration, subgroup performance, robustness, temporal validation, baseline, decision utility</strong>.</li>
+</ul>
+</div>
+<h2 id="2-coverage-checklist-module-2"><a class="anchor" href="#2-coverage-checklist-module-2" aria-hidden="true">#</a>2. Coverage checklist — Module 2</h2>
+<p>Tick when you can explain it <strong>without notes</strong>, with one example from the notes.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Topic</th>
+<th>Notes</th>
+<th>Must be able to…</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Data are produced, not found</td>
+<td><a href="m2a-notes.html#1-data-are-produced-not-simply-found-2-1-1">2.1</a></td>
+<td>Give the 5 components (Figure 14); explain &quot;raw data is an oxymoron&quot;</td>
+</tr>
+<tr>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo stretchy="false">(</mo><mi>D</mi><mo separator="true">,</mo><mi>T</mi><mo separator="true">,</mo><mi>C</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">Q(D,T,C)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">Q</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mclose">)</span></span></span></span> fitness for purpose</td>
+<td><a href="m2a-notes.html#2-fitness-for-purpose-2-1-2">2.1.2</a></td>
+<td>Define D, T, C for a case and judge; the 4 tasks of Example 38</td>
+</tr>
+<tr>
+<td>8 data sources</td>
+<td><a href="m2a-notes.html#3-data-sources-and-their-inherent-realities-2-2">2.2</a></td>
+<td>One characteristic error per source; six survey errors; four log timestamps; platform as instrument; admin = institutional behaviour</td>
+</tr>
+<tr>
+<td>Synthetic-data validation</td>
+<td><a href="m2a-notes.html#3-8-synthetic-data">2.2.8</a></td>
+<td>Fidelity, utility, privacy, fairness, coverage, realism</td>
+</tr>
+<tr>
+<td>6 quality dimensions</td>
+<td><a href="m2a-notes.html#4-the-six-dimensions-of-data-quality-2-3">2.3</a></td>
+<td>Define each; completeness types; consistency types; timeliness concepts; 3 shifts; random/systematic/differential error; construct validity</td>
+</tr>
+<tr>
+<td>Curation workflow</td>
+<td><a href="m2b-notes.html#2-the-eight-stage-curation-workflow-2-4-2-figure-15">2.4</a></td>
+<td>8 stages; curation vs cleaning; audit-trail fields</td>
+</tr>
+<tr>
+<td>Missing data</td>
+<td><a href="m2b-notes.html#3-missing-values-2-5-1">2.5.1</a></td>
+<td>MCAR/MAR/MNAR with examples; informative missingness (lactate); costs of mean imputation</td>
+</tr>
+<tr>
+<td>Outliers, duplicates, labels, units</td>
+<td><a href="m2b-notes.html#4-outliers-2-5-2">2.5.2–2.5.3</a></td>
+<td>Investigate not delete; exact/near duplicates; false merge/split; κ concept; acceptable alternative labels; unit schemas</td>
+</tr>
+<tr>
+<td>Imbalance &amp; calibration</td>
+<td><a href="m2b-notes.html#6-class-imbalance-2-5-4">2.5.4</a></td>
+<td>Accuracy paradox; split before resampling; recalibration; Platt vs isotonic; SMOTE vs SMOTENC</td>
+</tr>
+<tr>
+<td>Leakage</td>
+<td><a href="m2b-notes.html#7-data-leakage-2-6">2.6</a></td>
+<td>Target, train–test, temporal, group, site; CV variants; prevention checklist</td>
+</tr>
+<tr>
+<td>Documentation</td>
+<td><a href="m2c-notes.html#1-data-documentation-2-7">2.7</a></td>
+<td>Datasheet areas; data dictionary elements; provenance vs lineage; consent ≠ licence; copyright ≠ privacy; licence compatibility</td>
+</tr>
+<tr>
+<td>Governance &amp; ethics</td>
+<td><a href="m2c-notes.html#2-governance-and-ethics-2-8">2.8</a></td>
+<td>Privacy risks; de-identification limits; minimization rule; proxies; sensitive attributes for auditing; 7 biases; 4 fairness metrics &amp; incompatibility; secondary use; roles</td>
+</tr>
+<tr>
+<td>Good data, misleading AI</td>
+<td><a href="m2c-notes.html#3-how-a-quot-good-quot-dataset-produces-a-misleading-ai-system-2-9">2.9–2.10</a></td>
+<td>Construct → process → proxy → target; suitability audit (6 lenses); 6 acceptance gates</td>
+</tr>
+<tr>
+<td>Case studies</td>
+<td><a href="m2c-notes.html#5-three-case-studies-2-11">2.11</a></td>
+<td>Gender Shades, cost proxy (Obermeyer), label errors (Northcutt) — diagnosis, redesign, lesson</td>
+</tr>
+</tbody></table></div>
+<h2 id="3-most-likely-questions-ranked"><a class="anchor" href="#3-most-likely-questions-ranked" aria-hidden="true">#</a>3. Most likely questions (ranked)</h2>
+<ol>
+<li><strong>Define and distinguish</strong> — MCAR/MAR/MNAR; provenance vs lineage; consent vs licence; random vs systematic error; covariate/label/concept shift; curation vs cleaning; datasheet vs data dictionary; demographic parity vs equal opportunity.</li>
+<li><strong>Leakage hunting in a case</strong> — S3, S4, R3 shapes: name each leak (target, contamination, temporal, group, site), explain, fix.</li>
+<li><strong><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo stretchy="false">(</mo><mi>D</mi><mo separator="true">,</mo><mi>T</mi><mo separator="true">,</mo><mi>C</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">Q(D,T,C)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">Q</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mclose">)</span></span></span></span> on a case</strong> — S1/R1 shape.</li>
+<li><strong>Proxy / construct validity</strong> — cost for need, arrests for crime, clicks for satisfaction; &quot;why can&#39;t a better model fix it?&quot;</li>
+<li><strong>Four distinct biases</strong> — historical, representation, measurement, aggregation, evaluation, deployment, feedback (+ proxy, selective labels).</li>
+<li><strong>Governance case</strong> — S5/R5 shape: consent, licence, de-identification, model weights, roles.</li>
+<li><strong>Why not just remove the sensitive attribute?</strong> — proxies + need for fairness auditing.</li>
+<li><strong>Synthetic data claims</strong> — challenge &quot;synthetic = anonymous/fair&quot;.</li>
+</ol>
+<h2 id="4-one-line-answers-to-memorize"><a class="anchor" href="#4-one-line-answers-to-memorize" aria-hidden="true">#</a>4. One-line answers to memorize</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Term</th>
+<th>One line</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Raw data</td>
+<td>An oxymoron — data are produced through conceptualization, observation and engineering choices.</td>
+</tr>
+<tr>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo stretchy="false">(</mo><mi>D</mi><mo separator="true">,</mo><mi>T</mi><mo separator="true">,</mo><mi>C</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">Q(D,T,C)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">Q</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mclose">)</span></span></span></span></td>
+<td>Fitness of dataset D for task T under context C — quality is relative to purpose.</td>
+</tr>
+<tr>
+<td>Coverage error</td>
+<td>The sampling frame misses part of the target population.</td>
+</tr>
+<tr>
+<td>Nonresponse bias</td>
+<td>Respondents differ systematically from those who refuse.</td>
+</tr>
+<tr>
+<td>Platform as instrument</td>
+<td>Web behaviour is a reaction inside an engineered environment (algorithm, interface, moderation, incentives).</td>
+</tr>
+<tr>
+<td>Event/recording/arrival/processing time</td>
+<td>When it happened / was logged / reached the pipeline / was processed.</td>
+</tr>
+<tr>
+<td>Administrative data</td>
+<td>Observed outcome = f(condition, access, policy, institutional practice).</td>
+</tr>
+<tr>
+<td>Completeness</td>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>−</mo><msub><mi>m</mi><mi>j</mi></msub><mi mathvariant="normal">/</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">1-m_j/n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.0361em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mord">/</span><span class="mord mathnormal">n</span></span></span></span> per cell; complete records / total per record.</td>
+</tr>
+<tr>
+<td>Accuracy</td>
+<td>Closeness to an independent trusted reference — internal agreement is not enough.</td>
+</tr>
+<tr>
+<td>Staleness</td>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>t</mi><mo>=</mo><mi>t</mi><mo>−</mo><msub><mi>t</mi><mtext>last update</mtext></msub></mrow><annotation encoding="application/x-tex">\Delta t=t-t_{\text{last update}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">Δ</span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6984em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.9012em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">last update</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span> beyond a task threshold.</td>
+</tr>
+<tr>
+<td>Representativeness</td>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>P</mi><mtext>data</mtext></msub><mo stretchy="false">(</mo><mi>X</mi><mo separator="true">,</mo><mi>Y</mi><mo stretchy="false">)</mo><mo mathvariant="normal">≠</mo><msub><mi>P</mi><mtext>target</mtext></msub><mo stretchy="false">(</mo><mi>X</mi><mo separator="true">,</mo><mi>Y</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">P_{\text{data}}(X,Y)\ne P_{\text{target}}(X,Y)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">data</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel"><span class="mrel"><span class="mord vbox"><span class="thinbox"><span class="rlap"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="inner"><span class="mord"><span class="mrel"></span></span></span><span class="fix"></span></span></span></span></span><span class="mrel">=</span></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.0361em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">target</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mclose">)</span></span></span></span> in consequential ways.</td>
+</tr>
+<tr>
+<td>Differential measurement error</td>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false">(</mo><msup><mi>X</mi><mo>∗</mo></msup><mo mathvariant="normal">≠</mo><mi>X</mi><mo>∣</mo><mi>A</mi><mo>=</mo><mi>a</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">P(X^*\ne X\mid A=a)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6887em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel"><span class="mrel"><span class="mord vbox"><span class="thinbox"><span class="rlap"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="inner"><span class="mord"><span class="mrel"></span></span></span><span class="fix"></span></span></span></span></span><span class="mrel">=</span></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">a</span><span class="mclose">)</span></span></span></span> varies by group — a fairness problem.</td>
+</tr>
+<tr>
+<td>Construct validity</td>
+<td>Does the variable measure the concept we care about?</td>
+</tr>
+<tr>
+<td>MCAR / MAR / MNAR</td>
+<td>Unrelated to data / explained by observed data / depends on the missing value itself.</td>
+</tr>
+<tr>
+<td>Data leakage</td>
+<td>Using information not available at prediction time → optimistic evaluation.</td>
+</tr>
+<tr>
+<td>Target leakage</td>
+<td>A feature reveals the outcome (antibiotics → sepsis).</td>
+</tr>
+<tr>
+<td>Group leakage</td>
+<td>Same entity in train and test; require <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>G</mi><mtext>train</mtext></msub><mo>∩</mo><msub><mi>G</mi><mtext>test</mtext></msub><mo>=</mo><mi mathvariant="normal">∅</mi></mrow><annotation encoding="application/x-tex">G_{\text{train}}\cap G_{\text{test}}=\varnothing</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">G</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3175em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">train</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∩</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">G</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">test</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6633em;vertical-align:-0.0817em;"></span><span class="mord amsrm">∅</span></span></span></span>.</td>
+</tr>
+<tr>
+<td>Provenance / lineage</td>
+<td>Where data came from / how they changed through processing.</td>
+</tr>
+<tr>
+<td>Data minimization</td>
+<td>Collect <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">X_j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0785em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span> only if Benefit &gt; Risk.</td>
+</tr>
+<tr>
+<td>De-identification</td>
+<td>Risk reduction, not a guarantee of anonymity.</td>
+</tr>
+<tr>
+<td>Equal opportunity</td>
+<td>Equal true-positive rates across groups.</td>
+</tr>
+<tr>
+<td>Predictive parity</td>
+<td>Equal precision (PPV) across groups.</td>
+</tr>
+</tbody></table></div>
+<h2 id="5-exam-strategy-60-minutes-50-points"><a class="anchor" href="#5-exam-strategy-60-minutes-50-points" aria-hidden="true">#</a>5. Exam strategy (60 minutes, 50 points)</h2>
+<ul>
+<li><strong>≈1 minute per point.</strong> Definitions 9 min, conceptual 12 min, scenario 21 min, biases 8 min, 10 min buffer.</li>
+<li>For &quot;identify <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span>&quot;: number them, <strong>bold the term</strong>, one sentence of mechanism tied to the case.</li>
+<li>In scenarios, always add the <strong>fix</strong> — rubrics for &quot;integrate into a sensible policy&quot; reward it.</li>
+<li>Use the module&#39;s words: <em>constructed target, fitness for purpose, informative missingness, train–test contamination, availability time, group-level split, site hold-out, proxy, construct validity, recalibration, consent conditions, licence compatibility, data minimization, fairness auditing</em>.</li>
+</ul>
+
+  <nav class="pagenav">
+    <a class="pv" href="m2-reflections.html">← Previous<b>M2 · Reflections R1–R5</b></a>
+    <a class="nx" href="quiz2-mock-a.html">Next →<b>★ Mock Quiz 2A</b></a>
+  </nav>
+  <div class="foot">AI 500 · Fall 2026 · study notes</div>
+</main>
+</div>
+<div class="lightbox" id="lightbox" hidden><img alt=""><button class="iconbtn lb-close" aria-label="Close">✕</button></div>
+<script src="assets/site.js" defer></script>
+</body></html>

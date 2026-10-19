@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>★ Mock Quiz 2A · AI 500</title>
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#fbfbfa" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#16161a" media="(prefers-color-scheme: dark)">
+<script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<header class="topbar">
+  <button class="iconbtn" id="menuBtn" aria-label="Open contents" aria-expanded="false"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+  <a class="topbrand" href="index.html">AI 500<span>★ Mock Quiz 2A</span></a>
+  <button class="iconbtn themebtn" aria-label="Toggle dark mode"><svg class="i-moon" viewBox="0 0 24 24" width="19" height="19"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg><svg class="i-sun" viewBox="0 0 24 24" width="19" height="19"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg></button>
+</header>
+<div class="scrim" id="scrim"></div>
+<div class="wrap">
+<aside class="side" id="side">
+  <div class="side-head">
+    <a class="brand" href="index.html">AI 500 — Foundations of AI<span>Foundations of AI · Fall 2026</span></a>
+    <button class="iconbtn themebtn" aria-label="Toggle dark mode"><svg class="i-moon" viewBox="0 0 24 24" width="17" height="17"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg><svg class="i-sun" viewBox="0 0 24 24" width="17" height="17"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg></button>
+  </div>
+  <nav><a href="index.html">Home</a>
+<a href="start-here.html">Start here (how to use)</a>
+<div class="nav-section">Modules</div>
+<details class="grp"><summary>M1 · AI Landscape & Problem Framing</summary><a href="m1a-notes.html">Notes A — roots, philosophy, landscape</a><a href="m1b-notes.html">Notes B — pipeline, framing, failures</a><a href="m1-answers.html">Answers Q1–100</a><a href="m1-cases.html">Answers S, R, A</a></details>
+<details class="grp"><summary>M2 · Data Collection, Cleaning, Governance & Ethics</summary><a href="m2a-notes.html">Notes A — constructed data, sources, quality</a><a href="m2b-notes.html">Notes B — curation, cleaning, leakage</a><a href="m2c-notes.html">Notes C — documentation, governance, cases</a><a href="m2-answers-1.html">Answers Q1–50</a><a href="m2-answers-2.html">Answers Q51–100</a><a href="m2-scenarios.html">Scenarios S1–S5</a><a href="m2-reflections.html">Reflections R1–R5</a></details>
+<div class="nav-section">Quiz 2 (24 Oct)</div>
+<a href="quiz2-guide.html">Quiz 2 guide</a>
+<a href="quiz2-mock-a.html" class="on" aria-current="page">★ Mock Quiz 2A</a>
+<a href="quiz2-mock-b.html">Mock Quiz 2B</a>
+<a href="quiz2-mock-c.html">Mock Quiz 2C</a>
+<div class="nav-section">Archive</div>
+<a href="quiz1-solved.html">Real Quiz 1 (solved)</a>
+<a href="assignments.html">Assignments & computational training</a>
+<a href="a2-missedcare.html">A2 Part A — MissedCare (your answers)</a>
+<a href="resources.html">PDFs, assignments & past material</a></nav>
+  <div class="toc"><div class="toc-title">On this page</div><a href="#basic-definitions-clo-4-9-points" class="">Basic Definitions [CLO 4] — 9 points</a><a href="#short-conceptual-questions-clo-4-12-points" class="">Short, Conceptual Questions [CLO 4] — 12 points</a><a href="#scenario-based-question-clo-3-4-21-points" class="">Scenario-based Question [CLO 3, 4] — 21 points</a><a href="#identifying-problems-in-a-data-pipeline-clo-4-8-points" class="">Identifying Problems in a Data Pipeline [CLO 4] — 8 points</a></div>
+</aside>
+<main>
+  
+  <div class="quiz-tools"><button data-sol="open">Show all solutions</button><button data-sol="close">Hide all</button><button onclick="window.print()">Print</button></div>
+  <h1>Mock Quiz 2A — Module 2</h1>
+<p><strong>50 points · 60 minutes · closed book.</strong> Same four sections as the real Quiz 1. Solutions include a Quiz-1-style rubric — mark yourself strictly.</p>
+<div class="pdf-links">
+<a href="quiz2-guide.html">Quiz 2 guide</a>
+<a href="quiz2-mock-b.html">Mock 2B</a>
+<a href="quiz2-mock-c.html">Mock 2C</a>
+</div>
+
+<h2 id="basic-definitions-clo-4-9-points"><a class="anchor" href="#basic-definitions-clo-4-9-points" aria-hidden="true">#</a>Basic Definitions [CLO 4] — 9 points</h2>
+
+<section class="question"><div class="q-head">1(a) [3 points] Explain why &quot;raw data&quot; is described as an oxymoron. Your answer should name the three kinds of decisions that shape a dataset before any row is recorded.</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><p>Data are never raw: every dataset is <strong>produced</strong> through human, technical and institutional choices before it is recorded. <strong>Conceptualization</strong> — what phenomenon matters and how variables/labels are defined; <strong>observation</strong> — unit of analysis, inclusion/exclusion, instruments, frequency; <strong>engineering</strong> — what is recorded, how missingness is encoded, how data are stored, linked and transformed. Hence a dataset is an engineered artifact, not a passive reflection of reality.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>States data are produced/constructed, not objective or pre-existing</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Names all three decision types (½ each for two, 1 for three)</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Links to consequence: models inherit these choices / dataset is an artifact</td>
+<td>1</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">1(b) [3 points] Define Missing Not at Random (MNAR). Why can&#39;t the missingness mechanism usually be verified from the dataset itself?</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><p><strong>MNAR:</strong> the probability that a value is missing depends on the <strong>unobserved value itself</strong>, even after conditioning on observed variables (e.g. high earners withhold income even after accounting for age, education, occupation). It cannot usually be verified because testing it would require knowing the <strong>missing values</strong> — which are, by definition, not observed; the mechanism is an <strong>assumption about the data-generating process</strong> justified by domain knowledge.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Missingness depends on the missing value itself</td>
+<td>1</td>
+</tr>
+<tr>
+<td>…even after conditioning on observed data (distinguishes from MAR)</td>
+<td>0.5</td>
+</tr>
+<tr>
+<td>Not verifiable because missing values are unobserved / assumption about data-generating process</td>
+<td>1.5</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">1(c) [3 points] Define data provenance. In one additional sentence, distinguish provenance from data lineage.</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><p><strong>Provenance</strong> is the documented <strong>origin, history and chain of custody</strong> of data — how, when, where and by whom they were collected, processed and maintained. <strong>Lineage</strong> records <strong>how data evolve through processing steps</strong> — the chain of dataset versions <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mn>0</mn></msub><mo>→</mo><msub><mi>D</mi><mn>1</mn></msub><mo>→</mo><mo>⋯</mo><mo>→</mo><msub><mi>D</mi><mtext>training</mtext></msub></mrow><annotation encoding="application/x-tex">D_0\to D_1\to\cdots\to D_{\text{training}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="minner">⋯</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3175em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">training</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span> and the transformations between them.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Correct definition of provenance (origin/history/custody)</td>
+<td>1.5</td>
+</tr>
+<tr>
+<td>Mentions how/when/where/by whom or collection &amp; processing context</td>
+<td>0.5</td>
+</tr>
+<tr>
+<td>Correct distinction: lineage = transformations/versions through the pipeline</td>
+<td>1</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+<h2 id="short-conceptual-questions-clo-4-12-points"><a class="anchor" href="#short-conceptual-questions-clo-4-12-points" aria-hidden="true">#</a>Short, Conceptual Questions [CLO 4] — 12 points</h2>
+
+<section class="question"><div class="q-head">2(a) [4 points] A bank removes race from its loan-approval model and claims the model is therefore fair. Explain why this claim is inadequate, and explain why the bank might nevertheless need to <em>retain</em> race data.</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><p>Removing a sensitive attribute does not remove bias because other variables act as <strong>proxies</strong>: postal code (historical residential segregation), income, occupation, school or language correlate with race, so the model can reproduce disparities (Example 59). Historical approval labels may themselves encode discrimination. The bank should <strong>retain race under restricted access for fairness auditing and monitoring</strong> — without it, it cannot measure whether approval or error rates differ across groups (Example 60: 91/90/74% accuracy). Governance separates use for <strong>prediction</strong> from use for <strong>evaluation</strong>, with strict access controls.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Proxy mechanism explained</td>
+<td>1.5</td>
+</tr>
+<tr>
+<td>Concrete proxy example (postal code etc.) or biased labels</td>
+<td>0.5</td>
+</tr>
+<tr>
+<td>Retain for fairness auditing/monitoring — can&#39;t detect disparity otherwise</td>
+<td>1.5</td>
+</tr>
+<tr>
+<td>Restricted access / separation of prediction vs audit use</td>
+<td>0.5</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">2(b) [4 points] A research team oversamples the minority class to a 50/50 balance and then splits the data 80/20 into training and test sets. They report 98% accuracy. Explain two distinct problems with this procedure and how to fix them.</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><ol>
+<li><strong>Train–test contamination:</strong> oversampled/synthetic minority cases are copies or interpolations of originals, so near-identical cases appear in both sets → over-optimistic results. <strong>Fix:</strong> split first, oversample only the training set (inside each CV training fold), keep the test set untouched.</li>
+<li><strong>Unrealistic evaluation/calibration:</strong> the test set now has 50% prevalence, unlike deployment, so accuracy (and any probability) is uninformative; balanced training also inflates predicted probabilities. <strong>Fix:</strong> evaluate on the natural prevalence with recall, precision, F1/PR-AUC; recalibrate (Platt scaling or isotonic regression).<br>(Accept also: accuracy is misleading under imbalance.)</li>
+</ol>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Problem 1 named + explained</td>
+<td>1.5</td>
+</tr>
+<tr>
+<td>Fix for problem 1</td>
+<td>0.5</td>
+</tr>
+<tr>
+<td>Problem 2 named + explained</td>
+<td>1.5</td>
+</tr>
+<tr>
+<td>Fix for problem 2</td>
+<td>0.5</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">2(c) [4 points] &quot;Synthetic data contain no real people, so privacy and fairness concerns do not apply.&quot; Critically evaluate this statement using any three validation dimensions for synthetic data.</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><p>The statement is <strong>false</strong>. <strong>Privacy:</strong> generators can memorize training records; near-copies enable membership inference and reconstruction — synthetic ≠ anonymous. <strong>Fairness:</strong> the generator learns historical bias and under-representation from the source data and can reproduce or amplify it. <strong>Coverage:</strong> rare but critical cases and small subgroups are often missing, so models fail on them. (Also fidelity, utility on real data, realism.) Synthetic data must be <strong>validated</strong> on all six dimensions before use.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Rejects claim with justification</td>
+<td>1</td>
+</tr>
+<tr>
+<td>First dimension correctly applied</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Second dimension</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Third dimension</td>
+<td>1</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+<h2 id="scenario-based-question-clo-3-4-21-points"><a class="anchor" href="#scenario-based-question-clo-3-4-21-points" aria-hidden="true">#</a>Scenario-based Question [CLO 3, 4] — 21 points</h2>
+
+<div class="orig-q"><div class="oq-head"><span class="oq-lab">📄 Original question</span><span class="oq-src">Smart-meter energy-theft detection</span></div><div class="oq-body"><p>A power-distribution company wants an AI system to flag households likely to be <strong>stealing electricity</strong> so that inspection teams can visit them. Available data: monthly smart-meter consumption (for areas with smart meters), billing and payment history, number of past inspections, <strong>&quot;theft confirmed&quot; flags from past inspections</strong>, neighbourhood, household size from an old census, customer complaints, and the <strong>date a fine was issued</strong>.</p>
+<ul>
+<li>Smart meters were installed mainly in <strong>newer, wealthier neighbourhoods</strong>; older areas use manual readings recorded by meter readers, often <strong>estimated</strong> when the reader cannot access the meter, and estimates are stored like real readings.</li>
+<li>Inspections were historically concentrated in <strong>low-income neighbourhoods</strong>, so most &quot;theft confirmed&quot; labels come from there.</li>
+<li>Several households appear many times (monthly rows), and rows were randomly split 80/20; the model reports <strong>96% accuracy</strong>.</li>
+<li>Theft is present in about <strong>3%</strong> of households. The company plans to <strong>automatically disconnect</strong> any household with predicted probability above 0.7.</li>
+</ul>
+</div></div><div class="oq-sol">Worked solution</div>
+
+<section class="question"><div class="q-head">3(a) [4 points; Data sources and quality] Identify two data-quality problems arising from the meter readings. Name the quality dimension each violates.</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><ul>
+<li><strong>Estimated readings stored as real readings</strong> → <strong>accuracy</strong> (values aren&#39;t measured) and <strong>consistency/structural</strong> (two different kinds of value in one column without a flag); estimation is more common where access is hard → systematic error.</li>
+<li><strong>Smart meters only in newer/wealthier areas</strong> → <strong>representativeness/completeness of subgroups</strong> (monthly digital data missing for older areas) and <strong>measurement error differing by area (differential)</strong>: manual readings are noisier.</li>
+<li>(Also: household size from an <strong>old census</strong> → <strong>timeliness/staleness</strong>.)</li>
+</ul>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th>per problem</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Problem identified from the case</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Correct dimension + explanation</td>
+<td>1</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">3(b) [5 points; Labels and construct validity] Is &quot;theft confirmed&quot; a valid measure of actual electricity theft? Explain using the chain <em>true construct → institutional process → recorded proxy → training target</em>, and name the bias that results.</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><ul>
+<li><strong>True construct:</strong> whether a household actually steals electricity.</li>
+<li><strong>Institutional process:</strong> the company decides <strong>where to inspect</strong> — historically low-income neighbourhoods; inspectors&#39; judgement; access to premises.</li>
+<li><strong>Recorded proxy:</strong> &quot;theft confirmed&quot; — exists <strong>only for inspected households</strong>; uninspected thieves are labelled &quot;no theft&quot; (<strong>selective labels</strong>).</li>
+<li><strong>Training target:</strong> the model learns <strong>who gets inspected and caught</strong>, not who steals.</li>
+<li>Result: <strong>historical/feedback bias</strong> (and selective labels) — low-income areas look high-risk; if new inspections follow the model, more theft is found there → <strong>feedback loop</strong>; wealthier thieves remain invisible. The label has <strong>poor construct validity</strong>.</li>
+</ul>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Construct vs proxy distinguished</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Institutional process (inspection allocation) explained</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Selective labels (uninspected = negative)</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Bias named (historical/feedback) with mechanism</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Consequence for model/decision</td>
+<td>1</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">3(c) [4 points; Leakage] Identify two distinct forms of leakage in the development process and explain how each inflates the 96%.</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><ul>
+<li><strong>Target/temporal leakage — &quot;date fine was issued&quot;:</strong> a fine is issued <strong>after</strong> theft is confirmed, so the feature reveals the outcome and wouldn&#39;t exist at prediction time.</li>
+<li><strong>Group leakage:</strong> monthly rows of the <strong>same household</strong> are randomly split across train and test → the model recognizes households rather than theft patterns.</li>
+<li>(Also acceptable: number of past inspections counting the inspection that generated the label; random split ignores time.)</li>
+</ul>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th>per leak</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Correct leak type named with case evidence</td>
+<td>1</td>
+</tr>
+<tr>
+<td>How it inflates performance / fix (household-level, time-based split; drop post-outcome fields)</td>
+<td>1</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">3(d) [4 points; Evaluation] Why is 96% accuracy inadequate here? State two further evaluation analyses required before deployment.</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><p>With <strong>3% prevalence</strong>, &quot;no theft&quot; for everyone gives <strong>97%</strong> — 96% is worse than the trivial baseline. Accuracy hides FP/FN, is inflated by leakage, and says nothing about calibration or groups. Required: <strong>precision/recall (PR-AUC) at the operating threshold</strong> — false accusations vs missed theft; <strong>subgroup performance</strong> by neighbourhood/income and smart vs manual meters; <strong>calibration</strong> at the true prevalence; <strong>household-level and temporal</strong> validation; comparison with a <strong>baseline</strong>.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Base-rate/imbalance argument</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Another reason (leakage, FP/FN, calibration)</td>
+<td>1</td>
+</tr>
+<tr>
+<td>First additional analysis</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Second additional analysis</td>
+<td>1</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">3(e) [4 points; Governance and ethics] Evaluate the automatic-disconnection policy. Propose a governance-appropriate alternative.</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><p>Automatic disconnection is a <strong>high-harm, punitive decision</strong> made on an unreliable, biased score: false positives cut power to innocent (often low-income) households; the score inherits <strong>inspection bias</strong>; there is no human review or appeal; 0.7 is arbitrary and probabilities are uncalibrated. <strong>Alternative:</strong> use the score only to <strong>prioritize inspections</strong> within team capacity (ranking), with <strong>human verification</strong> before any action, notice and <strong>appeal</strong>; restrict to validated meter types; audit subgroup flag and confirmation rates; monitor feedback effects (randomized share of inspections outside high-score areas); a named model owner and oversight body.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Harms of automation/false positives explained</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Links to bias/unreliable score</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Alternative: score → inspection prioritization + human verification</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Safeguards: appeal, audit, monitoring, accountability</td>
+<td>1</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+<h2 id="identifying-problems-in-a-data-pipeline-clo-4-8-points"><a class="anchor" href="#identifying-problems-in-a-data-pipeline-clo-4-8-points" aria-hidden="true">#</a>Identifying Problems in a Data Pipeline [CLO 4] — 8 points</h2>
+
+<section class="question"><div class="q-head">4 [8 points] A city builds a model predicting which restaurants will fail hygiene inspections. It trains on five years of inspection records. Inspectors historically visited restaurants in tourist districts more often. Customer-complaint counts from a review app are used as a feature; most app users are young and urban. Restaurant names are matched across years by fuzzy string matching. Each year the model is retrained on the outcomes of inspections it recommended. Identify and explain <strong>four distinct</strong> problems (2 points each).</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><p>Award 1 for the correct name, 1 for the mechanism tied to the scenario.</p>
+<ol>
+<li><strong>Selective labels / historical (inspection) bias:</strong> outcomes exist mainly where inspectors went (tourist districts); uninspected restaurants look &quot;clean&quot;.</li>
+<li><strong>Representation / platform bias in web data:</strong> complaint counts reflect <strong>app users</strong> (young, urban) and app visibility, not hygiene; neighbourhoods with older or non-app customers generate fewer complaints.</li>
+<li><strong>Entity-resolution errors:</strong> fuzzy name matching causes <strong>false merges</strong> (two restaurants combined) and <strong>false splits</strong> (renamed restaurant treated as new) → wrong histories and duplicates.</li>
+<li><strong>Feedback loop:</strong> retraining on outcomes of inspections the model recommended means the model&#39;s past choices generate its future labels, reinforcing its initial focus.<br>Also acceptable: construct validity of &quot;failed inspection&quot; vs actual hygiene; temporal drift in inspection standards. <em>No double counting</em> of 1 and 4 unless the student distinguishes past human allocation from model-driven retraining.</li>
+</ol>
+</div></details>
+</section>
+
+  <nav class="pagenav">
+    <a class="pv" href="quiz2-guide.html">← Previous<b>Quiz 2 guide</b></a>
+    <a class="nx" href="quiz2-mock-b.html">Next →<b>Mock Quiz 2B</b></a>
+  </nav>
+  <div class="foot">AI 500 · Fall 2026 · study notes</div>
+</main>
+</div>
+<div class="lightbox" id="lightbox" hidden><img alt=""><button class="iconbtn lb-close" aria-label="Close">✕</button></div>
+<script src="assets/site.js" defer></script>
+</body></html>

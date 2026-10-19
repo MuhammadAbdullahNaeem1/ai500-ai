@@ -1,0 +1,848 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>M1 · AI Landscape & Problem Framing — Answers Q1–100 · AI 500</title>
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#fbfbfa" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#16161a" media="(prefers-color-scheme: dark)">
+<script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<header class="topbar">
+  <button class="iconbtn" id="menuBtn" aria-label="Open contents" aria-expanded="false"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+  <a class="topbrand" href="index.html">AI 500<span>M1 · AI Landscape & Problem Framing</span></a>
+  <button class="iconbtn themebtn" aria-label="Toggle dark mode"><svg class="i-moon" viewBox="0 0 24 24" width="19" height="19"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg><svg class="i-sun" viewBox="0 0 24 24" width="19" height="19"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg></button>
+</header>
+<div class="scrim" id="scrim"></div>
+<div class="wrap">
+<aside class="side" id="side">
+  <div class="side-head">
+    <a class="brand" href="index.html">AI 500 — Foundations of AI<span>Foundations of AI · Fall 2026</span></a>
+    <button class="iconbtn themebtn" aria-label="Toggle dark mode"><svg class="i-moon" viewBox="0 0 24 24" width="17" height="17"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg><svg class="i-sun" viewBox="0 0 24 24" width="17" height="17"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg></button>
+  </div>
+  <nav><a href="index.html">Home</a>
+<a href="start-here.html">Start here (how to use)</a>
+<div class="nav-section">Modules</div>
+<details class="grp" open><summary>M1 · AI Landscape & Problem Framing</summary><a href="m1a-notes.html">Notes A — roots, philosophy, landscape</a><a href="m1b-notes.html">Notes B — pipeline, framing, failures</a><a href="m1-answers.html" class="on" aria-current="page">Answers Q1–100</a><a href="m1-cases.html">Answers S, R, A</a></details>
+<details class="grp"><summary>M2 · Data Collection, Cleaning, Governance & Ethics</summary><a href="m2a-notes.html">Notes A — constructed data, sources, quality</a><a href="m2b-notes.html">Notes B — curation, cleaning, leakage</a><a href="m2c-notes.html">Notes C — documentation, governance, cases</a><a href="m2-answers-1.html">Answers Q1–50</a><a href="m2-answers-2.html">Answers Q51–100</a><a href="m2-scenarios.html">Scenarios S1–S5</a><a href="m2-reflections.html">Reflections R1–R5</a></details>
+<div class="nav-section">Quiz 2 (24 Oct)</div>
+<a href="quiz2-guide.html">Quiz 2 guide</a>
+<a href="quiz2-mock-a.html">★ Mock Quiz 2A</a>
+<a href="quiz2-mock-b.html">Mock Quiz 2B</a>
+<a href="quiz2-mock-c.html">Mock Quiz 2C</a>
+<div class="nav-section">Archive</div>
+<a href="quiz1-solved.html">Real Quiz 1 (solved)</a>
+<a href="assignments.html">Assignments & computational training</a>
+<a href="a2-missedcare.html">A2 Part A — MissedCare (your answers)</a>
+<a href="resources.html">PDFs, assignments & past material</a></nav>
+  <div class="toc"><div class="toc-title">On this page</div><a href="#questions-1-50" class="">Questions 1–50</a><a href="#historical-and-philosophical-roots-of-ai" class="h3">Historical and Philosophical Roots of AI</a><a href="#feedback-information-and-the-operational-view-of-intelligence" class="h3">Feedback, Information, and the Operational View of Intelligence</a><a href="#symbolic-ai-statistical-learning-and-hybrid-systems" class="h3">Symbolic AI, Statistical Learning, and Hybrid Systems</a><a href="#philosophical-questions-agency-and-responsibility" class="h3">Philosophical Questions, Agency, and Responsibility</a><a href="#the-ai-and-data-science-ecosystem" class="h3">The AI and Data Science Ecosystem</a><a href="#questions-51-100" class="">Questions 51–100</a><a href="#ai-as-an-end-to-end-pipeline" class="h3">AI as an End-to-End Pipeline</a><a href="#evaluation-decisions-deployment-and-monitoring" class="h3">Evaluation, Decisions, Deployment, and Monitoring</a><a href="#types-of-ai-problems" class="h3">Types of AI Problems</a><a href="#problem-formulation-and-common-failure-modes" class="h3">Problem Formulation and Common Failure Modes</a><a href="#data-engineering-and-illustrative-case-studies" class="h3">Data Engineering and Illustrative Case Studies</a></div>
+</aside>
+<main>
+  <div class="crumb">M1 · AI Landscape & Problem Framing</div>
+  <div class="quiz-tools"><button data-sol="open">Show all solutions</button><button data-sol="close">Hide all</button><button onclick="window.print()">Print</button></div>
+  <h1>M1 · Practice answers Q1–100</h1>
+<p>Answers to the 100 short practice questions at the end of Module 1 (notes PDF page 151 onwards). These come from your Quiz 1 preparation guide, which was written from the Module 1 notes, your Assignment 1 report and your PA1 notebook — so definitions, lists and examples follow the notes&#39; wording. Module 1 is examined again on the <strong>mid</strong>, and Module 2 builds on it (leakage, proxies, data quality).</p>
+<div class="pdf-links">
+<a href="m1a-notes.html">Part A notes (1.1–1.4)</a>
+<a href="m1b-notes.html">Part B notes (1.5–1.12)</a>
+<a href="m1-cases.html">S, R and A answers</a>
+<a href="pdfs/notes/Module-1-Notes.pdf#page=151">Questions in the PDF</a>
+<a href="pdfs/quizzes/Quiz-1-Prep-Guide.pdf">Prep guide (PDF)</a>
+</div>
+
+<div class="callout note"><div class="callout-title">Note: How to use</div><p>In the quiz, a strong short answer = <strong>definition + reason + example from the notes</strong>. Try each question first, then open the answer.</p>
+</div>
+<h2 id="questions-1-50"><a class="anchor" href="#questions-1-50" aria-hidden="true">#</a>Questions 1–50</h2>
+<p>Each answer uses the notes&#39; definitions and examples. In the quiz, a strong short answer = definition + reason + example from the notes.</p>
+<h3 id="historical-and-philosophical-roots-of-ai"><a class="anchor" href="#historical-and-philosophical-roots-of-ai" aria-hidden="true">#</a>Historical and Philosophical Roots of AI</h3>
+
+<section class="question"><div class="q-head">Q1. Why is the history of AI better understood as a history of attempts to formalize intelligence rather than only as a history of faster computers?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Long before neural networks and GPUs, mathematicians, philosophers, engineers, psychologists, linguists and economists asked whether intelligence could be understood in formal terms, as rules, symbols, probabilities, algorithms or mathematical models. Each attempt to formalize intelligence (logic, probability, computation, information theory, feedback, cognitive science, optimization) contributed concepts that still shape AI even though the hardware changed. Faster computers only made it possible to run these formalizations; the core question was always: &quot;Can perception, reasoning, learning, decision-making, and intelligent action be represented sufficiently precisely to be carried out by a machine?&quot; So AI is &quot;not a single invention&quot; but a convergence of traditions.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q2. Identify the major intellectual traditions that contributed to the development of modern AI.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
+<li>formal logic and the mechanization of reasoning;</li>
+<li>probability and statistical inference;</li>
+<li>computation and algorithms;</li>
+<li>information theory (Shannon);</li>
+<li>control and feedback (Wiener&#39;s cybernetics);</li>
+<li>cognitive science and theories of intelligence;</li>
+<li>operations research and optimization;</li>
+<li>philosophy of mind, language, knowledge and agency.</li>
+</ul>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q3. Explain how formal logic made the idea of mechanized reasoning possible.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Formal logic represents valid reasoning through formal symbols and rules. Once an argument is formalized, each step follows from explicit rules, so one can ask whether the steps can be executed mechanically without understanding. This idea led to symbolic AI, theorem proving, planning, expert systems, knowledge representation and logic programming. Its underlying position is that some forms of intelligence are &quot;operations over structured representations&quot;, visible today in search over state spaces, planners applying operators, knowledge graphs and rule engines. Prolog is the classic example: it derives grandparent(tom, ann) from facts and a rule by mechanical proof.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q4. What does it mean to say that intelligence requires representation?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>A machine &quot;cannot reason directly about an unrepresented world&quot;. It can only reason over constructed representations: variables, symbols, vectors, tokens, states, graphs or probabilities. Whatever is not represented is invisible to it. Representation therefore decides which patterns and distinctions a system can learn or reason about (the same idea returns in Section 1.5.3, where representation is &quot;the bridge between the physical world and computational models&quot;). Related idea: a world model is an internal representation of how an environment works that lets an agent predict and plan.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q5. How does a symbolic program differ from a numerical program?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>A numerical program (a calculator or a neural network) mainly manipulates continuous numbers and statistical weights. A symbolic program manipulates discrete symbols, logical structures and explicit rules to perform reasoning. It &quot;does not understand the physical world; it only understands the representations it has been given.&quot; Example: a normal math library computes 2.5 × 2.5 = 6.25, while SymPy manipulates the symbols x and y themselves to prove that (x + y)² equals x² + 2xy + y².</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q6. Explain how facts, rules, and queries interact in a Prolog program.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
+<li>Facts (knowledge representation): parent(tom, bob). parent(tom, liz). parent(bob, ann).</li>
+<li>Rules (formal logic): grandparent(X, Y) :- parent(X, Z), parent(Z, Y). The symbol :- means &quot;is true if&quot;.</li>
+<li>Query (mechanized reasoning): ?- grandparent(tom, ann). asks &quot;can you prove this?&quot;</li>
+</ul>
+<p>Prolog has no stored grandparent(tom, ann) fact. It searches its formal state space, matches the query against the rule, finds Z = bob that satisfies both parent facts, and mechanically deduces True. It does not know who Tom or Ann are.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q7. How does an expert system separate knowledge representation from the inference engine?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>The knowledge (the rules) is stored separately from the reasoning engine (the code that applies them). In the notes&#39; Python example, patient symptoms are stored as a set {&quot;fever&quot;, &quot;cough&quot;, &quot;fatigue&quot;}, and the medical rules are a list of if-then entries written by humans (for example {fever, cough, fatigue} → Flu). The inference engine, diagnose(), loops over the rules and checks whether each rule&#39;s conditions are a subset of the symptoms, returning the first match (output: Flu). Because they are separate, experts can change rules without changing the engine. The computer &quot;does not discover these relationships. It simply follows them.&quot;</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q8. How does symbolic theorem proving establish that two algebraic expressions are equivalent?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>SymPy defines abstract symbols (x, y), builds symbolic expressions expr1 = (x + y)² and expr2 = x² + 2xy + y², and then mechanically simplifies their difference using formal algebraic rules (such as the distributive property). Because simplify(expr1 − expr2) reduces to the canonical form 0, the system has mechanically proven the expressions are equivalent. It does not understand the theorem like a mathematician; it has rules for manipulating expressions and checks whether both sides reduce to the same canonical form.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q9. Why is symbolic reasoning bounded by the symbols, facts, and rules supplied to the system?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>The symbolic machine does not learn patterns from data; it only applies the rules it was given to the representations it was given. &quot;If you do not provide the symbol, the fact, or the rule, the machine cannot reason about it.&quot; For example, the expert system returns &quot;Unknown condition&quot; for any symptom combination not in its rule list, and Prolog cannot prove a relationship it has no rule for. This is the lesson that &quot;reasoning is just computation over structured representations&quot;, and it explains brittleness and the difficulty of acquiring and maintaining knowledge.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q10. Compare the roles of probability theory and statistical inference in reasoning under uncertainty.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
+<li>Probability theory provides the language for uncertainty. It starts from a known model or assumptions and works forward to the likelihood of outcomes (for example, &quot;this patient has an 80% chance of the condition given the evidence&quot;).</li>
+<li>Statistical inference works in the opposite direction: from observed sample data to conclusions about an unknown population or parameters (for example, does this test reliably predict disease across thousands of patients?). It also separates observed patterns in a sample from population-level claims.</li>
+</ul>
+<p>Together they changed the idea of intelligence from applying known rules to learning uncertain relationships from evidence, updating beliefs, quantifying confidence, and selecting actions under risk. Modern ML inherits this: parameters are estimated from data and predictions are &quot;uncertain statements rather than infallible facts&quot;.</p>
+</div></details>
+</section>
+<h3 id="feedback-information-and-the-operational-view-of-intelligence"><a class="anchor" href="#feedback-information-and-the-operational-view-of-intelligence" aria-hidden="true">#</a>Feedback, Information, and the Operational View of Intelligence</h3>
+
+<section class="question"><div class="q-head">Q11. How did cybernetics connect communication, feedback, and control in animals and machines?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Norbert Wiener&#39;s Cybernetics (1948) studied control and communication &quot;in the animal and the machine&quot;. In a feedback system, the consequences of previous actions are observed (communication of information) and used to modify future behaviour (control). This treated intelligent systems as dynamic, adaptive and embedded in environments rather than isolated calculators. Examples: a thermostat correcting temperature, a robot adjusting its movement, a recommender learning from interactions, a fraud system changing thresholds, a reinforcement-learning agent adapting its policy through rewards.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q12. Explain how a feedback loop can make an AI system an active participant in the environment that it models.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Once predictions influence decisions, those decisions change the world, and the changed world produces the next training data. The data then reflect not just reality but also the system&#39;s earlier choices. In the predictive policing example, the model predicts high crime in an area, more police are sent, more minor incidents are recorded, and the new data &quot;confirm&quot; the prediction. &quot;The model has changed the environment it is trying to predict.&quot; So AI systems are not passive observers; good design must consider how predictions reshape future data and outcomes.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q13. How can predictive policing produce self-reinforcing bias and selective labels?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
+<li>Historical data suggest a neighbourhood is high risk.</li>
+<li>The system sends more patrols there.</li>
+<li>More observation produces more recorded incidents.</li>
+<li>The new data reinforce the original prediction, and the model becomes more confident.</li>
+</ul>
+<p>Self-reinforcing bias: the historical pattern is amplified each cycle. Selective labels: crime is only recorded where police were sent to look, so the data do not show crime in unpatrolled areas; the labels reflect where attention went, not the true underlying crime rate.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q14. Distinguish among self-reinforcing bias, selective labels, performative effects, and feedback loops.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><div class="tbl"><table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Self-reinforcing bias</td>
+<td>Existing patterns in historical data become amplified over time.</td>
+</tr>
+<tr>
+<td>Selective labels</td>
+<td>Outcomes are observed only where the system directed attention (or for people it selected), not for the full population.</td>
+</tr>
+<tr>
+<td>Performative effects</td>
+<td>The prediction itself changes behaviour and creates conditions that make it appear accurate.</td>
+</tr>
+<tr>
+<td>Feedback loops</td>
+<td>The output of one prediction becomes part of the input for future predictions, potentially locking the system into a harmful cycle.</td>
+</tr>
+</tbody></table></div>
+<p>The feedback loop is the mechanism; selective labels and performative effects are how it distorts the data; self-reinforcing bias is the result.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q15. Why is information not automatically equivalent to meaning?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Shannon showed that information can be measured and processed mathematically, so images, speech and text can all be encoded as data. But &quot;a dataset may contain billions of values while failing to represent the phenomenon of interest.&quot; Meaning depends on how variables were defined, measured, collected, labelled and interpreted. A pixel value does not inherently represent happiness. So a model can find precise statistical patterns in the information that are nonetheless misleading about the real world.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q16. Use facial emotion recognition to explain how a dataset can contain abundant information but represent the target phenomenon poorly.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>A face photo is millions of pixel values: plenty of information. But the meaning of the label depends on questions such as: How were emotions defined? Who labelled them? Were labels based on genuine feelings, facial expressions or human judgement? Did the data include diverse cultures, ages, lighting and contexts? If smiling faces are labelled &quot;happy&quot;, the model learns smile = happiness, yet a smile can signal politeness, nervousness, discomfort or social expectation. The model can reach high accuracy on its dataset while misunderstanding human emotion. The three levels: information theory (pixels), machine learning (statistical relationships), meaning (what variables really represent).</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q17. How did Claude Shannon contribute to concepts now used throughout machine learning?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>His 1948 paper, A Mathematical Theory of Communication, formalized information, uncertainty, coding and transmission. It supplied concepts used throughout ML: entropy, cross-entropy (the standard classification loss), mutual information, compression, channel capacity and noisy communication. Its biggest consequence was that information became measurable and manipulable, so any signal (images, speech, text, sensor and biological data) could be encoded and processed as data.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q18. How did Alan Turing transform the question of machine thought into an operational evaluation problem?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>In 1950 Turing replaced the vague question &quot;Can machines think?&quot; with an operational test based on observable interaction: can a machine&#39;s conversational performance become indistinguishable from a person&#39;s under specified conditions? This moved the focus from unverifiable metaphysical claims to measurable behaviour. AI evaluation is still operational: Can the system classify correctly? Solve a planning problem? Answer questions? Generate coherent text? Control a vehicle? Outperform a reference baseline?</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q19. Why does successful performance on a Turing-style test not settle whether a machine understands?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Behavioural success does not answer the deeper questions: Does the system understand? Is it merely reproducing statistical regularities (the &quot;stochastic parrots&quot; concern)? Does intelligence require consciousness? Can linguistic performance be separated from grounding in the world? Should human-like behaviour be the standard? If thinking is defined as conscious experience rather than information processing, no amount of performance proves thought (Searle&#39;s argument). The notes separate &quot;engineering tests of capability&quot; from &quot;philosophical claims about mind and understanding&quot;.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q20. What role did the Dartmouth proposal play in naming and consolidating the field of AI?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>The 1955 proposal (McCarthy, Minsky, Rochester, Shannon) for the 1956 Dartmouth Summer Research Project used the term &quot;artificial intelligence&quot; and proposed studying whether learning and intelligence could be described precisely enough for machines to simulate them. Themes: language, abstraction, problem solving, self-improvement, neural mechanisms. It treated intelligence as decomposable into computational components and helped consolidate, name and legitimize the research traditions: symbolic reasoning, search and planning, machine learning, NLP, computer vision, robotics, knowledge representation and automated theorem proving.</p>
+</div></details>
+</section>
+<h3 id="symbolic-ai-statistical-learning-and-hybrid-systems"><a class="anchor" href="#symbolic-ai-statistical-learning-and-hybrid-systems" aria-hidden="true">#</a>Symbolic AI, Statistical Learning, and Hybrid Systems</h3>
+
+<section class="question"><div class="q-head">Q21. State the main strengths of symbolic AI.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Explicit representations; inspectable reasoning chains; incorporation of domain rules; compositional structures; strong performance when the state space and rules are well specified (theorem proving, game playing, planning, expert systems). Newell and Simon argued physical symbol systems are central to intelligent action.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q22. State the main limitations of symbolic AI in complex and uncertain environments.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Difficulty acquiring and maintaining knowledge; brittleness under ambiguity; poor handling of noisy perception; combinatorial explosion; dependence on manually encoded representations.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q23. Why would a purely symbolic self-driving system struggle with ambiguity, noisy perception, and combinatorial explosion?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Rules such as &quot;IF light is green THEN proceed&quot; seem sufficient, but:</p>
+<ul>
+<li>Ambiguity: a pedestrian on the curb looking at a phone may or may not cross; the system needs a crisp symbolic state (&quot;crossing&quot; / &quot;not crossing&quot;) that reality does not provide.</li>
+<li>Noisy perception: rain, fog, glare or a partly hidden sign can make perception mislabel a stop sign as a speed-limit sign; reasoning then starts from wrong symbols and can produce dangerous decisions.</li>
+<li>Combinatorial explosion: combinations of road conditions, weather, traffic density, pedestrian behaviour and vehicle interactions grow exponentially; rules for every combination are infeasible.</li>
+<li>Also: thousands of rules are needed for construction zones and emergency vehicles, and concepts like &quot;safe following distance&quot; must be hand-defined.</li>
+</ul>
+<p>Hence real vehicles are hybrid: deep learning for perception, rules for traffic law, safety and high-level planning.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q24. State the main strengths of statistical machine learning.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Learning from high-dimensional observations; tolerance of noisy inputs; adaptation from examples; strong performance in perception, prediction and generation. The developer specifies a model class, objective, data representation and training procedure instead of programming every rule.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q25. State the main limitations of statistical machine learning.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Dependence on data quality; limited causal interpretation; potential opacity; vulnerability to distribution shift; difficulty guaranteeing behaviour outside the observed data regime.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q26. How can a pneumonia prediction model learn a hospital-specific shortcut rather than a medically meaningful pattern?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Severely ill patients are more likely to receive portable X-rays, so in the training data &quot;portable X-ray&quot; is strongly associated with pneumonia. The model can learn to predict from the image markers of the portable machine rather than from lung pathology. It predicts from correlation, not the medical cause (limited causal interpretation). At 98% test accuracy it looks ready, but at another hospital with different equipment and practices the shortcut no longer holds.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q27. What is distribution shift, and why can it reduce performance at a new hospital?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Distribution shift means the deployment data differ from the training data. A model trained on one hospital&#39;s X-ray machines, imaging protocols and patient demographics meets different machines, protocols and populations elsewhere; its learned relationships (including shortcuts) no longer match, so accuracy drops. Causes listed in 1.9.6: population changes, new devices, policy changes, seasonal effects, user adaptation, economic shocks, new clinical practice, adversarial behaviour, pipeline changes. Remedy: external validation and monitoring.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q28. Explain why symbolic AI and statistical machine learning should not be treated as a permanent binary choice.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Each has complementary strengths and weaknesses: statistical learning handles noisy perception but lacks guarantees and causal understanding; symbolic methods give explicit, inspectable rules but are brittle. Modern systems combine them: learned perception with rule-based constraints, neural representations with search, language models with retrieval, prediction with optimization, learned policies with safety controllers, and ML recommendations with human review. &quot;The practical question is which representations and computational mechanisms are appropriate for the task.&quot;</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q29. Describe how an autonomous warehouse robot can combine learned perception, search, optimization, safety rules, and human review.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
+<li>Learned perception: deep learning identifies shelves, packages, barcodes and people under varying light.</li>
+<li>Rule-based constraints: never exceed the speed limit, always stop for a person, never enter restricted zones.</li>
+<li>Neural representations with search: a network estimates traversable paths; a search algorithm finds the shortest safe route.</li>
+<li>Language models with retrieval: &quot;where is item X?&quot; is answered from the live inventory database.</li>
+<li>Prediction with optimization: forecast warehouse traffic and optimize routes to minimize delivery time and congestion.</li>
+<li>Learned policy with safety controller: an RL policy drives smoothly, but an independent controller overrides it when collision risk appears.</li>
+<li>Human review: for a damaged package the robot recommends discard or inspect; a supervisor decides.</li>
+</ul>
+<p>A purely symbolic robot could not interpret noisy images; a purely statistical one might violate safety rules.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q30. Under what conditions is a hybrid AI system preferable to a purely symbolic or purely statistical system?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>When the task has both (a) noisy, high-dimensional perception or patterns that are hard to hand-code (use learning) and (b) hard constraints, safety rules, legal requirements, or known domain logic that must always hold (use rules/search/optimization), and (c) high-stakes or ambiguous cases where accountability requires human review. Also when data are limited or shift over time and rules provide guarantees outside the observed data regime. Examples: autonomous vehicles, warehouse robots, clinical decision support, legal drafting with retrieval.</p>
+</div></details>
+</section>
+<h3 id="philosophical-questions-agency-and-responsibility"><a class="anchor" href="#philosophical-questions-agency-and-responsibility" aria-hidden="true">#</a>Philosophical Questions, Agency, and Responsibility</h3>
+
+<section class="question"><div class="q-head">Q31. Why is intelligence better viewed as a spectrum of capabilities than as a single monolithic property?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>No single definition covers every legitimate AI system. Intelligence includes many functional capacities: reasoning correctly, learning from experience, solving unfamiliar problems, using language, forming plans, acting toward goals, adapting, understanding context, interacting socially and creating artifacts. A route planner, an anomaly detector, a surgical robot and a language model each show different forms of computational competence. So it is more practical to characterize AI by which capabilities a system demonstrates.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q32. Compare prediction with causal reasoning.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
+<li>Prediction answers &quot;What is likely to happen?&quot; It exploits statistical associations, which may include shortcuts, proxies and dataset artifacts.</li>
+<li>Causal reasoning answers a counterfactual question: &quot;What would happen if a specific intervention were applied?&quot; It identifies cause-and-effect relationships and, following Pearl, requires explicit structural assumptions and mechanistic models, which cannot be derived from observational associations alone.</li>
+</ul>
+<p>Accurate prediction identifies who is likely to succeed; causal reasoning determines which actions will actually improve success.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q33. Why can accurate prediction fail to answer a question about the effect of an intervention?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>A predictor learns correlations in historical data, and those correlations may be driven by confounders or proxies rather than by the variable we would change. Intervening on the variable breaks the historical relationship. For example, a model predicting disease risk from hospital administrative markers, or student success from socioeconomic proxies, says nothing about what happens if we change those factors. The causal structure &quot;generally cannot be derived from observational associations alone without additional assumptions or interventions&quot; (for example randomized experiments). Also, both potential outcomes Y(1) and Y(0) are never observed for the same unit.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q34. Distinguish among counterfactual inquiry, structural assumptions, and mechanistic models.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><div class="tbl"><table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Asks / specifies</th>
+<th>Notes example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Counterfactual inquiry</td>
+<td>&quot;What if we changed something?&quot;</td>
+<td>Would the student have passed if they had attended all lectures? Would crop yields rise with drip irrigation?</td>
+</tr>
+<tr>
+<td>Structural assumptions</td>
+<td>Which variables directly influence others (the causal pathways).</td>
+<td>Smoking increases lung-cancer risk; rainfall influences crop production; traffic volume affects travel time.</td>
+</tr>
+<tr>
+<td>Mechanistic models</td>
+<td>How the process actually works to produce outcomes.</td>
+<td>Weather model; pharmacokinetic model; epidemic model; traffic-flow model.</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q35. Use student attendance and exam performance to explain the difference between correlation and intervention effect.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>A model finds that high-attendance students are much more likely to pass, and predicts well. But attendance may be a proxy for motivation, prior knowledge, study habits or family support. If the university made every student attend every lecture (an intervention), grades would not necessarily rise by the amount the correlation suggests, because disengaged students without prerequisites or study time would still struggle. Prediction: &quot;Students with high attendance are likely to pass.&quot; Causal: &quot;If we increase a student&#39;s attendance, how much will their probability of passing actually improve?&quot;</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q36. What does it mean to describe a deployed AI system as a socio-technical composite?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>A deployed AI system is not just an algorithm. Its outputs are interpreted by people, built into workflows, and bounded by laws, resources, norms and incentives. Figure 4 shows five layers: Model, Data Infrastructure, Interface, Human Workflow, Institutional Rules. The same model can produce very different outcomes depending on the other four layers.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q37. Explain how data infrastructure, interface design, human workflow, and institutional rules can alter the impact of the same recruitment model.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
+<li>Model: learns patterns associated with successful applicants.</li>
+<li>Data infrastructure: training on past hiring decisions carries historical preferences for certain universities, locations or groups into the model.</li>
+<li>Interface: dashboards and ranked lists shape whether recruiters critically evaluate or simply accept the ranking.</li>
+<li>Human workflow: treating the score as final vs as a supporting recommendation produces different outcomes.</li>
+<li>Institutional rules: employment law, fairness policies and ethics standards decide how it is used and monitored.</li>
+</ul>
+<p>&quot;A technically accurate model may still create unfair hiring practices if the data, workflow, or governance mechanisms are poorly designed.&quot;</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q38. Why should moral agency not be attributed directly to an algorithm?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>An AI model &quot;does not possess intent, judgment, or moral agency&quot;. It does not choose its training data, define its objectives, curate its labels, or decide where it is deployed. Operational parameters such as thresholds, confidence scores, human-review triggers and escalation policies are configured by developers and stakeholders. Every output reflects &quot;a chain of human and institutional decisions&quot;. Blaming the algorithm hides who is actually accountable, so responsibility must be assigned to people across the lifecycle.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q39. How do upstream and downstream human decisions shape AI outcomes?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
+<li>Upstream (design, data collection, training): choosing training data, defining the objective (for example, maximize repayment), selecting features (location may act as a proxy), setting thresholds.</li>
+<li>Downstream (after deployment): how outputs are interpreted and acted on, whether loan officers treat recommendations as final, whether applicants can request review, how regulations monitor the system.</li>
+</ul>
+<p>In the loan example the responsible questions are: Who selected the training data? Who defined success? Who approved deployment? Who monitored performance? What safeguards existed for affected people? So Responsible AI cannot be solved by &quot;tweaking the code&quot;; it needs governance across the whole lifecycle.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q40. Explain the Govern, Map, Measure, and Manage functions of the NIST AI Risk Management Framework.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
+<li>Govern: establish the culture, accountability structures and policies to manage AI risk (the bank assigns responsibility and creates policies).</li>
+<li>Map: identify and contextualize the specific risks of the system in its environment (unfair outcomes, privacy, impact on applicants).</li>
+<li>Measure: assess, analyze and track the risks with quantitative and qualitative metrics (accuracy, bias across groups, security, explainability).</li>
+<li>Manage: prioritize and act on risks by mitigating, transferring or accepting them (improve data, adjust processes, add human review, discontinue unsafe uses).</li>
+</ul>
+<p>Goal: trustworthy AI that is valid and reliable, safe, secure and resilient, accountable and transparent, explainable and interpretable, privacy-enhanced, and fair with harmful bias managed. Governance is cross-cutting, not a final checklist.</p>
+</div></details>
+</section>
+<h3 id="the-ai-and-data-science-ecosystem"><a class="anchor" href="#the-ai-and-data-science-ecosystem" aria-hidden="true">#</a>The AI and Data Science Ecosystem</h3>
+
+<section class="question"><div class="q-head">Q41. Define artificial intelligence as both a scientific discipline and an engineering discipline.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Definition: &quot;the scientific and engineering discipline concerned with constructing computational systems that perceive or receive information, form useful representations, reason or learn from evidence, and select actions or outputs in pursuit of specified objectives under uncertainty and constraints.&quot;</p>
+<ul>
+<li>As a science, AI studies: What is intelligence? How can knowledge be represented? How can a system infer conclusions from evidence? How can an agent learn? How should decisions be made under uncertainty? What resources does intelligent behaviour need?</li>
+<li>As engineering, it builds useful systems: recognizing objects, predicting risks, allocating resources, recommending content, detecting anomalies, generating content, planning routes, controlling machines, assisting decisions.</li>
+</ul>
+<p>The distinction matters because a system can be useful without reproducing human cognition (a weather model need not think like a meteorologist).</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q42. Compare systems that think like humans, act like humans, think rationally, and act rationally.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
+<li>Think like humans: reproduce human cognitive processes (memory, reasoning, perception); judged by whether the mechanism resembles human cognition. Roots in cognitive psychology, neuroscience, linguistics, philosophy of mind.</li>
+<li>Act like humans: judged only by observable behaviour; the Turing Test.</li>
+<li>Think rationally: formalize correct reasoning through logic (theorem proving, expert systems, constraint reasoning); limited because real environments are rarely complete or deterministic, so probability and decision theory are needed.</li>
+<li>Act rationally: a rational agent chooses actions expected to advance its objectives given information and constraints; handles uncertainty, incomplete information, limited computation, competing objectives, delayed consequences and exploration vs exploitation. Most useful for modern AI.</li>
+</ul>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q43. What is a rational agent, and why does rational action not imply perfect action?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>A rational agent &quot;selects actions expected to advance its objectives, given its information and constraints.&quot; Rational means choosing the best action relative to what it knows and can compute, not the action that turns out best in hindsight. With uncertainty, incomplete information, limited computation, competing objectives and delayed consequences, even the best choice can have a bad outcome. &quot;Rational action does not mean perfect action. It means selecting an appropriate action relative to the information, objectives, and resources available.&quot;</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q44. Distinguish among passive analytical systems, decision-support systems, semi-autonomous systems, and autonomous systems.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
+<li>Passive analytical: turns data into insights or probabilities but cannot act (sales-forecast dashboard, disease-probability model, equipment-failure predictor).</li>
+<li>Decision-support: proposes specific actions; final authority and execution stay with humans (specialist-referral tool, ranking loans for underwriter review, maintenance priorities).</li>
+<li>Semi-autonomous: executes automatically in routine low-risk cases; escalates ambiguous or high-stakes cases (fraud blocking with borderline cases to investigators; screening that clears low-risk patients).</li>
+<li>Autonomous: perceives, decides and acts with little or no human intervention (manufacturing robots, warehouse sorting, high-frequency trading, closed-loop process control).</li>
+</ul>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q45. Why should autonomy not be confused with intelligence?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Autonomy is about the authority and mechanism to act without human involvement; intelligence is about the capability to perceive, reason and learn. A thermostat acts autonomously in a narrow loop but has no general intelligence. A powerful language model may show strong linguistic reasoning but has no agency: it cannot act on the physical or institutional world without human mediation. So high autonomy does not imply intelligence, and high intelligence does not require autonomy. The level of autonomy should be set by risk, not by how clever the system is.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q46. Differentiate artificial intelligence, machine learning, data science, statistics, analytics, optimization, automation, generative AI, and data engineering.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Use Table 1 (Part 2, section 9). In one line each: AI is the broad umbrella for machines performing perception, reasoning, learning, planning, language, decision-making or adaptive action. ML is the major approach within AI that learns patterns or parameters from data. Data science is the broader lifecycle of acquiring, preparing, analyzing, modeling and communicating data, which may or may not use AI. Statistics is the inferential foundation: what can be inferred about a population from uncertain observations. Analytics is decision-oriented use of data (what happened, why, what may happen, what to do). Optimization finds the feasible choice that minimizes or maximizes an objective (used in training, planning, allocation, control). Automation executes a predefined process with limited human intervention and may contain no intelligence. Generative AI produces new content and is one family of AI capabilities, not all of AI. Data engineering builds the pipelines, schemas, stores, lineage and contracts on which data-driven AI depends.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q47. Why is machine learning not synonymous with artificial intelligence?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>ML is only one subset of AI. Many robust, high-stakes AI systems operate without learning from data, using: search algorithms (state spaces, game trees); formal logic and automated reasoning; constraint satisfaction and mathematical optimization; automated planning and scheduling; knowledge bases and expert systems; manually engineered control rules. &quot;Machine learning is merely one powerful methodology for achieving intelligent behavior, not the exclusive definition.&quot;</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q48. Why is deep learning not synonymous with machine learning?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Deep learning is a specific class of ML defined by multi-layer artificial neural networks. Much of ML does not use deep networks: linear regression and kernel machines, decision trees and random forests, nearest-neighbour methods, Bayesian probabilistic models. &quot;All deep learning is machine learning, [but] the vast majority of machine learning algorithms are not deep learning.&quot; (Your notebook&#39;s MLP is deep learning; your Bayes spam calculation is not.)</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q49. Why is data science broader than model training?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Data science covers analytical, investigative and strategic activities. Its outputs include causal estimates and experimental designs (A/B tests, RCTs); exploratory analyses and data-quality investigations; statistical reports and visualizations; forecasting systems and operational ML models. &quot;Model training is just one tool in the data scientist&#39;s toolkit&quot;; the real scope is to extract, validate and communicate actionable knowledge from data.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q50. Compare the traditional emphasis of statistics with the traditional emphasis of machine learning.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
+<li>Statistics is rooted in inference: understanding the data-generating process. It emphasizes sampling and population inference, quantifying uncertainty and checking assumptions, estimation, identifiability and hypothesis testing. Example: an air-filter programme is evaluated with treatment and control neighbourhoods, estimation of the reduction, a hypothesis test, and a 95% confidence interval (15%, CI 10% to 20%).</li>
+<li>Machine learning is rooted in prediction: accurately mapping inputs to outputs. It emphasizes predictive performance and generalization, high-dimensional inputs and computational scalability, learned representations and automated function approximation. Example: tumour detection in 3D MRI with millions of voxels across many GPUs.</li>
+</ul>
+<p>Breiman called these &quot;the two cultures&quot;; a mature practitioner combines both.</p>
+</div></details>
+</section>
+<h2 id="questions-51-100"><a class="anchor" href="#questions-51-100" aria-hidden="true">#</a>Questions 51–100</h2>
+
+<section class="question"><div class="q-head">Q51. How do inferential thinking and predictive thinking complement each other in a mature AI project?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Predictive thinking (ML) delivers accurate mappings from inputs to outputs that generalize to unseen data. Inferential thinking (statistics) asks whether conclusions hold for the population, quantifies uncertainty, checks assumptions, and estimates effects of interventions. A mature project needs both: prediction to rank or flag cases, inference to check calibration and confidence intervals, test whether an intervention actually works (the air-filter study), and judge whether a sample represents the deployment population. Together they produce systems that are &quot;not only highly accurate but also reliable, robust, and interpretable&quot;.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q52. Why is mathematical optimization ethically blind and epistemically blind?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
+<li>Ethically blind: it has no moral agency; it cannot evaluate fairness, justice or harm (for example, minimizing hiring cost by discriminating, or maximizing engagement by amplifying misinformation).</li>
+<li>Epistemically blind: it cannot judge whether its data and assumptions are valid: whether y is the correct target, whether the sample represents the deployment population, whether the loss reflects real harm, or whether the model should be deployed.</li>
+</ul>
+<p>It just minimizes the empirical risk R̂(θ) = (1/n) Σ L(f_θ(x_i), y_i) it is given.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q53. Explain why optimization can solve a specified objective without validating whether the objective is appropriate.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>The optimizer only sees the loss function and data; it does not know what the numbers mean. In the health-care example (Obermeyer et al.), the target was future health-care cost, assumed to be a proxy for health need. Because Black patients with the same illness historically generated lower costs (access barriers), the model learned they were lower risk and denied them care-management places. The optimization succeeded &quot;brilliantly&quot; at the specified objective while causing real harm. &quot;Optimization solves the objective that was specified. It does not validate the objective.&quot; Validating the objective is the designers&#39; responsibility.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q54. Distinguish automation without intelligence from intelligence without full automation.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
+<li>Automation without intelligence: a deterministic rule executes a task mechanically without reasoning. Legacy fraud script: &quot;if a transaction exceeds $10,000 and comes from a new IP address, freeze the account and send a rejection email&quot;. It cannot adapt to context, so a legitimate large purchase while travelling is blocked.</li>
+<li>Intelligence without full automation: an ML model analyzes hundreds of features (spending history, device fingerprint, geolocation, merchant risk) and outputs a nuanced assessment (&quot;85% fraud, but matches this user&#39;s upcoming vacation&quot;), then routes it to a human analyst who decides.</li>
+</ul>
+<p>&quot;Automation concerns how tasks are executed, whereas AI concerns how information is analyzed, patterns are inferred, and decisions are supported.&quot;</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q55. Compare generative AI with discriminative AI and identify the distinctive risks of generative systems.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
+<li>Discriminative AI analyzes existing data to classify, rank, score or predict (a model flags risky clauses in 50,000 contracts).</li>
+<li>Generative AI learns the underlying distribution of data and synthesizes new outputs: text, images, audio, code (an LLM drafts a new NDA).</li>
+</ul>
+<p>NIST Generative AI Profile risks: confabulation (hallucinated citations to non-existent cases); harmful content; information integrity (deepfakes, or a professional-looking draft accepted without verification); intellectual property and privacy (reproducing confidential settlement terms from training data); misuse (jailbreaking to produce exploitative clauses). Law firms therefore use discriminative models for low-risk high-volume tasks and heavy governance with mandatory human review for generative drafting.</p>
+</div></details>
+</section>
+<h3 id="ai-as-an-end-to-end-pipeline"><a class="anchor" href="#ai-as-an-end-to-end-pipeline" aria-hidden="true">#</a>AI as an End-to-End Pipeline</h3>
+
+<section class="question"><div class="q-head">Q56. List and explain the eight stages of the end-to-end AI pipeline presented in the module.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><ol>
+<li><p>Problem formulation: define the real-world decision, population, decision-maker, timing, outcome, baseline, error costs and constraints.</p>
+</li>
+<li><p>Data: acquire and prepare data while interrogating provenance, definitions, completeness, temporal integrity and governance; document with datasheets.</p>
+</li>
+<li><p>Representation: translate real entities into feature vectors, tensors, tokens, graphs or sequences; avoid loss of context, proxies, aggregation bias, leakage, identity errors and train-serving mismatch.</p>
+</li>
+<li><p>Model: learn f_θ: X → Y, chosen by data characteristics, task requirements, operational constraints, governance and lifecycle cost.</p>
+</li>
+<li><p>Evaluation: assess predictive performance (discrimination and calibration), fairness and robustness, operational viability and real-world impact; match tests to deployment claims; document in a Model Card.</p>
+</li>
+<li><p>Decision: turn p̂ into action with a threshold t set by error costs, capacity, uncertainty, fairness and human review; minimize C(t).</p>
+</li>
+<li><p>Deployment: embed into live infrastructure with latency limits, fallbacks, abstention, rollback, explanations and MLOps governance.</p>
+</li>
+<li><p>Monitoring: watch inputs, drift, pipelines, outputs, performance, operations, human interaction, fairness and feedback loops.</p>
+</li>
+</ol>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q57. Why should the AI pipeline be viewed as iterative and cyclical rather than as a one-directional waterfall?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Insights from later stages, especially monitoring, often reveal flawed assumptions, data drift or performance degradation. These trigger feedback to any earlier stage: re-collecting or relabelling data, engineering new representations, retraining, or even redefining the business problem. Real environments change, so a one-way process would lock in early mistakes. The figure shows &quot;continuous feedback drives improvement&quot; from monitoring back to problem formulation.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q58. What elements should a robust AI problem statement define before model development begins?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>The target population and the decision-maker; the specific decision and the exact time it occurs; the desired outcome and available alternatives (including baseline/status quo); the consequences of errors (FP vs FN); and the operational and ethical constraints. In worksheet form: decision time, population/unit, available information, output, horizon, decision-maker, action, baseline, metrics, error costs, subgroup risks, constraints and governance. &quot;If this statement cannot be completed clearly, model development should not begin.&quot;</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q59. Why is the statement &quot;build a model to predict hospital readmission&quot; an inadequate problem formulation?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>It is &quot;vague, lacks operational context, and ignores the downstream impact&quot;. It does not say when the prediction is made (admission? discharge?), which patients are included, what counts as readmission (planned or unplanned) or within what window, who uses the output, what action follows, what resource is limited, what the baseline is, or which risks (calibration, subgroup fairness, false alerts) must be checked. Without these, features could leak, the model could be accurate but useless, and no one could judge success.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q60. What additional details make a hospital readmission problem operationally meaningful?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>From the better framing: when (at the time of discharge); who uses it (the discharge team); what action (allocating follow-up appointments); what resource is constrained (a limited number of appointment slots); which patients (adult medical patients); what outcome period (unplanned 30-day readmission); what risks are examined (calibration, subgroup fairness, preventability and the consequences of false alerts).</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q61. What questions should be asked about data provenance, variable definitions, completeness, temporal integrity, and governance?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
+<li>Provenance and purpose: Who or what produced the data, and for what original purpose?</li>
+<li>Definitions and proxies: Under which definitions were variables established? Which are direct measurements and which are proxies?</li>
+<li>Completeness and consistency: Which cases are missing? Was the outcome recorded consistently?</li>
+<li>Temporal and relational integrity: What has changed over time? Are timestamps reliable? Can records be linked correctly?</li>
+<li>Governance: Are the data legally and ethically permissible for this specific objective?</li>
+</ul>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q62. What is the purpose of a Datasheet for Datasets?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Proposed by Gebru et al. and inspired by electronics datasheets, it documents a dataset&#39;s motivation, composition, collection methods, preprocessing steps, recommended uses and limitations. It makes implicit assumptions, biases and constraints explicit, so developers and downstream users understand the data&#39;s boundaries, reduce misuse, and build on &quot;a foundation of transparency and informed consent&quot;.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q63. How can poor dataset documentation lead to unsafe deployment of a skin lesion classifier?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>The 100,000-image dataset was about 90% fair-skinned patients, mostly from specialized clinics in one country, captured with high-end clinical cameras (while many hospitals use smartphones), and labelled by single dermatologists without verification. None of this was documented, so developers assumed it was representative and hospitals adopted it. Months later it performed much worse for darker skin. A datasheet listing these limitations (&quot;underrepresentation of darker skin tones, children, and smartphone images; not validated for primary care&quot;) would have prompted more data collection, fairness evaluation, or restricted deployment.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q64. Why is representation described as the bridge between the physical world and computational models?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Algorithms cannot process people, images, documents or road networks directly; representation translates them into structured mathematical forms: a person into a feature vector, an image into a tensor of pixel intensities, text into tokens or embeddings, a road network into a graph, purchases into an event sequence, a physical process into a state-space model, categories into one-hot or learned embeddings. Representation &quot;dictates exactly which information is visible to the model&quot;, so it determines which patterns are easy or hard to learn.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q65. Explain loss of context, proxy encoding, aggregation bias, temporal leakage, identity errors, and train-serving mismatch.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>See Part 2, section 13 for the table. Short versions with the ICU sepsis example:</p>
+<ul>
+<li>Loss of context: a 24-hour average heart rate hides a dangerous spike one hour ago.</li>
+<li>Proxy encoding: home zip code encodes socioeconomic status and race, so alerts are deprioritized for marginalized neighbourhoods.</li>
+<li>Aggregation bias: 92% overall accuracy hides failure for paediatric and autoimmune patients.</li>
+<li>Temporal leakage: antibiotic dose counts updated after the diagnosis let the model &quot;wait for the doctor&#39;s order&quot; (99% test accuracy, fails live).</li>
+<li>Identity errors: a transferred patient split into two IDs, hiding the deterioration trend.</li>
+<li>Train-serving mismatch: missing BP imputed with the ward median in training but with 0 in production, flooding nurses with false alarms and causing alert fatigue.</li>
+</ul>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q66. What does the mapping f_θ: X → Y represent in model development?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>A model is a mathematical function that maps structured input representations X (the feature space) to outputs Y (predictions or decisions), with parameters θ learned from data. It can be a linear function, decision tree, nearest-neighbour procedure, probabilistic graphical model, deep network, search or optimization program, rule set, or a neuro-symbolic hybrid. Optimization is not guaranteed to find the global optimum; it may reach a local, approximate or regularized solution.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q67. Which operational, governance, data, and lifecycle criteria should guide model selection?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
+<li>Data characteristics: size, dimensionality, nonlinearity.</li>
+<li>Task requirements: classification, regression, ranking; need for probabilistic calibration.</li>
+<li>Operational constraints: latency, memory, computational limits for real-time inference.</li>
+<li>Governance and trust: interpretability, explainability, robustness required by stakeholders or regulators.</li>
+<li>Lifecycle costs: long-term maintenance burden and ML expertise available in the team.</li>
+</ul>
+<p>&quot;The choice should never be based on hype.&quot;</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q68. Why can a simpler model be preferable to a more accurate but complex model?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Loan example: DNN 94% accuracy vs logistic regression 91% with 15 features. The simpler model wins because: interpretability (ECOA requires specific adverse-action reasons; logistic coefficients give them directly, while post-hoc SHAP on a DNN can be unstable); data size (50,000 applications a year is too small for a massive DNN without overfitting); maintenance cost (after economic shifts, standard risk analysts can maintain logistic regression, while a DNN needs specialized ML engineers); latency and compute (logistic regression runs on cheap CPUs). A slightly less accurate model that fits the constraints delivers more real-world value.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q69. Why should the principle of parsimony be treated as a heuristic rather than as a rule that reality must always be simple?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Occam&#39;s principle says prefer the simplest model only when competing explanations fit the evidence equally well. It does not claim reality is simple. A physician who insists that tuberculosis alone explains cough, fever, weight loss and joint pain misses coexisting rheumatoid arthritis and delays treatment. Because the two-disease model fits the evidence better, it is the right choice despite being more complex. Parsimony should &quot;encourage avoiding unnecessary complexity, not ignoring necessary complexity.&quot;</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q70. What information should a Model Card communicate to downstream users?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Following the notes&#39; heart-disease Model Card: Model Overview (name, purpose, type, architecture, intended use); Data Description (data source, features, preprocessing such as mean/mode imputation, exclusions such as race or genetics); Performance Metrics (overall accuracy, precision, recall, F1, performance by subgroup, fairness observations); Known Limitations (bias in data, generalizability, feature limitations); Intended and Inappropriate Uses; Ethical Considerations (fairness, impact of misuse); Additional Considerations (future work). Section 1.5.5 summarizes the purpose: record the intended use, evaluation procedures, conditions under which it performs well, detailed subgroup results and known limitations, giving users &quot;a clear, honest picture of the system&#39;s capabilities and boundaries&quot;. (A complete example is in A2, Part 8.)</p>
+</div></details>
+</section>
+<h3 id="evaluation-decisions-deployment-and-monitoring"><a class="anchor" href="#evaluation-decisions-deployment-and-monitoring" aria-hidden="true">#</a>Evaluation, Decisions, Deployment, and Monitoring</h3>
+
+<section class="question"><div class="q-head">Q71. Why is overall accuracy insufficient for evaluating a high-stakes AI system?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Accuracy treats all errors as equally costly and can hide: poor calibration (80% predicted risk but 45% observed deterioration in the ED triage example); subgroup failures (lower accuracy for elderly and non-English speakers); fragility (crashing when one vital sign is missing); operational problems (15-second latency, worse on night shifts); and lack of real-world benefit (only 2% better than the existing early warning score, and alert fatigue destroyed decision utility). It is also misleading with class imbalance. The real question is whether the system is &quot;sufficiently reliable, safe, and effective for its specific intended use&quot;.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q72. Distinguish discrimination from calibration.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
+<li>Discrimination: the model&#39;s ability to separate or rank positive cases above negative ones (measured by AUROC).</li>
+<li>Calibration: whether predicted probabilities match observed frequencies; a predicted 80% risk should correspond to about 80% observed events.</li>
+</ul>
+<p>A model can discriminate well yet be badly calibrated (readmission example: ranks well, but 80% predicted means 35% observed). Calibration matters whenever the probability itself is used for decisions or resource allocation.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q73. What evaluation dimensions should be assessed in addition to predictive performance?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
+<li>Fairness and robustness: subgroup performance, robustness to noise and distribution shift, interpretability.</li>
+<li>Operational viability: computational cost, inference latency, stability across times, environments and sites.</li>
+<li>Real-world impact: decision utility, comparison with meaningful baselines, and human-system performance (how humans and AI perform together).</li>
+</ul>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q74. Why must temporal, geographic, equity, probabilistic, and decision claims be matched with appropriate validation methods?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Because a test only supports the claim it actually checks. Readmission example:</p>
+<ul>
+<li>Temporal claim: random 80/20 split gave 85%; training on 2022 and testing on January 2023 gave 68%, exposing a billing code used only for three months in 2021.</li>
+<li>Geographic claim: strong at the urban flagship; external validation at rural clinics failed because a lab test only existed at the flagship.</li>
+<li>Equity claim: AUC 0.82 overall but 0.55 for non-English speakers.</li>
+<li>Probabilistic claim: calibration curve showed 80% predicted vs 35% observed.</li>
+<li>Decision claim: a prospective pilot showed 60% flagged, alert fatigue, and nurses reverting to spreadsheets.</li>
+</ul>
+<p>&quot;How you test an AI is just as important as what you test.&quot;</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q75. Why is a machine learning prediction not the same as a decision?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>A model outputs a probability p̂ = P̂(Y = 1 | X = x); a decision requires a concrete action. Converting one to the other requires a decision rule (intervene if p̂ ≥ t) whose threshold reflects error costs, intervention capacity, uncertainty, fairness and human review. The same prediction can lead to different actions under different capacities or values. &quot;A prediction is just a number; the decision is where human values and operational constraints are actually applied.&quot;</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q76. How should asymmetric error costs, intervention capacity, uncertainty, fairness, and human review influence a decision threshold?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Rapid Response Team example:</p>
+<ul>
+<li>Asymmetric costs: a missed deterioration (FN) can mean a preventable death while a false activation (FP) costs a brief assessment, so t is pushed below 0.5.</li>
+<li>Intervention capacity: only two RRT nurses at night; t = 0.2 might flag 40 patients, so t is raised enough to stay within capacity.</li>
+<li>Uncertainty and expected benefit: for borderline p̂ (0.35 to 0.45) trigger a lower-acuity action (more frequent vital-sign checks) instead of a full activation.</li>
+<li>Fairness: a single global t gave a high FN rate for non-English speakers; recalibrate, improve data, retrain, or where appropriate adjust thresholds.</li>
+<li>Human-in-the-loop: a two-minute nurse review before dispatch allows a lower t (0.3) if false positives stay manageable.</li>
+</ul>
+<p>The threshold is a &quot;tunable policy lever&quot;, not a mathematical default.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q77. Interpret the conceptual decision-cost function that combines false positives, false negatives, delay, and workflow cost.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>C(t) = c_FP·P(FP|t) + c_FN·P(FN|t) + c_delay·E[D|t] + c_workflow(t)</p>
+<p>The system chooses the threshold t that minimizes total real-world cost: the cost of false alarms times their probability, the cost of misses times their probability, the cost of expected delay or friction, and the cost of fitting the threshold into the human workflow. Lowering t reduces misses but increases false alarms, queues and workload. Baggage example: t = 0.4 maximized accuracy (96%) but created huge manual-search queues and broke the two-station checkpoint; t = 0.7 (94% accuracy) minimized C(t). &quot;The optimal decision threshold is rarely the one that simply maximizes overall accuracy.&quot;</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q78. What engineering and governance questions must be answered before moving a model from a sandbox into production?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
+<li>Infrastructure and performance: Where will inference occur (cloud, edge, on-premise)? What is the maximum latency? Which features are actually available in real time?</li>
+<li>Resilience and failure handling: What happens when inputs are missing, delayed or corrupted? Can the system abstain? What is the fallback? Can it be rolled back instantly?</li>
+<li>Human-system interaction: Who receives the output? How are reasoning and uncertainty explained?</li>
+<li>Governance and MLOps: How are model versions, code and pipelines controlled and tracked? Who is accountable for monitoring, retraining and maintenance?</li>
+</ul>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q79. What is the role of abstention, fallback procedures, rollback mechanisms, and circuit breakers in deployment?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>They make the system fail safely. Abstention: the model declines to predict when confidence is too low and defers to a human or another process. Fallback: a defined safe path when inputs are missing or errors occur (in the fraud example, a missing geolocation feature routes the transaction to the legacy rule-based system). Rollback: reverting instantly to a previous stable version. Circuit breaker: an automatic trigger for rollback; if the decline rate spikes more than 5% in 10 minutes, the system rolls back to protect legitimate customers.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q80. What should be monitored across input quality, drift, feature pipelines, model outputs, predictive performance, operations, human interaction, fairness, and feedback loops?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
+<li>Input quality: missing values, invalid ranges, unexpected formats, schema changes (an app update alters telemetry).</li>
+<li>Input distribution (data drift): shifts in demographics, devices, regions, language, case mix.</li>
+<li>Concept and label drift: changing relation between inputs and outcomes (fraudsters change tactics).</li>
+<li>Feature pipelines: transformation errors, delayed joins, missing updates, stale features.</li>
+<li>Model outputs: prediction distributions, confidence, uncertainty, abstention rates.</li>
+<li>Predictive performance and ground truth: error rates, calibration, precision, recall, F1, subgroup metrics; availability and timeliness of labels.</li>
+<li>Operational health: latency, uptime, throughput, CPU/GPU/memory.</li>
+<li>Human-system interaction: override rates, acceptance, corrections, automation bias.</li>
+<li>Harm, fairness and safety: unequal error rates, harmful outcomes.</li>
+<li>Feedback loops: predictions shaping future training data.</li>
+</ul>
+</div></details>
+</section>
+<h3 id="types-of-ai-problems"><a class="anchor" href="#types-of-ai-problems" aria-hidden="true">#</a>Types of AI Problems</h3>
+
+<section class="question"><div class="q-head">Q81. Distinguish binary, multiclass, and multilabel classification.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
+<li>Binary: Y ∈ {0, 1}; fraud vs legitimate, disease vs no disease, spam vs non-spam.</li>
+<li>Multiclass: Y ∈ {1, …, K}; exactly one class is chosen (handwritten digit).</li>
+<li>Multilabel: Y ⊆ {1, …, K}; several labels may apply at once (several diagnoses on one clinical record).</li>
+</ul>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q82. Why must a classification label such as &quot;high risk&quot; include an event definition, threshold, and time horizon?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>&quot;High risk&quot; alone is not operationally meaningful: high risk of what event, how high, and by when? Without an event definition the label cannot be measured consistently; without a threshold nobody knows which scores count as high; without a horizon the prediction cannot be matched to an intervention window. Example: &quot;unplanned readmission within 30 days, p̂ ≥ t&quot; (or in RYDA, not in verified employment at day 180 and ranked in the top 300).</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q83. Compare mean squared error and mean absolute error for regression tasks.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>L_MSE(y, ŷ) = (y − ŷ)²     L_MAE(y, ŷ) = |y − ŷ|</p>
+<p>MSE squares errors, so it penalizes large errors heavily (useful when big misses are dangerous). MAE grows linearly, so it is more robust to large deviations and outliers. The choice &quot;encodes an assumption about error&quot;.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q84. Why should the regression loss function reflect the real application rather than convention alone?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>The loss defines what the model treats as a bad mistake. If real harm grows sharply with error size (under-predicting energy demand causing blackouts), MSE fits; if outliers are noise, MAE fits; if over- and under-prediction have different costs (asymmetric cost), neither symmetric loss is right. Table 2 lists ignoring skew, heteroscedasticity or asymmetric cost as the common regression framing error. Choosing by habit optimizes the wrong thing (optimization is blind to whether &quot;the loss function reflects real harm&quot;).</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q85. How do ranking and recommendation differ from ordinary classification?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Ranking produces an ordered list and is evaluated by list-aware metrics (NDCG, MAP, precision@k); items cannot be judged independently of their position. Recommendation adds personalization and availability constraints (recall@k, NDCG, utility, diversity). Crucially, a recommender &quot;selects what the user will be shown&quot;, influencing future preferences and creating the feedback loop: past exposure → observed interaction → training data → future exposure. Ordinary classification labels items independently and does not choose what data it will see next.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q86. Why are observed clicks not pure measures of user preference in a recommendation system?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Clicks are &quot;conditional on previous rankings, interface design, position, and availability&quot;. Users can only click what they are shown, and items shown near the top get more clicks regardless of quality (position bias). Those clicks then become training data, so the system learns its own past choices (selective exposure, feedback loop). Optimizing clicks can also differ from long-term benefit.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q87. Why should clusters not automatically be treated as objectively real categories?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Clustering finds structure without labels, and the result depends on the representation, scaling, algorithm and number of clusters. &quot;A mathematically compact partition may still be scientifically meaningless.&quot; So clustering requires stability analysis, sensitivity to representation and scaling, inspection of cluster composition, domain validation, and caution against reifying algorithmic groups as natural categories (for example, customer segments are useful summaries, not natural kinds).</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q88. What components are required to formulate a search problem?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>An initial state, actions or transitions, a goal test, a path cost, and possibly a heuristic (a problem-specific estimate that guides search toward the goal, such as straight-line distance in A*). The common framing error is defining an incomplete search space.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q89. Compare search, planning, and control as classical AI problem types.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
+<li>Search explores a space of states or candidates to find a goal state, path or document (route finding, document retrieval); evaluated by relevance, path cost, success rate, latency.</li>
+<li>Planning identifies a sequence of actions expected to achieve a goal while satisfying constraints (robot task planning); error: assuming a static or fully known environment.</li>
+<li>Control repeatedly observes a system and acts over time: x_{t+1} = F(x_t, u_t, w_t), with state x, action u and disturbance w (keeping a drone on its trajectory); evaluated by stability, tracking error, safety, energy. &quot;Unlike static prediction, control changes the process being predicted.&quot;</li>
+</ul>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q90. Explain the main framing risks in anomaly detection, generation, forecasting, causal estimation, and decision optimization.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
+<li>Anomaly detection: &quot;unusual is not the same as undesirable&quot;; anomalies may be fraud or legitimate novelty; without an investigation or response policy it only produces unusualness scores (error: assuming all rare cases are harmful).</li>
+<li>Generation: a fluent output can still be false, unsafe, biased or irrelevant; evaluate plausibility, grounded correctness, and utility and safety (error: equating fluency with truth).</li>
+<li>Forecasting: time order matters; random splits leak the future; use temporal holdouts or rolling-origin validation, compare with naive or seasonal baselines, and watch for trend, seasonality, autocorrelation and structural change.</li>
+<li>Causal estimation: τ = E[Y(1) − Y(0)] but both outcomes are never seen for the same unit; needs randomization, exchangeability, positivity, consistency, correct temporal ordering and control of confounding (error: interpreting correlation as intervention effect).</li>
+<li>Decision optimization: a* = argmax E[U(a, Y) | X = x]; errors include optimizing an incomplete proxy objective, treating risk as intervention benefit, ignoring constraints, and evaluating predictions without evaluating the resulting actions.</li>
+</ul>
+</div></details>
+</section>
+<h3 id="problem-formulation-and-common-failure-modes"><a class="anchor" href="#problem-formulation-and-common-failure-modes" aria-hidden="true">#</a>Problem Formulation and Common Failure Modes</h3>
+
+<section class="question"><div class="q-head">Q91. Why should an AI project begin with a decision or capability rather than with an available dataset?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>The data-first trap (grab a convenient dataset, pick an interesting target, maximize AUC, then look for a use case) produces &quot;highly accurate mathematical curiosities that deliver zero real-world value&quot;. Attrition example: an 88%-AUC model listed 500 at-risk employees, but HR had no budget or time to act and the model was abandoned. Starting from the decision (which employees should managers target, with only five interventions per quarter) led to a transparent heuristic that caught 80% of churners and was trusted and used. &quot;A model that does not change a decision or trigger a concrete action has zero operational value.&quot;</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q92. What questions are included in a comprehensive problem-framing canvas?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
+<li>The Decision: What specific decision will be altered, informed or automated?</li>
+<li>The Actor: Who is the decision-maker responsible for executing it?</li>
+<li>The Actions: What concrete interventions are available once the output is generated?</li>
+<li>The Necessity of AI: Is a complex ML model actually required?</li>
+<li>The Simpler Alternatives: Could a deterministic rule, checklist, statistical summary or process redesign do it more cheaply or reliably?</li>
+</ul>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q93. Define the target population, unit of analysis, index time, prediction horizon, inputs, outputs, labels, constraints, stakeholders, and cost of error.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
+<li>Target population: the set of cases the system is meant for, with inclusion and exclusion criteria (adult medical patients).</li>
+<li>Unit of analysis: the independent entity being predicted for: individual, event, object or spatial entity.</li>
+<li>Index time: the exact moment the prediction is made.</li>
+<li>Prediction horizon: the future window in which the outcome must occur.</li>
+<li>Inputs: documented features (definition and source, unit, update frequency, missingness, timestamp semantics, availability at inference, privacy class, transformation, known biases).</li>
+<li>Outputs: class, value, probability, interval, ranking, score, tier, recommendation, action, artifact, or abstention.</li>
+<li>Labels: the ground truth used for training, often a proxy that must be interrogated.</li>
+<li>Constraints: technical, resource, trust and usability, governance and legal boundaries.</li>
+<li>Stakeholders: subjects, targets, operators and experts, and the broader ecosystem.</li>
+<li>Cost of error: the real consequences of TP, FN, FP, TN, which are usually asymmetric and include non-financial harms.</li>
+</ul>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q94. Why must every feature be available at or before the index time?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Because the deployed model can only use what is known at the moment it predicts. A feature recorded later carries future information; it looks very predictive in retrospective data but is unavailable (or different) in real time. &quot;Using that result does not constitute early prediction; it is merely hindsight.&quot; This is target/temporal leakage: &quot;If a model relies on data that has not yet occurred at the index time, it is leaking the future, not demonstrating intelligence.&quot; Data engineering must also check availability, not just event time: t_feature availability ≤ t.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q95. How should a project team define a meaningful baseline and an evaluation plan before training begins?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Baseline: the real alternative the system will replace or augment, not random guessing: current professional judgment, a simple heuristic, the status quo, a legacy system, or alternative policies (for example random allocation). The question becomes &quot;Does deploying this AI system improve real-world outcomes compared to the best available alternative?&quot;</p>
+<p>Evaluation plan (locked before training): primary and secondary (guardrail) metrics; validation strategy (external, temporal and prospective testing); reliability and fairness (subgroup analysis, calibration, uncertainty, robustness); operationalization and governance (decision thresholds, acceptance criteria, monitoring plan). Locking it in prevents metric shopping and data dredging: &quot;An evaluation plan written after the fact is merely a retrospective justification for deployment.&quot;</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q96. Explain how solving the wrong problem, poor data quality, data leakage, weak evaluation, underspecification, distribution shift, ignored workflow, and absent monitoring can cause AI failure.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
+<li>Wrong problem: the target is disconnected from the goal (predicting cost instead of preventable illness; clicks instead of welfare; risk with no capacity to act).</li>
+<li>Poor data quality: wrong values, missing records, inconsistent units, duplicate identities, delayed updates, coding changes, unrepresentative samples, unreliable labels, undocumented preprocessing; more data does not fix systematic bias.</li>
+<li>Data leakage: target, temporal, group, preprocessing, label leakage and benchmark contamination give unusually impressive but fake results.</li>
+<li>Weak evaluation: only accuracy, convenient test sets, ignored imbalance, test-set tuning, no CIs, no baseline, no calibration, no subgroups, random splits for temporal use.</li>
+<li>Underspecification: several models with equal test scores rely on different shortcuts and behave differently under shift; mitigate with stress tests, multiple runs, shift and subgroup evaluation, causal checks.</li>
+<li>Distribution shift: populations, devices, policies, seasons, users, economy or pipelines change.</li>
+<li>Ignored workflow: alerts too late, distrust, poor explanations, too many alerts, automation bias, unclear responsibility, infeasible actions, more workload.</li>
+<li>No monitoring: silent degradation when schemas change, features fail, labels are delayed, thresholds change, new subpopulations appear, or versions are not recorded.</li>
+</ul>
+</div></details>
+</section>
+<h3 id="data-engineering-and-illustrative-case-studies"><a class="anchor" href="#data-engineering-and-illustrative-case-studies" aria-hidden="true">#</a>Data Engineering and Illustrative Case Studies</h3>
+
+<section class="question"><div class="q-head">Q97. Why is data engineering described as the connective tissue of the complete AI lifecycle?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Every stage depends on data flowing reliably: generated, captured, validated, stored, transformed, served, observed and governed. Every model needs data with defined meaning, delivered consistently to training and production; labels and outcomes must be linked over time; behaviour must be monitored; decisions audited; privacy enforced; source changes detected; failures made reproducible and reversible. So data engineering is &quot;not merely what happens before machine learning&quot;; it connects problem formulation to monitoring. &quot;Reliable model ⇏ Reliable AI system.&quot;</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q98. How do semantics, temporal correctness, training-serving consistency, lineage, governance, and monitoring make data engineering unavoidable?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
+<li>Semantics: &quot;temperature&quot; needs units, site, sensor, timestamp, missing code and calibration status; &quot;diagnosis_date&quot; could mean symptom onset, documentation, confirmation, entry or billing date.</li>
+<li>Temporal correctness: features must be recorded and available by prediction time (t_feature availability ≤ t); no train/test overlap; no stale data treated as real time.</li>
+<li>Training-serving consistency: encodings, missing-value handling, units, windows, library versions and batch vs streaming must match; use shared versioned transformations and tests.</li>
+<li>Lineage: source version, query, transformation code, label definition, partitions, seed, libraries, configuration, evaluation data, approval and deployment version, for audit and rollback.</li>
+<li>Governance: role-based access, encryption, retention limits, de-identification, consent tracking, audit logs, purpose restrictions, deletion workflows, incident response.</li>
+<li>Monitoring: only possible if inputs, predictions, versions, human responses, outcomes and subgroup data are captured.</li>
+</ul>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q99. What lessons about proxies, drift, lineage, and ground-truth anchoring can be learned from Google Flu Trends and the Epic Sepsis Model?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Google Flu Trends: search behaviour ≈ disease activity is only a proxy, affected by media, anxiety, platform design and habits. It overestimated flu in 100 of 108 weeks and exceeded CDC estimates by more than 2× in February 2013. Causes: big-data hubris (about 50 million candidate terms against 1,152 weekly observations, chance correlations) and algorithm dynamics (the platform changed the data-generating process). Lessons: volume does not remove measurement bias; a proxy is useful only while its relationship to the target is stable; platforms are part of the data-generating process; undocumented term lists destroy reproducibility (lineage); combining GFT with lagged CDC data cut MAE to 0.232 (vs 0.486 and 0.311), so new sources should complement ground truth; monitor residual drift and suspend when it grows.</p>
+<p>Epic Sepsis Model: external validation (38,455 hospitalizations) found AUROC 0.63, alerts on 18% of hospitalizations, 67% of sepsis cases missed at threshold ≥ 6, and only 183 cases caught before timely antibiotics. Lessons: the label must match the intended clinical event (labels built from clinician actions encode practice); timing is as important as accuracy (predicting after antibiotics are ordered is useless); features need event, recording, availability and correction times; missingness encodes clinician behaviour; sites differ, so external and prospective validation are essential; alert volume is a system-level metric; workflow decides value.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q100. How does TensorFlow Extended demonstrate that production AI depends on ingestion, statistics, schemas, validation, transformation, training, evaluation, model validation, serving, monitoring, and lineage?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>TFX turns a one-off training script into a repeatable pipeline: ingestion with versioned specs, record counts and checksums; statistics on distributions, missingness, ranges and label balance; a schema that makes assumptions machine-checkable; data validation catching missing columns, new categories and shifts; transformations defined once for training and serving (no skew); training that records code, data, hyperparameters and seeds; evaluation against the current production model; model validation that blocks release if metrics, subgroup performance, fairness or latency fail; serving and monitoring with version metadata and rollback. Remove any piece and reliability drops (silent corruption, skew, irreproducible results, worse models shipped, invisible failures). Business value (months to weeks deployment; about 2% more Google Play installs) came from the whole system. &quot;Data engineering ... constitutes much of the production architecture.&quot;</p>
+</div></details>
+</section>
+
+  <nav class="pagenav">
+    <a class="pv" href="m1b-notes.html">← Previous<b>M1 · Notes B — pipeline, framing, failures</b></a>
+    <a class="nx" href="m1-cases.html">Next →<b>M1 · Answers S, R, A</b></a>
+  </nav>
+  <div class="foot">AI 500 · Fall 2026 · study notes</div>
+</main>
+</div>
+<div class="lightbox" id="lightbox" hidden><img alt=""><button class="iconbtn lb-close" aria-label="Close">✕</button></div>
+<script src="assets/site.js" defer></script>
+</body></html>

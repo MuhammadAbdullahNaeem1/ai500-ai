@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>M1 · AI Landscape & Problem Framing — Notes B — pipeline, framing, failures · AI 500</title>
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#fbfbfa" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#16161a" media="(prefers-color-scheme: dark)">
+<script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<header class="topbar">
+  <button class="iconbtn" id="menuBtn" aria-label="Open contents" aria-expanded="false"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+  <a class="topbrand" href="index.html">AI 500<span>M1 · AI Landscape & Problem Framing</span></a>
+  <button class="iconbtn themebtn" aria-label="Toggle dark mode"><svg class="i-moon" viewBox="0 0 24 24" width="19" height="19"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg><svg class="i-sun" viewBox="0 0 24 24" width="19" height="19"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg></button>
+</header>
+<div class="scrim" id="scrim"></div>
+<div class="wrap">
+<aside class="side" id="side">
+  <div class="side-head">
+    <a class="brand" href="index.html">AI 500 — Foundations of AI<span>Foundations of AI · Fall 2026</span></a>
+    <button class="iconbtn themebtn" aria-label="Toggle dark mode"><svg class="i-moon" viewBox="0 0 24 24" width="17" height="17"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg><svg class="i-sun" viewBox="0 0 24 24" width="17" height="17"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg></button>
+  </div>
+  <nav><a href="index.html">Home</a>
+<a href="start-here.html">Start here (how to use)</a>
+<div class="nav-section">Modules</div>
+<details class="grp" open><summary>M1 · AI Landscape & Problem Framing</summary><a href="m1a-notes.html">Notes A — roots, philosophy, landscape</a><a href="m1b-notes.html" class="on" aria-current="page">Notes B — pipeline, framing, failures</a><a href="m1-answers.html">Answers Q1–100</a><a href="m1-cases.html">Answers S, R, A</a></details>
+<details class="grp"><summary>M2 · Data Collection, Cleaning, Governance & Ethics</summary><a href="m2a-notes.html">Notes A — constructed data, sources, quality</a><a href="m2b-notes.html">Notes B — curation, cleaning, leakage</a><a href="m2c-notes.html">Notes C — documentation, governance, cases</a><a href="m2-answers-1.html">Answers Q1–50</a><a href="m2-answers-2.html">Answers Q51–100</a><a href="m2-scenarios.html">Scenarios S1–S5</a><a href="m2-reflections.html">Reflections R1–R5</a></details>
+<div class="nav-section">Quiz 2 (24 Oct)</div>
+<a href="quiz2-guide.html">Quiz 2 guide</a>
+<a href="quiz2-mock-a.html">★ Mock Quiz 2A</a>
+<a href="quiz2-mock-b.html">Mock Quiz 2B</a>
+<a href="quiz2-mock-c.html">Mock Quiz 2C</a>
+<div class="nav-section">Archive</div>
+<a href="quiz1-solved.html">Real Quiz 1 (solved)</a>
+<a href="assignments.html">Assignments & computational training</a>
+<a href="a2-missedcare.html">A2 Part A — MissedCare (your answers)</a>
+<a href="resources.html">PDFs, assignments & past material</a></nav>
+  <div class="toc"><div class="toc-title">On this page</div><a href="#1-ai-as-an-end-to-end-pipeline-1-5" class="">1. AI as an end-to-end pipeline (1.5)</a><a href="#1-1-problem-formulation" class="h3">1.1 Problem formulation</a><a href="#1-2-data" class="h3">1.2 Data</a><a href="#1-3-representation-six-risks-example-24-icu-sepsis" class="h3">1.3 Representation — six risks (Example 24, ICU sepsis)</a><a href="#1-4-model" class="h3">1.4 Model</a><a href="#1-5-evaluation" class="h3">1.5 Evaluation</a><a href="#1-6-decision" class="h3">1.6 Decision</a><a href="#1-7-deployment" class="h3">1.7 Deployment</a><a href="#1-8-monitoring" class="h3">1.8 Monitoring</a><a href="#2-types-of-ai-problems-1-6-table-2" class="">2. Types of AI problems (1.6, Table 2)</a><a href="#3-framing-an-ai-problem-1-7" class="">3. Framing an AI problem (1.7)</a><a href="#4-eight-failure-modes-1-9" class="">4. Eight failure modes (1.9)</a><a href="#5-data-engineering-1-10" class="">5. Data engineering (1.10)</a><a href="#6-ten-principles-1-11-figure-9" class="">6. Ten principles (1.11, Figure 9)</a><a href="#7-three-case-studies-1-12" class="">7. Three case studies (1.12)</a><a href="#7-1-google-flu-trends-scale-could-not-replace-measurement" class="h3">7.1 Google Flu Trends — scale could not replace measurement</a><a href="#7-2-epic-sepsis-model-workflow-aware-validation" class="h3">7.2 Epic Sepsis Model — workflow-aware validation</a><a href="#7-3-tensorflow-extended-data-engineering-as-production-architecture" class="h3">7.3 TensorFlow Extended — data engineering as production architecture</a><a href="#source-material" class="">Source material</a></div>
+</aside>
+<main>
+  <div class="crumb">M1 · AI Landscape & Problem Framing</div>
+  
+  <h1>M1 · Part B — The AI Pipeline, Problem Types, Framing, Failures, Data Engineering</h1>
+<p>Module 1 notes, Sections 1.5–1.12 (PDF pages 49–140). The pipeline from problem to monitoring, the twelve problem types, the framing elements (unit, index time, horizon…), eight failure modes, data engineering, ten principles and three case studies.</p>
+<div class="pdf-links">
+<a href="pdfs/notes/Module-1-Notes.pdf">Module 1 notes (PDF)</a>
+<a href="m1-answers.html">Answers Q1–100</a>
+<a href="m1-cases.html">S, R and A answers</a>
+<a href="quiz1-solved.html">Real Quiz 1 (solved)</a>
+<a class="jump" href="#source-material">Read them all on this page ↓</a>
+</div>
+
+<p>Quiz 1&#39;s 21-mark scenario was built entirely from this part: formulate the problem (unit, index time, horizon, decision-maker, action), find the data risks, criticize accuracy, set a threshold under capacity, and plan fallback and monitoring.</p>
+<h2 id="1-ai-as-an-end-to-end-pipeline-1-5"><a class="anchor" href="#1-ai-as-an-end-to-end-pipeline-1-5" aria-hidden="true">#</a>1. AI as an end-to-end pipeline (1.5)</h2>
+
+<div class="figs"><figure><a href="assets/fig/m1-p050.jpg" class="zoom"><img src="assets/fig/m1-p050.jpg" alt="Figure 5 — Problem formulation → Data → Representation → Model → Evaluation → Decision → Deployment → Monitoring, with feedback loops" loading="lazy" decoding="async"></a><figcaption>Module 1 notes · PDF p.50 — Figure 5 — Problem formulation → Data → Representation → Model → Evaluation → Decision → Deployment → Monitoring, with feedback loops</figcaption></figure></div>
+<p>Eight stages, <strong>iterative, not a waterfall</strong> — monitoring feeds back into every earlier stage.</p>
+<h3 id="1-1-problem-formulation"><a class="anchor" href="#1-1-problem-formulation" aria-hidden="true">#</a>1.1 Problem formulation</h3>
+<p>A robust statement names: <strong>target population and decision-maker</strong>; the <strong>decision and when it occurs</strong>; the desired outcome and <strong>alternatives (baseline/status quo)</strong>; <strong>consequences of errors</strong> (FP vs FN); operational and ethical <strong>constraints</strong>.</p>
+
+<div class="callout example"><div class="callout-title">Worked example: Poor vs good framing</div><p><em>Poor:</em> &quot;Build an AI model to predict hospital readmission.&quot;<br><em>Better:</em> &quot;<strong>At the time of discharge</strong>, estimate the probability of an <strong>unplanned 30-day readmission</strong> among <strong>adult medical patients</strong> so that <strong>the discharge team can allocate a limited number of follow-up appointments</strong>, while measuring <strong>calibration, subgroup performance, preventability, and the consequences of false alerts</strong>.&quot;</p>
+</div>
+<h3 id="1-2-data"><a class="anchor" href="#1-2-data" aria-hidden="true">#</a>1.2 Data</h3>
+<p>Data are not neutral. Critical questions: <strong>provenance and purpose; definitions and proxies; completeness and consistency; temporal and relational integrity; governance</strong>. Artifacts: raw-data inventories, data dictionaries, label specifications, provenance records, quality reports, consent/licensing/access documentation, defined train–validation–test partitions, <strong>datasheets</strong> (Example 23: skin-lesion dataset — motivation, composition, collection, preprocessing, uses, limitations).</p>
+<h3 id="1-3-representation-six-risks-example-24-icu-sepsis"><a class="anchor" href="#1-3-representation-six-risks-example-24-icu-sepsis" aria-hidden="true">#</a>1.3 Representation — six risks (Example 24, ICU sepsis)</h3>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Risk</th>
+<th>Meaning / sepsis example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Loss of context</strong></td>
+<td>24-h average heart rate hides a spike one hour ago</td>
+</tr>
+<tr>
+<td><strong>Proxy encoding</strong></td>
+<td>Zip code encodes socioeconomic status and race</td>
+</tr>
+<tr>
+<td><strong>Aggregation bias</strong></td>
+<td>92% hospital-wide accuracy hides failure for children/autoimmune patients</td>
+</tr>
+<tr>
+<td><strong>Temporal leakage</strong></td>
+<td>Antibiotic dose counts updated after diagnosis → 99% test accuracy, fails live</td>
+</tr>
+<tr>
+<td><strong>Identity errors</strong></td>
+<td>Records wrongly merged, or a transferred patient gets a temporary ID</td>
+</tr>
+<tr>
+<td><strong>Train–serving mismatch</strong></td>
+<td>Missing BP imputed with ward median in training, 0 in production → flood of alarms</td>
+</tr>
+</tbody></table></div>
+<h3 id="1-4-model"><a class="anchor" href="#1-4-model" aria-hidden="true">#</a>1.4 Model</h3>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mi>θ</mi></msub><mo>:</mo><mi mathvariant="script">X</mi><mo>→</mo><mi mathvariant="script">Y</mi></mrow><annotation encoding="application/x-tex">f_\theta:\mathcal X\to\mathcal Y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.1076em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">θ</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathcal" style="margin-right:0.14643em;">X</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7805em;vertical-align:-0.0972em;"></span><span class="mord mathcal" style="margin-right:0.08222em;">Y</span></span></span></span>. Choose by <strong>data characteristics</strong> (size, dimensionality, nonlinearity), <strong>task requirements</strong> (classification/regression/ranking, need for calibration), <strong>operational constraints</strong> (latency, memory, compute), <strong>governance and trust</strong> (interpretability, explainability, robustness), <strong>lifecycle costs</strong> (maintenance, expertise). <em>The most complex model is not automatically the best.</em> Occam&#39;s razor is a heuristic, not a law (Example 26: TB plus rheumatoid arthritis — two diagnoses, not one).</p>
+<h3 id="1-5-evaluation"><a class="anchor" href="#1-5-evaluation" aria-hidden="true">#</a>1.5 Evaluation</h3>
+<p>Four dimensions: <strong>predictive performance</strong> (discrimination <em>and</em> calibration); <strong>fairness &amp; robustness</strong> (subgroups, robustness, interpretability); <strong>operational viability</strong> (cost, latency, stability); <strong>real-world impact</strong> (decision utility, meaningful baselines, human–system performance).</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Required validation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Works in the future</td>
+<td><strong>Temporal</strong> validation (train past, test strictly future)</td>
+</tr>
+<tr>
+<td>Works elsewhere</td>
+<td><strong>External</strong> validation at different sites</td>
+</tr>
+<tr>
+<td>Works for everyone</td>
+<td><strong>Subgroup</strong> evaluation</td>
+</tr>
+<tr>
+<td>Probabilities are meaningful</td>
+<td><strong>Calibration</strong> curve</td>
+</tr>
+<tr>
+<td>Improves decisions</td>
+<td>Workflow simulation / prospective trial</td>
+</tr>
+</tbody></table></div>
+
+<div class="callout def"><div class="callout-title">Definition: Calibration vs discrimination (Quiz 1 Q1c)</div><p><strong>Calibrated:</strong> among cases given probability <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span>, about <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> experience the outcome (of 0.8-risk cases, ~80%). <strong>Discrimination:</strong> ability to rank/separate positives from negatives (AUROC).</p>
+</div>
+<p><strong>Model Cards</strong> (Mitchell et al.): intended use, evaluation procedure, conditions of good performance, subgroup results, limitations. Example 27 (ED triage), Example 28 (readmission predictor).</p>
+<h3 id="1-6-decision"><a class="anchor" href="#1-6-decision" aria-hidden="true">#</a>1.6 Decision</h3>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>p</mi><mo>^</mo></mover><mo>=</mo><mover accent="true"><mi>P</mi><mo>^</mo></mover><mo stretchy="false">(</mo><mi>Y</mi><mo>=</mo><mn>1</mn><mo>∣</mo><mi>X</mi><mo>=</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\hat p=\hat P(Y=1\mid X=x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord accent"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.6944em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal">p</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.1667em;"><span class="mord">^</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1944em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.1968em;vertical-align:-0.25em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9468em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span></span><span style="top:-3.2523em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.1667em;"><span class="mord">^</span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span>; action <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo></mrow><annotation encoding="application/x-tex">a(x)=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">a</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span></span></span></span> intervene if <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>p</mi><mo>^</mo></mover><mo>≥</mo><mi>t</mi></mrow><annotation encoding="application/x-tex">\hat p\ge t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord accent"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.6944em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal">p</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.1667em;"><span class="mord">^</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1944em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span></span></span></span>. <strong>A prediction is not a decision</strong> (Quiz 1 Q2b). The threshold <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span></span></span></span> is never a default 0.5 — it reflects <strong>asymmetric error costs, intervention capacity, uncertainty and expected benefit, fairness, human-in-the-loop</strong>:<br><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>C</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>=</mo><msub><mi>c</mi><mrow><mi>F</mi><mi>P</mi></mrow></msub><mi>P</mi><mo stretchy="false">(</mo><mi>F</mi><mi>P</mi><mo>∣</mo><mi>t</mi><mo stretchy="false">)</mo><mo>+</mo><msub><mi>c</mi><mrow><mi>F</mi><mi>N</mi></mrow></msub><mi>P</mi><mo stretchy="false">(</mo><mi>F</mi><mi>N</mi><mo>∣</mo><mi>t</mi><mo stretchy="false">)</mo><mo>+</mo><msub><mi>c</mi><mtext>delay</mtext></msub><mi mathvariant="double-struck">E</mi><mo stretchy="false">[</mo><mi>D</mi><mo>∣</mo><mi>t</mi><mo stretchy="false">]</mo><mo>+</mo><msub><mi>c</mi><mtext>workflow</mtext></msub><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">C(t)=c_{FP}P(FP\mid t)+c_{FN}P(FN\mid t)+c_{\text{delay}}\mathbb E[D\mid t]+c_{\text{workflow}}(t).</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">FP</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.13889em;">FP</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">t</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.10903em;">FN</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10903em;">FN</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">t</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.0361em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">delay</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mord mathbb">E</span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">t</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">workflow</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mclose">)</span><span class="mord">.</span></span></span></span></span><br><em>The optimal threshold is rarely the accuracy-maximizing one</em> (Example 30, baggage screening: accuracy-optimal <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><mn>0.4</mn></mrow><annotation encoding="application/x-tex">t=0.4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.4</span></span></span></span> breaks the checkpoint; cost-optimal <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><mn>0.7</mn></mrow><annotation encoding="application/x-tex">t=0.7</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.7</span></span></span></span>). Example 29: rapid-response-team activation.</p>
+<h3 id="1-7-deployment"><a class="anchor" href="#1-7-deployment" aria-hidden="true">#</a>1.7 Deployment</h3>
+<p>Where inference runs (cloud/edge/on-premise), maximum latency, which features exist in real time; handling missing/delayed/corrupted inputs, <strong>abstention</strong>, fallback, instant <strong>rollback</strong>; who receives outputs and how uncertainty is explained; version control and accountability for monitoring/retraining. <em>A highly accurate model in a Jupyter notebook is not a deployed AI system</em> (Example 31: mobile-banking fraud).</p>
+<h3 id="1-8-monitoring"><a class="anchor" href="#1-8-monitoring" aria-hidden="true">#</a>1.8 Monitoring</h3>
+<p>Input quality; <strong>data drift</strong>; concept and label drift; feature pipelines; outputs; performance; ground-truth outcomes; operational health; human–system interaction (overrides, automation bias); harm, fairness, safety; feedback loops. <strong>Hidden technical debt</strong> (Sculley et al. 2015): undeclared consumers and data dependencies, self-reinforcing loops, entanglement, configuration complexity, glue code (Example 32: silent decay of a collections system). Remedies: multi-dimensional monitoring, schema validation, counterfactual logging, versioned feature store.</p>
+<h2 id="2-types-of-ai-problems-1-6-table-2"><a class="anchor" href="#2-types-of-ai-problems-1-6-table-2" aria-hidden="true">#</a>2. Types of AI problems (1.6, Table 2)</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Output</th>
+<th>Typical evaluation</th>
+<th>Common framing error</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Classification</td>
+<td>Discrete class (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">{</mo><mn>0</mn><mo separator="true">,</mo><mn>1</mn><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">\{0,1\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">1</span><span class="mclose">}</span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">{</mo><mn>1..</mn><mi>K</mi><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">\{1..K\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord">1..</span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="mclose">}</span></span></span></span>, multilabel <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⊆</mo><mo stretchy="false">{</mo><mn>1..</mn><mi>K</mi><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">\subseteq\{1..K\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719em;vertical-align:-0.136em;"></span><span class="mrel">⊆</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord">1..</span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="mclose">}</span></span></span></span>)</td>
+<td>Accuracy, sensitivity, specificity, F1, AUROC, AUPR</td>
+<td>All errors equally costly</td>
+</tr>
+<tr>
+<td>Regression</td>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi><mo>∈</mo><mi mathvariant="double-struck">R</mi></mrow><annotation encoding="application/x-tex">Y\in\mathbb R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7224em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6889em;"></span><span class="mord mathbb">R</span></span></span></span></td>
+<td>MAE, RMSE, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>R</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">R^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span>, interval coverage</td>
+<td>Ignoring skew, heteroscedasticity, asymmetric cost</td>
+</tr>
+<tr>
+<td>Ranking</td>
+<td>Ordered list</td>
+<td>NDCG, MAP, precision@k</td>
+<td>Evaluating items ignoring position</td>
+</tr>
+<tr>
+<td>Recommendation</td>
+<td>Personalized items</td>
+<td>Recall@k, NDCG, diversity, utility</td>
+<td>Optimizing clicks over long-term benefit</td>
+</tr>
+<tr>
+<td>Clustering</td>
+<td>Unlabelled groups</td>
+<td>Silhouette, stability, domain validity</td>
+<td>Treating clusters as real categories</td>
+</tr>
+<tr>
+<td>Search</td>
+<td>State/path/document</td>
+<td>Relevance, path cost, success, latency</td>
+<td>Incomplete search space</td>
+</tr>
+<tr>
+<td>Planning</td>
+<td>Action sequence</td>
+<td>Goal success, cost, constraint violations</td>
+<td>Assuming static, fully known world</td>
+</tr>
+<tr>
+<td>Control</td>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mrow><mi>t</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mi>F</mi><mo stretchy="false">(</mo><msub><mi>x</mi><mi>t</mi></msub><mo separator="true">,</mo><msub><mi>u</mi><mi>t</mi></msub><mo separator="true">,</mo><msub><mi>w</mi><mi>t</mi></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">x_{t+1}=F(x_t,u_t,w_t)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6389em;vertical-align:-0.2083em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">t</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2083em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">u</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:-0.0269em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></td>
+<td>Stability, tracking error, safety</td>
+<td>Ignoring delayed/noisy feedback</td>
+</tr>
+<tr>
+<td>Anomaly detection</td>
+<td>Anomaly score</td>
+<td>Precision–recall, detection delay, false alarms</td>
+<td>Assuming all rare cases harmful</td>
+</tr>
+<tr>
+<td>Generation</td>
+<td>New content</td>
+<td>Human eval, factuality, safety</td>
+<td>Equating fluency with truth</td>
+</tr>
+<tr>
+<td>Forecasting</td>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover accent="true"><mi>y</mi><mo>^</mo></mover><mrow><mi>t</mi><mo>+</mo><mi>h</mi><mo>∣</mo><mi>t</mi></mrow></msub><mo>=</mo><mi mathvariant="double-struck">E</mi><mo stretchy="false">[</mo><msub><mi>Y</mi><mrow><mi>t</mi><mo>+</mo><mi>h</mi></mrow></msub><mo>∣</mo><msub><mi>I</mi><mi>t</mi></msub><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">\hat y_{t+h\mid t}=\mathbb E[Y_{t+h}\mid I_t]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0496em;vertical-align:-0.3552em;"></span><span class="mord"><span class="mord accent"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.6944em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.1944em;"><span class="mord">^</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1944em;"><span></span></span></span></span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.5198em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">t</span><span class="mbin mtight">+</span><span class="mord mathnormal mtight">h</span><span class="mrel mtight">∣</span><span class="mord mathnormal mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3552em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathbb">E</span><span class="mopen">[</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.2222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">t</span><span class="mbin mtight">+</span><span class="mord mathnormal mtight">h</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2083em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:-0.0785em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">t</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">]</span></span></span></span></td>
+<td>MAE, RMSE, MASE, coverage</td>
+<td>Random splits of time-ordered data</td>
+</tr>
+<tr>
+<td>Causal estimation</td>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>τ</mi><mo>=</mo><mi mathvariant="double-struck">E</mi><mo stretchy="false">[</mo><mi>Y</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo><mo>−</mo><mi>Y</mi><mo stretchy="false">(</mo><mn>0</mn><mo stretchy="false">)</mo><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">\tau=\mathbb E[Y(1)-Y(0)]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.1132em;">τ</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathbb">E</span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mopen">(</span><span class="mord">0</span><span class="mclose">)]</span></span></span></span></td>
+<td>Bias, coverage, sensitivity analysis</td>
+<td>Correlation as intervention effect</td>
+</tr>
+<tr>
+<td>Decision optimization</td>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>a</mi><mo>∗</mo></msup><mo>=</mo><mi>arg</mi><mo>⁡</mo><msub><mrow><mi>max</mi><mo>⁡</mo></mrow><mi>a</mi></msub><mi mathvariant="double-struck">E</mi><mo stretchy="false">[</mo><mi>U</mi><mo stretchy="false">(</mo><mi>a</mi><mo separator="true">,</mo><mi>Y</mi><mo stretchy="false">)</mo><mo>∣</mo><mi>X</mi><mo>=</mo><mi>x</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">a^*=\arg\max_a\mathbb E[U(a,Y)\mid X=x]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6887em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6887em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop">ar<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop"><span class="mop">max</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">a</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathbb">E</span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.10903em;">U</span><span class="mopen">(</span><span class="mord mathnormal">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">x</span><span class="mclose">]</span></span></span></span></td>
+<td>Expected utility, regret, constraints</td>
+<td>Optimizing an incomplete objective</td>
+</tr>
+</tbody></table></div>
+<h2 id="3-framing-an-ai-problem-1-7"><a class="anchor" href="#3-framing-an-ai-problem-1-7" aria-hidden="true">#</a>3. Framing an AI problem (1.7)</h2>
+<p><strong>Begin with the decision, not the dataset:</strong> identify the decision → information needs → analytical paradigm (prediction, causal inference, optimization, automation) → operating context → purpose-built data → evaluate against the decision (Example 33). <strong>Canvas:</strong> the decision, the actor, the actions, the necessity of AI, simpler alternatives (Example 34: attrition model that changed nothing).</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Population &amp; unit of analysis</strong></td>
+<td>Who/what each prediction is for (patient, encounter, image, pipe); same unit across splits leaks (Example 35, chest X-rays)</td>
+</tr>
+<tr>
+<td><strong>Index time</strong></td>
+<td>The exact moment the prediction is made; every feature must be available at or before it</td>
+</tr>
+<tr>
+<td><strong>Prediction horizon</strong></td>
+<td>How far ahead; must fit the window to act (Example 36 turbine gearbox: 24 h useless, 14–30 days useful)</td>
+</tr>
+<tr>
+<td><strong>Inputs</strong></td>
+<td>Definition/source, unit/type, update frequency, missingness, timestamp semantics, availability at inference, privacy class, transformations, known biases</td>
+</tr>
+<tr>
+<td><strong>Output</strong></td>
+<td>Class, value, <strong>probability</strong>, interval, ranking, score, risk tier, recommendation, plan, action, artifact, <strong>abstention</strong></td>
+</tr>
+<tr>
+<td><strong>Labels / ground truth</strong></td>
+<td>Sources: objective measurement, human evaluation, administrative records, derived proxies. Interrogate construct validity, access bias, measurement disparities, what &quot;negative&quot; means, status-quo bias</td>
+</tr>
+<tr>
+<td><strong>Constraints</strong></td>
+<td>Technical/infrastructure; resource/operational; trust/usability; governance/ethics/compliance</td>
+</tr>
+<tr>
+<td><strong>Stakeholders</strong></td>
+<td>Subjects, targets, operators/experts, broader ecosystem — objectives conflict (Example 37 fraud)</td>
+</tr>
+<tr>
+<td><strong>Cost of error</strong></td>
+<td>TP, FN (miss), FP (false alarm), TN — asymmetric, incl. non-financial harm</td>
+</tr>
+<tr>
+<td><strong>Baseline &amp; counterfactual</strong></td>
+<td>Current judgement, simple heuristic, status quo, legacy system, alternative policies</td>
+</tr>
+<tr>
+<td><strong>Evaluation plan</strong></td>
+<td>Primary and guardrail metrics, validation strategy, reliability/fairness, governance — <strong>locked before training</strong> (no metric shopping)</td>
+</tr>
+</tbody></table></div>
+
+<div class="figs"><figure><a href="assets/fig/m1-p111.jpg" class="zoom"><img src="assets/fig/m1-p111.jpg" alt="Figure 6 — problem-framing worksheet" loading="lazy" decoding="async"></a><figcaption>Module 1 notes · PDF p.111 — Figure 6 — problem-framing worksheet</figcaption></figure><figure><a href="assets/fig/m1-p112.jpg" class="zoom"><img src="assets/fig/m1-p112.jpg" alt="Figure 7 — problem domains, operational risks, data-engineering dependencies" loading="lazy" decoding="async"></a><figcaption>Module 1 notes · PDF p.112 — Figure 7 — problem domains, operational risks, data-engineering dependencies</figcaption></figure></div>
+
+<div class="callout def"><div class="callout-title">Definition: Problem-framing worksheet sentence (memorize)</div><p><em>At [decision time], for [target population or unit], using only [available information], produce [required output] concerning [prediction horizon or outcome period], so that [decision-maker] can [action]. The system will be compared with [baseline] and evaluated using [metrics], while accounting for [error costs, subgroup risks, operational constraints, and governance requirements].</em></p>
+</div>
+<h2 id="4-eight-failure-modes-1-9"><a class="anchor" href="#4-eight-failure-modes-1-9" aria-hidden="true">#</a>4. Eight failure modes (1.9)</h2>
+<ol>
+<li><strong>Solving the wrong problem</strong> — accurate model, wrong decision/target.</li>
+<li><strong>Poor data quality</strong> — missingness, errors, proxies, selection.</li>
+<li><strong>Data leakage</strong> — target, temporal, group, preprocessing, label, benchmark contamination.</li>
+<li><strong>Weak evaluation</strong> — averages hide subgroup failure; no calibration, baseline or external test.</li>
+<li><strong>Underspecification</strong> — many models fit the data equally but behave differently in deployment.</li>
+<li><strong>Distribution shift</strong> — deployment data differ from training data.</li>
+<li><strong>Ignoring workflow and human factors</strong> — alert fatigue, automation bias, unusable outputs.</li>
+<li><strong>No deployment or monitoring plan</strong> — silent degradation.</li>
+</ol>
+<h2 id="5-data-engineering-1-10"><a class="anchor" href="#5-data-engineering-1-10" aria-hidden="true">#</a>5. Data engineering (1.10)</h2>
+
+<div class="figs"><figure><a href="assets/fig/m1-p117.jpg" class="zoom"><img src="assets/fig/m1-p117.jpg" alt="Figure 8 — data lifecycle: generated → captured → validated → stored → transformed → served → observed → governed" loading="lazy" decoding="async"></a><figcaption>Module 1 notes · PDF p.117 — Figure 8 — data lifecycle: generated → captured → validated → stored → transformed → served → observed → governed</figcaption></figure></div>
+<p>Data engineering must engineer <strong>semantics</strong> (what a variable means), <strong>temporal correctness</strong> (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>t</mi><mtext>feature available</mtext></msub><mo>≤</mo><mi>t</mi></mrow><annotation encoding="application/x-tex">t_{\text{feature available}}\le t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.786em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">feature available</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span></span></span></span>), <strong>training–serving consistency</strong>, <strong>lineage/reproducibility</strong>, <strong>scale and timeliness</strong>, <strong>governance in infrastructure</strong>, and the <strong>data needed for monitoring</strong>. <em>Reliable model ⇏ reliable AI system.</em> Data engineering is &quot;the connective tissue of the complete AI lifecycle&quot;.</p>
+<h2 id="6-ten-principles-1-11-figure-9"><a class="anchor" href="#6-ten-principles-1-11-figure-9" aria-hidden="true">#</a>6. Ten principles (1.11, Figure 9)</h2>
+
+<div class="figs"><figure><a href="assets/fig/m1-p123.jpg" class="zoom"><img src="assets/fig/m1-p123.jpg" alt="Figure 9 — ten principles of sound AI problem formulation" loading="lazy" decoding="async"></a><figcaption>Module 1 notes · PDF p.123 — Figure 9 — ten principles of sound AI problem formulation</figcaption></figure></div>
+<ol>
+<li>Begin with a decision or capability, not an algorithm. 2. Define unit, population, index time and horizon. 3. Use only information available at decision time. 4. Treat labels as measurements with their own error processes. 5. Match evaluation to the claimed deployment. 6. Evaluate probabilities, decisions, subgroups and operations, not only averages. 7. Compare against a meaningful baseline. 8. Design deployment and monitoring before declaring success. 9. Document data, model and governance assumptions. 10. Treat AI as a socio-technical system.</li>
+</ol>
+<h2 id="7-three-case-studies-1-12"><a class="anchor" href="#7-three-case-studies-1-12" aria-hidden="true">#</a>7. Three case studies (1.12)</h2>
+<h3 id="7-1-google-flu-trends-scale-could-not-replace-measurement"><a class="anchor" href="#7-1-google-flu-trends-scale-could-not-replace-measurement" aria-hidden="true">#</a>7.1 Google Flu Trends — scale could not replace measurement</h3>
+
+<div class="figs"><figure><a href="assets/fig/m1-p124.jpg" class="zoom"><img src="assets/fig/m1-p124.jpg" alt="Figure 10 — search queries → term selection → model → flu estimate" loading="lazy" decoding="async"></a><figcaption>Module 1 notes · PDF p.124 — Figure 10 — search queries → term selection → model → flu estimate</figcaption></figure><figure><a href="assets/fig/m1-p126.jpg" class="zoom"><img src="assets/fig/m1-p126.jpg" alt="Figure 11 — version every upstream artifact" loading="lazy" decoding="async"></a><figcaption>Module 1 notes · PDF p.126 — Figure 11 — version every upstream artifact</figcaption></figure></div>
+<p>Proxy: <strong>search behaviour ≈ disease activity</strong> — but search depends on symptoms, media, anxiety, engine design, access, habits. Feb 2013 estimates were <strong>&gt; 2× CDC</strong>; overestimated in <strong>100 of 108 weeks</strong> from Aug 2011 (Lazer et al. 2014). Causes: <strong>big-data hubris</strong> (≈50 million candidate terms vs 1,152 weekly observations → chance correlations; undocumented terms) and <strong>algorithm dynamics</strong> (platform and user behaviour changed the data-generating process). Combined model GFT + lagged CDC: MAE ≈ <strong>0.232</strong> vs 0.486 (GFT) and 0.311 (CDC). <strong>Lessons:</strong> volume doesn&#39;t remove measurement bias; a proxy is useful only while its relation to the target is stable; platforms are active parts of data generation; document features and transformations; hybrid beats replacement; monitor proxy validity.</p>
+<h3 id="7-2-epic-sepsis-model-workflow-aware-validation"><a class="anchor" href="#7-2-epic-sepsis-model-workflow-aware-validation" aria-hidden="true">#</a>7.2 Epic Sepsis Model — workflow-aware validation</h3>
+<p>External validation (Wong et al., JAMA IM 2021): 27,697 patients, 38,455 hospitalizations, sepsis in 2,552 (~7%), scores every 15 min. <strong>AUROC ≈ 0.63</strong>. At score ≥ 6: alerts in <strong>18%</strong> of hospitalizations; <strong>67%</strong> of sepsis cases missed; only <strong>183</strong> cases found among patients not already on timely antibiotics. Issues: label built partly from clinician actions; must predict <strong>before recognition</strong>; alert value depends on reaching the right person with a feasible response; event/recording/availability/correction times (lab drawn 10:00, displayed 11:05); identity across encounters; informative missingness; site variation. <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>Alert volume</mtext><mo>=</mo><mi mathvariant="normal">#</mi><mtext>encounters</mtext><mo>×</mo><mi>P</mi><mo stretchy="false">(</mo><mover accent="true"><mi>p</mi><mo>^</mo></mover><mo>≥</mo><mi>t</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\text{Alert volume}=\#\text{encounters}\times P(\hat p\ge t)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord text"><span class="mord">Alert volume</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord">#</span><span class="mord text"><span class="mord">encounters</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord accent"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.6944em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal">p</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.1667em;"><span class="mord">^</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1944em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">t</span><span class="mclose">)</span></span></span></span>. Seven-phase plan: formulation → label design → data construction (feature store, event-time semantics, patient-level partitions) → validation (temporal, external, calibration, subgroup, silent) → workflow simulation → controlled prospective deployment → monitoring. <strong>Predictive timing is as important as predictive accuracy.</strong></p>
+<h3 id="7-3-tensorflow-extended-data-engineering-as-production-architecture"><a class="anchor" href="#7-3-tensorflow-extended-data-engineering-as-production-architecture" aria-hidden="true">#</a>7.3 TensorFlow Extended — data engineering as production architecture</h3>
+
+<div class="figs"><figure><a href="assets/fig/m1-p135.jpg" class="zoom"><img src="assets/fig/m1-p135.jpg" alt="Figure 12 — ingest → statistics → schema → validation → transform → train → evaluate → validate/release → serve" loading="lazy" decoding="async"></a><figcaption>Module 1 notes · PDF p.135 — Figure 12 — ingest → statistics → schema → validation → transform → train → evaluate → validate/release → serve</figcaption></figure><figure><a href="assets/fig/m1-p138.jpg" class="zoom"><img src="assets/fig/m1-p138.jpg" alt="Figure 13 — a deployed model depends on versioned data, schema, transforms, config, evaluation and approval" loading="lazy" decoding="async"></a><figcaption>Module 1 notes · PDF p.138 — Figure 13 — a deployed model depends on versioned data, schema, transforms, config, evaluation and approval</figcaption></figure></div>
+<p>A training script is not a production system. TFX components: versioned <strong>ingestion</strong>; <strong>statistics</strong>; <strong>schema</strong> (machine-checkable contracts); <strong>data validation</strong> (missing columns, new categories, ranges, drift); shared <strong>transformations</strong> (no training–serving skew); training records code/data versions, hyperparameters, seeds; evaluation vs the <strong>current production model</strong>; validation gates (block if metrics/subgroups/fairness/latency fail); serving with monitoring and rollback. Months → weeks to production; ≈2% more Google Play installs. Lightweight version: version-controlled SQL/Python, orchestration, schema tests, experiment tracker, model registry, containers, dashboards, approvals.</p>
+
+<div class="callout remember"><div class="callout-title">Remember</div><p>Pipeline thinking: decision first; index time and horizon; labels are measurements; evaluate calibration, subgroups, baselines and decisions; plan deployment and monitoring; the data-engineering system <em>is</em> most of the AI system.</p>
+</div>
+<h2 id="source-material"><a class="anchor" href="#source-material" aria-hidden="true">#</a>Source material</h2>
+<p>The original documents behind these notes. Pick a tab to read it here, page by page, or open it in a new tab.</p>
+<div class="src-viewer" data-sources='[{"url":"pdfs/notes/Module-1-Notes.pdf","title":"Module 1 notes (PDF)"}]'></div>
+
+  <nav class="pagenav">
+    <a class="pv" href="m1a-notes.html">← Previous<b>M1 · Notes A — roots, philosophy, landscape</b></a>
+    <a class="nx" href="m1-answers.html">Next →<b>M1 · Answers Q1–100</b></a>
+  </nav>
+  <div class="foot">AI 500 · Fall 2026 · study notes</div>
+</main>
+</div>
+<div class="lightbox" id="lightbox" hidden><img alt=""><button class="iconbtn lb-close" aria-label="Close">✕</button></div>
+<script src="assets/site.js" defer></script>
+</body></html>

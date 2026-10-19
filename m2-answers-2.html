@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>M2 · Data Collection, Cleaning, Governance & Ethics — Answers Q51–100 · AI 500</title>
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#fbfbfa" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#16161a" media="(prefers-color-scheme: dark)">
+<script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<header class="topbar">
+  <button class="iconbtn" id="menuBtn" aria-label="Open contents" aria-expanded="false"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+  <a class="topbrand" href="index.html">AI 500<span>M2 · Data Collection, Cleaning, Governance & Ethics</span></a>
+  <button class="iconbtn themebtn" aria-label="Toggle dark mode"><svg class="i-moon" viewBox="0 0 24 24" width="19" height="19"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg><svg class="i-sun" viewBox="0 0 24 24" width="19" height="19"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg></button>
+</header>
+<div class="scrim" id="scrim"></div>
+<div class="wrap">
+<aside class="side" id="side">
+  <div class="side-head">
+    <a class="brand" href="index.html">AI 500 — Foundations of AI<span>Foundations of AI · Fall 2026</span></a>
+    <button class="iconbtn themebtn" aria-label="Toggle dark mode"><svg class="i-moon" viewBox="0 0 24 24" width="17" height="17"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg><svg class="i-sun" viewBox="0 0 24 24" width="17" height="17"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg></button>
+  </div>
+  <nav><a href="index.html">Home</a>
+<a href="start-here.html">Start here (how to use)</a>
+<div class="nav-section">Modules</div>
+<details class="grp"><summary>M1 · AI Landscape & Problem Framing</summary><a href="m1a-notes.html">Notes A — roots, philosophy, landscape</a><a href="m1b-notes.html">Notes B — pipeline, framing, failures</a><a href="m1-answers.html">Answers Q1–100</a><a href="m1-cases.html">Answers S, R, A</a></details>
+<details class="grp" open><summary>M2 · Data Collection, Cleaning, Governance & Ethics</summary><a href="m2a-notes.html">Notes A — constructed data, sources, quality</a><a href="m2b-notes.html">Notes B — curation, cleaning, leakage</a><a href="m2c-notes.html">Notes C — documentation, governance, cases</a><a href="m2-answers-1.html">Answers Q1–50</a><a href="m2-answers-2.html" class="on" aria-current="page">Answers Q51–100</a><a href="m2-scenarios.html">Scenarios S1–S5</a><a href="m2-reflections.html">Reflections R1–R5</a></details>
+<div class="nav-section">Quiz 2 (24 Oct)</div>
+<a href="quiz2-guide.html">Quiz 2 guide</a>
+<a href="quiz2-mock-a.html">★ Mock Quiz 2A</a>
+<a href="quiz2-mock-b.html">Mock Quiz 2B</a>
+<a href="quiz2-mock-c.html">Mock Quiz 2C</a>
+<div class="nav-section">Archive</div>
+<a href="quiz1-solved.html">Real Quiz 1 (solved)</a>
+<a href="assignments.html">Assignments & computational training</a>
+<a href="a2-missedcare.html">A2 Part A — MissedCare (your answers)</a>
+<a href="resources.html">PDFs, assignments & past material</a></nav>
+  <div class="toc"><div class="toc-title">On this page</div><a href="#data-profiling-and-curation" class="">Data Profiling and Curation</a><a href="#missing-values-outliers-duplicates-and-labels" class="">Missing Values, Outliers, Duplicates and Labels</a><a href="#unit-errors-class-imbalance-and-probability-calibration" class="">Unit Errors, Class Imbalance and Probability Calibration</a><a href="#data-leakage-and-evaluation-design" class="">Data Leakage and Evaluation Design</a><a href="#documentation-governance-privacy-fairness-and-ethics" class="">Documentation, Governance, Privacy, Fairness and Ethics</a></div>
+</aside>
+<main>
+  <div class="crumb">M2 · Data Collection, Cleaning, Governance & Ethics</div>
+  <div class="quiz-tools"><button data-sol="open">Show all solutions</button><button data-sol="close">Hide all</button><button onclick="window.print()">Print</button></div>
+  <h1>M2 · Practice answers Q51–100</h1>
+<p>Answers to practice questions 51–100 (Module 2 notes, PDF pages 132–135): curation, cleaning, units, imbalance, calibration, leakage, documentation, governance and ethics.</p>
+<div class="pdf-links">
+<a href="m2b-notes.html">Part B notes (2.4–2.6)</a>
+<a href="m2c-notes.html">Part C notes (2.7–2.11)</a>
+<a href="m2-answers-1.html">Answers Q1–50</a>
+<a href="pdfs/notes/Module-2-Notes.pdf#page=132">Questions in the PDF (p.132)</a>
+</div>
+
+<h2 id="data-profiling-and-curation"><a class="anchor" href="#data-profiling-and-curation" aria-hidden="true">#</a>Data Profiling and Curation</h2>
+
+<section class="question"><div class="q-head">Q51. Define data curation and explain how it differs from data cleaning.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p><strong>Data curation</strong> is the systematic process of <strong>acquiring, organizing, validating, documenting, preserving and maintaining</strong> data so they remain accurate, accessible and suitable for their purpose <strong>throughout their lifecycle</strong>. <strong>Data cleaning</strong> is one component: identifying and correcting errors, inconsistencies and missing values. Curation is broader — it adds <strong>scope and governance</strong> (what belongs, definitions, access, legal basis), <strong>integrity and lineage</strong> (duplicates, provenance, documented exclusions, reproducibility) and <strong>lifecycle management</strong> (versioning, retiring obsolete data). Cleaning fixes a dataset once; curation keeps it trustworthy and reusable over time.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q52. What activities are included in a complete data-curation lifecycle?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Deciding which data belong in the collection; defining variables, coding schemes and metadata standards; identifying and resolving duplicates; documenting provenance and collection history; maintaining version histories; controlling access and permissions; recording exclusions and transformation decisions; preserving reproducibility through documentation; and archiving or retiring obsolete datasets while keeping historical records.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q53. Describe the eight stages of the data governance and quality workflow.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><ol>
+<li><strong>Inventory</strong> — manifest of sources, owners, purpose, coverage, sensitivity, legal basis before any change.</li>
+<li><strong>Profile</strong> — statistical/structural characteristics (types, missingness, distributions, duplicates, subgroups).</li>
+<li><strong>Validate</strong> — schema, ranges, keys, referential integrity, logic, chronology, cross-source agreement.</li>
+<li><strong>Clean</strong> — correct identified defects.</li>
+<li><strong>Reconcile</strong> — resolve inconsistencies across sources.</li>
+<li><strong>Document</strong> — definitions and provenance.</li>
+<li><strong>Version</strong> — version-control approved artifacts.</li>
+<li><strong>Approve</strong> — formal release approval.<br>Together they give reproducibility, accountability, traceability and dependable downstream AI (Figure 15).</li>
+</ol>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q54. What information should be recorded in a data inventory before any modification begins?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Data <strong>source</strong>; data <strong>owner or custodian</strong>; <strong>purpose</strong> of collection; <strong>temporal coverage</strong>; <strong>file format and storage location</strong>; <strong>unit of analysis</strong>; approximate <strong>size</strong>; <strong>sensitive or protected fields</strong>; <strong>access permissions and restrictions</strong>; <strong>legal or regulatory basis</strong>; expected <strong>update schedule</strong> — i.e. provenance &amp; ownership, scope &amp; structure, and governance.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q55. What is data profiling, and why should it be performed before cleaning?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p><strong>Profiling</strong> examines the statistical and structural characteristics of a dataset — metrics, quality indicators, distributions, composition — to <strong>find potential quality issues</strong>. It comes first because you cannot fix what you have not characterized: it reveals anomalies, unexpected missingness patterns, impossible values, imbalance, duplicates and subgroup gaps, and tells you <em>which</em> cleaning steps are justified. Cleaning without profiling risks deleting meaningful rare cases or imputing informative missingness.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q56. Which statistical, structural, temporal and subgroup characteristics should be examined during profiling?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p><strong>Structural:</strong> number of rows/columns, data types, unique-value counts, duplicate records. <strong>Statistical:</strong> proportion missing, distributions, min/max, class/label balance. <strong>Temporal:</strong> temporal coverage (gaps, period). <strong>Subgroup:</strong> demographic or subgroup composition.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q57. Distinguish among schema validation, relational validation, logical validation and domain validation.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
+<li><strong>Schema (structural):</strong> columns, types and formats conform to the declared schema; primary keys unique.</li>
+<li><strong>Relational:</strong> <strong>referential integrity</strong> between tables (every visit&#39;s patient ID exists in the patient table); cross-source agreement.</li>
+<li><strong>Logical:</strong> internal consistency among variables — discharge ≥ admission, correct chronological order of timestamps.</li>
+<li><strong>Domain:</strong> values satisfy subject-matter rules and ranges — <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>≤</mo><mi>p</mi><mo>≤</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">0\le p\le1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7804em;vertical-align:-0.136em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8304em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>, plausible BP, probabilities sum to one.<br>Many can be automated; resolving violations needs domain expertise.</li>
+</ul>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q58. Why must original source data be preserved in an immutable state?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>So that every change is <strong>traceable, reproducible and reversible</strong>. If raw data are overwritten, nobody can check whether a correction was right, re-run the pipeline with a different rule, roll back an error, or audit how the curated dataset was produced. Immutable raw data plus a change log let future users see exactly what was altered and why.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q59. What information should be recorded in an audit trail for every correction or transformation?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>The <strong>original value</strong>, the <strong>corrected value</strong>, the <strong>rule or procedure</strong> used, the <strong>date and time</strong>, the <strong>software/tool version</strong>, the <strong>person responsible</strong>, and the <strong>justification</strong>.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q60. How do version control, release approval, archiving and retirement support long-term dataset reliability?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p><strong>Version control</strong> ties every model and paper to an exact dataset version and lets corrections be released without breaking comparability. <strong>Release approval</strong> is a formal gate ensuring only validated, documented versions are used. <strong>Archiving</strong> preserves historical versions for reproducibility and audit. <strong>Retirement</strong> withdraws obsolete or flawed data so it isn&#39;t reused, while keeping records of why. Together they keep the dataset trustworthy over its life (lifecycle management).</p>
+</div></details>
+</section>
+<h2 id="missing-values-outliers-duplicates-and-labels"><a class="anchor" href="#missing-values-outliers-duplicates-and-labels" aria-hidden="true">#</a>Missing Values, Outliers, Duplicates and Labels</h2>
+
+<section class="question"><div class="q-head">Q61. List common reasons why values may be missing from real-world datasets.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Measurement never taken; respondent declined; <strong>sensor/equipment failure</strong>; clinical test deemed <strong>unnecessary</strong>; system failed to record; unsuccessful <strong>record linkage</strong>; deliberate removal for <strong>privacy</strong>; field <strong>not applicable</strong>.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q62. Define MCAR, MAR and MNAR.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
+<li><strong>MCAR:</strong> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false">(</mo><mi>R</mi><mo>∣</mo><msub><mi>X</mi><mrow><mi>o</mi><mi>b</mi><mi>s</mi></mrow></msub><mo separator="true">,</mo><msub><mi>X</mi><mrow><mi>m</mi><mi>i</mi><mi>s</mi></mrow></msub><mo stretchy="false">)</mo><mo>=</mo><mi>P</mi><mo stretchy="false">(</mo><mi>R</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">P(R\mid X_{obs},X_{mis})=P(R)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0785em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">o</span><span class="mord mathnormal mtight">b</span><span class="mord mathnormal mtight">s</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0785em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">mi</span><span class="mord mathnormal mtight">s</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mclose">)</span></span></span></span> — missingness unrelated to any data (box of questionnaires lost in transport).</li>
+<li><strong>MAR:</strong> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false">(</mo><mi>R</mi><mo>∣</mo><msub><mi>X</mi><mrow><mi>o</mi><mi>b</mi><mi>s</mi></mrow></msub><mo separator="true">,</mo><msub><mi>X</mi><mrow><mi>m</mi><mi>i</mi><mi>s</mi></mrow></msub><mo stretchy="false">)</mo><mo>=</mo><mi>P</mi><mo stretchy="false">(</mo><mi>R</mi><mo>∣</mo><msub><mi>X</mi><mrow><mi>o</mi><mi>b</mi><mi>s</mi></mrow></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">P(R\mid X_{obs},X_{mis})=P(R\mid X_{obs})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0785em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">o</span><span class="mord mathnormal mtight">b</span><span class="mord mathnormal mtight">s</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0785em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">mi</span><span class="mord mathnormal mtight">s</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0785em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">o</span><span class="mord mathnormal mtight">b</span><span class="mord mathnormal mtight">s</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> — explained by <strong>observed</strong> variables (younger people skip income; age observed).</li>
+<li><strong>MNAR:</strong> missingness depends on the <strong>unobserved value itself</strong> even after conditioning (high earners hide income; severely depressed patients skip the questionnaire).</li>
+</ul>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q63. Why are missingness mechanisms assumptions about the data-generating process rather than directly observable properties?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Distinguishing MAR from MNAR requires knowing whether missingness depends on the <strong>missing values themselves</strong> — which, by definition, we <strong>do not observe</strong>. The data show <em>which</em> values are missing and their relation to observed variables, but not what the missing values were. So the mechanism must be <strong>argued from domain knowledge</strong> (why would a lactate test not be ordered?) and handled with sensitivity analyses, not tested definitively.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q64. Compare deletion, simple imputation, groupwise imputation, multiple imputation, model-based imputation and missing-value indicators.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><div class="tbl"><table>
+<thead>
+<tr>
+<th>Approach</th>
+<th>Idea</th>
+<th>Use / risk</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Deletion</strong> (rows/variables)</td>
+<td>Drop incomplete cases or variables with excessive missingness</td>
+<td>Simple; loses data; biased unless MCAR</td>
+</tr>
+<tr>
+<td><strong>Simple</strong> (mean/median/mode)</td>
+<td>One fill value</td>
+<td>Fast; reduces variance, distorts relationships, creates spikes</td>
+</tr>
+<tr>
+<td><strong>Groupwise</strong></td>
+<td>Fill with subgroup statistic (e.g. by age band/ward)</td>
+<td>Preserves subgroup differences better</td>
+</tr>
+<tr>
+<td><strong>Multiple</strong></td>
+<td>Several plausible imputations, results pooled</td>
+<td>Reflects imputation uncertainty; more complex</td>
+</tr>
+<tr>
+<td><strong>Model-based</strong> (k-NN, regression)</td>
+<td>Predict from other features (BMI from height, weight, age, gender)</td>
+<td>Preserves relationships; can <strong>hide informative missingness</strong></td>
+</tr>
+<tr>
+<td><strong>Indicator</strong> (<code>is_missing</code>)</td>
+<td>Add a flag</td>
+<td>Keeps the signal when absence is informative (lactate, skipped fields)</td>
+</tr>
+<tr>
+<td>No single approach is universally optimal; fit all on the <strong>training data only</strong>.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q65. Why must imputation parameters be estimated only from the training partition?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Statistics computed on the full dataset (means, medians, k-NN neighbours, regression imputers) contain information from the <strong>validation/test</strong> data, so the test set influences training — <strong>train–test contamination</strong>, producing optimistic estimates. At deployment there is no future test data to borrow from. Estimate on training, then apply <strong>unchanged</strong> to validation, test and production (and inside each CV training fold).</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q66. How can mean imputation reduce variance and distort relationships among variables?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Every missing value becomes the <strong>same number</strong>, so the spread shrinks (variance understated, confidence over-stated) and an <strong>artificial cluster/spike</strong> appears at the mean. The filled values ignore other variables, so <strong>correlations are weakened</strong> (a high-BP patient with missing BP gets the average) and subgroup differences are obscured. If missingness is informative (lactate), the mean also <strong>erases the signal</strong> that the test was not needed.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q67. Why should an outlier be investigated rather than automatically removed?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>An outlier may be a <strong>genuine rare observation</strong>, a data-entry mistake, a <strong>unit error</strong>, sensor malfunction, a previously unseen population, <strong>fraud</strong>, or distribution change. Auto-deletion removes errors <em>and</em> the most important cases — fraud, failures, ICU deterioration live in the tails. In Scenario S3, BP &gt; 300 included both typos and <strong>real emergencies</strong>. &quot;Cleaning should remove errors, not meaningful complexity&quot; — verify the source, correct documented errors, convert units, keep valid rare cases with robust methods, exclude only by predefined documented criteria.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q68. Compare the z-score rule, IQR rule, Winsorization, transformations and robust loss functions.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
+<li><strong>z-score</strong> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi><mo>=</mo><mo stretchy="false">(</mo><mi>x</mi><mo>−</mo><mover accent="true"><mi>x</mi><mo>ˉ</mo></mover><mo stretchy="false">)</mo><mi mathvariant="normal">/</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">z=(x-\bar x)/s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.5678em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal">x</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.2222em;"><span class="mord">ˉ</span></span></span></span></span></span></span><span class="mclose">)</span><span class="mord">/</span><span class="mord mathnormal">s</span></span></span></span>: flags points far from the mean in SD units; mean and SD are themselves pulled by outliers; assumes roughly normal data.</li>
+<li><strong>IQR rule:</strong> flag outside <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><msub><mi>Q</mi><mn>1</mn></msub><mo>−</mo><mn>1.5</mn><mtext> </mtext><mtext>IQR</mtext><mo separator="true">,</mo><mtext> </mtext><msub><mi>Q</mi><mn>3</mn></msub><mo>+</mo><mn>1.5</mn><mtext> </mtext><mtext>IQR</mtext><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[Q_1-1.5\,\text{IQR},\ Q_3+1.5\,\text{IQR}]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord"><span class="mord mathnormal">Q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord">1.5</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord text"><span class="mord">IQR</span></span><span class="mpunct">,</span><span class="mspace"> </span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">Q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1.5</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord text"><span class="mord">IQR</span></span><span class="mclose">]</span></span></span></span>; <strong>robust</strong> to extremes and skew. (Both detect <em>for investigation</em>.)</li>
+<li><strong>Winsorization/clipping:</strong> cap extremes at thresholds — keeps the row, limits influence (cap &gt; $10,000).</li>
+<li><strong>Transformations</strong> (log, Box–Cox): compress large values and reduce skew (log income).</li>
+<li><strong>Robust losses</strong> (Huber, quantile): change the <strong>loss</strong> not the data — Huber is squared for small, linear for large residuals; quantile loss weights asymmetrically. More stable but need tuning, slower, may <strong>underfit</strong> if outliers are signal.</li>
+</ul>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q69. Distinguish exact duplicates, near duplicates, false merges and false splits.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p><strong>Exact duplicates:</strong> identical on all relevant fields (two &quot;101, Ali Khan, 45, Male, Diabetes&quot; rows). <strong>Near duplicates:</strong> same entity with small differences (Sara Ahmed vs Sara A. Ahmed) — need approximate matching. In entity resolution: <strong>false merge</strong> = records of <em>different</em> entities wrongly combined; <strong>false split</strong> = records of the <em>same</em> entity left separate. Both arise because matching on names, DOB, addresses, IDs is imperfect.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q70. Why should annotation systems preserve original labels, consensus labels, adjudication decisions, uncertainty and acceptable alternative labels?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Because <strong>consensus does not always equal truth</strong>: majority voting can suppress legitimate expert disagreement and hide genuinely ambiguous cases. Keeping originals, annotator expertise, consensus, adjudication and uncertainty supports <strong>transparency and future re-evaluation</strong> — e.g. the lesion labelled dysplastic nevus by consensus keeps <em>benign nevus</em> as an acceptable alternative (Example 51), so better imaging or new guidelines can revisit it. It also enables class-specific disagreement analysis and soft labels <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mrow><mi>i</mi><mi>k</mi></mrow></msub></mrow><annotation encoding="application/x-tex">p_{ik}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">ik</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>.</p>
+</div></details>
+</section>
+<h2 id="unit-errors-class-imbalance-and-probability-calibration"><a class="anchor" href="#unit-errors-class-imbalance-and-probability-calibration" aria-hidden="true">#</a>Unit Errors, Class Imbalance and Probability Calibration</h2>
+
+<section class="question"><div class="q-head">Q71. Why should every numerical variable include metadata about units, valid ranges, precision and conversion rules?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Numbers are meaningless without their <strong>physical quantity and unit</strong>. Metadata lets validation catch impossible values (range), prevents mixing units, records how precisely something was measured, and makes conversions explicit and reproducible. It also documents source-system conventions when merging hospitals or devices. <strong>Unit-aware schemas</strong> greatly reduce silent unit errors.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q72. How can mixing kilograms and pounds in one variable produce serious analytical errors?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>A column with 70 (kg) and 155 (lb?) looks like two very different weights. Means, BMI, dose calculations and model coefficients become wrong; heavy-looking &quot;outliers&quot; may be deleted or genuine extremes hidden; the model learns site/unit artefacts. Pounds are ×2.2 kilograms, so the error is large and <strong>systematic</strong> for one source. Convert explicitly (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mrow><mi>k</mi><mi>g</mi></mrow></msub><mo>=</mo><mn>0.45359237</mn><mtext> </mtext><msub><mi>x</mi><mrow><mi>l</mi><mi>b</mi></mrow></msub></mrow><annotation encoding="application/x-tex">x_{kg}=0.45359237\,x_{lb}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7167em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span><span class="mord mathnormal mtight" style="margin-right:0.03588em;">g</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7944em;vertical-align:-0.15em;"></span><span class="mord">0.45359237</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mord mathnormal mtight">b</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>) using recorded units — never infer.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q73. What is dimensional consistency, and why is it important when combining physical quantities?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p><strong>Dimensional consistency</strong> means every operation respects units: you only add like quantities and the units of derived variables are known and documented (BMI = kg/m²). Combining inconsistent dimensions (kg + lb, mg/dL with mmol/L, seconds with milliseconds) silently produces meaningless features. Explicit dimensional analysis catches these errors before modelling.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q74. Define class prevalence and class imbalance.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p><strong>Class prevalence</strong> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>π</mi><mi>k</mi></msub><mo>=</mo><msub><mi>n</mi><mi>k</mi></msub><mi mathvariant="normal">/</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">\pi_k=n_k/n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">π</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord">/</span><span class="mord mathnormal">n</span></span></span></span> — the proportion of observations in class <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span>. <strong>Class imbalance</strong> — one or more classes substantially less frequent than others (fraud, rare disease, equipment failure, safety incidents, cyber-attacks).</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q75. Why can a classifier that always predicts the majority class achieve high accuracy while having no practical value?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Accuracy weights all cases equally, so the majority dominates. With 99% legitimate transactions, &quot;always legitimate&quot; gets <strong>99% accuracy</strong> yet <strong>detects zero fraud</strong> — recall for the minority class is 0, which is the whole purpose. Use recall/sensitivity, precision, F1, PR-AUC, and cost-weighted metrics instead.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q76. Compare class weighting, threshold adjustment, oversampling, undersampling, minority-class collection and cost-sensitive learning.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
+<li><strong>Class weighting:</strong> bigger loss weight on minority errors; no data duplication.</li>
+<li><strong>Threshold adjustment:</strong> move the decision cutoff to trade FP vs FN; model unchanged.</li>
+<li><strong>Oversampling</strong> (duplicate/SMOTE): more minority examples; risk of overfitting/leakage if done before splitting.</li>
+<li><strong>Undersampling:</strong> drop majority examples; loses information.</li>
+<li><strong>Collect more minority data:</strong> best evidence, but slow/costly.</li>
+<li><strong>Cost-sensitive learning:</strong> optimize expected cost with explicit FP/FN costs.<br>Also: stratified splits, anomaly-detection framing. Choose by the <strong>relative cost of errors</strong>.</li>
+</ul>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q77. Why must oversampling be performed only within the training partition or within each training fold?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Oversampled/synthetic minority cases are copies or interpolations of <strong>original</strong> cases. If you oversample first and then split, near-copies of the same patient fall in <strong>both training and test</strong> — the model is tested on what it has effectively seen → <strong>train–test contamination</strong> and over-optimistic results (Example 52: 99% accuracy). Split first, resample only training; in k-fold CV, resample inside each training fold; leave validation/test at the natural prevalence.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q78. What leakage can occur when synthetic minority observations are generated before train–test partitioning?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p><strong>Train–test contamination:</strong> SMOTE interpolates between neighbouring minority cases, so synthetic training points are built <em>from</em> test records (and synthetic test points from training records). The model is evaluated on interpolations of its own training data; the test minority class also no longer reflects real cases or real prevalence. Reported recall/accuracy inflate and fail on new patients.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q79. Why can a model trained on an artificially balanced dataset produce poorly calibrated probabilities at deployment?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>The model learns the <strong>training prevalence</strong> (e.g. 50%) as its base rate. If real prevalence is 5%, its probabilities are systematically <strong>too high</strong> (Example 53: predicted 70% may really be ~22%). Balancing helps learning but <strong>does not change real-world frequencies</strong>, so probabilities must be <strong>recalibrated</strong> to the deployment prevalence on representative validation data.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q80. Compare Platt scaling and isotonic regression as approaches to probability calibration.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p><strong>Platt scaling:</strong> fits a <strong>logistic regression on the classifier&#39;s scores</strong> (not features) using a validation set: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false">(</mo><mi>y</mi><mo>=</mo><mn>1</mn><mo>∣</mo><mi>s</mi><mo stretchy="false">)</mo><mo>=</mo><mn>1</mn><mi mathvariant="normal">/</mi><mo stretchy="false">(</mo><mn>1</mn><mo>+</mo><mi>exp</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>A</mi><mi>s</mi><mo>+</mo><mi>B</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">P(y=1\mid s)=1/(1+\exp(As+B))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">s</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1/</span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop">exp</span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mord mathnormal">s</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mclose">))</span></span></span></span>. Parametric (2 parameters), works with little data, assumes a sigmoid-shaped relation (SVM score 1.6 → 0.84 with <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>=</mo><mo>−</mo><mn>1.3</mn><mo separator="true">,</mo><mi>B</mi><mo>=</mo><mn>0.4</mn></mrow><annotation encoding="application/x-tex">A=-1.3,B=0.4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord">−</span><span class="mord">1.3</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.4</span></span></span></span>). <strong>Isotonic regression:</strong> fits any <strong>monotonically increasing</strong> step function from scores to probabilities — non-parametric, more flexible, but needs more validation data and can overfit with small samples (0.85 → 0.63). Both are fitted on held-out data, never the test set.</p>
+</div></details>
+</section>
+<h2 id="data-leakage-and-evaluation-design"><a class="anchor" href="#data-leakage-and-evaluation-design" aria-hidden="true">#</a>Data Leakage and Evaluation Design</h2>
+
+<section class="question"><div class="q-head">Q81. Define data leakage and explain why it creates overly optimistic estimates of model performance.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p><strong>Data leakage</strong> occurs when information <strong>not legitimately available at the intended prediction or evaluation time</strong> is used during model development. The model exploits signals (future data, the outcome itself, test-set statistics, the same entity) that will <strong>not exist for new cases</strong>, so evaluation scores are inflated and real-world performance drops.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q82. What practical question should be asked when evaluating whether a feature introduces leakage?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p><em>&quot;Could this feature, preprocessing statistic, or related record genuinely be available <strong>in the same form at the time a prediction is made</strong> for a new observation?&quot;</em> If no, it must not be used for training or evaluation.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q83. Define target leakage and give an example involving sepsis prediction.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p><strong>Target leakage:</strong> input features directly or indirectly reveal the outcome — generated from <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi></mrow><annotation encoding="application/x-tex">Y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span> or after the prediction point (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi><mo>→</mo><msub><mi>X</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">Y\to X_j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0785em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span>). <strong>Sepsis:</strong> &quot;broad-spectrum antibiotics prescribed&quot; is ordered <em>after</em> clinicians suspect sepsis, so it is an almost perfect proxy for the label; the model reaches <strong>AUC 0.99</strong> without learning early risk factors and fails when used six hours earlier.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q84. What is train–test contamination, and through which preprocessing or modeling activities can it occur?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Information from the evaluation data influences development, parameter estimation or model selection. Sources: identical records in both sets; <strong>near-duplicate images</strong> across partitions; <strong>preprocessing fitted on the whole dataset</strong> (scaling, imputation); <strong>feature selection using test labels</strong>; <strong>repeated tuning against the test set</strong>; pretraining on benchmark test examples; <strong>synthetic observations generated from test records</strong> (SMOTE before splitting).</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q85. Why must scaling, imputation, encoding, feature selection, dimensionality reduction and resampling occur inside each CV training fold?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Each is <strong>data-dependent</strong>: it estimates something (means/SDs, imputation values, category maps, selected features, PCA axes, synthetic samples) from the data it sees. Fitting on all data before creating folds lets each validation fold influence its own preprocessing → leakage and biased CV estimates. Fitting inside each training fold (a pipeline) simulates deployment, where the preprocessing never sees the new case.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q86. Compare standard k-fold, stratified k-fold, grouped CV and time-series CV.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
+<li><strong>Standard k-fold:</strong> for <strong>i.i.d.</strong> samples; k folds, each validates once; average metrics (mean ± SD).</li>
+<li><strong>Stratified k-fold:</strong> classification, especially <strong>imbalanced</strong> — each fold keeps the class proportions, so no fold lacks positives (stable precision/recall/F1).</li>
+<li><strong>Grouped CV</strong> (GroupKFold): rows from the same <strong>patient/user/device/household</strong> stay in one fold — prevents group leakage, tests generalization to new entities.</li>
+<li><strong>Time-series CV</strong> (TimeSeriesSplit): training always <strong>precedes</strong> validation in time — prevents seeing the future.</li>
+</ul>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q87. What is temporal leakage, and why is information-availability time more important than event time?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p><strong>Temporal leakage:</strong> using information from the future to predict an earlier outcome. Each feature must satisfy <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>t</mi><mrow><mtext>availability</mtext><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo>≤</mo><mi>t</mi></mrow><annotation encoding="application/x-tex">t_{\text{availability},j}\le t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9221em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">availability</span></span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span></span></span></span>. A lab result may describe a sample taken <em>before</em> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span></span></span></span> (event time) but be <strong>finalized after</strong> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span></span></span></span>; using event time lets the model use it although it would not be in the system at prediction time. Availability time reflects what the deployed system can actually know. Examples: labs finalized later, revised economic statistics, maintenance records entered after failure, random past/future mixing.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q88. What is group leakage, and why must all records from one patient, customer, household or device remain in one partition?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p><strong>Group leakage:</strong> correlated observations from the <strong>same entity</strong> appear in multiple partitions. The model can recognize <strong>entity-specific characteristics</strong> (a patient&#39;s anatomy, a customer&#39;s usage level) instead of general patterns, inflating test scores (Example 55: C001 in train and test → 95% accuracy). Requirement <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>G</mi><mtext>train</mtext></msub><mo>∩</mo><msub><mi>G</mi><mtext>test</mtext></msub><mo>=</mo><mi mathvariant="normal">∅</mi></mrow><annotation encoding="application/x-tex">G_{\text{train}}\cap G_{\text{test}}=\varnothing</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">G</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3175em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">train</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∩</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">G</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">test</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6633em;vertical-align:-0.0817em;"></span><span class="mord amsrm">∅</span></span></span></span> so evaluation reflects <strong>new entities</strong>, as in deployment.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q89. When should an entire institution or site be held out during evaluation?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>When the model is intended for <strong>previously unseen institutions</strong> (new hospitals, schools, regions). Random patient-level splits within the same hospitals share equipment, protocols, coding and populations, so they overestimate transfer. <strong>Hold out whole sites</strong> (leave-one-site-out) so testing reflects genuinely new environments (Scenario S4, Reflection R3).</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q90. What checks should be included in a comprehensive data-leakage prevention checklist?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Define the <strong>prediction time</strong>; construct the <strong>data timeline</strong>; identify <strong>grouping variables</strong> and dependent entities; <strong>partition before</strong> any preprocessing; search for <strong>duplicates and near-duplicates</strong>; exclude <strong>targets and derived fields</strong> from predictors; fit preprocessing on <strong>training only</strong>; <strong>resample only within training</strong> partitions/folds; keep an <strong>untouched test set</strong>; <strong>investigate unexpectedly powerful variables</strong>; document <strong>when each feature becomes available</strong>; make the evaluation design <strong>mirror deployment</strong> (future periods, new sites, unseen populations).</p>
+</div></details>
+</section>
+<h2 id="documentation-governance-privacy-fairness-and-ethics"><a class="anchor" href="#documentation-governance-privacy-fairness-and-ethics" aria-hidden="true">#</a>Documentation, Governance, Privacy, Fairness and Ethics</h2>
+
+<section class="question"><div class="q-head">Q91. What information should be included in a comprehensive Datasheet for Datasets?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
+<li><strong>Motivation:</strong> why created, funder, task/gap, intended users.</li>
+<li><strong>Composition:</strong> what an instance is, count, populations/periods, labels, sensitive information.</li>
+<li><strong>Collection process:</strong> who, instruments, sampling, <strong>consent</strong>, compensation, limitations.</li>
+<li><strong>Preprocessing/cleaning:</strong> removals, imputation, transformations, label review, de-identification.</li>
+<li><strong>Intended and discouraged uses:</strong> tasks, users, limitations, prohibited uses, unreliable contexts.</li>
+<li><strong>Distribution and licensing:</strong> access procedure, licence, redistribution, commercial limits, attribution, privacy/security.</li>
+<li><strong>Maintenance:</strong> owners, error reporting, update schedule, withdrawal, versioning, revision tracking.</li>
+</ul>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q92. How does a data dictionary differ from a dataset-level datasheet?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>A <strong>datasheet</strong> documents the <strong>whole dataset</strong> — motivation, composition, collection, uses, licensing, maintenance. A <strong>data dictionary</strong> documents <strong>each field</strong>: variable name, human-readable label, definition, data type, unit, allowed values, missing-value codes, source, time semantics, transformation, sensitivity, quality notes. One tells you <em>whether</em> to use the data; the other tells you <em>what each column means</em>.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q93. Distinguish between data provenance and data lineage.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p><strong>Provenance</strong> — the documented <strong>origin</strong> and history/chain of custody: how, when, where and by whom data were collected and processed. <strong>Lineage</strong> — how data <strong>evolve through processing pipelines</strong>: the chain <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mn>0</mn></msub><mo>→</mo><msub><mi>D</mi><mn>1</mn></msub><mo>→</mo><msub><mi>D</mi><mn>2</mn></msub><mo>→</mo><msub><mi>D</mi><mtext>training</mtext></msub></mrow><annotation encoding="application/x-tex">D_0\to D_1\to D_2\to D_{\text{training}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3175em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">training</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span> with the transformation that produced each version. Provenance answers &quot;where did this come from?&quot;; lineage answers &quot;what was done to it?&quot;.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q94. What information should be recorded for every transformation in a data-lineage chain?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p><strong>Input dataset version; code or software version; processing parameters; output dataset version; execution timestamp; responsible person or system; validation results.</strong></p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q95. Why should consent documentation describe permitted purposes, linkage, commercial use, international transfer, withdrawal and vulnerable populations?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Because &quot;Consent obtained: Yes&quot; says nothing about <strong>what</strong> was agreed. A new use (commercial product, transfer abroad, linkage with other datasets, AI development) may violate the participants&#39; actual agreement (Example 57). Withdrawal terms decide what happens to records and <strong>derived models</strong>; vulnerable populations need extra protection; broad vs specific consent determines secondary use. Detailed records let reviewers judge whether a proposed use is <strong>ethically and legally acceptable</strong>.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q96. How do consent, licensing, copyright and privacy impose different constraints on dataset use?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
+<li><strong>Consent</strong> — what <strong>participants agreed to</strong> (purposes, commercial, transfer, withdrawal).</li>
+<li><strong>Licensing</strong> — what <strong>users are legally permitted</strong> to do (research-only, no redistribution, attribution, no re-identification).</li>
+<li><strong>Copyright</strong> — <strong>intellectual-property</strong> rights in the content/compilation.</li>
+<li><strong>Privacy</strong> — obligations to protect <strong>personal information</strong>, regardless of licence.<br>They are independent: an openly licensed dataset can still contain personal data; de-identified data can still be under copyright or contract. Satisfying one does not satisfy the others.</li>
+</ul>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q97. Why should de-identification be treated as risk reduction rather than a guarantee of anonymity?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Removing names and IDs leaves <strong>quasi-identifiers</strong> — age, location, dates, rare diagnoses — whose <strong>combinations</strong> can be unique and linked to external data (<strong>linkage attacks</strong>, re-identification). Models trained on the data can also leak membership. So de-identification <strong>lowers</strong> risk but does not eliminate it; it must be combined with access control, minimization, aggregation and possibly differential privacy.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q98. Explain how data minimization, access control, encryption, retention limits, audit logs, differential privacy and federated learning reduce privacy risks.</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
+<li><strong>Minimization</strong> — collect only what&#39;s necessary (Benefit &gt; Risk), so less can leak.</li>
+<li><strong>Access control</strong> — role-based restriction to authorized users.</li>
+<li><strong>Encryption</strong> — protects stored and transmitted data from interception/theft.</li>
+<li><strong>Retention limits</strong> — delete data when no longer needed; avoid indefinite exposure.</li>
+<li><strong>Audit logs</strong> — record who accessed what, deterring and detecting misuse.</li>
+<li><strong>Differential privacy</strong> — adds calibrated noise so outputs reveal little about any individual.</li>
+<li><strong>Federated learning</strong> — trains where data live; raw data are not centralized.<br>Together they protect across the whole lifecycle (OECD: purpose limitation, minimization, security, accountability).</li>
+</ul>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q99. Why might sensitive attributes be excluded from prediction but retained under restricted access for fairness auditing?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Excluding them from inputs avoids <strong>direct</strong> use in decisions, but bias can persist through <strong>proxies</strong> (postal code, school, utilization). Without recording the attribute you <strong>cannot measure</strong> subgroup disparities — Example 60&#39;s accuracy of 91/90/<strong>74%</strong> for Group C would be invisible. So governance separates <strong>use for prediction</strong> from <strong>use for fairness evaluation and monitoring</strong>, with strict access, retention and security controls.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q100. How should data owners, stewards, ethics committees, review bodies, technical teams, domain experts and leaders share responsibility?</div>
+<details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
+<li><strong>Data owner</strong> — formal authority and <strong>ultimate accountability</strong>; approves uses.</li>
+<li><strong>Data steward</strong> — definitions, quality standards, documentation, metadata, access policies.</li>
+<li><strong>Data custodian/technical teams</strong> — secure infrastructure, access, lineage, leakage-safe pipelines, monitoring.</li>
+<li><strong>Domain experts</strong> — validate constructs, proxies, labels and clinical/operational meaning.</li>
+<li><strong>Ethics committees / IRBs / data-protection offices</strong> — review consent, privacy, fairness, vulnerable groups, secondary use.</li>
+<li><strong>Model owner</strong> — deployment, monitoring, performance.</li>
+<li><strong>Organizational leaders</strong> — resources, policy, final accountability, escalation.<br>Clear assignment prevents the failure where <em>everyone uses the data but no one is responsible</em>; it operationalizes lawful, fair, transparent and accountable use.</li>
+</ul>
+</div></details>
+</section>
+
+  <nav class="pagenav">
+    <a class="pv" href="m2-answers-1.html">← Previous<b>M2 · Answers Q1–50</b></a>
+    <a class="nx" href="m2-scenarios.html">Next →<b>M2 · Scenarios S1–S5</b></a>
+  </nav>
+  <div class="foot">AI 500 · Fall 2026 · study notes</div>
+</main>
+</div>
+<div class="lightbox" id="lightbox" hidden><img alt=""><button class="iconbtn lb-close" aria-label="Close">✕</button></div>
+<script src="assets/site.js" defer></script>
+</body></html>

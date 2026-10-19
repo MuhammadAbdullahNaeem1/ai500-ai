@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mock Quiz 2C · AI 500</title>
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#fbfbfa" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#16161a" media="(prefers-color-scheme: dark)">
+<script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<header class="topbar">
+  <button class="iconbtn" id="menuBtn" aria-label="Open contents" aria-expanded="false"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+  <a class="topbrand" href="index.html">AI 500<span>Mock Quiz 2C</span></a>
+  <button class="iconbtn themebtn" aria-label="Toggle dark mode"><svg class="i-moon" viewBox="0 0 24 24" width="19" height="19"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg><svg class="i-sun" viewBox="0 0 24 24" width="19" height="19"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg></button>
+</header>
+<div class="scrim" id="scrim"></div>
+<div class="wrap">
+<aside class="side" id="side">
+  <div class="side-head">
+    <a class="brand" href="index.html">AI 500 — Foundations of AI<span>Foundations of AI · Fall 2026</span></a>
+    <button class="iconbtn themebtn" aria-label="Toggle dark mode"><svg class="i-moon" viewBox="0 0 24 24" width="17" height="17"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg><svg class="i-sun" viewBox="0 0 24 24" width="17" height="17"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg></button>
+  </div>
+  <nav><a href="index.html">Home</a>
+<a href="start-here.html">Start here (how to use)</a>
+<div class="nav-section">Modules</div>
+<details class="grp"><summary>M1 · AI Landscape & Problem Framing</summary><a href="m1a-notes.html">Notes A — roots, philosophy, landscape</a><a href="m1b-notes.html">Notes B — pipeline, framing, failures</a><a href="m1-answers.html">Answers Q1–100</a><a href="m1-cases.html">Answers S, R, A</a></details>
+<details class="grp"><summary>M2 · Data Collection, Cleaning, Governance & Ethics</summary><a href="m2a-notes.html">Notes A — constructed data, sources, quality</a><a href="m2b-notes.html">Notes B — curation, cleaning, leakage</a><a href="m2c-notes.html">Notes C — documentation, governance, cases</a><a href="m2-answers-1.html">Answers Q1–50</a><a href="m2-answers-2.html">Answers Q51–100</a><a href="m2-scenarios.html">Scenarios S1–S5</a><a href="m2-reflections.html">Reflections R1–R5</a></details>
+<div class="nav-section">Quiz 2 (24 Oct)</div>
+<a href="quiz2-guide.html">Quiz 2 guide</a>
+<a href="quiz2-mock-a.html">★ Mock Quiz 2A</a>
+<a href="quiz2-mock-b.html">Mock Quiz 2B</a>
+<a href="quiz2-mock-c.html" class="on" aria-current="page">Mock Quiz 2C</a>
+<div class="nav-section">Archive</div>
+<a href="quiz1-solved.html">Real Quiz 1 (solved)</a>
+<a href="assignments.html">Assignments & computational training</a>
+<a href="a2-missedcare.html">A2 Part A — MissedCare (your answers)</a>
+<a href="resources.html">PDFs, assignments & past material</a></nav>
+  <div class="toc"><div class="toc-title">On this page</div><a href="#basic-definitions-clo-4-9-points" class="">Basic Definitions [CLO 4] — 9 points</a><a href="#short-conceptual-questions-clo-4-12-points" class="">Short, Conceptual Questions [CLO 4] — 12 points</a><a href="#scenario-based-question-clo-3-4-21-points" class="">Scenario-based Question [CLO 3, 4] — 21 points</a><a href="#identify-the-problems-clo-4-8-points" class="">Identify the Problems [CLO 4] — 8 points</a></div>
+</aside>
+<main>
+  
+  <div class="quiz-tools"><button data-sol="open">Show all solutions</button><button data-sol="close">Hide all</button><button onclick="window.print()">Print</button></div>
+  <h1>Mock Quiz 2C — Module 2</h1>
+<p><strong>50 points · 60 minutes · closed book.</strong> Emphasis: quality dimensions, cleaning decisions, fairness metrics and the case studies.</p>
+<div class="pdf-links">
+<a href="quiz2-guide.html">Quiz 2 guide</a>
+<a href="quiz2-mock-a.html">Mock 2A</a>
+<a href="quiz2-mock-b.html">Mock 2B</a>
+</div>
+
+<h2 id="basic-definitions-clo-4-9-points"><a class="anchor" href="#basic-definitions-clo-4-9-points" aria-hidden="true">#</a>Basic Definitions [CLO 4] — 9 points</h2>
+
+<section class="question"><div class="q-head">1(a) [3 points] Define differential measurement error and explain why it is a fairness issue.</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><p>Measurement error whose rate <strong>differs across subgroups</strong>: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false">(</mo><msup><mi>X</mi><mo>∗</mo></msup><mo mathvariant="normal">≠</mo><mi>X</mi><mo>∣</mo><mi>A</mi><mo>=</mo><mi>a</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">P(X^*\neq X\mid A=a)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6887em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel"><span class="mrel"><span class="mord vbox"><span class="thinbox"><span class="rlap"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="inner"><span class="mord"><span class="mrel"></span></span></span><span class="fix"></span></span></span></span></span><span class="mrel">=</span></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">a</span><span class="mclose">)</span></span></span></span> varies with a sensitive attribute <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi></mrow><annotation encoding="application/x-tex">A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span> (heart-rate sensor ±2 bpm on light skin, ±10 bpm on dark skin). It is a fairness issue because the model receives systematically <strong>worse data for one group</strong>, producing unequal performance that the model <strong>cannot correct</strong> from the data alone.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Error differs by subgroup</td>
+<td>1.5</td>
+</tr>
+<tr>
+<td>Example</td>
+<td>0.5</td>
+</tr>
+<tr>
+<td>Unequal performance / cannot be corrected</td>
+<td>1</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">1(b) [3 points] Define concept shift and distinguish it from covariate shift.</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><p><strong>Concept shift:</strong> the relationship between inputs and outputs, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false">(</mo><mi>Y</mi><mo>∣</mo><mi>X</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">P(Y\mid X)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mclose">)</span></span></span></span>, changes (purchasing behaviour after a recession). <strong>Covariate shift:</strong> the input distribution <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false">(</mo><mi>X</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">P(X)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mclose">)</span></span></span></span> changes while the mapping is stable (a model moved to a hospital with different demographics).</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Concept shift definition</td>
+<td>1.5</td>
+</tr>
+<tr>
+<td>Distinction from covariate shift</td>
+<td>1.5</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">1(c) [3 points] Define equal opportunity as a fairness criterion, and state when the notes recommend it.</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><p><strong>Equal opportunity:</strong> true-positive rates are equal across groups, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false">(</mo><mover accent="true"><mi>Y</mi><mo>^</mo></mover><mo>=</mo><mn>1</mn><mo>∣</mo><mi>Y</mi><mo>=</mo><mn>1</mn><mo separator="true">,</mo><mi>A</mi><mo>=</mo><mi>a</mi><mo stretchy="false">)</mo><mo>=</mo><mi>P</mi><mo stretchy="false">(</mo><mover accent="true"><mi>Y</mi><mo>^</mo></mover><mo>=</mo><mn>1</mn><mo>∣</mo><mi>Y</mi><mo>=</mo><mn>1</mn><mo separator="true">,</mo><mi>A</mi><mo>=</mo><mi>b</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">P(\hat Y=1\mid Y=1,A=a)=P(\hat Y=1\mid Y=1,A=b)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1968em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9468em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span><span style="top:-3.2523em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.25em;"><span class="mord">^</span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">a</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.1968em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9468em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span><span style="top:-3.2523em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.25em;"><span class="mord">^</span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">b</span><span class="mclose">)</span></span></span></span>. Recommended when <strong>false negatives are the most harmful error</strong> — e.g. sepsis detection with different prevalence across groups (Example 62), where missing a true case is worse than an extra test.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Equal TPR definition</td>
+<td>1.5</td>
+</tr>
+<tr>
+<td>When it is appropriate (FN harm)</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Example</td>
+<td>0.5</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+<h2 id="short-conceptual-questions-clo-4-12-points"><a class="anchor" href="#short-conceptual-questions-clo-4-12-points" aria-hidden="true">#</a>Short, Conceptual Questions [CLO 4] — 12 points</h2>
+
+<section class="question"><div class="q-head">2(a) [4 points] A dataset is 99% complete at the cell level. Give two reasons why it could still be unfit for a deployment task.</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><p>(1) Cell completeness ignores <strong>missing records and missing subgroups</strong> — it may exclude an entire vulnerable population (rural patients, online students) → representativeness failure. (2) Present values may be <strong>inaccurate, inconsistent or stale</strong>: complete but wrong (miscalibrated monitor), mixed units, or too old for real-time prediction; or labels may measure the wrong construct. Completeness is only one of six dimensions and is judged relative to the task, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo stretchy="false">(</mo><mi>D</mi><mo separator="true">,</mo><mi>T</mi><mo separator="true">,</mo><mi>C</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">Q(D,T,C)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">Q</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mclose">)</span></span></span></span>.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th>per reason</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Reason</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Explanation tied to task</td>
+<td>1</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">2(b) [4 points] Why should outliers be investigated rather than automatically removed? Give two appropriate responses other than deletion.</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><p>Outliers may be <strong>genuine rare cases</strong> (emergencies, fraud, failures — often the most important events) as well as errors (entry mistakes, wrong units, sensor faults). Automatic deletion removes the tails the model most needs and biases it towards normal cases. Responses: verify against the source and <strong>correct documented errors</strong>; <strong>convert wrong units</strong>; <strong>retain valid extremes with robust methods</strong> (Huber/quantile loss); <strong>winsorize/clip</strong> with justification; <strong>log/Box–Cox transform</strong>; separate category; exclude only by predefined documented criteria.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Outliers can be meaningful</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Consequence of deletion</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Two valid responses</td>
+<td>2</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">2(c) [4 points] Using Gender Shades, explain why aggregate accuracy can conceal severe subgroup failure, and why data cleaning alone could not have fixed the problem.</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>E</mi><mtext>overall</mtext></msub><mo>=</mo><msub><mo>∑</mo><mi>g</mi></msub><mi>P</mi><mo stretchy="false">(</mo><mi>G</mi><mo>=</mo><mi>g</mi><mo stretchy="false">)</mo><msub><mi>E</mi><mi>g</mi></msub></mrow><annotation encoding="application/x-tex">E_{\text{overall}}=\sum_g P(G=g)E_g</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.0576em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">overall</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.1858em;vertical-align:-0.4358em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:0em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.0017em;"><span style="top:-2.4003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">g</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.4358em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">G</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.0361em;vertical-align:-0.2861em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mclose">)</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0576em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">g</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span>: if easy groups (lighter-skinned men, error ≤0.8%) dominate the data, overall error is low even when a small group (darker-skinned women, up to 34.7%) has unacceptable error; reporting by gender or skin type <strong>separately</strong> also hides the worst <strong>intersection</strong>. Cleaning could not fix it because nothing was &quot;dirty&quot; — the problem was <strong>who was sampled and in what proportions, which metrics were reported, and how categories were defined</strong>; a perfectly formatted dataset can still be inequitable.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Weighted-average / dominance argument</td>
+<td>1.5</td>
+</tr>
+<tr>
+<td>Intersectional point</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Why cleaning can&#39;t fix it</td>
+<td>1.5</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+<h2 id="scenario-based-question-clo-3-4-21-points"><a class="anchor" href="#scenario-based-question-clo-3-4-21-points" aria-hidden="true">#</a>Scenario-based Question [CLO 3, 4] — 21 points</h2>
+
+<div class="orig-q"><div class="oq-head"><span class="oq-lab">📄 Original question</span><span class="oq-src">Early-childhood malnutrition screening</span></div><div class="oq-body"><p>A provincial health department wants an AI tool that flags children under five at risk of <strong>severe acute malnutrition in the next three months</strong>, so lady health workers can schedule extra visits. Data: monthly records from <strong>basic health units</strong> (weight, height, age, vaccination, illness episodes), household income from a <strong>survey</strong> done five years ago, distance to the nearest health unit, and a label <strong>&quot;admitted to a nutrition rehabilitation centre&quot;</strong>.</p>
+<ul>
+<li>Weights are recorded on different scales; some units record kilograms, some pounds; several units&#39; scales were found to read <strong>0.5 kg high</strong>.</li>
+<li>Children who <strong>never visit</strong> a health unit have no records.</li>
+<li>Missing height is common in remote units without measuring boards; the team plans to <strong>delete all records with missing height</strong>.</li>
+<li>The department considers using the score to <strong>prioritize food-supplement rations</strong>, with no appeal.</li>
+</ul>
+</div></div><div class="oq-sol">Worked solution</div>
+
+<section class="question"><div class="q-head">3(a) [4 points] Is &quot;admitted to a nutrition rehabilitation centre&quot; a valid label for severe malnutrition? Explain using construct validity.</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><p>No — it is a <strong>proxy</strong> shaped by an <strong>institutional process</strong>: admission requires being detected, referred, having transport and a bed, and family acceptance. Children far from centres (distance!) or from poorer households may be severely malnourished but <strong>never admitted</strong> → recorded as negative. The model learns <strong>access to care</strong> (who gets admitted), not malnutrition — the same pattern as cost-for-need. A better label: anthropometric criteria (weight-for-height z-score, MUAC) measured by health workers.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Identifies proxy vs construct</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Institutional process/access explanation</td>
+<td>1.5</td>
+</tr>
+<tr>
+<td>Consequence (bias against remote/poor)</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Better target</td>
+<td>0.5</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">3(b) [5 points] Identify three distinct data-quality problems in the weight and survey data and name the dimension each violates.</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><ol>
+<li><strong>kg and lb mixed</strong> → <strong>consistency (structural)</strong>/unit error; needs unit-aware schema and explicit conversion.</li>
+<li><strong>Scales reading 0.5 kg high</strong> → <strong>accuracy/systematic measurement error</strong> (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo mathvariant="normal">≠</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">b\ne0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">b</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel"><span class="mrel"><span class="mord vbox"><span class="thinbox"><span class="rlap"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="inner"><span class="mord"><span class="mrel"></span></span></span><span class="fix"></span></span></span></span></span><span class="mrel">=</span></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span>); averaging won&#39;t remove it — recalibrate/correct per unit.</li>
+<li><strong>Five-year-old income survey</strong> → <strong>timeliness/staleness</strong> (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">\Delta t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">Δ</span><span class="mord mathnormal">t</span></span></span></span> = 5 years).<br>(Also: differential measurement error if faulty scales cluster in certain districts; children never visiting → completeness of subgroups/representativeness.)</li>
+</ol>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Three problems × (identification ½ + dimension &amp; explanation 1)</td>
+<td>4.5</td>
+</tr>
+<tr>
+<td>Any fix mentioned</td>
+<td>0.5</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">3(c) [4 points] Evaluate the plan to delete records with missing height. What missingness mechanism is plausible and what is the consequence?</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><p>Height is missing where units <strong>lack measuring boards — remote units</strong> → missingness depends on location/remoteness (<strong>MAR</strong> given unit; effectively systematic), and remote children likely have <strong>higher malnutrition risk</strong> (possibly MNAR-like with respect to outcome). Deleting them removes the <strong>most vulnerable population</strong>, biasing the model towards urban children and making it least accurate where risk is highest (representativeness failure). Better: keep records with a <code>height_missing</code> indicator, use weight-for-age/MUAC, impute with training-only models, and <strong>fix data collection</strong> (provide boards).</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Mechanism (systematic, not MCAR)</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Deletion removes high-risk remote children</td>
+<td>1.5</td>
+</tr>
+<tr>
+<td>Alternative handling</td>
+<td>1.5</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">3(d) [4 points] Children who never visit a health unit have no records. Explain the consequence and how evaluation should account for it.</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><p>The data cover <strong>healthcare users only</strong> (utilization, not burden — like administrative records). Non-visiting children — often poorest and most remote — are absent, so the model cannot be validated for them and its outputs ignore them (<strong>representation bias / coverage error</strong>). Evaluation must state the covered population, compare dataset composition with census/survey figures, report performance by district and distance band, and pair the tool with <strong>community outreach</strong> data (e.g. door-to-door MUAC screening) to reach unseen children.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Missing population identified</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Consequence (bias, invalid for them)</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Two evaluation/mitigation steps</td>
+<td>2</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">3(e) [4 points] Should the score be used to prioritize food rations with no appeal? Discuss and recommend a policy.</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><p>Rations are a <strong>scarce, high-stakes allocation</strong>; an unreliable, access-biased score would systematically under-serve remote and non-visiting children (<strong>feedback</strong>: fewer rations → worse outcomes but fewer recorded admissions → lower predicted risk). No appeal removes <strong>contestability</strong>. Recommend: use the score to <strong>schedule extra health-worker visits</strong> (supportive, low-harm), allocate rations based on <strong>direct measurement</strong> (MUAC/weight-for-height) confirmed by workers, keep an appeal and override process, audit allocations by district/income/sex, and monitor outcomes.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Harm/bias of the proposed use</td>
+<td>1.5</td>
+</tr>
+<tr>
+<td>Contestability/human review</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Concrete alternative policy + monitoring</td>
+<td>1.5</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+<h2 id="identify-the-problems-clo-4-8-points"><a class="anchor" href="#identify-the-problems-clo-4-8-points" aria-hidden="true">#</a>Identify the Problems [CLO 4] — 8 points</h2>
+
+<section class="question"><div class="q-head">4 [8 points] A team reports AUC 0.97 for a credit-default model. Identify four <strong>distinct</strong> problems from the description: standardization used the mean of all 50,000 records; features include &quot;collections agency assigned&quot;; each customer has several monthly rows split randomly; feature selection kept the 20 variables most correlated with default on the full dataset.</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><ol>
+<li><strong>Preprocessing contamination</strong> — standardization with full-data statistics (test data influenced training). Fix: fit on training only.</li>
+<li><strong>Target leakage</strong> — &quot;collections agency assigned&quot; happens <strong>after</strong> default. Fix: drop post-outcome fields.</li>
+<li><strong>Group leakage</strong> — same customer in train and test. Fix: customer-level (GroupKFold) split.</li>
+<li><strong>Feature-selection contamination</strong> — selection used test labels. Fix: select inside training folds.<br>(2 points each: 1 name, 1 mechanism/fix.)</li>
+</ol>
+</div></details>
+</section>
+
+  <nav class="pagenav">
+    <a class="pv" href="quiz2-mock-b.html">← Previous<b>Mock Quiz 2B</b></a>
+    <a class="nx" href="quiz1-solved.html">Next →<b>Real Quiz 1 (solved)</b></a>
+  </nav>
+  <div class="foot">AI 500 · Fall 2026 · study notes</div>
+</main>
+</div>
+<div class="lightbox" id="lightbox" hidden><img alt=""><button class="iconbtn lb-close" aria-label="Close">✕</button></div>
+<script src="assets/site.js" defer></script>
+</body></html>

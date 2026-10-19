@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>M1 · AI Landscape & Problem Framing — Notes A — roots, philosophy, landscape · AI 500</title>
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#fbfbfa" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#16161a" media="(prefers-color-scheme: dark)">
+<script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<header class="topbar">
+  <button class="iconbtn" id="menuBtn" aria-label="Open contents" aria-expanded="false"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+  <a class="topbrand" href="index.html">AI 500<span>M1 · AI Landscape & Problem Framing</span></a>
+  <button class="iconbtn themebtn" aria-label="Toggle dark mode"><svg class="i-moon" viewBox="0 0 24 24" width="19" height="19"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg><svg class="i-sun" viewBox="0 0 24 24" width="19" height="19"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg></button>
+</header>
+<div class="scrim" id="scrim"></div>
+<div class="wrap">
+<aside class="side" id="side">
+  <div class="side-head">
+    <a class="brand" href="index.html">AI 500 — Foundations of AI<span>Foundations of AI · Fall 2026</span></a>
+    <button class="iconbtn themebtn" aria-label="Toggle dark mode"><svg class="i-moon" viewBox="0 0 24 24" width="17" height="17"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg><svg class="i-sun" viewBox="0 0 24 24" width="17" height="17"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg></button>
+  </div>
+  <nav><a href="index.html">Home</a>
+<a href="start-here.html">Start here (how to use)</a>
+<div class="nav-section">Modules</div>
+<details class="grp" open><summary>M1 · AI Landscape & Problem Framing</summary><a href="m1a-notes.html" class="on" aria-current="page">Notes A — roots, philosophy, landscape</a><a href="m1b-notes.html">Notes B — pipeline, framing, failures</a><a href="m1-answers.html">Answers Q1–100</a><a href="m1-cases.html">Answers S, R, A</a></details>
+<details class="grp"><summary>M2 · Data Collection, Cleaning, Governance & Ethics</summary><a href="m2a-notes.html">Notes A — constructed data, sources, quality</a><a href="m2b-notes.html">Notes B — curation, cleaning, leakage</a><a href="m2c-notes.html">Notes C — documentation, governance, cases</a><a href="m2-answers-1.html">Answers Q1–50</a><a href="m2-answers-2.html">Answers Q51–100</a><a href="m2-scenarios.html">Scenarios S1–S5</a><a href="m2-reflections.html">Reflections R1–R5</a></details>
+<div class="nav-section">Quiz 2 (24 Oct)</div>
+<a href="quiz2-guide.html">Quiz 2 guide</a>
+<a href="quiz2-mock-a.html">★ Mock Quiz 2A</a>
+<a href="quiz2-mock-b.html">Mock Quiz 2B</a>
+<a href="quiz2-mock-c.html">Mock Quiz 2C</a>
+<div class="nav-section">Archive</div>
+<a href="quiz1-solved.html">Real Quiz 1 (solved)</a>
+<a href="assignments.html">Assignments & computational training</a>
+<a href="a2-missedcare.html">A2 Part A — MissedCare (your answers)</a>
+<a href="resources.html">PDFs, assignments & past material</a></nav>
+  <div class="toc"><div class="toc-title">On this page</div><a href="#1-historical-and-philosophical-roots-1-1" class="">1. Historical and philosophical roots (1.1)</a><a href="#symbolic-vs-statistical-ai-and-hybrids-1-1-4" class="h3">Symbolic vs statistical AI, and hybrids (1.1.4)</a><a href="#2-four-central-philosophical-questions-1-2" class="">2. Four central philosophical questions (1.2)</a><a href="#3-defining-ai-1-3" class="">3. Defining AI (1.3)</a><a href="#four-classical-views-russell-amp-norvig-1-3-2" class="h3">Four classical views (Russell &amp; Norvig, 1.3.2)</a><a href="#autonomy-and-agency-1-3-3" class="h3">Autonomy and agency (1.3.3)</a><a href="#4-the-ai-and-data-science-ecosystem-1-4-table-1" class="">4. The AI and data-science ecosystem (1.4, Table 1)</a><a href="#source-material" class="">Source material</a></div>
+</aside>
+<main>
+  <div class="crumb">M1 · AI Landscape & Problem Framing</div>
+  
+  <h1>M1 · Part A — Roots, Philosophy and the AI Landscape</h1>
+<p>Module 1 notes, Sections 1.1–1.4 (PDF pages 5–48): <em>The AI/Data Science Landscape and Problem Framing</em>. Examined in <strong>Quiz 1</strong> (3 Oct) and on the <strong>mid</strong>.</p>
+<div class="pdf-links">
+<a href="pdfs/notes/Module-1-Notes.pdf">Module 1 notes (PDF)</a>
+<a href="m1-answers.html">Answers Q1–100</a>
+<a href="quiz1-solved.html">Real Quiz 1 (solved)</a>
+<a href="pdfs/quizzes/Quiz-1-Prep-Guide.pdf">Your Quiz 1 prep guide</a>
+<a class="jump" href="#source-material">Read them all on this page ↓</a>
+</div>
+
+<p>AI is not a single invention: it is the convergence of several long-running attempts to answer one question — <em>can perception, reasoning, learning, decision-making and intelligent action be represented precisely enough to be carried out by a machine?</em> This part follows the notes: the intellectual roots (1.1), four philosophical questions (1.2), the definition of AI and its four classical views (1.3), and how AI relates to ML, data science, statistics, optimization, automation and generative AI (1.4).</p>
+<h2 id="1-historical-and-philosophical-roots-1-1"><a class="anchor" href="#1-historical-and-philosophical-roots-1-1" aria-hidden="true">#</a>1. Historical and philosophical roots (1.1)</h2>
+<p>Traditions feeding AI: <strong>formal logic</strong> and mechanized reasoning; <strong>probability</strong> and statistical inference; computation and algorithms; <strong>information theory</strong>; <strong>control and feedback</strong>; cognitive science; operations research and optimization; philosophy of mind, language, knowledge and agency.</p>
+
+<div class="callout def"><div class="callout-title">Definition: Intelligence requires representation</div><p>A machine cannot reason directly about an unrepresented world. It reasons over <strong>variables, symbols, vectors, tokens, states, graphs, probabilities</strong> or other constructed representations. (Search explores a state space; a planner applies operators; a knowledge graph stores entities and relations; a rule engine applies conditions; a graphical model expresses dependencies; an LLM manipulates learned representations.)</p>
+</div>
+<p><strong>Symbolic programs</strong> manipulate discrete symbols and explicit rules (unlike numerical programs that crunch numbers):</p>
+
+<div class="figs"><figure><a href="assets/fig/m1-p007.jpg" class="zoom"><img src="assets/fig/m1-p007.jpg" alt="Figure 1 — Prolog: facts, a rule, and a query proved mechanically" loading="lazy" decoding="async"></a><figcaption>Module 1 notes · PDF p.7 — Figure 1 — Prolog: facts, a rule, and a query proved mechanically</figcaption></figure><figure><a href="assets/fig/m1-p008.jpg" class="zoom"><img src="assets/fig/m1-p008.jpg" alt="Figure 2 — Python rule engine (expert system): knowledge separated from the inference engine" loading="lazy" decoding="async"></a><figcaption>Module 1 notes · PDF p.8 — Figure 2 — Python rule engine (expert system): knowledge separated from the inference engine</figcaption></figure><figure><a href="assets/fig/m1-p009.jpg" class="zoom"><img src="assets/fig/m1-p009.jpg" alt="Figure 3 — SymPy: symbolic algebra proves two expressions equal (difference simplifies to 0)" loading="lazy" decoding="async"></a><figcaption>Module 1 notes · PDF p.9 — Figure 3 — SymPy: symbolic algebra proves two expressions equal (difference simplifies to 0)</figcaption></figure></div>
+<p>In all three, <em>intelligence is bounded by the representation</em>: no symbol, fact or rule → no reasoning about it.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Root</th>
+<th>Key figure</th>
+<th>Idea → what it gave AI</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Logic</td>
+<td>—</td>
+<td>Valid reasoning as symbol manipulation → theorem proving, planning, expert systems, logic programming</td>
+</tr>
+<tr>
+<td>Probability &amp; statistical inference</td>
+<td>—</td>
+<td>Reasoning under uncertainty; learning from finite samples (Example 4: diagnosing from symptoms → &quot;80% chance&quot;)</td>
+</tr>
+<tr>
+<td><strong>Cybernetics (1948)</strong></td>
+<td>Norbert Wiener</td>
+<td>Feedback and control in animals and machines → adaptive systems embedded in environments</td>
+</tr>
+<tr>
+<td><strong>Information theory (1948)</strong></td>
+<td>Claude Shannon</td>
+<td>Information is measurable → entropy, cross-entropy, mutual information, compression. <em>Information ≠ meaning</em></td>
+</tr>
+<tr>
+<td><strong>Imitation game (1950)</strong></td>
+<td>Alan Turing</td>
+<td>&quot;Can machines think?&quot; → an <strong>operational</strong> test of observable behaviour</td>
+</tr>
+<tr>
+<td><strong>Dartmouth (1955/56)</strong></td>
+<td>McCarthy, Minsky, Rochester, Shannon</td>
+<td>Named &quot;artificial intelligence&quot;; consolidated symbolic reasoning, search, ML, NLP, vision, robotics, knowledge representation, theorem proving</td>
+</tr>
+<tr>
+<td>Physical symbol systems (1976)</td>
+<td>Newell &amp; Simon</td>
+<td>Symbols central to intelligent action</td>
+</tr>
+</tbody></table></div>
+
+<div class="callout example"><div class="callout-title">Worked example: Example 5 — Predictive policing and self-reinforcing data</div><p>Historical data mark a neighbourhood high-risk → more patrols → more minor incidents recorded → the model &quot;confirms&quot; itself. Four feedback risks:</p>
+<ul>
+<li><strong>Self-reinforcing bias:</strong> historical patterns amplified.</li>
+<li><strong>Selective labels:</strong> outcomes observed only where attention was directed.</li>
+<li><strong>Performative effects:</strong> the prediction creates conditions that make it look accurate.</li>
+<li><strong>Feedback loops:</strong> outputs become future inputs.<br><em>Intelligent systems are not passive observers — they become participants in the system they model.</em></li>
+</ul>
+</div>
+
+<div class="callout example"><div class="callout-title">Worked example: Example 6 — Emotions from faces: information is not meaning</div><p>Pixels can be encoded and processed, but &quot;happy&quot; depends on how emotions were defined, who labelled the images, whether labels reflect feelings, expressions or judgements, and dataset diversity. A smile may mean politeness or nervousness → precise but misleading model.</p>
+</div>
+<p><strong>Turing</strong> made AI evaluation <strong>operational</strong> (can it classify, plan, answer, generate, control, beat a baseline?) — but behavioural success does not settle whether a system <em>understands</em>, whether intelligence needs consciousness, or whether language can be separated from grounding.</p>
+<h3 id="symbolic-vs-statistical-ai-and-hybrids-1-1-4"><a class="anchor" href="#symbolic-vs-statistical-ai-and-hybrids-1-1-4" aria-hidden="true">#</a>Symbolic vs statistical AI, and hybrids (1.1.4)</h3>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th></th>
+<th>Strengths</th>
+<th>Limitations</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Symbolic</strong></td>
+<td>Explicit representations; inspectable reasoning; domain rules; compositional; strong when rules/state space are well specified</td>
+<td>Knowledge acquisition and maintenance; <strong>brittle</strong> under ambiguity; poor with noisy perception; <strong>combinatorial explosion</strong>; hand-encoded representations</td>
+</tr>
+<tr>
+<td><strong>Statistical ML</strong></td>
+<td>Learns from high-dimensional data; tolerates noise; adapts from examples; strong at perception, prediction, generation</td>
+<td>Depends on data quality; limited causal interpretation; opacity; <strong>distribution shift</strong>; no guarantees outside the data regime</td>
+</tr>
+</tbody></table></div>
+<ul>
+<li><strong>Example 7 (self-driving, symbolic only):</strong> thousands of rules; is the pedestrian on the phone crossing? rain-obscured signs; exploding combinations; &quot;safe following distance&quot; hard to encode.</li>
+<li><strong>Example 8 (pneumonia X-rays, statistical only):</strong> mislabeled/under-represented groups; <strong>portable X-ray</strong> as a shortcut (sicker patients get portable scans); opaque 97%; new hospital&#39;s machines → shift; unseen diseases.</li>
+<li><strong>Example 9 (warehouse robot, hybrid):</strong> learned perception + rule-based safety + neural representations with search + LLM with retrieval + prediction with optimization + RL policy with a safety controller + human review of damaged packages.</li>
+</ul>
+
+<div class="callout remember"><div class="callout-title">Remember</div><p>Symbolic vs statistical is <strong>not a permanent binary</strong>; the practical question is which combination of representations and mechanisms fits the task. Feedback makes AI a participant in its environment.</p>
+</div>
+<h2 id="2-four-central-philosophical-questions-1-2"><a class="anchor" href="#2-four-central-philosophical-questions-1-2" aria-hidden="true">#</a>2. Four central philosophical questions (1.2)</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Answer in the notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>What counts as intelligence?</strong></td>
+<td>A spectrum: reason, learn, solve unfamiliar problems, use language, plan, act toward goals, adapt, understand context, interact socially, create. No single definition covers a route planner, an anomaly detector, a surgical robot and an LLM.</td>
+</tr>
+<tr>
+<td><strong>Is prediction the same as understanding?</strong></td>
+<td>No. Prediction: <em>what is likely to happen?</em> Causal reasoning: <em>what would happen if we intervened?</em> (Pearl: needs <strong>structural assumptions</strong> and <strong>mechanistic models</strong>.)</td>
+</tr>
+<tr>
+<td><strong>Can intelligence be separated from embodiment and society?</strong></td>
+<td>No — a deployed system is a <strong>socio-technical composite</strong> (Figure 4): Model + Data infrastructure + Interface + Human workflow + Institutional rules.</td>
+</tr>
+<tr>
+<td><strong>Who is responsible for an AI decision?</strong></td>
+<td>Not the algorithm (no intent or moral agency). People and institutions choose data, objectives, labels, thresholds, review triggers → responsibility across the lifecycle; NIST AI RMF.</td>
+</tr>
+</tbody></table></div>
+
+<div class="callout example"><div class="callout-title">Worked example: Example 10 — Attendance and exam success</div><p>High attendance predicts passing (prediction succeeds), but attendance may proxy motivation, prior knowledge, study habits, family support. &quot;Force everyone to attend every lecture&quot; is an <strong>intervention</strong> question a predictive model can&#39;t answer. <em>Prediction identifies who is likely to succeed; causal reasoning identifies which actions improve success.</em></p>
+</div>
+<p><strong>Example 11:</strong> <em>counterfactual inquiry</em> asks &quot;what if we changed something?&quot; (Drug A instead of B?); <em>structural assumptions</em> state which variables influence others (smoking → lung cancer); <em>mechanistic models</em> explain how (pharmacokinetic, epidemic, climate models).</p>
+<p><strong>Example 12 (recruitment screening):</strong> the same ranking algorithm yields different outcomes depending on data (historical hiring bias), interface (dashboard ranking), workflow (final decision vs support) and institutional rules (law, fairness policy).</p>
+
+<div class="callout def"><div class="callout-title">Definition: NIST AI Risk Management Framework (AI RMF 1.0)</div><ul>
+<li><strong>Govern</strong> — culture, accountability structures and policies to manage AI risk.</li>
+<li><strong>Map</strong> — identify and contextualize risks of the system and its environment.</li>
+<li><strong>Measure</strong> — assess and track risks with quantitative and qualitative metrics.</li>
+<li><strong>Manage</strong> — prioritize and act: mitigate, transfer or accept.</li>
+</ul>
+<p>Trustworthiness: <strong>valid &amp; reliable; safe; secure &amp; resilient; accountable &amp; transparent; explainable &amp; interpretable; privacy-enhanced; fair with harmful bias managed.</strong></p>
+</div>
+<p><strong>Example 13 (loan approval):</strong> the &quot;AI denied the loan&quot; is really a chain — who chose training data, defined success, selected features, set thresholds, designed review, approved deployment, monitored it. Ask <em>who</em>, not just <em>why did the algorithm</em>.</p>
+
+<div class="callout remember"><div class="callout-title">Remember</div><p>Prediction ≠ understanding; a deployed AI is a socio-technical system; responsibility is human and spans the lifecycle (Govern–Map–Measure–Manage).</p>
+</div>
+<h2 id="3-defining-ai-1-3"><a class="anchor" href="#3-defining-ai-1-3" aria-hidden="true">#</a>3. Defining AI (1.3)</h2>
+
+<div class="callout def"><div class="callout-title">Definition: Artificial intelligence (notes&#39; definition — Quiz 1 Q1a)</div><p><em>The scientific and engineering discipline concerned with constructing computational systems that perceive or receive information, form useful representations, reason or learn from evidence, and select actions or outputs in pursuit of specified objectives under uncertainty and constraints.</em><br><strong>OECD (2023):</strong> a machine-based system that, for explicit or implicit objectives, <strong>infers</strong> from input how to generate outputs (predictions, content, recommendations, decisions) that can influence physical or virtual environments; systems vary in <strong>autonomy and adaptiveness</strong>.</p>
+</div>
+<p><strong>Science</strong> asks what intelligence is, how knowledge is represented, how to infer, learn and decide under uncertainty, what computation is required. <strong>Engineering</strong> builds useful systems (recognize, predict, allocate, recommend, detect, generate, plan, control, assist). A useful system need not think like a human (a weather model needn&#39;t think like a meteorologist).</p>
+<h3 id="four-classical-views-russell-amp-norvig-1-3-2"><a class="anchor" href="#four-classical-views-russell-amp-norvig-1-3-2" aria-hidden="true">#</a>Four classical views (Russell &amp; Norvig, 1.3.2)</h3>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th></th>
+<th>Human-like</th>
+<th>Rational</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Thinking</strong></td>
+<td><strong>Think like humans</strong> — reproduce cognitive processes (cognitive psychology, neuroscience, linguistics, philosophy of mind, computational modelling)</td>
+<td><strong>Think rationally</strong> — formal logic, theorem proving, expert systems; limited because environments are rarely complete/deterministic</td>
+</tr>
+<tr>
+<td><strong>Acting</strong></td>
+<td><strong>Act like humans</strong> — behavioural, the Turing test</td>
+<td><strong>Act rationally</strong> — a rational agent selects actions expected to advance its objectives given its information and constraints; <em>rational ≠ perfect</em></td>
+</tr>
+</tbody></table></div>
+<h3 id="autonomy-and-agency-1-3-3"><a class="anchor" href="#autonomy-and-agency-1-3-3" aria-hidden="true">#</a>Autonomy and agency (1.3.3)</h3>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Meaning</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Passive analytical</td>
+<td>Produces insights/probabilities; cannot act</td>
+<td>Sales dashboard; disease-probability model (Ex. 14)</td>
+</tr>
+<tr>
+<td>Decision support</td>
+<td>Proposes; humans decide</td>
+<td>Specialist-referral recommendation; loan ranking (Ex. 15)</td>
+</tr>
+<tr>
+<td>Semi-autonomous</td>
+<td>Acts in routine low-risk cases, escalates the rest</td>
+<td>Fraud system blocks clear fraud, routes borderline cases (Ex. 16)</td>
+</tr>
+<tr>
+<td>Autonomous</td>
+<td>Perceives, decides, acts with little human input</td>
+<td>Manufacturing robots, warehouse sorting, high-frequency trading (Ex. 17)</td>
+</tr>
+</tbody></table></div>
+<p><em>Autonomy ≠ intelligence:</em> a thermostat is autonomous but not intelligent; an LLM is linguistically capable but has no agency.</p>
+<h2 id="4-the-ai-and-data-science-ecosystem-1-4-table-1"><a class="anchor" href="#4-the-ai-and-data-science-ecosystem-1-4-table-1" aria-hidden="true">#</a>4. The AI and data-science ecosystem (1.4, Table 1)</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Central question</th>
+<th>Relation to AI</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>AI</strong></td>
+<td>How can machines perceive, reason, learn, plan, use language, decide, act adaptively?</td>
+<td>Umbrella</td>
+</tr>
+<tr>
+<td><strong>Machine learning</strong></td>
+<td>How can a system improve a task by learning patterns/parameters from data or experience?</td>
+<td>Major approach within AI</td>
+</tr>
+<tr>
+<td><strong>Data science</strong></td>
+<td>How can data be acquired, prepared, analysed, modelled, interpreted, communicated?</td>
+<td>Broader lifecycle; may not use AI</td>
+</tr>
+<tr>
+<td><strong>Statistics</strong></td>
+<td>What can be inferred about a population from uncertain, incomplete observations?</td>
+<td>Inferential foundation</td>
+</tr>
+<tr>
+<td><strong>Analytics</strong></td>
+<td>What happened, why, what may happen, what to do?</td>
+<td>Decision-oriented use of data</td>
+</tr>
+<tr>
+<td><strong>Optimization</strong></td>
+<td>Which feasible choice minimizes/maximizes an objective?</td>
+<td>Used in training, planning, allocation, control</td>
+</tr>
+<tr>
+<td><strong>Automation</strong></td>
+<td>How to execute a predefined process with little human intervention?</td>
+<td>May contain <strong>no learning or intelligence</strong></td>
+</tr>
+<tr>
+<td><strong>Generative AI</strong></td>
+<td>How to produce new content conditioned on data/prompts?</td>
+<td>A family of capabilities, not all of AI</td>
+</tr>
+<tr>
+<td><strong>Data engineering</strong></td>
+<td>How to collect, validate, transform, govern, deliver and monitor data reliably at scale?</td>
+<td>Infrastructure data-driven AI depends on</td>
+</tr>
+</tbody></table></div>
+<p>Seven clarifications (1.4.1–1.4.7):</p>
+<ol>
+<li><strong>AI ≠ ML</strong> — AI also includes search, planning, logic, constraint satisfaction, expert systems, control (Quiz 1 Q2a: shortest-path search).</li>
+<li><strong>ML ≠ deep learning</strong> — DL is one family of ML (neural networks with many layers); trees, linear models, kernels are ML too.</li>
+<li><strong>Data science ≠ &quot;training a model&quot;</strong> — framing, collection, cleaning, EDA, communication, decisions.</li>
+<li><strong>Statistics and ML overlap but differ in emphasis</strong> — inference/explanation/uncertainty vs prediction (Ex. 18: evaluating a public-health intervention needs statistical inference; Ex. 19: image analysis is prediction).</li>
+<li><strong>Optimization does not choose the right objective</strong> — empirical risk <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>R</mi><mo>^</mo></mover><mo stretchy="false">(</mo><mi>θ</mi><mo stretchy="false">)</mo><mo>=</mo><mfrac><mn>1</mn><mi>n</mi></mfrac><msub><mo>∑</mo><mi>i</mi></msub><mi>L</mi><mo stretchy="false">(</mo><msub><mi>f</mi><mi>θ</mi></msub><mo stretchy="false">(</mo><msub><mi>x</mi><mi>i</mi></msub><mo stretchy="false">)</mo><mo separator="true">,</mo><msub><mi>y</mi><mi>i</mi></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\hat R(\theta)=\tfrac1n\sum_i L(f_\theta(x_i),y_i)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1968em;vertical-align:-0.25em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9468em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span><span style="top:-3.2523em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.1667em;"><span class="mord">^</span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.1901em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:0em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.162em;"><span style="top:-2.4003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2997em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">L</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.1076em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">θ</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> is minimized for the <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span> you chose. <em>Optimization solves the objective specified; it does not validate it.</em> (Ex. 20: cost-as-need bias.)</li>
+<li><strong>Automation may be deterministic</strong> — rules executed automatically aren&#39;t AI (Ex. 21: fraud — fixed rules vs learned scores).</li>
+<li><strong>Generative AI is one region</strong> — NIST GenAI risks: <strong>confabulation</strong>, harmful content, information integrity (deepfakes), IP and privacy, misuse (Ex. 22: fabricated legal citations).</li>
+</ol>
+
+<div class="callout remember"><div class="callout-title">Remember</div><p>AI ⊃ ML ⊃ DL; data science, statistics, analytics, optimization, automation and data engineering overlap with AI but are not the same. Optimization is ethically and epistemically blind — it cannot tell whether the target, sample, loss or decision is right.</p>
+</div>
+<h2 id="source-material"><a class="anchor" href="#source-material" aria-hidden="true">#</a>Source material</h2>
+<p>The original documents behind these notes. Pick a tab to read it here, page by page, or open it in a new tab.</p>
+<div class="src-viewer" data-sources='[{"url":"pdfs/notes/Module-1-Notes.pdf","title":"Module 1 notes (PDF)"},{"url":"pdfs/quizzes/Quiz-1-Prep-Guide.pdf","title":"Your Quiz 1 prep guide"}]'></div>
+
+  <nav class="pagenav">
+    <a class="pv" href="start-here.html">← Previous<b>Start here (how to use)</b></a>
+    <a class="nx" href="m1b-notes.html">Next →<b>M1 · Notes B — pipeline, framing, failures</b></a>
+  </nav>
+  <div class="foot">AI 500 · Fall 2026 · study notes</div>
+</main>
+</div>
+<div class="lightbox" id="lightbox" hidden><img alt=""><button class="iconbtn lb-close" aria-label="Close">✕</button></div>
+<script src="assets/site.js" defer></script>
+</body></html>
