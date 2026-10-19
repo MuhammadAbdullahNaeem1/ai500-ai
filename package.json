@@ -1,0 +1,6 @@
+{
+  "name": "ai500-ai",
+  "private": true,
+  "scripts": { "build": "node build.js" },
+  "dependencies": { "katex": "0.16.11", "marked": "12.0.2" }
+}
