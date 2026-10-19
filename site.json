@@ -3,31 +3,157 @@
   "title": "Foundations of AI",
   "subtitle": "Foundations of AI · Fall 2026",
   "nav": [
-    {"id": "index", "title": "Home", "file": "index.md"},
-    {"id": "start-here", "title": "Start here (how to use)", "file": "start-here.md"},
-    {"section": "Modules"},
-    {"id": "m1", "title": "M1 · AI Landscape & Problem Framing", "children": [
-      {"id": "m1a-notes", "title": "Notes A — roots, philosophy, landscape", "file": "modules/m1a.md"},
-      {"id": "m1b-notes", "title": "Notes B — pipeline, framing, failures", "file": "modules/m1b.md"},
-      {"id": "m1-answers", "title": "Answers Q1–100", "file": "practice/m1-answers.md"},
-      {"id": "m1-cases", "title": "Answers S, R, A", "file": "practice/m1-cases.md"}]},
-    {"id": "m2", "title": "M2 · Data Collection, Cleaning, Governance & Ethics", "children": [
-      {"id": "m2a-notes", "title": "Notes A — constructed data, sources, quality", "file": "modules/m2a.md"},
-      {"id": "m2b-notes", "title": "Notes B — curation, cleaning, leakage", "file": "modules/m2b.md"},
-      {"id": "m2c-notes", "title": "Notes C — documentation, governance, cases", "file": "modules/m2c.md"},
-      {"id": "m2-answers-1", "title": "Answers Q1–50", "file": "practice/m2-answers-1.md"},
-      {"id": "m2-answers-2", "title": "Answers Q51–100", "file": "practice/m2-answers-2.md"},
-      {"id": "m2-scenarios", "title": "Scenarios S1–S5", "file": "practice/m2-scenarios.md"},
-      {"id": "m2-reflections", "title": "Reflections R1–R5", "file": "practice/m2-reflections.md"}]},
-    {"section": "Quiz 2 (24 Oct)"},
-    {"id": "quiz2-guide", "title": "Quiz 2 guide", "file": "quizzes/quiz2-guide.md"},
-    {"id": "quiz2-mock-a", "title": "★ Mock Quiz 2A", "file": "quizzes/quiz2-mock-a.md"},
-    {"id": "quiz2-mock-b", "title": "Mock Quiz 2B", "file": "quizzes/quiz2-mock-b.md"},
-    {"id": "quiz2-mock-c", "title": "Mock Quiz 2C", "file": "quizzes/quiz2-mock-c.md"},
-    {"section": "Archive"},
-    {"id": "quiz1-solved", "title": "Real Quiz 1 (solved)", "file": "quizzes/quiz1-solved.md"},
-    {"id": "assignments", "title": "Assignments & computational training", "file": "assignments.md"},
-    {"id": "a2-missedcare", "title": "A2 Part A — MissedCare (your answers)", "file": "practice/a2-missedcare.md"},
-    {"id": "resources", "title": "PDFs, assignments & past material", "file": "resources.md"}
+    {
+      "id": "index",
+      "title": "Home",
+      "file": "index.md"
+    },
+    {
+      "id": "start-here",
+      "title": "Start here (how to use)",
+      "file": "start-here.md"
+    },
+    {
+      "section": "Modules"
+    },
+    {
+      "id": "m1",
+      "title": "M1 · AI Landscape & Problem Framing",
+      "children": [
+        {
+          "id": "m1a-notes",
+          "title": "Notes A — roots, philosophy, landscape",
+          "file": "modules/m1a.md"
+        },
+        {
+          "id": "m1b-notes",
+          "title": "Notes B — pipeline, framing, failures",
+          "file": "modules/m1b.md"
+        },
+        {
+          "id": "m1-answers",
+          "title": "Answers Q1–100",
+          "file": "practice/m1-answers.md"
+        },
+        {
+          "id": "m1-cases",
+          "title": "Answers S, R, A",
+          "file": "practice/m1-cases.md"
+        }
+      ]
+    },
+    {
+      "id": "m2",
+      "title": "M2 · Data Collection, Cleaning, Governance & Ethics",
+      "children": [
+        {
+          "id": "m2a-notes",
+          "title": "Notes A — constructed data, sources, quality",
+          "file": "modules/m2a.md"
+        },
+        {
+          "id": "m2b-notes",
+          "title": "Notes B — curation, cleaning, leakage",
+          "file": "modules/m2b.md"
+        },
+        {
+          "id": "m2c-notes",
+          "title": "Notes C — documentation, governance, cases",
+          "file": "modules/m2c.md"
+        },
+        {
+          "id": "m2-answers-1",
+          "title": "Answers Q1–50",
+          "file": "practice/m2-answers-1.md"
+        },
+        {
+          "id": "m2-answers-2",
+          "title": "Answers Q51–100",
+          "file": "practice/m2-answers-2.md"
+        },
+        {
+          "id": "m2-scenarios",
+          "title": "Scenarios S1–S5",
+          "file": "practice/m2-scenarios.md"
+        },
+        {
+          "id": "m2-reflections",
+          "title": "Reflections R1–R5",
+          "file": "practice/m2-reflections.md"
+        }
+      ]
+    },
+    {
+      "section": "Quiz 2 (24 Oct)"
+    },
+    {
+      "id": "quiz2-guide",
+      "title": "Quiz 2 guide",
+      "file": "quizzes/quiz2-guide.md"
+    },
+    {
+      "id": "quiz2-mock-a",
+      "title": "★ Mock Quiz 2A",
+      "file": "quizzes/quiz2-mock-a.md"
+    },
+    {
+      "id": "quiz2-mock-b",
+      "title": "Mock Quiz 2B",
+      "file": "quizzes/quiz2-mock-b.md"
+    },
+    {
+      "id": "quiz2-mock-c",
+      "title": "Mock Quiz 2C",
+      "file": "quizzes/quiz2-mock-c.md"
+    },
+    {
+      "section": "Archive"
+    },
+    {
+      "id": "quiz1-solved",
+      "title": "Real Quiz 1 (solved)",
+      "file": "quizzes/quiz1-solved.md"
+    },
+    {
+      "id": "assignments",
+      "title": "Assignments & computational training",
+      "file": "assignments.md"
+    },
+    {
+      "id": "a2-missedcare",
+      "title": "A2 Part A — MissedCare (your answers)",
+      "file": "practice/a2-missedcare.md"
+    },
+    {
+      "id": "pdfs",
+      "title": "PDFs & past material",
+      "children": [
+        {
+          "id": "resources",
+          "title": "2026 course PDFs",
+          "file": "resources.md"
+        },
+        {
+          "id": "past-papers",
+          "title": "Past exams & quizzes",
+          "file": "archive/past-papers.md"
+        },
+        {
+          "id": "past-lectures",
+          "title": "Past lectures",
+          "file": "archive/past-lectures.md"
+        },
+        {
+          "id": "past-practice",
+          "title": "Problem sets & solutions",
+          "file": "archive/past-practice.md"
+        },
+        {
+          "id": "past-tutorials",
+          "title": "Tutorials & demo code",
+          "file": "archive/past-tutorials.md"
+        }
+      ]
+    }
   ]
 }
