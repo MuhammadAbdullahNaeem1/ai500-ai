@@ -1,0 +1,50 @@
+column,type,description,teaching_use
+encounter_id,string,Encounter-level identifier; intentional exact duplicates exist.,Entity resolution; duplicate checks
+patient_id,string,Synthetic patient identifier; patients can have repeated encounters.,Grouped splitting; unit of analysis
+hospital_id,category,Hospital H01-H08.,Subgroup analysis; site holdout
+region,category,Broad hospital region.,Representativeness
+region_type,category,Urban or Rural.,Subgroup missingness and performance
+admission_timestamp,datetime,Admission event time.,Temporal EDA; time splitting
+prediction_timestamp,datetime,"Nominal prediction time, one hour after admission.",Leakage auditing
+vitals_recorded_timestamp,datetime,Local recording time for vital signs.,Timeliness
+data_arrival_timestamp,datetime,Time vital-sign record reaches central pipeline.,Latency
+lab_result_available_timestamp,datetime,Time laboratory results become available.,Temporal leakage; availability
+admission_year,integer,Calendar year derived from admission timestamp.,Temporal shift
+admission_month,integer,Month 1-12.,Cyclical encoding
+admission_weekday,category,Day of week.,Categorical/cyclical features
+admission_hour,integer,Hour 0-23.,Cyclical encoding
+age_years,integer,Age at encounter.,Distributions; subgroup analysis
+sex_raw,category,Intentionally inconsistent raw coding: Male/M/male etc.,Cleaning; harmonization
+preferred_language,category,Synthetic preferred language; some missingness.,Bias; missingness; subgroup analysis
+socioeconomic_quintile,ordinal,"1=lowest, 5=highest.",Ordinal encoding; representativeness
+insurance_type,category,"Public, Private, Employer, Self-pay.",Categorical EDA
+smoking_status_raw,category,Intentionally inconsistent raw smoking status.,Cleaning; category harmonization
+admission_type,category,"Emergency, Urgent, Elective.",EDA; prediction
+trial_arm,category,Randomized monitoring arm among eligible encounters at H02/H05 after 2024.,Hypothesis testing; causal caution
+diabetes,binary,Synthetic comorbidity indicator.,Feature engineering
+hypertension,binary,Synthetic comorbidity indicator.,Feature engineering
+chronic_kidney_disease,binary,Synthetic comorbidity indicator.,Feature engineering
+copd,binary,Synthetic comorbidity indicator.,Feature engineering
+height_cm,numeric,Height in centimeters.,BMI feature construction
+weight_value,numeric,Weight value whose unit is stored separately; some unit-label corruption exists.,Unit validation; feature engineering
+weight_unit,category,kg or lb; small intentional unit-label error rate.,Unit conversion
+bp_device_model,category,Hospital-associated BP device model.,Measurement bias
+heart_rate_bpm,numeric,Heart rate; rare impossible/extreme values intentionally injected.,Anomaly detection
+respiratory_rate_bpm,numeric,Respiratory rate.,EDA; scaling
+temperature_c,numeric,Body temperature; rare impossible/extreme values injected.,Anomaly detection
+oxygen_saturation_pct,numeric,Oxygen saturation percent.,EDA; scaling
+systolic_bp_mmHg,numeric,Systolic BP with site/device measurement bias.,Measurement bias; subgroup EDA
+creatinine_mg_dl,numeric,Creatinine; missingness depends partly on hospital type.,Missingness; imputation
+sodium_mmol_l,numeric,Serum sodium.,Missingness; scaling
+wbc_10e9_l,numeric,White blood cell count; H08 has analyzer shift after 2025.,Temporal/device shift
+glucose_mg_dl,numeric,Glucose with right-skew and diabetes dependence.,Transformation
+lactate_mmol_l,numeric,Lactate selectively ordered by acuity; high informative missingness.,MNAR/MAR discussion; imputation
+previous_admissions_12m,integer,Number of prior admissions in previous 12 months.,Count feature
+days_since_prior_discharge,numeric,Missing by design for patients with no prior admission.,Structural missingness
+healthcare_cost_usd,numeric,Cost influenced by hospital/access as well as severity; intentionally imperfect proxy.,Construct validity
+length_of_stay_days,numeric,Post-encounter outcome; not available at admission.,Leakage demonstration
+rapid_response_called_next_12h,binary,Future event correlated with deterioration; intentionally leaked predictor.,Target/temporal leakage
+icu_transfer_within_12h,binary,Future event correlated with deterioration; intentionally leaked predictor.,Target/temporal leakage
+discharge_disposition,category,Post-discharge outcome; future information.,Leakage demonstration
+deterioration_within_12h,binary,Primary recorded target with small site-dependent label noise.,Class imbalance; classification
+readmission_within_30d,binary,Secondary outcome.,Alternative target; statistical analysis
