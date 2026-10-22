@@ -129,7 +129,7 @@ No — it is a **proxy** shaped by an **institutional process**: admission requi
 
 :::question 3(c) [4 points] Evaluate the plan to delete records with missing height. What missingness mechanism is plausible and what is the consequence?
 :::solution Solution & marking
-Height is missing where units **lack measuring boards — remote units** → missingness depends on location/remoteness (**MAR** given unit; effectively systematic), and remote children likely have **higher malnutrition risk** (possibly MNAR-like with respect to outcome). Deleting them removes the **most vulnerable population**, biasing the model towards urban children and making it least accurate where risk is highest (representativeness failure). Better: keep records with a `height_missing` indicator, use weight-for-age/MUAC, impute with training-only models, and **fix data collection** (provide boards).
+Height is missing where units **lack measuring boards — remote units** → missingness depends on the health unit, an **observed** variable, not on the child's height itself → **MAR given unit** (not MCAR, and not MNAR). The danger is that remote children are also likely to have **higher malnutrition risk**, so the missing rows are not a random slice of the population. Deleting them removes the **most vulnerable population**, biasing the model towards urban children and making it least accurate where risk is highest (representativeness failure). Better: keep records with a `height_missing` indicator, use weight-for-age/MUAC, impute with training-only models, and **fix data collection** (provide boards).
 
 | Rubric | |
 |---|---|
