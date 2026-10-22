@@ -1,0 +1,703 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>M2 · Data Collection, Cleaning, Governance & Ethics — ★ Notes-exact definitions · AI 500</title>
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#fbfbfa" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#16161a" media="(prefers-color-scheme: dark)">
+<script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<header class="topbar">
+  <button class="iconbtn" id="menuBtn" aria-label="Open contents" aria-expanded="false"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+  <a class="topbrand" href="index.html">AI 500<span>M2 · Data Collection, Cleaning, Governance & Ethics</span></a>
+  <button class="iconbtn themebtn" aria-label="Toggle dark mode"><svg class="i-moon" viewBox="0 0 24 24" width="19" height="19"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg><svg class="i-sun" viewBox="0 0 24 24" width="19" height="19"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg></button>
+</header>
+<div class="scrim" id="scrim"></div>
+<div class="wrap">
+<aside class="side" id="side">
+  <div class="side-head">
+    <a class="brand" href="index.html">AI 500 — Foundations of AI<span>Foundations of AI · Fall 2026</span></a>
+    <button class="iconbtn themebtn" aria-label="Toggle dark mode"><svg class="i-moon" viewBox="0 0 24 24" width="17" height="17"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg><svg class="i-sun" viewBox="0 0 24 24" width="17" height="17"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg></button>
+  </div>
+  <nav><a href="index.html">Home</a>
+<a href="start-here.html">Start here (how to use)</a>
+<div class="nav-section">Modules</div>
+<details class="grp"><summary>M1 · AI Landscape & Problem Framing</summary><a href="m1a-notes.html">Notes A — roots, philosophy, landscape</a><a href="m1b-notes.html">Notes B — pipeline, framing, failures</a><a href="m1-answers.html">Answers Q1–100</a><a href="m1-cases.html">Answers S, R, A</a></details>
+<details class="grp" open><summary>M2 · Data Collection, Cleaning, Governance & Ethics</summary><a href="m2a-notes.html">Notes A — constructed data, sources, quality</a><a href="m2b-notes.html">Notes B — curation, cleaning, leakage</a><a href="m2c-notes.html">Notes C — documentation, governance, cases</a><a href="m2-definitions.html" class="on" aria-current="page">★ Notes-exact definitions</a><a href="m2-answers-1.html">Answers Q1–50</a><a href="m2-answers-2.html">Answers Q51–100</a><a href="m2-scenarios.html">Scenarios S1–S5</a><a href="m2-reflections.html">Reflections R1–R5</a></details>
+<div class="nav-section">Quiz 2 (24 Oct)</div>
+<a href="quiz2-guide.html">Quiz 2 guide</a>
+<a href="quiz2-mock-a.html">★ Mock Quiz 2A</a>
+<a href="quiz2-mock-b.html">Mock Quiz 2B</a>
+<a href="quiz2-mock-c.html">Mock Quiz 2C</a>
+<div class="nav-section">Archive</div>
+<a href="quiz1-solved.html">Real Quiz 1 (solved)</a>
+<a href="assignments.html">Assignments & computational training</a>
+<a href="a2-missedcare.html">A2 Part A — MissedCare (your answers)</a>
+<details class="grp"><summary>PDFs & past material</summary><a href="resources.html">2026 course PDFs</a><a href="past-papers.html">Past exams & quizzes</a><a href="past-lectures.html">Past lectures</a><a href="past-practice.html">Problem sets & solutions</a><a href="past-tutorials.html">Tutorials & demo code</a></details></nav>
+  <div class="toc"><div class="toc-title">On this page</div><a href="#2-1-data-as-a-constructed-record-of-reality" class="">2.1 Data as a constructed record of reality</a><a href="#2-2-data-sources-and-their-inherent-realities" class="">2.2 Data sources and their inherent realities</a><a href="#2-3-data-quality" class="">2.3 Data quality</a><a href="#2-4-data-profiling-and-curation" class="">2.4 Data profiling and curation</a><a href="#2-5-data-cleaning" class="">2.5 Data cleaning</a><a href="#2-6-data-leakage" class="">2.6 Data leakage</a><a href="#2-7-data-documentation" class="">2.7 Data documentation</a><a href="#2-8-governance-and-ethics" class="">2.8 Governance and ethics</a><a href="#2-9-2-11-misleading-datasets-and-case-studies" class="">2.9–2.11 Misleading datasets and case studies</a></div>
+</aside>
+<main>
+  <div class="crumb">M2 · Data Collection, Cleaning, Governance & Ethics</div>
+  
+  <h1>M2 · Notes-exact definitions</h1>
+<p>Every key definition in Module 2 <strong>in the exact words of the notes</strong> (checked word-for-word against the notes PDF). Sir prioritizes the notes&#39; wording — when a question says <em>define</em>, write the sentence below first, then add the mechanism and an example from the notes.</p>
+<div class="pdf-links">
+<a href="quiz2-guide.html">Quiz 2 guide</a>
+<a href="m2a-notes.html">Notes A</a>
+<a href="m2b-notes.html">Notes B</a>
+<a href="m2c-notes.html">Notes C</a>
+<a href="pdfs/notes/Module-2-Notes.pdf">Module 2 notes (PDF)</a>
+</div>
+
+<h2 id="2-1-data-as-a-constructed-record-of-reality"><a class="anchor" href="#2-1-data-as-a-constructed-record-of-reality" aria-hidden="true">#</a>2.1 Data as a constructed record of reality</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Notes wording</th>
+<th>§</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Raw data</strong></td>
+<td>The phrase raw data is a dangerous oxymoron.</td>
+<td>2.1</td>
+</tr>
+<tr>
+<td><strong>Data are produced, not found</strong></td>
+<td>Every dataset is actively produced through a long chain of subjective, technical, and systemic choices.</td>
+<td>2.1.1</td>
+</tr>
+<tr>
+<td><strong>Datasheet (purpose)</strong></td>
+<td>A datasheet rigorously documents a dataset’s underlying motivation, composition, collection mechanics, preprocessing steps, intended uses, distribution, and maintenance …</td>
+<td>2.1.1</td>
+</tr>
+<tr>
+<td><strong>Fitness for purpose</strong></td>
+<td>There is no such thing as a universally good or high-quality dataset in a vacuum. A dataset is only good for a specific purpose under specific conditions.</td>
+<td>2.1.2</td>
+</tr>
+<tr>
+<td><strong>Data as a map</strong></td>
+<td>Data is not a flawless mirror reflecting reality; it is a constructed map.</td>
+<td>2.1.2</td>
+</tr>
+<tr>
+<td><strong>Wrong target</strong></td>
+<td>Accurate prediction of the wrong target is failure.</td>
+<td>2.11.2</td>
+</tr>
+</tbody></table></div>
+<h2 id="2-2-data-sources-and-their-inherent-realities"><a class="anchor" href="#2-2-data-sources-and-their-inherent-realities" aria-hidden="true">#</a>2.2 Data sources and their inherent realities</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Notes wording</th>
+<th>§</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Surveys</strong></td>
+<td>Surveys collect information by prompting respondents with structured or semi-structured questions …</td>
+<td>2.2.1</td>
+</tr>
+<tr>
+<td><strong>Coverage error</strong></td>
+<td>The sampling frame misses parts of the target population.</td>
+<td>2.2.1</td>
+</tr>
+<tr>
+<td><strong>Sampling error</strong></td>
+<td>The selected sample differs from the population purely by chance.</td>
+<td>2.2.1</td>
+</tr>
+<tr>
+<td><strong>Nonresponse bias</strong></td>
+<td>Respondents differ systematically from those who refuse to participate.</td>
+<td>2.2.1</td>
+</tr>
+<tr>
+<td><strong>Recall bias</strong></td>
+<td>Inaccurate memory of past events.</td>
+<td>2.2.1</td>
+</tr>
+<tr>
+<td><strong>Social-desirability bias</strong></td>
+<td>Respondents provide answers they believe are socially acceptable rather than truthful.</td>
+<td>2.2.1</td>
+</tr>
+<tr>
+<td><strong>Instrument effects</strong></td>
+<td>Responses shift based on question wording, sequencing, or cultural/linguistic translation.</td>
+<td>2.2.1</td>
+</tr>
+<tr>
+<td><strong>Survey AI implication</strong></td>
+<td>A model trained on survey data may learn response behavior rather than the intended construct …</td>
+<td>2.2.1</td>
+</tr>
+<tr>
+<td><strong>Sensors</strong></td>
+<td>Sensors convert physical phenomena into recorded digital signals …</td>
+<td>2.2.2</td>
+</tr>
+<tr>
+<td><strong>Sensor takeaway</strong></td>
+<td>Sensor data may appear highly objective, but the physical instrument and the acquisition process fundamentally shape what is observed.</td>
+<td>2.2.2</td>
+</tr>
+<tr>
+<td><strong>Platform as measurement</strong></td>
+<td>Observed web behavior is not a direct measure of stable human preference. It is a reaction within an engineered environment, defined by a combination of user, interface, ranking algorithm, moderation, and platform incentives.</td>
+<td>2.2.3</td>
+</tr>
+<tr>
+<td><strong>Logs</strong></td>
+<td>Logs are automated records produced by software systems, applications, networks, and devices …</td>
+<td>2.2.4</td>
+</tr>
+<tr>
+<td><strong>Log limitation</strong></td>
+<td>A logged event only proves that software recorded something – not necessarily that the real-world event happened exactly as interpreted.</td>
+<td>2.2.4</td>
+</tr>
+<tr>
+<td><strong>Event time</strong></td>
+<td>When the real-world action actually occurred.</td>
+<td>2.2.4</td>
+</tr>
+<tr>
+<td><strong>Recording time</strong></td>
+<td>When the local system logged it.</td>
+<td>2.2.4</td>
+</tr>
+<tr>
+<td><strong>Arrival time</strong></td>
+<td>When it reached the central data pipeline.</td>
+<td>2.2.4</td>
+</tr>
+<tr>
+<td><strong>Processing time</strong></td>
+<td>When the pipeline actually handled it.</td>
+<td>2.2.4</td>
+</tr>
+<tr>
+<td><strong>Administrative records</strong></td>
+<td>Administrative records are generated to support organizational operations, not scientific research …</td>
+<td>2.2.5</td>
+</tr>
+<tr>
+<td><strong>Administrative data</strong></td>
+<td>Administrative data encodes institutional behavior not objective reality.</td>
+<td>2.2.5</td>
+</tr>
+<tr>
+<td><strong>Administrative formulation</strong></td>
+<td>Observed outcome is a function of Underlying Condition, Access, Policy, and Institutional Practice.</td>
+<td>2.2.5</td>
+</tr>
+<tr>
+<td><strong>Controlled experiments</strong></td>
+<td>Controlled experiments deliberately assign or manipulate conditions to estimate causal effects.</td>
+<td>2.2.6</td>
+</tr>
+<tr>
+<td><strong>Experiments takeaway</strong></td>
+<td>Experimental data is not automatically unbiased.</td>
+<td>2.2.6</td>
+</tr>
+<tr>
+<td><strong>Attrition</strong></td>
+<td>Attrition is the loss of participants from a research study before it is completed …</td>
+<td>2.2.6 fn</td>
+</tr>
+<tr>
+<td><strong>Public datasets</strong></td>
+<td>Public datasets are released for research, education, benchmarking, or policy use …</td>
+<td>2.2.7</td>
+</tr>
+<tr>
+<td><strong>Provenance (footnote)</strong></td>
+<td>Provenance refers to the documented origin, history, and chain of custody of a dataset …</td>
+<td>2.2.7 fn</td>
+</tr>
+<tr>
+<td><strong>Synthetic data</strong></td>
+<td>Synthetic data consists of artificially generated observations designed to mimic the statistical properties of real data.</td>
+<td>2.2.8</td>
+</tr>
+<tr>
+<td><strong>Fidelity</strong></td>
+<td>Does it preserve relevant distributions and relationships?</td>
+<td>2.2.8</td>
+</tr>
+<tr>
+<td><strong>Utility</strong></td>
+<td>Does it actually support the intended analysis or model training?</td>
+<td>2.2.8</td>
+</tr>
+<tr>
+<td><strong>Privacy (synthetic)</strong></td>
+<td>Can original individuals be inferred or reconstructed?</td>
+<td>2.2.8</td>
+</tr>
+<tr>
+<td><strong>Fairness (synthetic)</strong></td>
+<td>Are subgroup properties preserved appropriately without amplifying bias?</td>
+<td>2.2.8</td>
+</tr>
+<tr>
+<td><strong>Coverage</strong></td>
+<td>Are rare but critical edge cases represented?</td>
+<td>2.2.8</td>
+</tr>
+<tr>
+<td><strong>Realism</strong></td>
+<td>Do the generated combinations obey real-world domain constraints?</td>
+<td>2.2.8</td>
+</tr>
+</tbody></table></div>
+<h2 id="2-3-data-quality"><a class="anchor" href="#2-3-data-quality" aria-hidden="true">#</a>2.3 Data quality</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Notes wording</th>
+<th>§</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Completeness</strong></td>
+<td>Completeness measures whether all required data is actually present.</td>
+<td>2.3.1</td>
+</tr>
+<tr>
+<td><strong>Accuracy</strong></td>
+<td>Accuracy measures how closely recorded values correspond to the true or accepted reference values.</td>
+<td>2.3.2</td>
+</tr>
+<tr>
+<td><strong>Accuracy caution</strong></td>
+<td>Agreement within a database does not, by itself, establish correctness.</td>
+<td>2.3.2</td>
+</tr>
+<tr>
+<td><strong>Consistency</strong></td>
+<td>Consistency asks whether data values agree logically across formats, records, systems, and established rules.</td>
+<td>2.3.3</td>
+</tr>
+<tr>
+<td><strong>Timeliness</strong></td>
+<td>Timeliness concerns whether data is sufficiently current and available exactly when it is needed for a decision.</td>
+<td>2.3.4</td>
+</tr>
+<tr>
+<td><strong>Freshness</strong></td>
+<td>How old the underlying information actually is.</td>
+<td>2.3.4</td>
+</tr>
+<tr>
+<td><strong>Latency</strong></td>
+<td>The delay between the real-world event occurring and the data becoming available in the system.</td>
+<td>2.3.4</td>
+</tr>
+<tr>
+<td><strong>Update frequency</strong></td>
+<td>How often the values are refreshed.</td>
+<td>2.3.4</td>
+</tr>
+<tr>
+<td><strong>Validity period</strong></td>
+<td>How long a specific data point remains operationally relevant.</td>
+<td>2.3.4</td>
+</tr>
+<tr>
+<td><strong>Representativeness</strong></td>
+<td>Representativeness asks whether the data adequately reflects the intended target population and the actual operating conditions of deployment.</td>
+<td>2.3.5</td>
+</tr>
+<tr>
+<td><strong>Measurement error</strong></td>
+<td>Measurement error is the fundamental difference between an observed value and the true underlying construct or quantity it is intended to measure.</td>
+<td>2.3.6</td>
+</tr>
+<tr>
+<td><strong>Construct validity</strong></td>
+<td>The most dangerous measurement error occurs before the instrument is even used: the chosen variable simply does not measure the intended concept.</td>
+<td>2.3.6</td>
+</tr>
+</tbody></table></div>
+<h2 id="2-4-data-profiling-and-curation"><a class="anchor" href="#2-4-data-profiling-and-curation" aria-hidden="true">#</a>2.4 Data profiling and curation</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Notes wording</th>
+<th>§</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Data curation</strong></td>
+<td>Data curation is the systematic process of acquiring, organizing, validating, documenting, preserving, and maintaining data to ensure that they remain accurate, accessible, and suitable for their intended purposes throughout their lifecycle.</td>
+<td>2.4</td>
+</tr>
+<tr>
+<td><strong>Data cleaning (vs curation)</strong></td>
+<td>Data cleaning focuses primarily on identifying and correcting errors, inconsistencies, and missing values.</td>
+<td>2.4</td>
+</tr>
+<tr>
+<td><strong>Data profiling</strong></td>
+<td>Data profiling examines the statistical and structural characteristics of a dataset to identify potential quality issues before cleaning begins.</td>
+<td>2.4.4</td>
+</tr>
+<tr>
+<td><strong>Validation</strong></td>
+<td>Validation determines whether the dataset satisfies predefined structural, logical, and domain-specific requirements.</td>
+<td>2.4.5</td>
+</tr>
+<tr>
+<td><strong>Immutable raw data</strong></td>
+<td>Data cleaning must never overwrite raw data without absolute traceability.</td>
+<td>2.4.6</td>
+</tr>
+</tbody></table></div>
+<h2 id="2-5-data-cleaning"><a class="anchor" href="#2-5-data-cleaning" aria-hidden="true">#</a>2.5 Data cleaning</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Notes wording</th>
+<th>§</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Data cleaning</strong></td>
+<td>Data cleaning is the process of identifying, investigating, and correcting errors, inconsistencies, and quality issues that may compromise the reliability of a dataset.</td>
+<td>2.5</td>
+</tr>
+<tr>
+<td><strong>Missing values</strong></td>
+<td>Missing values occur when one or more observations are unavailable.</td>
+<td>2.5.1</td>
+</tr>
+<tr>
+<td><strong>MCAR</strong></td>
+<td>Under MCAR, the probability of missingness is unrelated to either observed or unobserved data.</td>
+<td>2.5.1</td>
+</tr>
+<tr>
+<td><strong>MAR</strong></td>
+<td>Here, missingness may depend on observed variables but not on the missing values themselves after conditioning on the observed data.</td>
+<td>2.5.1</td>
+</tr>
+<tr>
+<td><strong>MNAR</strong></td>
+<td>Under MNAR, the probability of missingness continues to depend on the unobserved values even after accounting for observed information.</td>
+<td>2.5.1</td>
+</tr>
+<tr>
+<td><strong>Mechanisms are assumptions</strong></td>
+<td>These mechanisms describe assumptions about the data-generating process rather than properties that can usually be verified directly from the dataset.</td>
+<td>2.5.1</td>
+</tr>
+<tr>
+<td><strong>Imputation without leakage</strong></td>
+<td>imputation parameters must be estimated using only the training data and then applied unchanged to validation and test datasets.</td>
+<td>2.5.1</td>
+</tr>
+<tr>
+<td><strong>Outlier</strong></td>
+<td>An outlier is an observation that differs substantially from the expected pattern of the data.</td>
+<td>2.5.2</td>
+</tr>
+<tr>
+<td><strong>Outlier handling</strong></td>
+<td>outliers should be investigated rather than automatically removed.</td>
+<td>2.5.2</td>
+</tr>
+<tr>
+<td><strong>Cleaning principle</strong></td>
+<td>Data cleaning should remove errors, not meaningful complexity.</td>
+<td>2.5.2</td>
+</tr>
+<tr>
+<td><strong>Duplicate records</strong></td>
+<td>Duplicate records occur when multiple entries represent the same observation or entity.</td>
+<td>2.5.3</td>
+</tr>
+<tr>
+<td><strong>Exact duplicates</strong></td>
+<td>Exact duplicates are identical across all relevant fields.</td>
+<td>2.5.3</td>
+</tr>
+<tr>
+<td><strong>Near duplicates</strong></td>
+<td>Near duplicates differ only slightly because of spelling variations, formatting differences, timestamps, abbreviations, or minor recording inconsistencies.</td>
+<td>2.5.3</td>
+</tr>
+<tr>
+<td><strong>Entity resolution</strong></td>
+<td>Entity resolution seeks to determine whether multiple records refer to the same underlying entity.</td>
+<td>2.5.3</td>
+</tr>
+<tr>
+<td><strong>False merges / false splits</strong></td>
+<td>false merges (combining different entities) and false splits (failing to combine identical entities) …</td>
+<td>2.5.3</td>
+</tr>
+<tr>
+<td><strong>Majority voting</strong></td>
+<td>Majority voting provides a practical method for producing consensus labels but may suppress legitimate expert disagreement or overlook genuinely ambiguous cases.</td>
+<td>2.5.3</td>
+</tr>
+<tr>
+<td><strong>Class imbalance</strong></td>
+<td>Class imbalance occurs when one or more classes are substantially less frequent than others.</td>
+<td>2.5.4</td>
+</tr>
+<tr>
+<td><strong>Resampling rule</strong></td>
+<td>Resampling should therefore be performed only within the training partition or within each training fold during cross-validation …</td>
+<td>2.5.4</td>
+</tr>
+<tr>
+<td><strong>Balancing vs prevalence</strong></td>
+<td>Balancing the training data improves learning but does not alter the underlying frequencies of events in real-world applications.</td>
+<td>2.5.4</td>
+</tr>
+<tr>
+<td><strong>Platt scaling</strong></td>
+<td>Platt scaling is performed by training a logistic regression model on a classifier&#39;s output scores (not the original features) to convert those scores into calibrated probabilities.</td>
+<td>2.5.4</td>
+</tr>
+</tbody></table></div>
+<h2 id="2-6-data-leakage"><a class="anchor" href="#2-6-data-leakage" aria-hidden="true">#</a>2.6 Data leakage</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Notes wording</th>
+<th>§</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Data leakage</strong></td>
+<td>Data leakage occurs when information that would not legitimately be available at the intended prediction or evaluation time is inadvertently used during model development.</td>
+<td>2.6.1</td>
+</tr>
+<tr>
+<td><strong>Leakage test question</strong></td>
+<td>Could this feature, preprocessing statistic, or related record genuinely be available in the same form at the time a prediction is made for a new observation?</td>
+<td>2.6.1</td>
+</tr>
+<tr>
+<td><strong>Target leakage</strong></td>
+<td>Target leakage occurs when one or more input features directly or indirectly reveal the outcome that the model is intended to predict.</td>
+<td>2.6.2</td>
+</tr>
+<tr>
+<td><strong>Train–test contamination</strong></td>
+<td>Train-test contamination occurs when information from the evaluation dataset influences model development, parameter estimation, or model selection.</td>
+<td>2.6.3</td>
+</tr>
+<tr>
+<td><strong>Temporal leakage</strong></td>
+<td>Temporal leakage occurs when information from the future is used to predict an earlier outcome.</td>
+<td>2.6.5</td>
+</tr>
+<tr>
+<td><strong>Availability time</strong></td>
+<td>The relevant timestamp is the moment at which the information became available, not necessarily when the underlying event occurred.</td>
+<td>2.6.5</td>
+</tr>
+<tr>
+<td><strong>Group leakage</strong></td>
+<td>Group leakage occurs when related observations from the same entity appear in multiple data partitions.</td>
+<td>2.6.6</td>
+</tr>
+</tbody></table></div>
+<h2 id="2-7-data-documentation"><a class="anchor" href="#2-7-data-documentation" aria-hidden="true">#</a>2.7 Data documentation</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Notes wording</th>
+<th>§</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Data dictionary</strong></td>
+<td>A data dictionary provides field-level documentation describing the meaning, structure, and interpretation of individual variables.</td>
+<td>2.7.2</td>
+</tr>
+<tr>
+<td><strong>Data provenance</strong></td>
+<td>Data provenance describes the origin of data and the processes used to generate them.</td>
+<td>2.7.3</td>
+</tr>
+<tr>
+<td><strong>Data lineage</strong></td>
+<td>Data lineage records how data evolve as they move through processing pipelines.</td>
+<td>2.7.3</td>
+</tr>
+<tr>
+<td><strong>Consent documentation</strong></td>
+<td>Consent should not be represented merely as a binary indicator such as consent obtained: Yes/No.</td>
+<td>2.7.4</td>
+</tr>
+<tr>
+<td><strong>Data license</strong></td>
+<td>A data license specifies the conditions under which a dataset may be accessed, used, modified, or redistributed.</td>
+<td>2.7.5</td>
+</tr>
+<tr>
+<td><strong>Copyright vs privacy</strong></td>
+<td>Legal permission to access a dataset does not automatically mean that every possible use is acceptable.</td>
+<td>2.7.6</td>
+</tr>
+<tr>
+<td><strong>Consent vs licensing</strong></td>
+<td>Consent explains what participants agreed to, while licensing defines what users are legally permitted to do with the data.</td>
+<td>2.7 Ex. 57</td>
+</tr>
+</tbody></table></div>
+<h2 id="2-8-governance-and-ethics"><a class="anchor" href="#2-8-governance-and-ethics" aria-hidden="true">#</a>2.8 Governance and ethics</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Notes wording</th>
+<th>§</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Data governance</strong></td>
+<td>Data governance is the framework of policies, roles, processes, and technical controls through which data are managed, protected, and used throughout their lifecycle.</td>
+<td>2.8.1</td>
+</tr>
+<tr>
+<td><strong>Privacy</strong></td>
+<td>Privacy concerns an individual&#39;s ability to control, understand, and be protected from inappropriate collection, processing, inference, sharing, or disclosure of information about them.</td>
+<td>2.8.2</td>
+</tr>
+<tr>
+<td><strong>De-identification</strong></td>
+<td>de-identification should be viewed as a risk-reduction strategy rather than a guarantee of anonymity.</td>
+<td>2.8.3</td>
+</tr>
+<tr>
+<td><strong>Data minimization</strong></td>
+<td>Data minimization is the principle that organizations should collect, retain, and process only the information reasonably necessary to achieve a clearly defined and legitimate purpose.</td>
+<td>2.8.5</td>
+</tr>
+<tr>
+<td><strong>Sensitive attributes</strong></td>
+<td>Sensitive attributes are variables whose misuse may expose individuals to discrimination, privacy violations, or other forms of harm.</td>
+<td>2.8.6</td>
+</tr>
+<tr>
+<td><strong>Removing sensitive attributes</strong></td>
+<td>Excluding a sensitive variable from a predictive model does not necessarily prevent discriminatory outcomes.</td>
+<td>2.8.6</td>
+</tr>
+<tr>
+<td><strong>Fairness</strong></td>
+<td>Fairness is a context-dependent concept that cannot be adequately characterized by a single universal metric.</td>
+<td>2.8.8</td>
+</tr>
+<tr>
+<td><strong>Demographic parity</strong></td>
+<td>Predicted positive rates are equal across groups.</td>
+<td>2.8.8</td>
+</tr>
+<tr>
+<td><strong>Equal opportunity</strong></td>
+<td>True positive rates are equal across groups.</td>
+<td>2.8.8</td>
+</tr>
+<tr>
+<td><strong>Equalized odds</strong></td>
+<td>Equalized odds require equality of both true positive rates and false positive rates across demographic groups.</td>
+<td>2.8.8</td>
+</tr>
+<tr>
+<td><strong>Predictive parity</strong></td>
+<td>The probability that a positive prediction is correct is equal across groups.</td>
+<td>2.8.8</td>
+</tr>
+<tr>
+<td><strong>Secondary use</strong></td>
+<td>The technical ability to access data does not by itself justify new uses.</td>
+<td>2.8.9</td>
+</tr>
+<tr>
+<td><strong>Data owner</strong></td>
+<td>Holds formal authority and ultimate responsibility for the data resource.</td>
+<td>2.8.11</td>
+</tr>
+<tr>
+<td><strong>Data steward</strong></td>
+<td>Maintains data definitions, quality standards, documentation, metadata, and access policies.</td>
+<td>2.8.11</td>
+</tr>
+<tr>
+<td><strong>Data custodian</strong></td>
+<td>Manages the technical infrastructure supporting data storage, security, backup, and access.</td>
+<td>2.8.11</td>
+</tr>
+<tr>
+<td><strong>Data producer</strong></td>
+<td>Creates, measures, or collects the original observations.</td>
+<td>2.8.11</td>
+</tr>
+<tr>
+<td><strong>Data consumer</strong></td>
+<td>Uses the data for research, analysis, reporting, or predictive modeling.</td>
+<td>2.8.11</td>
+</tr>
+<tr>
+<td><strong>Model owner</strong></td>
+<td>Assumes responsibility for the development, deployment, monitoring, and operational performance of predictive models.</td>
+<td>2.8.11</td>
+</tr>
+</tbody></table></div>
+<h2 id="2-9-2-11-misleading-datasets-and-case-studies"><a class="anchor" href="#2-9-2-11-misleading-datasets-and-case-studies" aria-hidden="true">#</a>2.9–2.11 Misleading datasets and case studies</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Notes wording</th>
+<th>§</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>True construct</strong></td>
+<td>The true construct is the concept that the project seeks to predict, but it is often difficult or impossible to observe directly.</td>
+<td>2.9.1</td>
+</tr>
+<tr>
+<td><strong>Wrong target</strong></td>
+<td>Accurate prediction of the wrong target is failure.</td>
+<td>2.11.2</td>
+</tr>
+</tbody></table></div>
+
+<div class="callout remember"><div class="callout-title">Remember</div><p>Definition in the notes&#39; words → mechanism → example from the notes. That is the order Quiz 1&#39;s rubric rewarded.</p>
+</div>
+
+  <nav class="pagenav">
+    <a class="pv" href="m2c-notes.html">← Previous<b>M2 · Notes C — documentation, governance, cases</b></a>
+    <a class="nx" href="m2-answers-1.html">Next →<b>M2 · Answers Q1–50</b></a>
+  </nav>
+  <div class="foot">AI 500 · Fall 2026 · study notes</div>
+</main>
+</div>
+<div class="lightbox" id="lightbox" hidden><img alt=""><button class="iconbtn lb-close" aria-label="Close">✕</button></div>
+<script src="assets/site.js" defer></script>
+</body></html>

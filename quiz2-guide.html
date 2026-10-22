@@ -26,7 +26,7 @@
 <a href="start-here.html">Start here (how to use)</a>
 <div class="nav-section">Modules</div>
 <details class="grp"><summary>M1 · AI Landscape & Problem Framing</summary><a href="m1a-notes.html">Notes A — roots, philosophy, landscape</a><a href="m1b-notes.html">Notes B — pipeline, framing, failures</a><a href="m1-answers.html">Answers Q1–100</a><a href="m1-cases.html">Answers S, R, A</a></details>
-<details class="grp"><summary>M2 · Data Collection, Cleaning, Governance & Ethics</summary><a href="m2a-notes.html">Notes A — constructed data, sources, quality</a><a href="m2b-notes.html">Notes B — curation, cleaning, leakage</a><a href="m2c-notes.html">Notes C — documentation, governance, cases</a><a href="m2-answers-1.html">Answers Q1–50</a><a href="m2-answers-2.html">Answers Q51–100</a><a href="m2-scenarios.html">Scenarios S1–S5</a><a href="m2-reflections.html">Reflections R1–R5</a></details>
+<details class="grp"><summary>M2 · Data Collection, Cleaning, Governance & Ethics</summary><a href="m2a-notes.html">Notes A — constructed data, sources, quality</a><a href="m2b-notes.html">Notes B — curation, cleaning, leakage</a><a href="m2c-notes.html">Notes C — documentation, governance, cases</a><a href="m2-definitions.html">★ Notes-exact definitions</a><a href="m2-answers-1.html">Answers Q1–50</a><a href="m2-answers-2.html">Answers Q51–100</a><a href="m2-scenarios.html">Scenarios S1–S5</a><a href="m2-reflections.html">Reflections R1–R5</a></details>
 <div class="nav-section">Quiz 2 (24 Oct)</div>
 <a href="quiz2-guide.html" class="on" aria-current="page">Quiz 2 guide</a>
 <a href="quiz2-mock-a.html">★ Mock Quiz 2A</a>
@@ -37,7 +37,7 @@
 <a href="assignments.html">Assignments & computational training</a>
 <a href="a2-missedcare.html">A2 Part A — MissedCare (your answers)</a>
 <details class="grp"><summary>PDFs & past material</summary><a href="resources.html">2026 course PDFs</a><a href="past-papers.html">Past exams & quizzes</a><a href="past-lectures.html">Past lectures</a><a href="past-practice.html">Problem sets & solutions</a><a href="past-tutorials.html">Tutorials & demo code</a></details></nav>
-  <div class="toc"><div class="toc-title">On this page</div><a href="#1-what-quot-the-style-of-quiz-1-quot-means" class="">1. What &quot;the style of Quiz 1&quot; means</a><a href="#2-coverage-checklist-module-2" class="">2. Coverage checklist — Module 2</a><a href="#3-most-likely-questions-ranked" class="">3. Most likely questions (ranked)</a><a href="#4-one-line-answers-to-memorize" class="">4. One-line answers to memorize</a><a href="#5-exam-strategy-60-minutes-50-points" class="">5. Exam strategy (60 minutes, 50 points)</a></div>
+  <div class="toc"><div class="toc-title">On this page</div><a href="#1-what-quot-the-style-of-quiz-1-quot-means" class="">1. What &quot;the style of Quiz 1&quot; means</a><a href="#2-coverage-checklist-module-2" class="">2. Coverage checklist — Module 2</a><a href="#3-most-likely-questions-ranked" class="">3. Most likely questions (ranked)</a><a href="#4-one-line-answers-in-the-notes-39-exact-words" class="">4. One-line answers — in the notes&#39; exact words</a><a href="#5-exam-strategy-60-minutes-50-points" class="">5. Exam strategy (60 minutes, 50 points)</a></div>
 </aside>
 <main>
   
@@ -188,101 +188,215 @@
 <li><strong>Why not just remove the sensitive attribute?</strong> — proxies + need for fairness auditing.</li>
 <li><strong>Synthetic data claims</strong> — challenge &quot;synthetic = anonymous/fair&quot;.</li>
 </ol>
-<h2 id="4-one-line-answers-to-memorize"><a class="anchor" href="#4-one-line-answers-to-memorize" aria-hidden="true">#</a>4. One-line answers to memorize</h2>
+<h2 id="4-one-line-answers-in-the-notes-39-exact-words"><a class="anchor" href="#4-one-line-answers-in-the-notes-39-exact-words" aria-hidden="true">#</a>4. One-line answers — in the notes&#39; exact words</h2>
+<p>Sir prioritizes the wording of the notes. Write these sentences <strong>as they are</strong>, then add the mechanism and an example. The full list of 108 is on <a href="m2-definitions.html">Notes-exact definitions</a>.</p>
 <div class="tbl"><table>
 <thead>
 <tr>
 <th>Term</th>
-<th>One line</th>
+<th>Notes wording (exact)</th>
+<th>§</th>
 </tr>
 </thead>
 <tbody><tr>
 <td>Raw data</td>
-<td>An oxymoron — data are produced through conceptualization, observation and engineering choices.</td>
+<td>The phrase raw data is a dangerous oxymoron.</td>
+<td>2.1</td>
 </tr>
 <tr>
-<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo stretchy="false">(</mo><mi>D</mi><mo separator="true">,</mo><mi>T</mi><mo separator="true">,</mo><mi>C</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">Q(D,T,C)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">Q</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mclose">)</span></span></span></span></td>
-<td>Fitness of dataset D for task T under context C — quality is relative to purpose.</td>
+<td>Fitness for purpose</td>
+<td>There is no such thing as a universally good or high-quality dataset in a vacuum. A dataset is only good for a specific purpose under specific conditions.</td>
+<td>2.1.2</td>
 </tr>
 <tr>
 <td>Coverage error</td>
-<td>The sampling frame misses part of the target population.</td>
+<td>The sampling frame misses parts of the target population.</td>
+<td>2.2.1</td>
 </tr>
 <tr>
 <td>Nonresponse bias</td>
-<td>Respondents differ systematically from those who refuse.</td>
+<td>Respondents differ systematically from those who refuse to participate.</td>
+<td>2.2.1</td>
 </tr>
 <tr>
-<td>Platform as instrument</td>
-<td>Web behaviour is a reaction inside an engineered environment (algorithm, interface, moderation, incentives).</td>
+<td>Platform as measurement</td>
+<td>Observed web behavior is not a direct measure of stable human preference. It is a reaction within an engineered environment, defined by a combination of user, interface, ranking algorithm, moderation, and platform incentives.</td>
+<td>2.2.3</td>
 </tr>
 <tr>
-<td>Event/recording/arrival/processing time</td>
-<td>When it happened / was logged / reached the pipeline / was processed.</td>
+<td>Event time</td>
+<td>When the real-world action actually occurred.</td>
+<td>2.2.4</td>
+</tr>
+<tr>
+<td>Recording time</td>
+<td>When the local system logged it.</td>
+<td>2.2.4</td>
+</tr>
+<tr>
+<td>Arrival time</td>
+<td>When it reached the central data pipeline.</td>
+<td>2.2.4</td>
+</tr>
+<tr>
+<td>Processing time</td>
+<td>When the pipeline actually handled it.</td>
+<td>2.2.4</td>
 </tr>
 <tr>
 <td>Administrative data</td>
-<td>Observed outcome = f(condition, access, policy, institutional practice).</td>
+<td>Administrative data encodes institutional behavior not objective reality.</td>
+<td>2.2.5</td>
 </tr>
 <tr>
 <td>Completeness</td>
-<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>−</mo><msub><mi>m</mi><mi>j</mi></msub><mi mathvariant="normal">/</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">1-m_j/n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.0361em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mord">/</span><span class="mord mathnormal">n</span></span></span></span> per cell; complete records / total per record.</td>
+<td>Completeness measures whether all required data is actually present.</td>
+<td>2.3.1</td>
 </tr>
 <tr>
 <td>Accuracy</td>
-<td>Closeness to an independent trusted reference — internal agreement is not enough.</td>
+<td>Accuracy measures how closely recorded values correspond to the true or accepted reference values.</td>
+<td>2.3.2</td>
 </tr>
 <tr>
-<td>Staleness</td>
-<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>t</mi><mo>=</mo><mi>t</mi><mo>−</mo><msub><mi>t</mi><mtext>last update</mtext></msub></mrow><annotation encoding="application/x-tex">\Delta t=t-t_{\text{last update}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">Δ</span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6984em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.9012em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">last update</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span> beyond a task threshold.</td>
+<td>Consistency</td>
+<td>Consistency asks whether data values agree logically across formats, records, systems, and established rules.</td>
+<td>2.3.3</td>
+</tr>
+<tr>
+<td>Timeliness</td>
+<td>Timeliness concerns whether data is sufficiently current and available exactly when it is needed for a decision.</td>
+<td>2.3.4</td>
 </tr>
 <tr>
 <td>Representativeness</td>
-<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>P</mi><mtext>data</mtext></msub><mo stretchy="false">(</mo><mi>X</mi><mo separator="true">,</mo><mi>Y</mi><mo stretchy="false">)</mo><mo mathvariant="normal">≠</mo><msub><mi>P</mi><mtext>target</mtext></msub><mo stretchy="false">(</mo><mi>X</mi><mo separator="true">,</mo><mi>Y</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">P_{\text{data}}(X,Y)\ne P_{\text{target}}(X,Y)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">data</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel"><span class="mrel"><span class="mord vbox"><span class="thinbox"><span class="rlap"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="inner"><span class="mord"><span class="mrel"></span></span></span><span class="fix"></span></span></span></span></span><span class="mrel">=</span></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.0361em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">target</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mclose">)</span></span></span></span> in consequential ways.</td>
+<td>Representativeness asks whether the data adequately reflects the intended target population and the actual operating conditions of deployment.</td>
+<td>2.3.5</td>
 </tr>
 <tr>
-<td>Differential measurement error</td>
-<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false">(</mo><msup><mi>X</mi><mo>∗</mo></msup><mo mathvariant="normal">≠</mo><mi>X</mi><mo>∣</mo><mi>A</mi><mo>=</mo><mi>a</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">P(X^*\ne X\mid A=a)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6887em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel"><span class="mrel"><span class="mord vbox"><span class="thinbox"><span class="rlap"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="inner"><span class="mord"><span class="mrel"></span></span></span><span class="fix"></span></span></span></span></span><span class="mrel">=</span></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">a</span><span class="mclose">)</span></span></span></span> varies by group — a fairness problem.</td>
+<td>Measurement error</td>
+<td>Measurement error is the fundamental difference between an observed value and the true underlying construct or quantity it is intended to measure.</td>
+<td>2.3.6</td>
 </tr>
 <tr>
 <td>Construct validity</td>
-<td>Does the variable measure the concept we care about?</td>
+<td>The most dangerous measurement error occurs before the instrument is even used: the chosen variable simply does not measure the intended concept.</td>
+<td>2.3.6</td>
 </tr>
 <tr>
-<td>MCAR / MAR / MNAR</td>
-<td>Unrelated to data / explained by observed data / depends on the missing value itself.</td>
+<td>Data curation</td>
+<td>Data curation is the systematic process of acquiring, organizing, validating, documenting, preserving, and maintaining data to ensure that they remain accurate, accessible, and suitable for their intended purposes throughout their lifecycle.</td>
+<td>2.4</td>
+</tr>
+<tr>
+<td>MCAR</td>
+<td>Under MCAR, the probability of missingness is unrelated to either observed or unobserved data.</td>
+<td>2.5.1</td>
+</tr>
+<tr>
+<td>MAR</td>
+<td>Here, missingness may depend on observed variables but not on the missing values themselves after conditioning on the observed data.</td>
+<td>2.5.1</td>
+</tr>
+<tr>
+<td>MNAR</td>
+<td>Under MNAR, the probability of missingness continues to depend on the unobserved values even after accounting for observed information.</td>
+<td>2.5.1</td>
+</tr>
+<tr>
+<td>Outlier</td>
+<td>An outlier is an observation that differs substantially from the expected pattern of the data.</td>
+<td>2.5.2</td>
+</tr>
+<tr>
+<td>Duplicate records</td>
+<td>Duplicate records occur when multiple entries represent the same observation or entity.</td>
+<td>2.5.3</td>
+</tr>
+<tr>
+<td>Class imbalance</td>
+<td>Class imbalance occurs when one or more classes are substantially less frequent than others.</td>
+<td>2.5.4</td>
 </tr>
 <tr>
 <td>Data leakage</td>
-<td>Using information not available at prediction time → optimistic evaluation.</td>
+<td>Data leakage occurs when information that would not legitimately be available at the intended prediction or evaluation time is inadvertently used during model development.</td>
+<td>2.6.1</td>
 </tr>
 <tr>
 <td>Target leakage</td>
-<td>A feature reveals the outcome (antibiotics → sepsis).</td>
+<td>Target leakage occurs when one or more input features directly or indirectly reveal the outcome that the model is intended to predict.</td>
+<td>2.6.2</td>
+</tr>
+<tr>
+<td>Train–test contamination</td>
+<td>Train-test contamination occurs when information from the evaluation dataset influences model development, parameter estimation, or model selection.</td>
+<td>2.6.3</td>
+</tr>
+<tr>
+<td>Temporal leakage</td>
+<td>Temporal leakage occurs when information from the future is used to predict an earlier outcome.</td>
+<td>2.6.5</td>
 </tr>
 <tr>
 <td>Group leakage</td>
-<td>Same entity in train and test; require <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>G</mi><mtext>train</mtext></msub><mo>∩</mo><msub><mi>G</mi><mtext>test</mtext></msub><mo>=</mo><mi mathvariant="normal">∅</mi></mrow><annotation encoding="application/x-tex">G_{\text{train}}\cap G_{\text{test}}=\varnothing</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">G</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3175em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">train</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∩</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">G</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">test</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6633em;vertical-align:-0.0817em;"></span><span class="mord amsrm">∅</span></span></span></span>.</td>
+<td>Group leakage occurs when related observations from the same entity appear in multiple data partitions.</td>
+<td>2.6.6</td>
 </tr>
 <tr>
-<td>Provenance / lineage</td>
-<td>Where data came from / how they changed through processing.</td>
+<td>Data provenance</td>
+<td>Data provenance describes the origin of data and the processes used to generate them.</td>
+<td>2.7.3</td>
 </tr>
 <tr>
-<td>Data minimization</td>
-<td>Collect <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">X_j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0785em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span> only if Benefit &gt; Risk.</td>
+<td>Data lineage</td>
+<td>Data lineage records how data evolve as they move through processing pipelines.</td>
+<td>2.7.3</td>
+</tr>
+<tr>
+<td>Data governance</td>
+<td>Data governance is the framework of policies, roles, processes, and technical controls through which data are managed, protected, and used throughout their lifecycle.</td>
+<td>2.8.1</td>
+</tr>
+<tr>
+<td>Privacy</td>
+<td>Privacy concerns an individual&#39;s ability to control, understand, and be protected from inappropriate collection, processing, inference, sharing, or disclosure of information about them.</td>
+<td>2.8.2</td>
 </tr>
 <tr>
 <td>De-identification</td>
-<td>Risk reduction, not a guarantee of anonymity.</td>
+<td>de-identification should be viewed as a risk-reduction strategy rather than a guarantee of anonymity.</td>
+<td>2.8.3</td>
+</tr>
+<tr>
+<td>Data minimization</td>
+<td>Data minimization is the principle that organizations should collect, retain, and process only the information reasonably necessary to achieve a clearly defined and legitimate purpose.</td>
+<td>2.8.5</td>
+</tr>
+<tr>
+<td>Sensitive attributes</td>
+<td>Sensitive attributes are variables whose misuse may expose individuals to discrimination, privacy violations, or other forms of harm.</td>
+<td>2.8.6</td>
+</tr>
+<tr>
+<td>Demographic parity</td>
+<td>Predicted positive rates are equal across groups.</td>
+<td>2.8.8</td>
 </tr>
 <tr>
 <td>Equal opportunity</td>
-<td>Equal true-positive rates across groups.</td>
+<td>True positive rates are equal across groups.</td>
+<td>2.8.8</td>
+</tr>
+<tr>
+<td>Equalized odds</td>
+<td>Equalized odds require equality of both true positive rates and false positive rates across demographic groups.</td>
+<td>2.8.8</td>
 </tr>
 <tr>
 <td>Predictive parity</td>
-<td>Equal precision (PPV) across groups.</td>
+<td>The probability that a positive prediction is correct is equal across groups.</td>
+<td>2.8.8</td>
 </tr>
 </tbody></table></div>
 <h2 id="5-exam-strategy-60-minutes-50-points"><a class="anchor" href="#5-exam-strategy-60-minutes-50-points" aria-hidden="true">#</a>5. Exam strategy (60 minutes, 50 points)</h2>
