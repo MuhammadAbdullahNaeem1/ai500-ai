@@ -11,7 +11,7 @@ Fall 2026 · LUMS · Dr. Hassan Mohy-ud-Din · study notes, practice answers and
 
 **Module 2: Data Collection, Curation, Cleaning, Governance, and Ethics** — everything up to the class of 17 October. No programming, no numerical problems: **case study, assessment, descriptive analysis, fundamental concepts and practice**, in the style of Quiz 1. Practice questions: notes pages 130–145.
 
-[Quiz 2 guide](quiz2-guide.html) — Quiz 1's format decoded (50 points, 60 minutes, four sections and their rubrics), a topic checklist, the most likely questions and one-line definitions. **[Mock Quiz 2A](quiz2-mock-a.html) · [2B](quiz2-mock-b.html) · [2C](quiz2-mock-c.html)** — full 50-point papers with rubric-style solutions. **Answers to every end-of-module question:** [Q1–50](m2-answers-1.html) · [Q51–100](m2-answers-2.html) · [Scenarios S1–S5](m2-scenarios.html) · [Reflections R1–R5](m2-reflections.html).
+[Quiz 2 guide](quiz2-guide.html) · **[★ Notes-exact definitions](m2-definitions.html)** (all 108 Module 2 definitions in the notes' own words) — Quiz 1's format decoded (50 points, 60 minutes, four sections and their rubrics), a topic checklist, the most likely questions and one-line definitions. **[Mock Quiz 2A](quiz2-mock-a.html) · [2B](quiz2-mock-b.html) · [2C](quiz2-mock-c.html)** — full 50-point papers with rubric-style solutions. **Answers to every end-of-module question:** [Q1–50](m2-answers-1.html) · [Q51–100](m2-answers-2.html) · [Scenarios S1–S5](m2-scenarios.html) · [Reflections R1–R5](m2-reflections.html).
 
 ## Modules so far
 

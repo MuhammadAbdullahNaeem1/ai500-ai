@@ -44,6 +44,10 @@ A **data dictionary** is **field-level** documentation (a datasheet is **dataset
 ### 1.3 Provenance and lineage (Figure 19)
 
 :::def Provenance vs lineage
+> **Data provenance** (notes §2.7.3): “Data provenance describes the origin of data and the processes used to generate them.”
+>
+> **Data lineage** (notes §2.7.3): “Data lineage records how data evolve as they move through processing pipelines.”
+
 **Provenance:** where data came from — origin, history, chain of custody (how, when, where, by whom collected and processed).
 **Lineage:** how data evolve through processing — $D_0\xrightarrow{T_1}D_1\xrightarrow{T_2}D_2\xrightarrow{T_3}D_{\text{training}}$, each transformation producing a new version.
 :::
@@ -78,6 +82,8 @@ Datasheet (dataset-level, 7 areas) + data dictionary (field-level, 12 elements) 
 ### 2.1 Data governance
 
 :::def Data governance
+> **Data governance** (notes §2.8.1): “Data governance is the framework of policies, roles, processes, and technical controls through which data are managed, protected, and used throughout their lifecycle.”
+
 The framework of **policies, roles, processes and technical controls** through which data are managed, protected and used across their lifecycle. Questions: who owns/stewards the data; who may access; for what purposes; who approves new or secondary uses; retention period; how quality issues are corrected; how incidents are handled; how model outputs are monitored and audited; **who is ultimately accountable**. Governance must be implemented in procedures, safeguards and monitoring — not just written policy.
 :::
 
@@ -92,6 +98,8 @@ Removing names/IDs does not make data anonymous: **combinations** of age, locati
 **Lifecycle safeguards:** collect only what's necessary; purpose limitation; role-based access; encryption at rest and in transit; secure computing environments; publish aggregates; **differential privacy**; **federated/distributed learning**; retention limits; audit logs; incident response. OECD principles: lawful processing, purpose limitation, data minimization, transparency, security, individual rights, accountability.
 
 :::def Data minimization
+> **Data minimization** (notes §2.8.5): “Data minimization is the principle that organizations should collect, retain, and process only the information reasonably necessary to achieve a clearly defined and legitimate purpose.”
+
 Collect, retain and process only what is reasonably necessary for a defined, legitimate purpose: **collect $X_j$ only if Benefit$(X_j)$ > Risk$(X_j)$**. Ask: genuinely necessary? less sensitive alternative? long-term retention needed? restrict access? raw values needed? needed for **fairness auditing** even if excluded from prediction?
 :::
 
@@ -104,6 +112,10 @@ m2-p093|Table 25 — keep age, previous admissions, diagnoses; drop address (pos
 Sensitive: race/ethnicity, religion, health, disability, gender, orientation, political beliefs, precise location, biometrics, financial info, immigration status.
 
 :::def Removing a sensitive attribute does not remove bias
+> **Sensitive attributes** (notes §2.8.6): “Sensitive attributes are variables whose misuse may expose individuals to discrimination, privacy violations, or other forms of harm.”
+>
+> **Removing sensitive attributes** (notes §2.8.6): “Excluding a sensitive variable from a predictive model does not necessarily prevent discriminatory outcomes.”
+
 Other variables act as **proxies**: $X_{\text{proxy}}\leftrightarrow A_{\text{sensitive}}$ — postal code, school, language, purchasing behaviour, occupation, healthcare utilization.
 :::
 
@@ -140,6 +152,16 @@ m2-p096|Table 27 — historical, representation, measurement, aggregation, evalu
 ### 2.5 Fairness metrics
 
 :::def Group fairness for binary classification
+> **Fairness** (notes §2.8.8): “Fairness is a context-dependent concept that cannot be adequately characterized by a single universal metric.”
+>
+> **Demographic parity** (notes §2.8.8): “Predicted positive rates are equal across groups.”
+>
+> **Equal opportunity** (notes §2.8.8): “True positive rates are equal across groups.”
+>
+> **Equalized odds** (notes §2.8.8): “Equalized odds require equality of both true positive rates and false positive rates across demographic groups.”
+>
+> **Predictive parity** (notes §2.8.8): “The probability that a positive prediction is correct is equal across groups.”
+
 - **Demographic parity:** $P(\hat Y=1\mid A=a)=P(\hat Y=1\mid A=b)$ — equal positive-prediction rates.
 - **Equal opportunity:** $P(\hat Y=1\mid Y=1,A=a)=P(\hat Y=1\mid Y=1,A=b)$ — equal **TPR**.
 - **Equalized odds:** equal **TPR and FPR**.
@@ -159,6 +181,8 @@ Demographic parity would flag equal proportions → over-test B or under-detect 
 **Institutional approval:** IRBs/research ethics committees, data-protection offices, information security, legal counsel, clinical governance, community advisory groups, regulators. Review: scientific necessity, benefits vs risks, consent, privacy, vulnerable populations, access controls, retention, sharing, incident response, planned deployment. *Approval is a safeguard but does not replace continuous monitoring.*
 
 :::def Governance roles (2.8.11)
+> **Data owner** (notes §2.8.11): “Holds formal authority and ultimate responsibility for the data resource.”
+
 | Role | Responsibility |
 |---|---|
 | **Data owner** | Formal authority and **ultimate responsibility** |
@@ -181,6 +205,8 @@ Governance = roles + policies + controls. Privacy risk survives de-identificatio
 A dataset can be **large, nearly complete, well structured, balanced, consistently labelled, accessible and highly predictive** — and still unsuitable, because it **measures the wrong phenomenon**.
 
 :::def The misleading-dataset chain
+> **True construct** (notes §2.9.1): “The true construct is the concept that the project seeks to predict, but it is often difficult or impossible to observe directly.”
+
 $$\text{True construct}\ \to\ \text{Institutional process}\ \to\ \text{Recorded proxy}\ \to\ \text{Training target}$$
 Models learn the **recorded proxy**, not the construct. If the proxy systematically differs, excellent accuracy coexists with misleading or unfair decisions.
 :::

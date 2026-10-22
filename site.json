@@ -62,6 +62,11 @@
           "file": "modules/m2c.md"
         },
         {
+          "id": "m2-definitions",
+          "title": "★ Notes-exact definitions",
+          "file": "practice/m2-definitions.md"
+        },
+        {
           "id": "m2-answers-1",
           "title": "Answers Q1–50",
           "file": "practice/m2-answers-1.md"

@@ -16,12 +16,20 @@ Read the question, say your answer out loud, then open the box. The **bold** wor
 
 :::question Q1. Why is the phrase *raw data* considered misleading in data science and AI?
 :::solution Answer
+> **Raw data** (notes §2.1): “The phrase raw data is a dangerous oxymoron.”
+>
+> **Data are produced, not found** (notes §2.1.1): “Every dataset is actively produced through a long chain of subjective, technical, and systemic choices.”
+
 Because data are **never raw — they are always "cooked"**. Before any row is recorded, people have already decided what phenomenon matters and how to define it (**conceptualization**), what unit, population, instrument and frequency to use (**observation**), and what to record, how to encode missing values and how to store/link/transform it (**engineering**). "Raw" suggests an objective, pre-existing truth waiting to be harvested; in reality the dataset is an **engineered artifact** shaped by human assumptions, technical constraints and institutional priorities. Treating it as raw hides those choices and leads to models that inherit them unnoticed.
 :::
 :::
 
 :::question Q2. Explain why a dataset should be understood as an engineered artifact rather than a passive reflection of reality.
 :::solution Answer
+> **Data are produced, not found** (notes §2.1.1): “Every dataset is actively produced through a long chain of subjective, technical, and systemic choices.”
+>
+> **Data as a map** (notes §2.1.2): “Data is not a flawless mirror reflecting reality; it is a constructed map.”
+
 A dataset is produced by a chain of choices: **Dataset = Phenomenon + Measurement process + Sampling process + Institutional context + Data representation** (Figure 14). Each component filters reality — the definition chooses what counts, the instrument decides what is observable, sampling decides who is seen, institutions decide the rules behind labels, and representation decides encoding and format. The values may look precise, but the concepts they stand for remain ambiguous. *Example 38:* a "dropout" dataset reflects university policy (one semester vs two years), scanner use, and main-campus-only sampling — not just student behaviour. So we must interrogate *how* the data were made before trusting what a model learns from them.
 :::
 :::
@@ -57,6 +65,8 @@ A supervised model learns $P(Y\mid X)$ for the **$Y$ that was operationalized**.
 
 :::question Q7. What does the formulation $Q(D,T,C)$ communicate about dataset quality?
 :::solution Answer
+> **Fitness for purpose** (notes §2.1.2): “There is no such thing as a universally good or high-quality dataset in a vacuum. A dataset is only good for a specific purpose under specific conditions.”
+
 $Q(D,T,C)$ = **the fitness of dataset $D$ for task $T$ under context $C$**. It says quality is **not an intrinsic, universal property** of a dataset but a **relation** between the data, the purpose and the setting — aligned with NIST, which judges quality and representativeness relative to intended use (accuracy, completeness, consistency, relevance, timeliness). The same student dataset scores high for annual reporting but low for a 6-month early-warning system, a national model, or a causal question.
 :::
 :::
@@ -75,6 +85,10 @@ A model is only validated for the population its data represent. Collecting only
 
 :::question Q10. Explain why the correct question is not "Is this data good?" but "Is this data fit for the intended task and context?"
 :::solution Answer
+> **Fitness for purpose** (notes §2.1.2): “There is no such thing as a universally good or high-quality dataset in a vacuum. A dataset is only good for a specific purpose under specific conditions.”
+>
+> **Data as a map** (notes §2.1.2): “Data is not a flawless mirror reflecting reality; it is a constructed map.”
+
 Because **no dataset is good in a vacuum** — quality is contextual. A dataset may be fine for descriptive statistics but fatally flawed for causal inference; useful retrospectively but too late for real-time prediction; representative of an urban hospital but useless for a rural clinic; valid for adults but not children; good for classification but poorly calibrated for absolute risk. Data are a **constructed map**: we must know how it was drawn and whether it is scaled for *our* journey. Asking "fit for $T$ in $C$?" forces us to check timeliness, representativeness, definitions and governance for the actual decision.
 :::
 :::
@@ -83,12 +97,26 @@ Because **no dataset is good in a vacuum** — quality is contextual. A dataset 
 
 :::question Q11. What are the principal advantages of surveys as a source of data for AI systems?
 :::solution Answer
+> **Surveys** (notes §2.2.1): “Surveys collect information by prompting respondents with structured or semi-structured questions …”
+
 Surveys can capture **latent constructs** that rarely appear in routine databases: **beliefs, preferences, intentions, self-reported behaviours, social circumstances and perceived quality of life**. They are **designed by the researcher** — target population, questions, wording and sampling are controlled — and can be weighted to match a population (e.g. national age/sex distributions). They are often the only defensible route to measure *opinion* (e.g. a nationally representative survey vs social media in S2).
 :::
 :::
 
 :::question Q12. Distinguish among coverage error, sampling error, nonresponse bias, recall bias, social-desirability bias and instrument effects.
 :::solution Answer
+> **Coverage error** (notes §2.2.1): “The sampling frame misses parts of the target population.”
+>
+> **Sampling error** (notes §2.2.1): “The selected sample differs from the population purely by chance.”
+>
+> **Nonresponse bias** (notes §2.2.1): “Respondents differ systematically from those who refuse to participate.”
+>
+> **Recall bias** (notes §2.2.1): “Inaccurate memory of past events.”
+>
+> **Social-desirability bias** (notes §2.2.1): “Respondents provide answers they believe are socially acceptable rather than truthful.”
+>
+> **Instrument effects** (notes §2.2.1): “Responses shift based on question wording, sequencing, or cultural/linguistic translation.”
+
 | Error | Definition | Example 39 |
 |---|---|---|
 | **Coverage** | Sampling frame misses part of the target population | Online-only survey misses older/remote adults |
@@ -102,12 +130,18 @@ Surveys can capture **latent constructs** that rarely appear in routine database
 
 :::question Q13. How can a model trained on survey data learn reporting behaviour rather than the intended real-world construct?
 :::solution Answer
+> **Survey AI implication** (notes §2.2.1): “A model trained on survey data may learn response behavior rather than the intended construct …”
+
 The label is **self-reported**, so it equals *actual behaviour × willingness/ability to report it*. Systematic differences in reporting become signal: if more-educated respondents report accurately while others overstate, the model may **associate education with activity** purely through reporting accuracy (Example 39). It learns *how people answer questions*. When applied to objective data (wearable trackers measuring movement), performance degrades because the target has changed from reported to actual behaviour.
 :::
 :::
 
 :::question Q14. Explain the roles of systematic bias, random noise, environmental conditions and device characteristics in sensor measurements.
 :::solution Answer
+> **Sensors** (notes §2.2.2): “Sensors convert physical phenomena into recorded digital signals …”
+>
+> **Sensor takeaway** (notes §2.2.2): “Sensor data may appear highly objective, but the physical instrument and the acquisition process fundamentally shape what is observed.”
+
 Basic model: $X_{\text{obs}}=X_{\text{true}}+b+\epsilon$ — **$b$ systematic bias** (persistent offset, e.g. a miscalibrated monitor reading +20 mmHg) and **$\epsilon$ random noise** (zero-mean fluctuation). Realistic model: $X_{\text{obs}}=g(X_{\text{true}},Z,\theta_{\text{device}})+\epsilon$, where **$Z$ = environmental conditions** (temperature, lighting, interference) and **$\theta_{\text{device}}$ = device-specific behaviour** (model, firmware, calibration). So the reading depends on the instrument and setting, not only the true quantity — "objective" sensor data are shaped by acquisition.
 :::
 :::
@@ -125,6 +159,8 @@ Plus: does zero mean zero or missing? Were sites comparable?
 
 :::question Q16. Why should a social media platform be treated as part of the measurement instrument when web data are collected?
 :::solution Answer
+> **Platform as measurement** (notes §2.2.3): “Observed web behavior is not a direct measure of stable human preference. It is a reaction within an engineered environment, defined by a combination of user, interface, ranking algorithm, moderation, and platform incentives.”
+
 Because the observed behaviour is **produced inside an engineered environment**: what users see depends on the **recommendation algorithm**, what remains depends on **moderation**, what they post depends on **trending topics, interface design** and **social incentives** (likes, shares). A post is a **response to the platform**, not a direct expression of stable belief. Unlike a survey, where researchers design the questionnaire, here the *platform* is the questionnaire. Example 40: a change to favour short video cut text posts — a platform change, not an opinion change.
 :::
 :::
@@ -141,18 +177,40 @@ Net effect: estimated support reflects **amplification and automation**, not the
 
 :::question Q18. Distinguish among event time, recording time, arrival time and processing time in system logs.
 :::solution Answer
+> **Event time** (notes §2.2.4): “When the real-world action actually occurred.”
+>
+> **Recording time** (notes §2.2.4): “When the local system logged it.”
+>
+> **Arrival time** (notes §2.2.4): “When it reached the central data pipeline.”
+>
+> **Processing time** (notes §2.2.4): “When the pipeline actually handled it.”
+
 **Event time** — when the real-world action occurred. **Recording time** — when the local system logged it. **Arrival time** — when it reached the central data pipeline. **Processing time** — when the pipeline handled it. They can differ by seconds to weeks (retries, offline devices, batch jobs). Building features or splits on the wrong one is a **primary cause of temporal leakage** and incorrect feature windows: for prediction, a feature counts only if it was **available** by the prediction time.
 :::
 :::
 
 :::question Q19. Why do administrative records often represent institutional behaviour and access patterns rather than objective ground truth?
 :::solution Answer
+> **Administrative records** (notes §2.2.5): “Administrative records are generated to support organizational operations, not scientific research …”
+>
+> **Administrative data** (notes §2.2.5): “Administrative data encodes institutional behavior not objective reality.”
+>
+> **Administrative formulation** (notes §2.2.5): “Observed outcome is a function of Underlying Condition, Access, Policy, and Institutional Practice.”
+
 They are created to **run organizations** (billing, reimbursement, enforcement), not to measure reality: **Observed outcome = f(Underlying condition, Access, Policy, Institutional practice)**. A diagnosis code may reflect **billing optimization**; an arrest reflects **policing patterns**; spending reflects **access to care**; absences may reflect **transport/caregiving**; unemployment records omit informal workers. Example 41: a remote patient who never returns has *no readmission record* — not because they recovered; Hospital A's overnight-observation policy creates admissions Hospital B never records. Records capture **utilization**, not burden of disease.
 :::
 :::
 
 :::question Q20. Compare the strengths and limitations of controlled experiments, public datasets and synthetic datasets.
 :::solution Answer
+> **Controlled experiments** (notes §2.2.6): “Controlled experiments deliberately assign or manipulate conditions to estimate causal effects.”
+>
+> **Experiments takeaway** (notes §2.2.6): “Experimental data is not automatically unbiased.”
+>
+> **Public datasets** (notes §2.2.7): “Public datasets are released for research, education, benchmarking, or policy use …”
+>
+> **Synthetic data** (notes §2.2.8): “Synthetic data consists of artificially generated observations designed to mimic the statistical properties of real data.”
+
 | | Strengths | Limitations |
 |---|---|---|
 | **Controlled experiments** | Randomization $T_i\sim\text{Bernoulli}(p)$ → comparable groups; clear intervention; temporal order; reduced confounding; prespecified outcomes | Ethical/practical limits; noncompliance; **attrition**; contamination; **limited external validity**; selective recruitment; site differences |
@@ -166,6 +224,8 @@ None is automatically unbiased — each needs scrutiny.
 
 :::question Q21. Why does public availability not guarantee that a dataset is accurate, representative, ethically usable or free of legal restrictions?
 :::solution Answer
+> **Public datasets** (notes §2.2.7): “Public datasets are released for research, education, benchmarking, or policy use …”
+
 "Public" describes **access**, not quality or permission. A public dataset may be **outdated**, have **unclear provenance**, **hidden preprocessing**, **undocumented exclusions** and **label errors** (Northcutt et al. found ≥3.3% average test-label error); it may not represent a **real deployment** population; it may carry **privacy risks**; its **licence** may forbid commercial use or redistribution; and the **original consent** may not cover new uses (Example 57). So every public dataset still needs provenance, quality, licence and consent checks.
 :::
 :::
@@ -190,6 +250,8 @@ Because a dataset is **never finished**: label errors, ambiguity, outdated categ
 
 :::question Q25. What are the main methods used to generate synthetic data?
 :::solution Answer
+> **Synthetic data** (notes §2.2.8): “Synthetic data consists of artificially generated observations designed to mimic the statistical properties of real data.”
+
 **Rule-based simulators** (traffic simulator with fixed rules), **mechanistic models** (climate physics equations), **agent-based models** (epidemic with interacting agents), **GANs** (generator vs discriminator; synthetic faces), **VAEs** (decode from a latent space; MNIST-like digits), **diffusion models** (learn to reverse noising; text-to-image), **LLMs** (synthetic conversations/text/code), and **statistical sampling from fitted distributions** (fit a normal to blood pressure and sample).
 :::
 :::
@@ -202,12 +264,26 @@ Because a dataset is **never finished**: label errors, ambiguity, outdated categ
 
 :::question Q27. Why does synthetic data not automatically guarantee privacy or anonymity?
 :::solution Answer
+> **Synthetic data** (notes §2.2.8): “Synthetic data consists of artificially generated observations designed to mimic the statistical properties of real data.”
+
 The generator is **trained on real records** and can **memorize** them: some synthetic records may be near-copies of real people, enabling **membership inference** (was this person in the training data?) and **reconstruction** of sensitive attributes. Rare combinations are especially identifying. Generated health data often retains **residual disclosure risk**. Hence privacy must be **tested** (membership-inference attacks, record-similarity/nearest-neighbour distance checks) — *synthetic does not mean anonymous or risk-free*.
 :::
 :::
 
 :::question Q28. Define fidelity, utility, privacy, fairness, coverage and realism as validation dimensions for synthetic data.
 :::solution Answer
+> **Fidelity** (notes §2.2.8): “Does it preserve relevant distributions and relationships?”
+>
+> **Utility** (notes §2.2.8): “Does it actually support the intended analysis or model training?”
+>
+> **Privacy (synthetic)** (notes §2.2.8): “Can original individuals be inferred or reconstructed?”
+>
+> **Fairness (synthetic)** (notes §2.2.8): “Are subgroup properties preserved appropriately without amplifying bias?”
+>
+> **Coverage** (notes §2.2.8): “Are rare but critical edge cases represented?”
+>
+> **Realism** (notes §2.2.8): “Do the generated combinations obey real-world domain constraints?”
+
 - **Fidelity** — preserves relevant distributions and relationships (age distribution, disease frequencies, correlations).
 - **Utility** — supports the intended analysis (model trained on synthetic performs similarly **on real data**).
 - **Privacy** — original individuals cannot be inferred or reconstructed.
@@ -238,6 +314,8 @@ The generator learns the source distribution — **including its gaps and histor
 
 :::question Q31. Define cell-level completeness and record-level completeness.
 :::solution Answer
+> **Completeness** (notes §2.3.1): “Completeness measures whether all required data is actually present.”
+
 **Cell-level** (per variable $j$): $\text{Completeness}_j=1-\dfrac{m_j}{n}$, the share of non-missing cells among $n$ records. **Record-level:** $\dfrac{\text{records containing all required fields}}{\text{total records}}$. Example: 2 of 5 BP values missing → 0.60; 3 of 5 records complete → 60%.
 :::
 :::
@@ -250,24 +328,32 @@ $\text{Completeness}=1-\dfrac{80}{1000}=1-0.08=\mathbf{0.92}$, i.e. **92% comple
 
 :::question Q33. Why can a dataset with 99 percent populated cells still be incomplete for a particular application?
 :::solution Answer
+> **Completeness** (notes §2.3.1): “Completeness measures whether all required data is actually present.”
+
 Cell counts measure **missing cells**, not **missing records, time intervals, subgroups, modalities, labels, metadata or provenance**. A dataset can be 99% populated while **entirely excluding an important or vulnerable population** (e.g. rural or online students), lacking a key modality (mental-health indicators), or missing the timestamps needed for prediction. For a task that needs those, it is incomplete. Completeness is judged by: *does the missing information prevent reliable use for the intended purpose?*
 :::
 :::
 
 :::question Q34. How should accuracy be assessed for numerical measurements and categorical labels?
 :::solution Answer
+> **Accuracy** (notes §2.3.2): “Accuracy measures how closely recorded values correspond to the true or accepted reference values.”
+
 Against an **independent, trusted reference**. **Numerical:** error $e_i=x_i-x_i^*$, summarized by $\text{MAE}=\frac1n\sum|x_i-x_i^*|$ (Table 11: errors 7,2,3,5,2 → 3.8 mmHg). **Categorical:** $\text{label accuracy}=\dfrac{\text{correctly labeled cases}}{\text{reviewed cases}}$ (95 of 100 → 95%), usually from expert re-review/adjudication of a sample.
 :::
 :::
 
 :::question Q35. Why does agreement among values within a database not establish that the values are correct?
 :::solution Answer
+> **Accuracy caution** (notes §2.3.2): “Agreement within a database does not, by itself, establish correctness.”
+
 Internal agreement only shows **consistency**. Values can agree and all be wrong: a miscalibrated monitor reads every patient +20 mmHg (consistent, inaccurate); copied or duplicated errors repeat; a wrong record linkage propagates; annotators trained with the same flawed guideline agree with each other. **Accuracy requires comparison with an independent, trustworthy reference** outside the database.
 :::
 :::
 
 :::question Q36. Distinguish among formatting, logical, structural and cross-system consistency.
 :::solution Answer
+> **Consistency** (notes §2.3.3): “Consistency asks whether data values agree logically across formats, records, systems, and established rules.”
+
 - **Formatting:** same meaning, different encodings — "Male/M/1/man"; DD/MM vs MM/DD dates; "Yes/Y/1/True/Diabetic".
 - **Logical:** violates real-world rules — discharge (Jan 10) before admission (Jan 15); death before a later visit; child older than parent; $p\notin[0,1]$.
 - **Structural:** mixed units in one column (70 kg vs 155 lb), duplicate IDs for different people, conflicting labels for one entity across files.
@@ -277,18 +363,30 @@ Internal agreement only shows **consistency**. Values can agree and all be wrong
 
 :::question Q37. Explain the differences among freshness, latency, update frequency and validity period.
 :::solution Answer
+> **Freshness** (notes §2.3.4): “How old the underlying information actually is.”
+>
+> **Latency** (notes §2.3.4): “The delay between the real-world event occurring and the data becoming available in the system.”
+>
+> **Update frequency** (notes §2.3.4): “How often the values are refreshed.”
+>
+> **Validity period** (notes §2.3.4): “How long a specific data point remains operationally relevant.”
+
 **Freshness** — how old the information is. **Latency** — delay between the event and its availability (diabetes in January, recorded in April → 3 months). **Update frequency** — how often values are refreshed (finances once per semester). **Validity period** — how long a value stays operationally relevant (a cholesterol value valid ~6 months). A fraud system needs millisecond latency; annual planning tolerates months.
 :::
 :::
 
 :::question Q38. What is feature staleness, and how can it reduce the reliability of real-time predictions?
 :::solution Answer
+> **Timeliness** (notes §2.3.4): “Timeliness concerns whether data is sufficiently current and available exactly when it is needed for a decision.”
+
 **Staleness:** at prediction time $t$, feature age $\Delta t=t-t_{\text{last update}}$; if $\Delta t$ exceeds a task-specific threshold, the feature is **stale**. (Cholesterol from January used in October: $\Delta t=9$ months > 6-month guideline.) Stale features describe a past state — the model predicts on outdated information (e.g. assumes a patient is non-diabetic), reducing accuracy and calibration, and creating a **train–serving mismatch** if training used fresher values.
 :::
 :::
 
 :::question Q39. Explain the difference between covariate shift, label distribution shift and concept shift.
 :::solution Answer
+> **Representativeness** (notes §2.3.5): “Representativeness asks whether the data adequately reflects the intended target population and the actual operating conditions of deployment.”
+
 - **Covariate shift:** $P(X)$ changes, $P(Y\mid X)$ stable — model moved to a hospital with different demographics or practices.
 - **Label distribution shift:** $P(Y)$ (class proportions) changes — fraud 1% in training, 10% at deployment → poorly **calibrated**.
 - **Concept shift:** $P(Y\mid X)$ — the mapping itself — changes — purchasing behaviour after a recession.
@@ -297,6 +395,8 @@ Internal agreement only shows **consistency**. Values can agree and all be wrong
 
 :::question Q40. Why does a very large sample size not compensate for systematic underrepresentation of important populations?
 :::solution Answer
+> **Representativeness** (notes §2.3.5): “Representativeness asks whether the data adequately reflects the intended target population and the actual operating conditions of deployment.”
+
 More data from an **already well-represented** group shrinks variance for that group but adds **no information about the missing ones**. Table 15: 80% of a million patients are 65+ while the population is 25% 65+; adding another million elderly does nothing for the 18–40 group. Systematic gaps are **bias**, not noise — size cannot average them away. Intersectional gaps (500 young women, 500 elderly men) also persist. Fix: targeted collection with subgroup minimums $n_g\ge n_{\min}$.
 :::
 :::
@@ -305,6 +405,8 @@ More data from an **already well-represented** group shrinks variance for that g
 
 :::question Q41. Distinguish between random and systematic measurement error.
 :::solution Answer
+> **Measurement error** (notes §2.3.6): “Measurement error is the fundamental difference between an observed value and the true underlying construct or quantity it is intended to measure.”
+
 **Random:** $X^*=X+\epsilon$, $\mathbb E[\epsilon]=0$ — scattered around the truth (140 recorded as 138, 141, 142, 139); increases variance, weakens associations, **no bias** in the centre. **Systematic:** $X^*=X+b+\epsilon$, $b\ne0$ — persistent directional shift (140,130,120 recorded as 150,140,130); produces **biased** estimates and flawed conclusions.
 :::
 :::
@@ -329,6 +431,8 @@ A wearable heart-rate sensor with **±2 bpm** error on light skin and **±10 bpm
 
 :::question Q45. Define construct validity in the context of data collection and AI development.
 :::solution Answer
+> **Construct validity** (notes §2.3.6): “The most dangerous measurement error occurs before the instrument is even used: the chosen variable simply does not measure the intended concept.”
+
 **Construct validity** is the degree to which a measured variable or label **faithfully represents the concept we actually care about**. Its failure — "the ultimate error" — happens before any instrument is used: the chosen variable measures something else (cost for need, arrests for crime, clicks for satisfaction, exam scores for intelligence, absence for disengagement). Then the model becomes a highly optimized system for measuring the wrong thing.
 :::
 :::
@@ -353,6 +457,8 @@ Clicks reflect **what the interface showed and how** (ranking position, thumbnai
 
 :::question Q49. Explain why model optimization cannot correct a target variable that measures the wrong construct.
 :::solution Answer
+> **Construct validity** (notes §2.3.6): “The most dangerous measurement error occurs before the instrument is even used: the chosen variable simply does not measure the intended concept.”
+
 Optimization minimizes error **with respect to the given target** $Y$. If $Y$ is a biased proxy for the construct $Y^*$, a better optimizer just predicts the proxy **more accurately** — including its distortions ($\hat C\approx C$ does not imply $\hat C\approx H$). "The algorithm works exactly as designed. It is simply optimizing the wrong target." The data contain no signal telling the model it is off-target; only **redefining the target** (or validating the proxy) fixes it.
 :::
 :::

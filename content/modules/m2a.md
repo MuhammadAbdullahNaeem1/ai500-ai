@@ -28,6 +28,8 @@ The phrase **"raw data" is an oxymoron**: data are never raw, they are always *c
 | **Engineering** | Which observations are recorded; how missing data are encoded; how data are stored, linked and transformed |
 
 :::def The constructed dataset (Figure 14)
+> **Data are produced, not found** (notes §2.1.1): “Every dataset is actively produced through a long chain of subjective, technical, and systemic choices.”
+
 $$\text{Dataset} = \text{Phenomenon} + \text{Measurement process} + \text{Sampling process} + \text{Institutional context} + \text{Data representation}$$
 A column called *disease, fraud, dropout, risk* or *success* is **never self-defining** — its meaning comes from the operational rules, human choices and institutional practices that generated it.
 :::
@@ -41,6 +43,8 @@ Data are an engineered artifact: phenomenon + measurement + sampling + instituti
 ## 2. Fitness for purpose — $Q(D,T,C)$ (2.1.2)
 
 :::def Fitness for purpose
+> **Fitness for purpose** (notes §2.1.2): “There is no such thing as a universally good or high-quality dataset in a vacuum. A dataset is only good for a specific purpose under specific conditions.”
+
 $$Q(D,T,C)=\text{the fitness of dataset } D \text{ for task } T \text{ under context } C .$$
 There is **no universally good dataset**. Quality is contextual — consistent with NIST, which judges quality and representativeness *relative to the intended use* (accuracy, completeness, consistency, relevance, timeliness).
 :::
@@ -93,6 +97,8 @@ The **source** of data determines its data-generating process, and therefore the
 ### 3.1 Surveys
 
 :::def Surveys
+> **Surveys** (notes §2.2.1): “Surveys collect information by prompting respondents with structured or semi-structured questions …”
+
 Information collected by prompting respondents with structured or semi-structured questions (income, health questionnaires, satisfaction, opinion polls).
 **Advantage:** capture **latent constructs** absent from routine databases — beliefs, preferences, intentions, self-reported behaviour, social circumstances, perceived quality of life.
 :::
@@ -113,6 +119,8 @@ Information collected by prompting respondents with structured or semi-structure
 ### 3.2 Sensors
 
 :::def Sensor measurement model
+> **Sensors** (notes §2.2.2): “Sensors convert physical phenomena into recorded digital signals …”
+
 $$X_{\text{observed}}=X_{\text{true}}+b+\epsilon \qquad(\text{$b$ = systematic bias, } \epsilon=\text{random noise})$$
 More realistically, $X_{\text{observed}}=g(X_{\text{true}},Z,\theta_{\text{device}})+\epsilon$, with $Z$ = environmental conditions and $\theta_{\text{device}}$ = device-specific behaviour.
 :::
@@ -130,6 +138,8 @@ Sensor data *look* objective, but the instrument and acquisition process shape w
 **Advantages:** massive volume, rapid availability, diverse content, naturalistic behaviour, broad coverage. **Limitations:** users ≠ general population; **platform algorithms shape what users see and produce**; bots and coordinated campaigns; duplicated content; uncertain identities; changing interfaces; Terms-of-Service/copyright/privacy issues; deleted content persists in archives; demographics inferred unreliably.
 
 :::def The platform as the measurement instrument
+> **Platform as measurement** (notes §2.2.3): “Observed web behavior is not a direct measure of stable human preference. It is a reaction within an engineered environment, defined by a combination of user, interface, ranking algorithm, moderation, and platform incentives.”
+
 Observed web behaviour is a **reaction within an engineered environment** — user × interface × ranking algorithm × moderation × platform incentives — not a direct measure of stable preference.
 :::
 
@@ -151,6 +161,10 @@ Document: source platforms, collection method (API/scraper/archive), period, sam
 Automated records (clickstreams, app events, server errors, auth logs, model-inference logs, DB queries, transactions). **Strengths:** detailed event sequences, high temporal resolution, operational evidence, scale, monitoring/debugging. **Limitation:** *a logged event only proves that software recorded something*, not that the real event happened as interpreted — inconsistent event definitions, missing instrumentation, schema changes, duplicates after retries, out-of-order arrival, ad-blockers, clock differences, silent logging failures, app-update changes.
 
 :::def Four timestamps of an event
+> **Logs** (notes §2.2.4): “Logs are automated records produced by software systems, applications, networks, and devices …”
+>
+> **Log limitation** (notes §2.2.4): “A logged event only proves that software recorded something – not necessarily that the real-world event happened exactly as interpreted.”
+
 | Timestamp | Meaning |
 |---|---|
 | **Event time** | When the real-world action happened |
@@ -166,6 +180,10 @@ Confusing these is a **primary cause of temporal leakage** and wrong feature win
 Generated to run organizations, **not for research** (billing, hospital records, enrolment, tax, insurance claims, police/court, employment, social services). **Advantages:** large populations, longitudinal, operationally relevant, low marginal cost, linked to real decisions.
 
 :::def Administrative data encode institutional behaviour
+> **Administrative records** (notes §2.2.5): “Administrative records are generated to support organizational operations, not scientific research …”
+>
+> **Administrative data** (notes §2.2.5): “Administrative data encodes institutional behavior not objective reality.”
+
 $$\text{Observed outcome}=f(\text{Underlying condition},\ \text{Access},\ \text{Policy},\ \text{Institutional practice})$$
 A diagnosis code may reflect **billing optimization**; an arrest record reflects **policing patterns**; spending reflects **access to care**; absences may reflect **transport or caregiving**; unemployment records omit the **informal** economy.
 :::
@@ -206,6 +224,8 @@ m2-p031|Table 6 — validation dimensions with example checks
 :::
 
 :::def Six validation dimensions for synthetic data (Table 6)
+> **Synthetic data** (notes §2.2.8): “Synthetic data consists of artificially generated observations designed to mimic the statistical properties of real data.”
+
 | Dimension | Question | Example check |
 |---|---|---|
 | **Fidelity** | Preserves relevant distributions/relationships? | Age distributions, disease frequencies, correlations resemble real data |
@@ -238,6 +258,8 @@ Table 8: **A** fails accuracy (BP monitor +20 mmHg), **B** timeliness, **C** rep
 ### 4.1 Completeness
 
 :::def Completeness
+> **Completeness** (notes §2.3.1): “Completeness measures whether all required data is actually present.”
+
 $$\text{Cell-level: } \text{Completeness}_j = 1-\frac{m_j}{n}\qquad \text{Record-level: } \frac{\#\text{records with all required fields}}{\#\text{total records}}$$
 Types of incompleteness: missing cells, records, time intervals, **population subgroups**, modalities, labels, metadata, provenance.
 :::
@@ -258,6 +280,8 @@ m2-p040|Table 10 — record completeness
 ### 4.2 Accuracy
 
 :::def Accuracy
+> **Accuracy** (notes §2.3.2): “Accuracy measures how closely recorded values correspond to the true or accepted reference values.”
+
 Closeness of recorded values to a **trusted reference**. Numeric: $e_i=x_i-x_i^*$, summarised by $\text{MAE}=\tfrac1n\sum|x_i-x_i^*|$. Categorical: $\text{Label accuracy}=\dfrac{\text{correctly labeled}}{\text{reviewed}}$.
 :::
 
@@ -312,6 +336,8 @@ m2-p042|Table 13 — delayed update
 ### 4.5 Representativeness
 
 :::def Representativeness problem
+> **Representativeness** (notes §2.3.5): “Representativeness asks whether the data adequately reflects the intended target population and the actual operating conditions of deployment.”
+
 $$P_{\text{data}}(X,Y)\neq P_{\text{target}}(X,Y)\ \text{ in consequential ways}$$
 — ways that materially change performance, calibration, fairness, robustness or safety at deployment.
 :::
@@ -342,12 +368,16 @@ m2-p043c|Table 16 — age × gender
 ### 4.6 Measurement error and construct validity
 
 :::def Three kinds of measurement error
+> **Measurement error** (notes §2.3.6): “Measurement error is the fundamental difference between an observed value and the true underlying construct or quantity it is intended to measure.”
+
 - **Random:** $X^*=X+\epsilon$, $\mathbb E[\epsilon]=0$ → raises variance, weakens associations, lowers precision, **does not bias** the centre. *(140 ×4 recorded as 138, 141, 142, 139: errors −2,+1,+2,−1, average ≈ correct.)*
 - **Systematic:** $X^*=X+b+\epsilon$, $b\ne0$ → persistent directional shift. *(140, 130, 120 recorded as 150, 140, 130: every reading +10; **averaging cannot remove it**.)*
 - **Differential:** $P(X^*\neq X\mid A=a)$ varies with a sensitive attribute $A$ → critical for fairness. *(Wearable heart rate: ±2 bpm light skin, ±10 bpm dark skin.)* A model cannot mathematically correct a group measured worse.
 :::
 
 :::def Construct validity — "the ultimate error"
+> **Construct validity** (notes §2.3.6): “The most dangerous measurement error occurs before the instrument is even used: the chosen variable simply does not measure the intended concept.”
+
 The chosen variable does **not measure the intended concept**: cost for health need; arrests for crime; clicks for satisfaction; exam scores for intelligence; absence for disengagement. *No amount of algorithmic tuning will save the model — it becomes a highly optimized system for measuring the wrong thing.*
 :::
 

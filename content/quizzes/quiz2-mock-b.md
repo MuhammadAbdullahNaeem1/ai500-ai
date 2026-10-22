@@ -12,6 +12,8 @@
 
 :::question 1(a) [3 points] Define construct validity. Give one proxy from the notes that fails it and explain why.
 :::solution Solution & marking
+> **Notes wording** — “The most dangerous measurement error occurs before the instrument is even used: the chosen variable simply does not measure the intended concept.” (§2.3.6)
+
 **Construct validity** is the degree to which a measured variable or label faithfully represents the **concept we actually intend** to measure. Example: **healthcare cost as a proxy for health need** — cost also depends on access, insurance, provider behaviour and historical inequality, so patients with equal need but less access appear "low need" (Obermeyer et al.). (Also: arrests for crime, clicks for satisfaction, exam scores for intelligence, absence for disengagement.)
 
 | Rubric | |
@@ -24,6 +26,8 @@
 
 :::question 1(b) [3 points] Define the four timestamps of a logged event. Why does confusing them matter?
 :::solution Solution & marking
+> **Notes wording** — “When the real-world action actually occurred.” (§2.2.4) “When the local system logged it.” (§2.2.4) “When it reached the central data pipeline.” (§2.2.4) “When the pipeline actually handled it.” (§2.2.4)
+
 **Event time** (real action), **recording time** (logged locally), **arrival time** (reached central pipeline), **processing time** (handled by pipeline). Confusing them causes **temporal leakage** and **wrong feature windows**: a feature may be assigned to before the prediction time although it was only available later.
 
 | Rubric | |
@@ -35,6 +39,8 @@
 
 :::question 1(c) [3 points] Define data minimization and state the decision rule given in the notes.
 :::solution Solution & marking
+> **Notes wording** — “Data minimization is the principle that organizations should collect, retain, and process only the information reasonably necessary to achieve a clearly defined and legitimate purpose.” (§2.8.5)
+
 **Data minimization:** organizations should collect, retain and process only the information **reasonably necessary** for a clearly defined, legitimate purpose. Rule: **collect $X_j$ only if Benefit$(X_j)$ > Risk$(X_j)$**, considering the intended use and available safeguards (e.g. keep postal code, drop full address and national ID; keep ethnicity only for restricted fairness auditing).
 
 | Rubric | |
@@ -49,6 +55,8 @@
 
 :::question 2(a) [4 points] Explain why a social-media platform should be treated as part of the measurement instrument. Give two consequences for an AI model trained on its posts.
 :::solution Solution & marking
+> **Notes wording** — “Observed web behavior is not a direct measure of stable human preference. It is a reaction within an engineered environment, defined by a combination of user, interface, ranking algorithm, moderation, and platform incentives.” (§2.2.3)
+
 Observed behaviour is a **reaction within an engineered environment** — recommendation algorithm, interface, moderation, trending topics and engagement incentives decide what users see, create and what remains. So posts are not direct measures of stable opinion. Consequences: (1) the model learns **platform-specific language, amplified polarized topics and bot activity**, and its accuracy **drops on representative survey data**; (2) **platform changes** (e.g. favouring short video) create shifts the model misreads as changes in opinion; also non-representative users, duplicates.
 
 | Rubric | |
@@ -61,6 +69,8 @@ Observed behaviour is a **reaction within an engineered environment** — recomm
 
 :::question 2(b) [4 points] Distinguish consent, licensing, copyright and privacy. Why does satisfying one not satisfy the others?
 :::solution Solution & marking
+> **Notes wording** — “Consent explains what participants agreed to, while licensing defines what users are legally permitted to do with the data.” (§2.7 Ex. 57) “Legal permission to access a dataset does not automatically mean that every possible use is acceptable.” (§2.7.6)
+
 **Consent** — what participants agreed to (purposes, commercial use, transfer, withdrawal). **Licence** — what users are legally permitted to do with the dataset. **Copyright** — intellectual-property rights in the content. **Privacy** — obligations protecting personal information. They come from different sources (participants, data provider, creators, law) and constrain different things: an **openly licensed** dataset may still contain personal data; **de-identified** data may still be under copyright or contract; "Consent: Yes" doesn't permit uses the licence forbids (Example 57).
 
 | Rubric | |
