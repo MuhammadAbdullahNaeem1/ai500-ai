@@ -15,11 +15,26 @@ The five scenario-based questions at the end of Module 2 (PDF pages 135–138). 
 
 ## S1 — University student risk prediction
 
-:::orig Scenario S1
-Model uses GPA, attendance, library usage, tuition payment history and online activity. **Dropout = failure to register next semester**, which also labels transfers, approved leave, temporary financial difficulty and administrative delays. Attendance from scanners, manual sheets or not at all; **missing attendance stored as zero**. Training data: **main-campus undergraduates only**, but deployment planned for **online, graduate and satellite-campus** students. **87% accuracy.** Administrators propose **automatically restricting scholarships** for high-risk students.
+:::orig S1: University Student Risk Prediction — Module 2 notes, PDF p.135
+A university plans to develop an AI system that identifies students who may leave their degree programs. The model will use GPA, attendance, library usage, tuition payment history, and online learning activity.
+
+The project team defines dropout as failure to register for the next semester. However, this definition also labels students who transfer to another university, take an approved leave, experience temporary financial difficulties, or delay registration because of administrative problems as dropouts.
+
+Attendance is recorded through classroom scanners, but some instructors use manual attendance sheets and others do not record attendance. Missing attendance is stored as zero. The training data include only undergraduate students from the main campus, although the university intends to deploy the system for online students, graduate students, and students at satellite campuses.
+
+The model achieves 87 percent accuracy. University administrators propose automatically restricting scholarships for students classified as high risk.
+
+**Questions**
+
+(a) How has the target variable dropout been constructed in this case?
+(b) What problems arise from storing missing attendance as zero?
+(c) Is the dataset representative of the intended deployment population? Explain.
+(d) Evaluate the dataset using the fitness-for-purpose formulation $Q(D,T,C)$.
+(e) What ethical problem arises from using the prediction to restrict scholarships?
+(f) What documentation should be included in a Datasheet for Datasets before deployment?
 :::
 
-:::question (a) How has the target variable *dropout* been constructed in this case?
+:::question (a) How has the target variable dropout been constructed in this case?
 :::solution Answer
 It is an **operational, administrative definition** — "did not register next semester" — not a measure of actually leaving education. The rule lumps together very different realities: **transfer** to another university, **approved leave**, **temporary financial difficulty**, **administrative registration delay**, and true withdrawal. So the label reflects **registration-office events and university policy** (constructed, not discovered — Example 38). The model will learn to predict *non-registration*, including administrative noise, and many "positives" are students who never left — inflating risk for financially stressed students and those with paperwork problems.
 :::
@@ -37,7 +52,7 @@ Zero is a **real value** ("attended nothing"), so **missing is disguised as an e
 :::
 :::
 
-:::question (d) Evaluate the dataset using $Q(D,T,C)$.
+:::question (d) Evaluate the dataset using the fitness-for-purpose formulation $Q(D,T,C)$.
 :::solution Answer
 - **$D$** = main-campus undergraduate records: GPA, scanner/manual attendance (missing = 0), library, tuition history, online activity; label = "not registered next semester".
 - **$T$** = identify students likely to leave so as to (as proposed) **restrict scholarships** — an individual, high-stakes allocation decision.
@@ -67,8 +82,21 @@ The prediction is being turned into a **punitive automated decision** that **har
 
 ## S2 — Public opinion analysis from social media
 
-:::orig Scenario S2
-Four million keyword-matched posts → sentiment classifier (supportive/neutral/opposed) for a **transportation policy**. Many **reposts**; **automated accounts** post the same statements thousands of times; the algorithm **promotes emotionally charged content**; users mostly **young urban**; agency calls it **national opinion**. Mid-collection, the platform switches to **promoting short video** → text posts fall sharply; team concludes **public interest declined**.
+:::orig S2: Public Opinion Analysis from Social Media — Module 2 notes, PDF p.136
+A government agency wants to estimate public support for a new transportation policy. It collects four million public social media posts containing selected keywords and trains a sentiment classifier to label each post as supportive, neutral, or opposed.
+
+The dataset contains many reposts of a small number of highly popular messages. Several automated accounts publish the same statements thousands of times. The platform recommendation algorithm promotes emotionally charged content, while moderate posts receive limited visibility. Most active users are young people living in urban areas, but the agency describes the findings as national public opinion.
+
+Halfway through data collection, the platform changes its recommendation system and begins promoting short video content instead of text. The number of collected text posts declines sharply. The research team interprets this decline as reduced public interest in the policy.
+
+**Questions**
+
+(a) Why should the platform be treated as part of the measurement instrument?
+(b) Identify the representativeness problems in the dataset.
+(c) How can reposts and automated accounts distort the estimated level of public support?
+(d) Does the decline in text posts necessarily represent a real change in public opinion?
+(e) What legal and ethical issues should be examined before collecting and retaining the posts?
+(f) What additional data source could provide a more defensible estimate of national opinion?
 :::
 
 :::question (a) Why should the platform be treated as part of the measurement instrument?
@@ -114,8 +142,23 @@ A **nationally representative probability survey** (stratified by region, age, u
 
 ## S3 — Hospital readmission model with missing data
 
-:::orig Scenario S3
-Predict 30-day readmission from age, diagnoses, previous admissions, BP, labs, length of stay, discharge info. **BP missing 8%**; **lactate missing 75%** because it's ordered mainly when severe illness is suspected. Team replaces **every missing value with the overall mean from the full dataset before splitting**. Profiling finds BP > 300 mmHg; team **deletes every extreme value automatically** — some were entry errors, others real emergencies.
+:::orig S3: Hospital Readmission Model with Missing Data — Module 2 notes, PDF p.136
+A hospital develops an AI model to predict whether a patient will be readmitted within 30 days. The dataset includes age, diagnoses, previous admissions, blood pressure, laboratory results, length of stay, and discharge information.
+
+Blood pressure is missing for 8 percent of patients. Lactate values are missing for 75 percent of patients because clinicians usually order the test only when severe illness is suspected.
+
+The data team replaces every missing numerical value with the overall mean calculated from the full dataset before creating the training and test partitions.
+
+A profiling report also identifies several blood pressure values above 300 mmHg. The team deletes every extreme value automatically. It later discovers that some values were data-entry errors, while others came from patients in medical emergencies.
+
+**Questions**
+
+(a) Why might missing lactate values contain clinically meaningful information?
+(b) Which missingness mechanisms could plausibly explain the absent blood pressure and lactate values?
+(c) What statistical problems can result from mean imputation?
+(d) How has the team introduced train–test contamination?
+(e) Why should the extreme blood pressure observations be investigated rather than automatically deleted?
+(f) Propose a more principled workflow for handling the missing values and outliers.
 :::
 
 :::question (a) Why might missing lactate values contain clinically meaningful information?
@@ -124,7 +167,7 @@ Lactate is ordered **mainly when clinicians suspect severe illness** (sepsis, sh
 :::
 :::
 
-:::question (b) Which missingness mechanisms could plausibly explain absent BP and lactate?
+:::question (b) Which missingness mechanisms could plausibly explain the absent blood pressure and lactate values?
 :::solution Answer
 - **BP (8%):** plausibly **MCAR** (device glitch, transcription loss) or **MAR** (missing more for certain wards, admission types or short stays — observed variables). Possibly MNAR if very sick patients rushed through without routine BP.
 - **Lactate (75%):** **not MCAR**. It is at least **MAR** (ordering depends on observed signs — vitals, diagnoses) and likely **MNAR**: it is missing *because* the unmeasured lactate would likely have been normal (clinicians' unrecorded impression of severity).
@@ -144,13 +187,13 @@ The means were computed on the **full dataset before the train–test split**, s
 :::
 :::
 
-:::question (e) Why should the extreme BP observations be investigated rather than automatically deleted?
+:::question (e) Why should the extreme blood pressure observations be investigated rather than automatically deleted?
 :::solution Answer
 Because they mix **two different realities**: **data-entry errors** (should be corrected or set missing) and **genuine medical emergencies** (critically important, likely readmission-related). Auto-deletion removes the **sickest patients** — the **tail** the model most needs — biasing the model towards stable patients and underestimating risk. Investigate against the source record, correct documented errors (e.g. 1400 → 140), keep plausible extremes, use robust methods or clipping with justification, and exclude only by predefined, documented criteria with an audit trail.
 :::
 :::
 
-:::question (f) Propose a more principled workflow for handling missing values and outliers.
+:::question (f) Propose a more principled workflow for handling the missing values and outliers.
 :::solution Answer
 1. **Inventory & profile:** missingness by variable, ward, time; extreme values; consult clinicians on why values are absent.
 2. **Split first** (patient-level, ideally chronological) and keep the test set untouched.
@@ -164,8 +207,21 @@ Because they mix **two different realities**: **data-entry errors** (should be c
 
 ## S4 — Cancer detection with imbalanced medical images
 
-:::orig Scenario S4
-1,000 patients: **950 no cancer, 50 cancer**. **SMOTE + augmentation applied to the complete dataset before splitting.** Several images per patient, **split at image level**. Images **standardized with full-dataset statistics**. **99% accuracy**; performance falls at a **non-contributing hospital**; **very high cancer probabilities** although deployment prevalence is **5%**.
+:::orig S4: Cancer Detection with Imbalanced Medical Images — Module 2 notes, PDF p.137
+A research team trains an image classifier using scans from 1,000 patients. The dataset contains 950 patients without cancer and 50 patients with cancer. To balance the classes, the team applies SMOTE and image augmentation to the complete dataset before dividing it into training and testing sets.
+
+Each patient has several images from the same examination. The images are randomly divided at the image level, so images from one patient may appear in both training and testing sets. The team also standardizes all images using statistics calculated from the full dataset.
+
+The resulting model achieves 99 percent accuracy. However, when tested at a hospital that did not contribute training data, performance declines substantially. The model also produces very high cancer probabilities even though cancer prevalence in the deployment population is only 5 percent.
+
+**Questions**
+
+(a) Why is accuracy alone inadequate for evaluating this model?
+(b) Identify three forms of data leakage or contamination in the development process.
+(c) Why must all images from the same patient remain in one data partition?
+(d) When should SMOTE or augmentation be applied?
+(e) Why might the predicted probabilities require recalibration?
+(f) What evaluation design would provide evidence of generalization to a new hospital?
 :::
 
 :::question (a) Why is accuracy alone inadequate for evaluating this model?
@@ -174,7 +230,7 @@ With 95% negatives, a model predicting "no cancer" for everyone already gets **9
 :::
 :::
 
-:::question (b) Identify three forms of data leakage or contamination.
+:::question (b) Identify three forms of data leakage or contamination in the development process.
 :::solution Answer
 1. **Resampling before splitting:** SMOTE/augmented images derived from the same originals appear in **both** train and test → train–test contamination.
 2. **Group (patient) leakage:** image-level split puts **images from the same patient/examination** in both sets → the model recognizes patients.
@@ -183,7 +239,7 @@ With 95% negatives, a model predicting "no cancer" for everyone already gets **9
 :::
 :::
 
-:::question (c) Why must all images from the same patient remain in one partition?
+:::question (c) Why must all images from the same patient remain in one data partition?
 :::solution Answer
 Images from one examination are **highly correlated** (same anatomy, scanner, lesion, artefacts). If split across partitions, the model can match the **patient** rather than learn general cancer patterns, so test accuracy measures memorization. Deployment is always on **new patients**: require $G_{\text{train}}\cap G_{\text{test}}=\varnothing$ (GroupKFold / patient-level split).
 :::
@@ -212,17 +268,30 @@ Training on an **artificially balanced** set (≈50% cancer after SMOTE) teaches
 
 ## S5 — Commercial use of a public medical dataset
 
-:::orig Scenario S5
-Public imaging dataset; page says **access available for academic research**; original consent permits image analysis but **prohibits commercial use and international transfer**. A company offers to **buy the model and deploy in several countries**; researchers argue images are **de-identified** and only the **model** is transferred. They also **combine** it with an openly licensed dataset and plan to **publish the combined collection**. Documentation: only **"Consent obtained: Yes"** and **"Data publicly available"** — no versions, preprocessing, exclusions, consent conditions, licence restrictions or lineage.
+:::orig S5: Commercial Use of a Public Medical Dataset — Module 2 notes, PDF p.137
+A university research group develops an AI system for early detection of a neurological disease using a publicly accessible medical imaging dataset. The dataset page states that access is available for academic research. The original consent form permits analysis of medical images but prohibits commercial use and international transfer.
+
+A technology company offers to purchase the model and deploy it in several countries. The research team argues that the images have been de-identified and that only the trained model, rather than the original images, will be transferred.
+
+The researchers also combine the dataset with another openly licensed dataset and plan to publish the combined collection. Their documentation contains only the statements Consent obtained: Yes and Data publicly available. It does not record dataset versions, preprocessing steps, excluded cases, consent conditions, license restrictions, or lineage.
+
+**Questions**
+
+(a) Why is Consent obtained: Yes inadequate documentation?
+(b) Distinguish among consent, licensing, copyright, and privacy in this case.
+(c) Does de-identification automatically permit commercial or international use?
+(d) What license-compatibility problem may arise when the two datasets are combined?
+(e) What information should be added to the dataset documentation and data-lineage record?
+(f) Which organizational roles should approve or reject the proposed commercial deployment?
 :::
 
-:::question (a) Why is "Consent obtained: Yes" inadequate documentation?
+:::question (a) Why is Consent obtained: Yes inadequate documentation?
 :::solution Answer
 It records **that** consent exists but not **what** was agreed: permitted purposes, commercial use, international transfer, linkage, AI development, withdrawal rights and their effect on derived models, vulnerable groups, broad vs specific. Here the actual form **prohibits commercial use and international transfer**, so "Yes" is actively misleading — a reviewer would wrongly approve the deal. Consent must be documented as **conditions**, not a binary flag.
 :::
 :::
 
-:::question (b) Distinguish among consent, licensing, copyright and privacy in this case.
+:::question (b) Distinguish among consent, licensing, copyright, and privacy in this case.
 :::solution Answer
 - **Consent:** participants agreed to image analysis, **not commercial use or international transfer** → the sale and global deployment conflict with consent.
 - **Licensing:** the dataset is offered for **academic research** → commercial deployment and **redistribution** of the combined collection are likely outside the licence.
@@ -238,20 +307,20 @@ Each is a **separate constraint** — satisfying one (e.g. public access) does n
 :::
 :::
 
-:::question (d) What licence-compatibility problem may arise when the two datasets are combined?
+:::question (d) What license-compatibility problem may arise when the two datasets are combined?
 :::solution Answer
 The **academic-only / no-redistribution** terms of the medical dataset are **incompatible** with publishing the combination openly: the combined collection **inherits the most restrictive terms**, so it cannot be redistributed or used commercially, whatever the open dataset's licence says. The open licence may also impose its own conditions (attribution, share-alike) that conflict. Downstream users can't assume all components are compatible. A licence-compatibility review is needed before publication.
 :::
 :::
 
-:::question (e) What information should be added to the dataset documentation and lineage record?
+:::question (e) What information should be added to the dataset documentation and data-lineage record?
 :::solution Answer
 **Documentation:** source and **dataset versions** of both datasets; **consent conditions** (purposes, no commercial use, no international transfer, withdrawal); **licence terms** for each source and of the combination; access procedure; de-identification method and residual risk; composition; **excluded cases** and reasons; label definitions; intended and **prohibited uses**; maintainer.
 **Lineage:** $D_0^{(A)}, D_0^{(B)}\to$ each transformation (de-identification, preprocessing, merging, exclusions) with input version, code version, parameters, output version, timestamp, responsible person, validation results — linking the trained model to exact data and code.
 :::
 :::
 
-:::question (f) Which organizational roles should approve or reject the commercial deployment?
+:::question (f) Which organizational roles should approve or reject the proposed commercial deployment?
 :::solution Answer
 The **data owner/custodian** of the original dataset (licence holder); the **institutional review board/research ethics committee** (consent scope); the **data-protection/privacy office** (re-identification, international transfer); **legal counsel** (licences, copyright, contracts, cross-border law); the university's **technology-transfer/leadership**; **clinical governance** (safety of the diagnostic); ideally **participant/community representatives**; and **regulators** in deployment countries. Given the explicit prohibitions, the likely outcome is **reject**, or proceed only with **renewed consent**, licence permission and a lawful transfer basis.
 :::

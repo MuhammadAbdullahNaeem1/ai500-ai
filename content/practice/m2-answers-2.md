@@ -27,7 +27,7 @@ Deciding which data belong in the collection; defining variables, coding schemes
 :::
 :::
 
-:::question Q53. Describe the eight stages of the data governance and quality workflow.
+:::question Q53. Describe the eight stages of the data governance and quality workflow presented in the module.
 :::solution Answer
 1. **Inventory** — manifest of sources, owners, purpose, coverage, sensitivity, legal basis before any change.
 2. **Profile** — statistical/structural characteristics (types, missingness, distributions, duplicates, subgroups).
@@ -55,13 +55,13 @@ Data **source**; data **owner or custodian**; **purpose** of collection; **tempo
 :::
 :::
 
-:::question Q56. Which statistical, structural, temporal and subgroup characteristics should be examined during profiling?
+:::question Q56. Which statistical, structural, temporal, and subgroup characteristics should be examined during profiling?
 :::solution Answer
 **Structural:** number of rows/columns, data types, unique-value counts, duplicate records. **Statistical:** proportion missing, distributions, min/max, class/label balance. **Temporal:** temporal coverage (gaps, period). **Subgroup:** demographic or subgroup composition.
 :::
 :::
 
-:::question Q57. Distinguish among schema validation, relational validation, logical validation and domain validation.
+:::question Q57. Distinguish among schema validation, relational validation, logical validation, and domain validation.
 :::solution Answer
 > **Validation** (notes §2.4.5): “Validation determines whether the dataset satisfies predefined structural, logical, and domain-specific requirements.”
 
@@ -87,7 +87,7 @@ The **original value**, the **corrected value**, the **rule or procedure** used,
 :::
 :::
 
-:::question Q60. How do version control, release approval, archiving and retirement support long-term dataset reliability?
+:::question Q60. How do version control, release approval, archiving, and retirement support long-term dataset reliability?
 :::solution Answer
 **Version control** ties every model and paper to an exact dataset version and lets corrections be released without breaking comparability. **Release approval** is a formal gate ensuring only validated, documented versions are used. **Archiving** preserves historical versions for reproducibility and audit. **Retirement** withdraws obsolete or flawed data so it isn't reused, while keeping records of why. Together they keep the dataset trustworthy over its life (lifecycle management).
 :::
@@ -103,7 +103,7 @@ Measurement never taken; respondent declined; **sensor/equipment failure**; clin
 :::
 :::
 
-:::question Q62. Define MCAR, MAR and MNAR.
+:::question Q62. Define Missing Completely at Random, Missing at Random, and Missing Not at Random.
 :::solution Answer
 > **MCAR** (notes §2.5.1): “Under MCAR, the probability of missingness is unrelated to either observed or unobserved data.”
 >
@@ -125,7 +125,7 @@ Distinguishing MAR from MNAR requires knowing whether missingness depends on the
 :::
 :::
 
-:::question Q64. Compare deletion, simple imputation, groupwise imputation, multiple imputation, model-based imputation and missing-value indicators.
+:::question Q64. Compare deletion, simple imputation, groupwise imputation, multiple imputation, model-based imputation, and missing-value indicators.
 :::solution Answer
 | Approach | Idea | Use / risk |
 |---|---|---|
@@ -165,7 +165,7 @@ An outlier may be a **genuine rare observation**, a data-entry mistake, a **unit
 :::
 :::
 
-:::question Q68. Compare the z-score rule, IQR rule, Winsorization, transformations and robust loss functions.
+:::question Q68. Compare the z-score rule, the interquartile-range rule, Winsorization, transformations, and robust loss functions.
 :::solution Answer
 - **z-score** $z=(x-\bar x)/s$: flags points far from the mean in SD units; mean and SD are themselves pulled by outliers; assumes roughly normal data.
 - **IQR rule:** flag outside $[Q_1-1.5\,\text{IQR},\ Q_3+1.5\,\text{IQR}]$; **robust** to extremes and skew. (Both detect *for investigation*.)
@@ -175,7 +175,7 @@ An outlier may be a **genuine rare observation**, a data-entry mistake, a **unit
 :::
 :::
 
-:::question Q69. Distinguish exact duplicates, near duplicates, false merges and false splits.
+:::question Q69. Distinguish exact duplicates, near duplicates, false merges, and false splits in entity resolution.
 :::solution Answer
 > **Exact duplicates** (notes §2.5.3): “Exact duplicates are identical across all relevant fields.”
 >
@@ -187,7 +187,7 @@ An outlier may be a **genuine rare observation**, a data-entry mistake, a **unit
 :::
 :::
 
-:::question Q70. Why should annotation systems preserve original labels, consensus labels, adjudication decisions, uncertainty and acceptable alternative labels?
+:::question Q70. Why should annotation systems preserve original labels, consensus labels, adjudication decisions, uncertainty, and acceptable alternative labels?
 :::solution Answer
 > **Majority voting** (notes §2.5.3): “Majority voting provides a practical method for producing consensus labels but may suppress legitimate expert disagreement or overlook genuinely ambiguous cases.”
 
@@ -197,7 +197,7 @@ Because **consensus does not always equal truth**: majority voting can suppress 
 
 ## Unit Errors, Class Imbalance and Probability Calibration
 
-:::question Q71. Why should every numerical variable include metadata about units, valid ranges, precision and conversion rules?
+:::question Q71. Why should every numerical variable include metadata about units, valid ranges, precision, and conversion rules?
 :::solution Answer
 Numbers are meaningless without their **physical quantity and unit**. Metadata lets validation catch impossible values (range), prevents mixing units, records how precisely something was measured, and makes conversions explicit and reproducible. It also documents source-system conventions when merging hospitals or devices. **Unit-aware schemas** greatly reduce silent unit errors.
 :::
@@ -229,7 +229,7 @@ Accuracy weights all cases equally, so the majority dominates. With 99% legitima
 :::
 :::
 
-:::question Q76. Compare class weighting, threshold adjustment, oversampling, undersampling, minority-class collection and cost-sensitive learning.
+:::question Q76. Compare class weighting, threshold adjustment, oversampling, undersampling, minority-class collection, and cost-sensitive learning.
 :::solution Answer
 - **Class weighting:** bigger loss weight on minority errors; no data duplication.
 - **Threshold adjustment:** move the decision cutoff to trade FP vs FN; model unchanged.
@@ -289,7 +289,7 @@ The model learns the **training prevalence** (e.g. 50%) as its base rate. If rea
 :::
 :::
 
-:::question Q83. Define target leakage and give an example involving sepsis prediction.
+:::question Q83. Define target leakage and provide an example involving sepsis prediction.
 :::solution Answer
 > **Target leakage** (notes §2.6.2): “Target leakage occurs when one or more input features directly or indirectly reveal the outcome that the model is intended to predict.”
 
@@ -305,13 +305,13 @@ Information from the evaluation data influences development, parameter estimatio
 :::
 :::
 
-:::question Q85. Why must scaling, imputation, encoding, feature selection, dimensionality reduction and resampling occur inside each CV training fold?
+:::question Q85. Why must scaling, imputation, encoding, feature selection, dimensionality reduction, and resampling occur inside each cross-validation training fold?
 :::solution Answer
 Each is **data-dependent**: it estimates something (means/SDs, imputation values, category maps, selected features, PCA axes, synthetic samples) from the data it sees. Fitting on all data before creating folds lets each validation fold influence its own preprocessing → leakage and biased CV estimates. Fitting inside each training fold (a pipeline) simulates deployment, where the preprocessing never sees the new case.
 :::
 :::
 
-:::question Q86. Compare standard k-fold, stratified k-fold, grouped CV and time-series CV.
+:::question Q86. Compare standard $k$-fold, stratified $k$-fold, grouped cross-validation, and time-series cross-validation.
 :::solution Answer
 - **Standard k-fold:** for **i.i.d.** samples; k folds, each validates once; average metrics (mean ± SD).
 - **Stratified k-fold:** classification, especially **imbalanced** — each fold keeps the class proportions, so no fold lacks positives (stable precision/recall/F1).
@@ -330,7 +330,7 @@ Each is **data-dependent**: it estimates something (means/SDs, imputation values
 :::
 :::
 
-:::question Q88. What is group leakage, and why must all records from one patient, customer, household or device remain in one partition?
+:::question Q88. What is group leakage, and why must all records from the same patient, customer, household, or device remain in one partition?
 :::solution Answer
 > **Group leakage** (notes §2.6.6): “Group leakage occurs when related observations from the same entity appear in multiple data partitions.”
 
@@ -388,7 +388,7 @@ A **datasheet** documents the **whole dataset** — motivation, composition, col
 :::
 :::
 
-:::question Q95. Why should consent documentation describe permitted purposes, linkage, commercial use, international transfer, withdrawal and vulnerable populations?
+:::question Q95. Why should consent documentation describe permitted purposes, linkage, commercial use, international transfer, withdrawal, and vulnerable populations?
 :::solution Answer
 > **Consent documentation** (notes §2.7.4): “Consent should not be represented merely as a binary indicator such as consent obtained: Yes/No.”
 
@@ -396,7 +396,7 @@ Because "Consent obtained: Yes" says nothing about **what** was agreed. A new us
 :::
 :::
 
-:::question Q96. How do consent, licensing, copyright and privacy impose different constraints on dataset use?
+:::question Q96. How do consent, licensing, copyright, and privacy impose different constraints on dataset use?
 :::solution Answer
 > **Consent vs licensing** (notes §2.7 Ex. 57): “Consent explains what participants agreed to, while licensing defines what users are legally permitted to do with the data.”
 >
@@ -418,7 +418,7 @@ Removing names and IDs leaves **quasi-identifiers** — age, location, dates, ra
 :::
 :::
 
-:::question Q98. Explain how data minimization, access control, encryption, retention limits, audit logs, differential privacy and federated learning reduce privacy risks.
+:::question Q98. Explain how data minimization, access control, encryption, retention limits, audit logs, differential privacy, and federated learning can reduce privacy risks.
 :::solution Answer
 > **Data minimization** (notes §2.8.5): “Data minimization is the principle that organizations should collect, retain, and process only the information reasonably necessary to achieve a clearly defined and legitimate purpose.”
 
@@ -441,7 +441,7 @@ Excluding them from inputs avoids **direct** use in decisions, but bias can pers
 :::
 :::
 
-:::question Q100. How should data owners, stewards, ethics committees, review bodies, technical teams, domain experts and leaders share responsibility?
+:::question Q100. How should data owners, stewards, ethics committees, institutional review bodies, technical teams, domain experts, and organizational leaders share responsibility for the lawful, fair, transparent, and accountable use of data?
 :::solution Answer
 > **Data owner** (notes §2.8.11): “Holds formal authority and ultimate responsibility for the data resource.”
 >

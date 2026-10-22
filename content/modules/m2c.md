@@ -30,6 +30,9 @@ Inspired by datasheets for electronic components. Seven areas:
 | **Maintenance** | Owners/maintainers, error reporting, update schedule, **withdrawal** procedure, versioning, revision tracking |
 
 :::example Example 56 — Medical imaging dataset
+**Setting (notes, Example 56):** A research group downloads a publicly available medical imaging dataset to train a disease-detection model. *What do the access, licence, attribution and privacy terms in its documentation prevent?*
+
+**Worked answer:**
 Access needs custodian approval and a data-use agreement; licence: academic only, **no commercial use**; must cite; images **cannot be redistributed**. Without this, another organization might redistribute publicly, commercialize, or omit attribution → privacy, IP and terms violations.
 :::
 
@@ -69,6 +72,9 @@ For **every transformation** record: input dataset version, code/software versio
 - **Licence compatibility:** combining datasets with incompatible licences can block redistribution, publication or deployment; the combined data **inherit the most restrictive terms**. Record licence, version and restrictions with the artifact.
 
 :::example Example 57 — Alzheimer's MRI model (5,000 participants)
+**Setting (notes, Example 57):** A university builds a model to predict early signs of Alzheimer's disease from MRI scans of 5,000 participants. Years later a technology company wants to use the dataset for a commercial product shared internationally, and a researcher publishes it combined with an open dataset. *What consent and licence problems arise?*
+
+**Worked answer:**
 Record says only "Consent obtained: Yes", but the form allowed **academic research, imaging analysis, no commercial use, no transfer abroad**. A company later wants a commercial product shared internationally → violates the actual agreement (commercial, international, AI development not explained). Licence: **research-only**, no commercial deployment, **no redistribution of raw images**, no re-identification. A researcher merges it with an open dataset and publishes the combination → breaks the licence (no redistribution; combined data inherit restrictions).
 **Key lesson:** *consent* = what participants agreed to; *licensing* = what users are legally permitted to do. Access ≠ unrestricted ethical or legal use.
 :::
@@ -120,10 +126,16 @@ Other variables act as **proxies**: $X_{\text{proxy}}\leftrightarrow A_{\text{se
 :::
 
 :::example Example 59 — Loan model without race
+**Setting (notes, Example 59):** A bank removes race from the training data of its home-loan approval model, but the model still uses postal code, household income and occupation. *Is the model now free of racial bias?*
+
+**Worked answer:**
 Postal code (historical residential segregation), income and occupation stand in for race → affluent postcodes approved, disadvantaged neighbourhoods rejected at similar financial profiles.
 :::
 
 :::example Example 60 — Keep ethnicity for auditing, not prediction
+**Setting (notes, Example 60, Table 26):** A hospital readmission model does not use ethnicity as a feature. After deployment, accuracy is 91% for Group A, 90% for Group B and 74% for Group C. *Why does the hospital still need ethnicity data?*
+
+**Worked answer:**
 Readmission model excludes ethnicity from inputs; audit shows accuracy **91% / 90% / 74%** for Groups A/B/C. Without recorded ethnicity the Group C gap would be invisible. Policy: exclude from prediction, **retain with restricted access** for fairness evaluation and monitoring, strict access/security controls. Governance distinguishes use for **prediction**, **fairness evaluation**, **monitoring**, and **access/retention/security**.
 :::
 
@@ -171,6 +183,9 @@ These can be **mutually incompatible**, especially when **prevalence differs** b
 :::
 
 :::example Example 62 — Sepsis with prevalence 20% (A) vs 5% (B)
+**Setting (notes, Example 62):** A sepsis model is used for Group A (prevalence 20%) and Group B (prevalence 5%). *Which fairness criterion should the hospital choose — demographic parity, equal opportunity or predictive parity?*
+
+**Worked answer:**
 Demographic parity would flag equal proportions → over-test B or under-detect A. Predictive parity may need different thresholds, which can break equal opportunity. All three can't hold at once. Hospital picks **equal opportunity** (equal TPR) because **missed sepsis (FN) is worse** than an extra test (FP).
 :::
 

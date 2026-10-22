@@ -40,6 +40,9 @@ In all three, *intelligence is bounded by the representation*: no symbol, fact o
 | Physical symbol systems (1976) | Newell & Simon | Symbols central to intelligent action |
 
 :::example Example 5 — Predictive policing and self-reinforcing data
+**Setting (notes, Example 5):** A police department uses a machine-learning system, trained on historical crime reports, to predict areas where crimes are most likely to occur, and increases patrols in those areas. *What happens to the data and the model over time?*
+
+**Worked answer:**
 Historical data mark a neighbourhood high-risk → more patrols → more minor incidents recorded → the model "confirms" itself. Four feedback risks:
 - **Self-reinforcing bias:** historical patterns amplified.
 - **Selective labels:** outcomes observed only where attention was directed.
@@ -49,6 +52,9 @@ Historical data mark a neighbourhood high-risk → more patrols → more minor i
 :::
 
 :::example Example 6 — Emotions from faces: information is not meaning
+**Setting (notes, Example 6):** Researchers want an AI system that identifies whether a person is happy, sad, or angry from a photograph. *Why does encoding the image as information not give the system meaning?*
+
+**Worked answer:**
 Pixels can be encoded and processed, but "happy" depends on how emotions were defined, who labelled the images, whether labels reflect feelings, expressions or judgements, and dataset diversity. A smile may mean politeness or nervousness → precise but misleading model.
 :::
 
@@ -79,6 +85,9 @@ Symbolic vs statistical is **not a permanent binary**; the practical question is
 | **Who is responsible for an AI decision?** | Not the algorithm (no intent or moral agency). People and institutions choose data, objectives, labels, thresholds, review triggers → responsibility across the lifecycle; NIST AI RMF. |
 
 :::example Example 10 — Attendance and exam success
+**Setting (notes, Example 10):** A university trains a model to predict whether students will pass a final exam; it finds that students with high attendance are much more likely to pass. *Does the model understand why students succeed — and what would happen if every student were required to attend every lecture?*
+
+**Worked answer:**
 High attendance predicts passing (prediction succeeds), but attendance may proxy motivation, prior knowledge, study habits, family support. "Force everyone to attend every lecture" is an **intervention** question a predictive model can't answer. *Prediction identifies who is likely to succeed; causal reasoning identifies which actions improve success.*
 :::
 

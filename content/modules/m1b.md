@@ -23,6 +23,9 @@ Eight stages, **iterative, not a waterfall** — monitoring feeds back into ever
 A robust statement names: **target population and decision-maker**; the **decision and when it occurs**; the desired outcome and **alternatives (baseline/status quo)**; **consequences of errors** (FP vs FN); operational and ethical **constraints**.
 
 :::example Poor vs good framing
+**Problem (notes, 1.5.1):** Rewrite the problem statement "Build an AI model to predict hospital readmission" so that it names the decision time, population, outcome, decision-maker, action and evaluation.
+
+**Worked answer:**
 *Poor:* "Build an AI model to predict hospital readmission."
 *Better:* "**At the time of discharge**, estimate the probability of an **unplanned 30-day readmission** among **adult medical patients** so that **the discharge team can allocate a limited number of follow-up appointments**, while measuring **calibration, subgroup performance, preventability, and the consequences of false alerts**."
 :::

@@ -155,6 +155,9 @@ Deciding whether records refer to the same entity using IDs, names, DOB, address
 *(No numerical problems in Quiz 2 — know what κ corrects for: agreement expected **by chance**.)*
 
 :::example Example 51 — Acceptable alternative labels
+**Setting (notes, Example 51, Table 19):** A skin-lesion image is reviewed independently by three dermatologists: Expert 1 says benign nevus, Experts 2 and 3 say dysplastic nevus. *What should the annotation record keep?*
+
+**Worked answer:**
 Three dermatologists: Benign nevus, Dysplastic nevus, Dysplastic nevus. Consensus **dysplastic nevus**; **benign nevus kept as acceptable alternative** — preserving legitimate diagnostic uncertainty for future re-evaluation. *Consensus does not always equal truth*: majority voting can suppress legitimate expert disagreement. Preserve original annotations, annotator expertise, consensus labels, adjudication decisions, uncertainty, acceptable alternatives.
 :::
 
@@ -177,6 +180,9 @@ $\pi_k=n_k/n$. **Imbalance:** one or more classes far rarer (fraud, rare disease
 **Strategies:** imbalance-appropriate metrics; class-weighted learning; threshold adjustment; over/under-sampling; collect more minority data; stratified partitioning; reformulate as anomaly detection; cost-sensitive learning. Choice depends on the relative cost of errors.
 
 :::example Example 52 — Resample after splitting (950 Healthy / 50 Cancer)
+**Problem (notes, Example 52):** A medical dataset has 1,000 patients — 950 Healthy and 50 Cancer. Compare (i) oversampling to balance the classes and then splitting 80/20, with (ii) splitting 80/20 first and oversampling only the training set. *Which gives a reliable performance estimate, and why?*
+
+**Worked answer:**
 **Wrong:** oversample to 950/950, then split 80/20 → train 760/760, test 190/190. Duplicated or synthetic cancer cases derived from the same originals land in both sets → e.g. **99% accuracy**, over-optimistic.
 **Right:** split first (train 760/40, test 190/10), oversample **only the training set** (760/760), leave the test set untouched (190/10). *(The notes label both approaches "Incorrect" — the second heading is a typo for "Correct".)* In k-fold CV, oversample **inside each training fold**.
 :::
@@ -222,6 +228,9 @@ Features that directly or indirectly reveal the outcome. Predicting in-hospital 
 Subtle proxies: invoice status after default; cancellation codes after churn; interventions started after recognition; notes written after the outcome.
 
 :::example Example 54 — Sepsis and antibiotics
+**Setting (notes, Example 54):** A hospital builds a model to predict whether a patient will develop sepsis within 24 hours; the dataset includes the feature "Broad-spectrum antibiotics prescribed (Yes/No)". *Why is an AUC of 0.99 misleading?*
+
+**Worked answer:**
 "Broad-spectrum antibiotics prescribed (Yes/No)" is given **after** clinicians suspect sepsis → near-perfect proxy → **AUC 0.99**, misleading. *Unexpectedly high performance should trigger investigation, not confidence.*
 :::
 
@@ -264,6 +273,9 @@ m2-p077|Figure 17 — temporal evaluation: information flows forward in time onl
 Related observations of the same entity (patient, household, student, customer, device, hospital, region, video, document source, repeated measurements) in several partitions inflate performance — the model recognizes the **entity**, not the pattern. Require $G_{\text{train}}\cap G_{\text{test}}=\varnothing$.
 
 :::example Example 55 — Churn: split by customer
+**Problem (notes, Example 55, Tables 23–24):** A telecom company predicts customer churn from monthly records; customer C001's January and March records are in training and February in testing. *Why is 95% accuracy misleading, and how should the data be split?*
+
+**Worked answer:**
 C001's January and March in training, February in testing → model learns C001's personal usage → **95% accuracy**, misleading. Correct: all of C001's records together (C001, C002 train; C003 test).
 :::
 
