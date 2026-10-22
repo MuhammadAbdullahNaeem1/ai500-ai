@@ -12,6 +12,8 @@
 
 :::question 1(a) [3 points] Explain why "raw data" is described as an oxymoron. Your answer should name the three kinds of decisions that shape a dataset before any row is recorded.
 :::solution Solution & marking
+> **Notes wording** — “The phrase raw data is a dangerous oxymoron.” (§2.1) “Every dataset is actively produced through a long chain of subjective, technical, and systemic choices.” (§2.1.1)
+
 Data are never raw: every dataset is **produced** through human, technical and institutional choices before it is recorded. **Conceptualization** — what phenomenon matters and how variables/labels are defined; **observation** — unit of analysis, inclusion/exclusion, instruments, frequency; **engineering** — what is recorded, how missingness is encoded, how data are stored, linked and transformed. Hence a dataset is an engineered artifact, not a passive reflection of reality.
 
 | Rubric | |
@@ -24,6 +26,8 @@ Data are never raw: every dataset is **produced** through human, technical and i
 
 :::question 1(b) [3 points] Define Missing Not at Random (MNAR). Why can't the missingness mechanism usually be verified from the dataset itself?
 :::solution Solution & marking
+> **Notes wording** — “Under MNAR, the probability of missingness continues to depend on the unobserved values even after accounting for observed information.” (§2.5.1) “These mechanisms describe assumptions about the data-generating process rather than properties that can usually be verified directly from the dataset.” (§2.5.1)
+
 **MNAR:** the probability that a value is missing depends on the **unobserved value itself**, even after conditioning on observed variables (e.g. high earners withhold income even after accounting for age, education, occupation). It cannot usually be verified because testing it would require knowing the **missing values** — which are, by definition, not observed; the mechanism is an **assumption about the data-generating process** justified by domain knowledge.
 
 | Rubric | |
@@ -36,6 +40,8 @@ Data are never raw: every dataset is **produced** through human, technical and i
 
 :::question 1(c) [3 points] Define data provenance. In one additional sentence, distinguish provenance from data lineage.
 :::solution Solution & marking
+> **Notes wording** — “Data provenance describes the origin of data and the processes used to generate them.” (§2.7.3) “Data lineage records how data evolve as they move through processing pipelines.” (§2.7.3)
+
 **Provenance** is the documented **origin, history and chain of custody** of data — how, when, where and by whom they were collected, processed and maintained. **Lineage** records **how data evolve through processing steps** — the chain of dataset versions $D_0\to D_1\to\cdots\to D_{\text{training}}$ and the transformations between them.
 
 | Rubric | |
@@ -50,6 +56,8 @@ Data are never raw: every dataset is **produced** through human, technical and i
 
 :::question 2(a) [4 points] A bank removes race from its loan-approval model and claims the model is therefore fair. Explain why this claim is inadequate, and explain why the bank might nevertheless need to *retain* race data.
 :::solution Solution & marking
+> **Notes wording** — “Excluding a sensitive variable from a predictive model does not necessarily prevent discriminatory outcomes.” (§2.8.6)
+
 Removing a sensitive attribute does not remove bias because other variables act as **proxies**: postal code (historical residential segregation), income, occupation, school or language correlate with race, so the model can reproduce disparities (Example 59). Historical approval labels may themselves encode discrimination. The bank should **retain race under restricted access for fairness auditing and monitoring** — without it, it cannot measure whether approval or error rates differ across groups (Example 60: 91/90/74% accuracy). Governance separates use for **prediction** from use for **evaluation**, with strict access controls.
 
 | Rubric | |
@@ -63,6 +71,8 @@ Removing a sensitive attribute does not remove bias because other variables act 
 
 :::question 2(b) [4 points] A research team oversamples the minority class to a 50/50 balance and then splits the data 80/20 into training and test sets. They report 98% accuracy. Explain two distinct problems with this procedure and how to fix them.
 :::solution Solution & marking
+> **Notes wording** — “Resampling should therefore be performed only within the training partition or within each training fold during cross-validation …” (§2.5.4)
+
 1. **Train–test contamination:** oversampled/synthetic minority cases are copies or interpolations of originals, so near-identical cases appear in both sets → over-optimistic results. **Fix:** split first, oversample only the training set (inside each CV training fold), keep the test set untouched.
 2. **Unrealistic evaluation/calibration:** the test set now has 50% prevalence, unlike deployment, so accuracy (and any probability) is uninformative; balanced training also inflates predicted probabilities. **Fix:** evaluate on the natural prevalence with recall, precision, F1/PR-AUC; recalibrate (Platt scaling or isotonic regression).
 (Accept also: accuracy is misleading under imbalance.)
@@ -78,6 +88,8 @@ Removing a sensitive attribute does not remove bias because other variables act 
 
 :::question 2(c) [4 points] "Synthetic data contain no real people, so privacy and fairness concerns do not apply." Critically evaluate this statement using any three validation dimensions for synthetic data.
 :::solution Solution & marking
+> **Notes wording** — “Synthetic data consists of artificially generated observations designed to mimic the statistical properties of real data.” (§2.2.8)
+
 The statement is **false**. **Privacy:** generators can memorize training records; near-copies enable membership inference and reconstruction — synthetic ≠ anonymous. **Fairness:** the generator learns historical bias and under-representation from the source data and can reproduce or amplify it. **Coverage:** rare but critical cases and small subgroups are often missing, so models fail on them. (Also fidelity, utility on real data, realism.) Synthetic data must be **validated** on all six dimensions before use.
 
 | Rubric | |

@@ -14,6 +14,10 @@ Part A showed that data are constructed and that quality has six faces. Part B i
 ## 1. Data curation vs data cleaning (2.4, 2.4.1)
 
 :::def Data curation
+> **Data curation** (notes §2.4): “Data curation is the systematic process of acquiring, organizing, validating, documenting, preserving, and maintaining data to ensure that they remain accurate, accessible, and suitable for their intended purposes throughout their lifecycle.”
+>
+> **Data cleaning (vs curation)** (notes §2.4): “Data cleaning focuses primarily on identifying and correcting errors, inconsistencies, and missing values.”
+
 The systematic process of **acquiring, organizing, validating, documenting, preserving and maintaining** data so they stay accurate, accessible and suitable for their purpose throughout their **lifecycle**.
 **Data cleaning** is only one part: identifying and correcting errors, inconsistencies and missing values. Curation adds: **scope and governance** (what belongs, definitions, access, legal basis), **integrity and lineage** (duplicates, provenance, explicit exclusions, reproducibility), **lifecycle management** (version control, retiring obsolete data).
 :::
@@ -40,6 +44,8 @@ m2-p047|Figure 15 — Inventory → Profile → Validate → Clean → Reconcile
 Together: reproducibility, accountability, traceability, dependable downstream AI.
 
 :::def Immutable audit trail (2.4.6)
+> **Immutable raw data** (notes §2.4.6): “Data cleaning must never overwrite raw data without absolute traceability.”
+
 Never overwrite raw data without traceability; keep the original **immutable**. For every change record: **original value, corrected value, rule/procedure, date & time, software/tool version, person responsible, justification.**
 :::
 
@@ -57,6 +63,14 @@ The pattern of $R$ can itself carry information (patients with more lab tests di
 :::
 
 :::def MCAR, MAR, MNAR
+> **MCAR** (notes §2.5.1): “Under MCAR, the probability of missingness is unrelated to either observed or unobserved data.”
+>
+> **MAR** (notes §2.5.1): “Here, missingness may depend on observed variables but not on the missing values themselves after conditioning on the observed data.”
+>
+> **MNAR** (notes §2.5.1): “Under MNAR, the probability of missingness continues to depend on the unobserved values even after accounting for observed information.”
+>
+> **Mechanisms are assumptions** (notes §2.5.1): “These mechanisms describe assumptions about the data-generating process rather than properties that can usually be verified directly from the dataset.”
+
 - **MCAR** — $P(R\mid X_{\text{obs}},X_{\text{mis}})=P(R)$: missingness unrelated to anything. *Box of 30 of 500 questionnaires falls off a truck; instrument glitch on 5% of samples.*
 - **MAR** — $P(R\mid X_{\text{obs}},X_{\text{mis}})=P(R\mid X_{\text{obs}})$: explained by **observed** variables. *Younger people skip income (age observed); older patients miss follow-up cholesterol.*
 - **MNAR** — depends on the **unobserved value itself**, even after conditioning. *High earners hide income; severely depressed patients don't complete the questionnaire.*
@@ -87,6 +101,10 @@ Mean imputation **reduces variance**, **distorts relationships** between variabl
 An outlier may be a genuine rare observation, entry mistake, wrong unit, sensor malfunction, new population, fraud, or distribution change → **investigate, don't auto-delete.**
 
 :::def Detection rules
+> **Outlier** (notes §2.5.2): “An outlier is an observation that differs substantially from the expected pattern of the data.”
+>
+> **Outlier handling** (notes §2.5.2): “outliers should be investigated rather than automatically removed.”
+
 - **z-score:** $z_i=\dfrac{x_i-\bar x}{s}$.
 - **IQR (robust):** $\text{IQR}=Q_3-Q_1$; flag outside $[Q_1-1.5\,\text{IQR},\ Q_3+1.5\,\text{IQR}]$. *(The notes' main text prints $Q_3-1.5\,$IQR — a typo; the footnote gives $+$.)* Example: $Q_1=22,Q_3=30\Rightarrow$ IQR $=8$, fences $10$ and $42$.
 - **Multivariate outliers:** ordinary on each variable, impossible jointly — a young person with a very long employment history; transactions in an impossible geographic sequence; physiologically incompatible lab combinations.
@@ -120,6 +138,8 @@ m2-p059|Table 18 — exact duplicate (101 Ali Khan ×2) and near duplicate (Sara
 - **Why they matter:** bias frequencies, over-weight some observations, inflate apparent sample size, **contaminate train/test**, optimistic evaluation.
 
 :::def Entity resolution
+> **Entity resolution** (notes §2.5.3): “Entity resolution seeks to determine whether multiple records refer to the same underlying entity.”
+
 Deciding whether records refer to the same entity using IDs, names, DOB, addresses, phones, device IDs, behaviour. Errors in both directions: **false merge** (two different entities combined) and **false split** (one entity left as two).
 :::
 
@@ -149,6 +169,8 @@ m2-p062|Table 19 — three experts disagree
 ## 6. Class imbalance (2.5.4)
 
 :::def Class prevalence
+> **Class imbalance** (notes §2.5.4): “Class imbalance occurs when one or more classes are substantially less frequent than others.”
+
 $\pi_k=n_k/n$. **Imbalance:** one or more classes far rarer (fraud, rare disease, equipment failure, safety incidents, cyber-attacks). With 99% legitimate, "always legitimate" scores **99% accuracy and catches zero fraud**.
 :::
 
@@ -165,6 +187,10 @@ m2-p066b|Table 21 — split then oversample training only (right)
 :::
 
 :::def Recalibration after balancing (Example 53)
+> **Balancing vs prevalence** (notes §2.5.4): “Balancing the training data improves learning but does not alter the underlying frequencies of events in real-world applications.”
+>
+> **Platt scaling** (notes §2.5.4): “Platt scaling is performed by training a logistic regression model on a classifier's output scores (not the original features) to convert those scores into calibrated probabilities.”
+
 Balancing helps learning but **does not change real-world frequencies**. Trained at 50% prevalence (real 5%), a predicted 70% cancer risk is too high; after recalibration it might be ~22%.
 - **Platt scaling:** fit a logistic regression on the classifier's **scores** (not original features) on validation data: $P(y=1\mid s)=\dfrac{1}{1+\exp(As+B)}$. With $A=-1.3,B=0.4$ and score $1.6$: $1/(1+e^{-1.68})\approx0.84$.
 - **Isotonic regression:** non-parametric monotone mapping from scores to probabilities (e.g. 0.85 → 0.63).
@@ -183,6 +209,8 @@ Accuracy lies under imbalance. Split first, resample only the training fold, kee
 ## 7. Data leakage (2.6)
 
 :::def Data leakage
+> **Data leakage** (notes §2.6.1): “Data leakage occurs when information that would not legitimately be available at the intended prediction or evaluation time is inadvertently used during model development.”
+
 Information **not legitimately available at the intended prediction (or evaluation) time** is used during model development → **overly optimistic** performance that does not generalize. Kaufman et al. (2012): a major, overlooked threat.
 **Practical test:** *Could this feature, preprocessing statistic or related record genuinely be available, in the same form, when a prediction is made for a new observation?* If **no**, don't use it.
 :::
@@ -202,6 +230,8 @@ Subtle proxies: invoice status after default; cancellation codes after churn; in
 Information from evaluation data influences development: identical records in both sets; near-duplicate images across partitions; preprocessing fitted on the whole dataset; feature selection using test labels; repeated tuning on the test set; pretraining on benchmark test examples; synthetic records generated from test records.
 
 :::def Preprocessing contamination
+> **Train–test contamination** (notes §2.6.3): “Train-test contamination occurs when information from the evaluation dataset influences model development, parameter estimation, or model selection.”
+
 Wrong: $\mu=\frac{1}{n_{\text{all}}}\sum_{\text{all}}x_i$. Right: $\mu_{\text{train}}=\frac{1}{n_{\text{train}}}\sum_{i\in\text{train}}x_i$, then apply $x_i'=\dfrac{x_i-\mu_{\text{train}}}{\sigma_{\text{train}}}$ to **every** partition.
 :::
 

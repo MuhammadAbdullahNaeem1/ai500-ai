@@ -12,6 +12,8 @@
 
 :::question 1(a) [3 points] Define differential measurement error and explain why it is a fairness issue.
 :::solution Solution & marking
+> **Notes wording** — “Measurement error is the fundamental difference between an observed value and the true underlying construct or quantity it is intended to measure.” (§2.3.6)
+
 Measurement error whose rate **differs across subgroups**: $P(X^*\neq X\mid A=a)$ varies with a sensitive attribute $A$ (heart-rate sensor ±2 bpm on light skin, ±10 bpm on dark skin). It is a fairness issue because the model receives systematically **worse data for one group**, producing unequal performance that the model **cannot correct** from the data alone.
 
 | Rubric | |
@@ -24,6 +26,8 @@ Measurement error whose rate **differs across subgroups**: $P(X^*\neq X\mid A=a)
 
 :::question 1(b) [3 points] Define concept shift and distinguish it from covariate shift.
 :::solution Solution & marking
+> **Notes wording** — “Representativeness asks whether the data adequately reflects the intended target population and the actual operating conditions of deployment.” (§2.3.5)
+
 **Concept shift:** the relationship between inputs and outputs, $P(Y\mid X)$, changes (purchasing behaviour after a recession). **Covariate shift:** the input distribution $P(X)$ changes while the mapping is stable (a model moved to a hospital with different demographics).
 
 | Rubric | |
@@ -35,6 +39,8 @@ Measurement error whose rate **differs across subgroups**: $P(X^*\neq X\mid A=a)
 
 :::question 1(c) [3 points] Define equal opportunity as a fairness criterion, and state when the notes recommend it.
 :::solution Solution & marking
+> **Notes wording** — “True positive rates are equal across groups.” (§2.8.8)
+
 **Equal opportunity:** true-positive rates are equal across groups, $P(\hat Y=1\mid Y=1,A=a)=P(\hat Y=1\mid Y=1,A=b)$. Recommended when **false negatives are the most harmful error** — e.g. sepsis detection with different prevalence across groups (Example 62), where missing a true case is worse than an extra test.
 
 | Rubric | |
@@ -60,6 +66,8 @@ Measurement error whose rate **differs across subgroups**: $P(X^*\neq X\mid A=a)
 
 :::question 2(b) [4 points] Why should outliers be investigated rather than automatically removed? Give two appropriate responses other than deletion.
 :::solution Solution & marking
+> **Notes wording** — “An outlier is an observation that differs substantially from the expected pattern of the data.” (§2.5.2) “outliers should be investigated rather than automatically removed.” (§2.5.2) “Data cleaning should remove errors, not meaningful complexity.” (§2.5.2)
+
 Outliers may be **genuine rare cases** (emergencies, fraud, failures — often the most important events) as well as errors (entry mistakes, wrong units, sensor faults). Automatic deletion removes the tails the model most needs and biases it towards normal cases. Responses: verify against the source and **correct documented errors**; **convert wrong units**; **retain valid extremes with robust methods** (Huber/quantile loss); **winsorize/clip** with justification; **log/Box–Cox transform**; separate category; exclude only by predefined documented criteria.
 
 | Rubric | |
