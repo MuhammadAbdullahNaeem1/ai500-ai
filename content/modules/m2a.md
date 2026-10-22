@@ -56,6 +56,9 @@ Never ask *"Is this data good?"* Always ask *"Is this data good for the specific
 :::
 
 :::example Example 38 — Predicting student dropout risk (the module's running example)
+**Setting (notes, Example 38):** A university wants an AI system that predicts which students are at risk of dropping out so advisors can intervene early. *How is the dataset constructed, and is it fit for each intended use?*
+
+**Worked answer:**
 **Step 1 — Define the problem.** "Dropout" could mean: permanently leaving; not enrolling next semester; transferring; temporary leave; graduating late. Each definition labels different students → **the target is constructed, not discovered.**
 
 **Step 2 — Choose what to measure** (Table 4):
@@ -144,6 +147,9 @@ Observed web behaviour is a **reaction within an engineered environment** — us
 :::
 
 :::example Example 40 — Public opinion on an environmental policy from 5 million posts
+**Setting (notes, Example 40):** Instead of a nationwide survey, a government agency collects 5 million public posts from a popular social media platform and trains a model to classify each post as supportive, neutral, or opposed to a new environmental policy. *What limitations emerge?*
+
+**Worked answer:**
 - **Non-representative users:** older, rural, offline people rarely post → describes *platform* opinion, not the country.
 - **Algorithms shape the data:** engagement ranking amplifies polarized posts; moderates are under-collected.
 - **Bots:** hundreds of accounts post identical messages → automation mistaken for sentiment.
@@ -189,6 +195,9 @@ A diagnosis code may reflect **billing optimization**; an arrest record reflects
 :::
 
 :::example Example 41 — Readmission prediction from hospital administrative records
+**Setting (notes, Example 41):** A national health service wants a model that predicts which patients will be readmitted within 30 days of discharge, using existing administrative records (admission dates, diagnosis and procedure codes, insurance claims, length of stay, billing). *Why are these records not a measure of true health status?*
+
+**Worked answer:**
 - **Billing codes ≠ clinical reality:** Hospital X codes every complication (more reimbursement), Hospital Y only the primary diagnosis → mild and severe diabetics can share one code; "sicker" hospitals may just code more.
 - **Access shapes the data:** Patient A lives near a hospital and is readmitted; Patient B, remote, never returns → *no readmission record ≠ recovery*.
 - **Policy shapes the records:** Hospital A admits for overnight observation, Hospital B treats as outpatient → only A creates admissions.
@@ -209,6 +218,9 @@ Deliberately assign conditions to estimate **causal** effects; in a randomized e
 :::
 
 :::example Example 42 — Northcutt, Athalye & Mueller (NeurIPS 2021): pervasive label errors in test sets
+**Setting (notes, Example 42):** How reliable are the test-set labels of widely used public machine-learning benchmarks, and what happens to model rankings when they are corrected?
+
+**Worked answer:**
 Ten widely used vision, NLP and audio benchmarks contain many wrong or ambiguous **test** labels (≥3.3% on average; ≥6% in ImageNet validation). Small gaps between state-of-the-art models are often **smaller than the number of mislabeled test examples**, and **rankings change** after correction. They used **Confident Learning** (estimating the joint distribution of noisy and true labels) to flag errors, confirmed by human review. Lesson: audit and version benchmarks continuously; data quality matters as much as model quality.
 :::
 
@@ -237,6 +249,9 @@ m2-p031|Table 6 — validation dimensions with example checks
 :::
 
 :::example Example 43 — Synthetic data for readmission prediction
+**Setting (notes, Example 43):** Because of privacy regulations, researchers cannot freely access real patient records, so they build a synthetic dataset with a generative model trained on historical hospital data to develop a 30-day readmission model. *How is it used, and what are the risks?*
+
+**Worked answer:**
 Used for privacy-preserving research, balancing rare complications, software testing, counterfactuals ("what if stay were 2 days shorter?"). **Risks:** if young chronically ill patients were under-represented in the source, the generator inherits it → model good for the elderly, poor for the young; rare combinations missing; memorised records may leak; records unrealistically clean (no missing values or errors).
 :::
 
@@ -265,9 +280,12 @@ Types of incompleteness: missing cells, records, time intervals, **population su
 :::
 
 :::example Completeness numbers (Tables 9, 10)
+**Problem (notes, Tables 9–10):** (i) A blood-pressure column has 5 patients, 2 of them missing — compute cell-level completeness. (ii) Every patient should have age, gender, blood pressure and diabetes status, and only 3 of 5 records have all four — compute record-level completeness. (iii) Practice Q32: a variable has 80 missing values among 1,000 records — compute its cell-level completeness.
+
+**Worked answer:**
 - 5 patients, 2 BP values missing → cell completeness $1-\tfrac25=0.60$ (60%).
 - Only 3 of 5 records have age, gender, BP and diabetes → record completeness $\tfrac35=60\%$.
-- **Practice Q32:** 80 missing of 1,000 → $1-\tfrac{80}{1000}=\mathbf{0.92}$ (92%).
+- (iii) Practice Q32: $1-\tfrac{80}{1000}=\mathbf{0.92}$ (92%).
 :::
 
 :::figs
@@ -286,6 +304,9 @@ Closeness of recorded values to a **trusted reference**. Numeric: $e_i=x_i-x_i^*
 :::
 
 :::example Accuracy numbers (Table 11)
+**Problem (notes, Table 11):** (i) A patient's true blood pressure is 140 mmHg but 147 is recorded — what is the error? (ii) For five patients the absolute errors are 7, 2, 3, 5 and 2 mmHg — compute the MAE. (iii) Experts review 100 readmission labels and 95 are correct — compute label accuracy.
+
+**Worked answer:**
 True 140 recorded 147 → $e=7$ mmHg. Errors 7, 2, 3, 5, 2 → $\text{MAE}=\tfrac{19}{5}=3.8$ mmHg. Experts review 100 labels, 95 correct → **95%** label accuracy: every value present (**complete**) but 5% wrong (**inaccurate**).
 :::
 
@@ -322,6 +343,9 @@ m2-p041b|Table 12 — "Yes, Y, 1, True, Diabetic": accurate but inconsistent (fi
 **Staleness:** $\Delta t=t-t_{\text{last update}}$; if it exceeds a task-specific threshold the feature is **stale**. A fraud system needs milliseconds; annual planning tolerates months.
 
 :::example Timeliness numbers
+**Problem (notes, Table 13 and 2.3.4 examples):** (i) A patient develops diabetes in January but the database is updated in April — what is the latency, and what goes wrong for a February prediction? (ii) The last cholesterol measurement was in January and the prediction is made in October; guidelines require measurements newer than six months — is the feature stale? (iii) Readmission is predicted on discharge day, but training data include whether the patient attended a follow-up two weeks later — what is the problem?
+
+**Worked answer:**
 - Diabetes develops in **January**, database updated in **April** → latency **3 months**; a February prediction wrongly assumes non-diabetic (Table 13).
 - Cholesterol measured in January, prediction in October → $\Delta t=10-1=9$ months > 6-month guideline → **stale**.
 - **Temporal leakage:** predicting readmission at discharge using "attended follow-up two weeks later" → 99% evaluation accuracy, fails in deployment.
@@ -354,6 +378,9 @@ $$P_{\text{data}}(X,Y)\neq P_{\text{target}}(X,Y)\ \text{ in consequential ways}
 Axes: demographic, geographic, socioeconomic, linguistic, clinical, temporal, device, environmental, behavioural.
 
 :::example Representativeness numbers (Tables 14–16)
+**Problem (notes, Tables 14–16):** The target population is 40% aged 18–40, 35% aged 41–65 and 25% aged 65+, but the million-patient dataset is 5% / 15% / 80%. Separately, a cross-tabulation shows 4,500 young men, 500 elderly men, 500 young women and 4,500 elderly women. *Is the dataset representative?*
+
+**Worked answer:**
 Population 40 / 35 / 25% (18–40 / 41–65 / 65+) vs dataset 5 / 15 / 80%. A million patients, but skewed; **adding another million elderly does not help**. Gender looks balanced (5,000 men, 5,000 women) yet **young women (500) and elderly men (500)** are severely under-represented — **intersectional** under-representation.
 :::
 

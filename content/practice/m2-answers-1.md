@@ -14,7 +14,7 @@ Read the question, say your answer out loud, then open the box. The **bold** wor
 
 ## Data as a Constructed Record of Reality
 
-:::question Q1. Why is the phrase *raw data* considered misleading in data science and AI?
+:::question Q1. Why is the phrase raw data considered misleading in data science and artificial intelligence?
 :::solution Answer
 > **Raw data** (notes §2.1): “The phrase raw data is a dangerous oxymoron.”
 >
@@ -34,7 +34,7 @@ A dataset is produced by a chain of choices: **Dataset = Phenomenon + Measuremen
 :::
 :::
 
-:::question Q3. How do conceptualization, observation, sampling, institutional context and data representation jointly produce a dataset?
+:::question Q3. How do conceptualization, observation, sampling, institutional context, and data representation jointly produce a dataset?
 :::solution Answer
 - **Conceptualization** defines the phenomenon and the label (what "dropout" means).
 - **Observation/measurement** chooses unit of analysis, instruments and frequency (scanners vs manual registers).
@@ -45,7 +45,7 @@ Each step removes or reshapes part of reality, and the final spreadsheet is thei
 :::
 :::
 
-:::question Q4. Why are labels such as disease, fraud, dropout, risk and success not self-defining?
+:::question Q4. Why are labels such as disease, fraud, dropout, risk, and success not self-defining?
 :::solution Answer
 Their meaning is fixed by **operational rules, human judgement and institutional practice**, not by the word. "Dropout" could be permanent exit, failure to enrol next semester, transfer, approved leave or late graduation — each gives **different students different labels** (Example 38). "Disease" may follow a billing code rather than clinical severity; "fraud" depends on what investigators confirm; "risk" on the chosen horizon and threshold. Hence **the target is constructed, not discovered**, and must be explicitly defined and documented.
 :::
@@ -83,7 +83,7 @@ A model is only validated for the population its data represent. Collecting only
 :::
 :::
 
-:::question Q10. Explain why the correct question is not "Is this data good?" but "Is this data fit for the intended task and context?"
+:::question Q10. Explain why the correct question is not Is this data good, but Is this data fit for the intended task and context?
 :::solution Answer
 > **Fitness for purpose** (notes §2.1.2): “There is no such thing as a universally good or high-quality dataset in a vacuum. A dataset is only good for a specific purpose under specific conditions.”
 >
@@ -103,7 +103,7 @@ Surveys can capture **latent constructs** that rarely appear in routine database
 :::
 :::
 
-:::question Q12. Distinguish among coverage error, sampling error, nonresponse bias, recall bias, social-desirability bias and instrument effects.
+:::question Q12. Distinguish among coverage error, sampling error, nonresponse bias, recall bias, social-desirability bias, and instrument effects.
 :::solution Answer
 > **Coverage error** (notes §2.2.1): “The sampling frame misses parts of the target population.”
 >
@@ -128,7 +128,7 @@ Surveys can capture **latent constructs** that rarely appear in routine database
 :::
 :::
 
-:::question Q13. How can a model trained on survey data learn reporting behaviour rather than the intended real-world construct?
+:::question Q13. How can a model trained on survey data learn reporting behavior rather than the intended real-world construct?
 :::solution Answer
 > **Survey AI implication** (notes §2.2.1): “A model trained on survey data may learn response behavior rather than the intended construct …”
 
@@ -136,7 +136,7 @@ The label is **self-reported**, so it equals *actual behaviour × willingness/ab
 :::
 :::
 
-:::question Q14. Explain the roles of systematic bias, random noise, environmental conditions and device characteristics in sensor measurements.
+:::question Q14. Explain the roles of systematic bias, random noise, environmental conditions, and device characteristics in sensor measurements.
 :::solution Answer
 > **Sensors** (notes §2.2.2): “Sensors convert physical phenomena into recorded digital signals …”
 >
@@ -146,7 +146,7 @@ Basic model: $X_{\text{obs}}=X_{\text{true}}+b+\epsilon$ — **$b$ systematic bi
 :::
 :::
 
-:::question Q15. What data-quality problems can result from calibration drift, clock misalignment, packet loss, firmware changes and signal saturation?
+:::question Q15. What data-quality problems can result from calibration drift, clock misalignment, packet loss, firmware changes, and signal saturation?
 :::solution Answer
 - **Calibration drift** → growing **systematic error** (accuracy), readings not comparable over time.
 - **Clock misalignment** (device vs server time) → wrong event order, **temporal leakage** and wrong feature windows (timeliness/consistency).
@@ -165,7 +165,7 @@ Because the observed behaviour is **produced inside an engineered environment**:
 :::
 :::
 
-:::question Q17. How can recommendation algorithms, moderation policies, bots and duplicate posts distort conclusions drawn from web data?
+:::question Q17. How can recommendation algorithms, moderation policies, bots, and duplicate posts distort conclusions drawn from web data?
 :::solution Answer
 - **Recommendation algorithms** amplify emotionally charged, polarized content → moderate views under-collected.
 - **Moderation** removes some posts → what's left is filtered.
@@ -175,7 +175,7 @@ Net effect: estimated support reflects **amplification and automation**, not the
 :::
 :::
 
-:::question Q18. Distinguish among event time, recording time, arrival time and processing time in system logs.
+:::question Q18. Distinguish among event time, recording time, arrival time, and processing time in system logs.
 :::solution Answer
 > **Event time** (notes §2.2.4): “When the real-world action actually occurred.”
 >
@@ -189,7 +189,7 @@ Net effect: estimated support reflects **amplification and automation**, not the
 :::
 :::
 
-:::question Q19. Why do administrative records often represent institutional behaviour and access patterns rather than objective ground truth?
+:::question Q19. Why do administrative records often represent institutional behavior and access patterns rather than objective ground truth?
 :::solution Answer
 > **Administrative records** (notes §2.2.5): “Administrative records are generated to support organizational operations, not scientific research …”
 >
@@ -201,7 +201,7 @@ They are created to **run organizations** (billing, reimbursement, enforcement),
 :::
 :::
 
-:::question Q20. Compare the strengths and limitations of controlled experiments, public datasets and synthetic datasets.
+:::question Q20. Compare the strengths and limitations of controlled experiments, public datasets, and synthetic datasets?
 :::solution Answer
 > **Controlled experiments** (notes §2.2.6): “Controlled experiments deliberately assign or manipulate conditions to estimate causal effects.”
 >
@@ -222,7 +222,7 @@ None is automatically unbiased — each needs scrutiny.
 
 ## Public and Synthetic Data
 
-:::question Q21. Why does public availability not guarantee that a dataset is accurate, representative, ethically usable or free of legal restrictions?
+:::question Q21. Why does public availability not guarantee that a dataset is accurate, representative, ethically usable, or free of legal restrictions?
 :::solution Answer
 > **Public datasets** (notes §2.2.7): “Public datasets are released for research, education, benchmarking, or policy use …”
 
@@ -236,13 +236,13 @@ None is automatically unbiased — each needs scrutiny.
 :::
 :::
 
-:::question Q23. How can label errors in a benchmark test set alter the ranking of competing ML models?
+:::question Q23. How can label errors in a benchmark test set alter the ranking of competing machine learning models?
 :::solution Answer
 Reported accuracy is computed against **observed** labels $\tilde Y$, not true labels $Y$: when $\tilde Y_i\ne Y_i$, a **correct prediction is scored wrong** and a wrong one may be scored right. When top models differ by less than the number of mislabeled test cases, rankings are determined by noise. High-capacity models that learn fine distinctions may **disagree with wrong labels** and look worse, while simpler models that reproduce annotation patterns look better. Northcutt et al. showed rankings **changed after correction** — agreement with benchmark labels ≠ agreement with reality.
 :::
 :::
 
-:::question Q24. Why should public datasets undergo continuous auditing, correction, versioning and maintenance?
+:::question Q24. Why should public datasets undergo continuous auditing, correction, versioning, and maintenance?
 :::solution Answer
 Because a dataset is **never finished**: label errors, ambiguity, outdated categories and new uses surface over time. **Auditing** (e.g. Confident Learning + human review) finds errors; **correction** restores trustworthy evaluation; **versioning** ($D(1.0),D(1.1),D(2.0)$, reported in every paper) keeps old and new results comparable and reproducible; **maintenance** provides an error-reporting pathway, owners and an update schedule. Treating benchmarks as immutable truth let errors persist (case 2.11.3) — "the inevitability of maintenance".
 :::
@@ -256,7 +256,7 @@ Because a dataset is **never finished**: label errors, ambiguity, outdated categ
 :::
 :::
 
-:::question Q26. Identify six useful applications of synthetic data in ML and data engineering.
+:::question Q26. Identify six useful applications of synthetic data in machine learning and data engineering.
 :::solution Answer
 1. **Simulating rare events** (rare complications, failures). 2. **Privacy-preserving data access** (develop models without identifiable records). 3. **Augmenting under-represented classes** / **balancing** datasets. 4. **Testing data pipelines and software** before deployment. 5. **Training in unsafe or expensive environments** (robots, vehicles). 6. **Counterfactual scenarios** ("what if average stay were two days shorter?"). (Example 43 uses privacy, balancing, testing and counterfactuals.)
 :::
@@ -270,7 +270,7 @@ The generator is **trained on real records** and can **memorize** them: some syn
 :::
 :::
 
-:::question Q28. Define fidelity, utility, privacy, fairness, coverage and realism as validation dimensions for synthetic data.
+:::question Q28. Define fidelity, utility, privacy, fairness, coverage, and realism as validation dimensions for synthetic data.
 :::solution Answer
 > **Fidelity** (notes §2.2.8): “Does it preserve relevant distributions and relationships?”
 >
@@ -350,7 +350,7 @@ Internal agreement only shows **consistency**. Values can agree and all be wrong
 :::
 :::
 
-:::question Q36. Distinguish among formatting, logical, structural and cross-system consistency.
+:::question Q36. Distinguish among formatting consistency, logical consistency, structural consistency, and cross-system consistency.
 :::solution Answer
 > **Consistency** (notes §2.3.3): “Consistency asks whether data values agree logically across formats, records, systems, and established rules.”
 
@@ -361,7 +361,7 @@ Internal agreement only shows **consistency**. Values can agree and all be wrong
 :::
 :::
 
-:::question Q37. Explain the differences among freshness, latency, update frequency and validity period.
+:::question Q37. Explain the differences among freshness, latency, update frequency, and validity period.
 :::solution Answer
 > **Freshness** (notes §2.3.4): “How old the underlying information actually is.”
 >
@@ -383,7 +383,7 @@ Internal agreement only shows **consistency**. Values can agree and all be wrong
 :::
 :::
 
-:::question Q39. Explain the difference between covariate shift, label distribution shift and concept shift.
+:::question Q39. Explain the difference between covariate shift, label distribution shift, and concept shift.
 :::solution Answer
 > **Representativeness** (notes §2.3.5): “Representativeness asks whether the data adequately reflects the intended target population and the actual operating conditions of deployment.”
 
@@ -403,7 +403,7 @@ More data from an **already well-represented** group shrinks variance for that g
 
 ## Measurement Error and Construct Validity
 
-:::question Q41. Distinguish between random and systematic measurement error.
+:::question Q41. Distinguish between random measurement error and systematic measurement error.
 :::solution Answer
 > **Measurement error** (notes §2.3.6): “Measurement error is the fundamental difference between an observed value and the true underlying construct or quantity it is intended to measure.”
 
