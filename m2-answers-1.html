@@ -54,7 +54,7 @@
 </div>
 <h2 id="data-as-a-constructed-record-of-reality"><a class="anchor" href="#data-as-a-constructed-record-of-reality" aria-hidden="true">#</a>Data as a Constructed Record of Reality</h2>
 
-<section class="question"><div class="q-head">Q1. Why is the phrase <em>raw data</em> considered misleading in data science and AI?</div>
+<section class="question"><div class="q-head">Q1. Why is the phrase raw data considered misleading in data science and artificial intelligence?</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><blockquote>
 <p><strong>Raw data</strong> (notes §2.1): “The phrase raw data is a dangerous oxymoron.”</p>
 <p><strong>Data are produced, not found</strong> (notes §2.1.1): “Every dataset is actively produced through a long chain of subjective, technical, and systemic choices.”</p>
@@ -72,7 +72,7 @@
 </div></details>
 </section>
 
-<section class="question"><div class="q-head">Q3. How do conceptualization, observation, sampling, institutional context and data representation jointly produce a dataset?</div>
+<section class="question"><div class="q-head">Q3. How do conceptualization, observation, sampling, institutional context, and data representation jointly produce a dataset?</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
 <li><strong>Conceptualization</strong> defines the phenomenon and the label (what &quot;dropout&quot; means).</li>
 <li><strong>Observation/measurement</strong> chooses unit of analysis, instruments and frequency (scanners vs manual registers).</li>
@@ -83,7 +83,7 @@
 </div></details>
 </section>
 
-<section class="question"><div class="q-head">Q4. Why are labels such as disease, fraud, dropout, risk and success not self-defining?</div>
+<section class="question"><div class="q-head">Q4. Why are labels such as disease, fraud, dropout, risk, and success not self-defining?</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Their meaning is fixed by <strong>operational rules, human judgement and institutional practice</strong>, not by the word. &quot;Dropout&quot; could be permanent exit, failure to enrol next semester, transfer, approved leave or late graduation — each gives <strong>different students different labels</strong> (Example 38). &quot;Disease&quot; may follow a billing code rather than clinical severity; &quot;fraud&quot; depends on what investigators confirm; &quot;risk&quot; on the chosen horizon and threshold. Hence <strong>the target is constructed, not discovered</strong>, and must be explicitly defined and documented.</p>
 </div></details>
 </section>
@@ -116,7 +116,7 @@
 </div></details>
 </section>
 
-<section class="question"><div class="q-head">Q10. Explain why the correct question is not &quot;Is this data good?&quot; but &quot;Is this data fit for the intended task and context?&quot;</div>
+<section class="question"><div class="q-head">Q10. Explain why the correct question is not Is this data good, but Is this data fit for the intended task and context?</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><blockquote>
 <p><strong>Fitness for purpose</strong> (notes §2.1.2): “There is no such thing as a universally good or high-quality dataset in a vacuum. A dataset is only good for a specific purpose under specific conditions.”</p>
 <p><strong>Data as a map</strong> (notes §2.1.2): “Data is not a flawless mirror reflecting reality; it is a constructed map.”</p>
@@ -134,7 +134,7 @@
 </div></details>
 </section>
 
-<section class="question"><div class="q-head">Q12. Distinguish among coverage error, sampling error, nonresponse bias, recall bias, social-desirability bias and instrument effects.</div>
+<section class="question"><div class="q-head">Q12. Distinguish among coverage error, sampling error, nonresponse bias, recall bias, social-desirability bias, and instrument effects.</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><blockquote>
 <p><strong>Coverage error</strong> (notes §2.2.1): “The sampling frame misses parts of the target population.”</p>
 <p><strong>Sampling error</strong> (notes §2.2.1): “The selected sample differs from the population purely by chance.”</p>
@@ -185,7 +185,7 @@
 </div></details>
 </section>
 
-<section class="question"><div class="q-head">Q13. How can a model trained on survey data learn reporting behaviour rather than the intended real-world construct?</div>
+<section class="question"><div class="q-head">Q13. How can a model trained on survey data learn reporting behavior rather than the intended real-world construct?</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><blockquote>
 <p><strong>Survey AI implication</strong> (notes §2.2.1): “A model trained on survey data may learn response behavior rather than the intended construct …”</p>
 </blockquote>
@@ -193,7 +193,7 @@
 </div></details>
 </section>
 
-<section class="question"><div class="q-head">Q14. Explain the roles of systematic bias, random noise, environmental conditions and device characteristics in sensor measurements.</div>
+<section class="question"><div class="q-head">Q14. Explain the roles of systematic bias, random noise, environmental conditions, and device characteristics in sensor measurements.</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><blockquote>
 <p><strong>Sensors</strong> (notes §2.2.2): “Sensors convert physical phenomena into recorded digital signals …”</p>
 <p><strong>Sensor takeaway</strong> (notes §2.2.2): “Sensor data may appear highly objective, but the physical instrument and the acquisition process fundamentally shape what is observed.”</p>
@@ -202,7 +202,7 @@
 </div></details>
 </section>
 
-<section class="question"><div class="q-head">Q15. What data-quality problems can result from calibration drift, clock misalignment, packet loss, firmware changes and signal saturation?</div>
+<section class="question"><div class="q-head">Q15. What data-quality problems can result from calibration drift, clock misalignment, packet loss, firmware changes, and signal saturation?</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
 <li><strong>Calibration drift</strong> → growing <strong>systematic error</strong> (accuracy), readings not comparable over time.</li>
 <li><strong>Clock misalignment</strong> (device vs server time) → wrong event order, <strong>temporal leakage</strong> and wrong feature windows (timeliness/consistency).</li>
@@ -221,7 +221,7 @@
 </div></details>
 </section>
 
-<section class="question"><div class="q-head">Q17. How can recommendation algorithms, moderation policies, bots and duplicate posts distort conclusions drawn from web data?</div>
+<section class="question"><div class="q-head">Q17. How can recommendation algorithms, moderation policies, bots, and duplicate posts distort conclusions drawn from web data?</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
 <li><strong>Recommendation algorithms</strong> amplify emotionally charged, polarized content → moderate views under-collected.</li>
 <li><strong>Moderation</strong> removes some posts → what&#39;s left is filtered.</li>
@@ -231,7 +231,7 @@
 </div></details>
 </section>
 
-<section class="question"><div class="q-head">Q18. Distinguish among event time, recording time, arrival time and processing time in system logs.</div>
+<section class="question"><div class="q-head">Q18. Distinguish among event time, recording time, arrival time, and processing time in system logs.</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><blockquote>
 <p><strong>Event time</strong> (notes §2.2.4): “When the real-world action actually occurred.”</p>
 <p><strong>Recording time</strong> (notes §2.2.4): “When the local system logged it.”</p>
@@ -242,7 +242,7 @@
 </div></details>
 </section>
 
-<section class="question"><div class="q-head">Q19. Why do administrative records often represent institutional behaviour and access patterns rather than objective ground truth?</div>
+<section class="question"><div class="q-head">Q19. Why do administrative records often represent institutional behavior and access patterns rather than objective ground truth?</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><blockquote>
 <p><strong>Administrative records</strong> (notes §2.2.5): “Administrative records are generated to support organizational operations, not scientific research …”</p>
 <p><strong>Administrative data</strong> (notes §2.2.5): “Administrative data encodes institutional behavior not objective reality.”</p>
@@ -252,7 +252,7 @@
 </div></details>
 </section>
 
-<section class="question"><div class="q-head">Q20. Compare the strengths and limitations of controlled experiments, public datasets and synthetic datasets.</div>
+<section class="question"><div class="q-head">Q20. Compare the strengths and limitations of controlled experiments, public datasets, and synthetic datasets?</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><blockquote>
 <p><strong>Controlled experiments</strong> (notes §2.2.6): “Controlled experiments deliberately assign or manipulate conditions to estimate causal effects.”</p>
 <p><strong>Experiments takeaway</strong> (notes §2.2.6): “Experimental data is not automatically unbiased.”</p>
@@ -292,7 +292,7 @@
 </section>
 <h2 id="public-and-synthetic-data"><a class="anchor" href="#public-and-synthetic-data" aria-hidden="true">#</a>Public and Synthetic Data</h2>
 
-<section class="question"><div class="q-head">Q21. Why does public availability not guarantee that a dataset is accurate, representative, ethically usable or free of legal restrictions?</div>
+<section class="question"><div class="q-head">Q21. Why does public availability not guarantee that a dataset is accurate, representative, ethically usable, or free of legal restrictions?</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><blockquote>
 <p><strong>Public datasets</strong> (notes §2.2.7): “Public datasets are released for research, education, benchmarking, or policy use …”</p>
 </blockquote>
@@ -305,12 +305,12 @@
 </div></details>
 </section>
 
-<section class="question"><div class="q-head">Q23. How can label errors in a benchmark test set alter the ranking of competing ML models?</div>
+<section class="question"><div class="q-head">Q23. How can label errors in a benchmark test set alter the ranking of competing machine learning models?</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Reported accuracy is computed against <strong>observed</strong> labels <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>Y</mi><mo>~</mo></mover></mrow><annotation encoding="application/x-tex">\tilde Y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9202em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9202em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span><span style="top:-3.6023em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.25em;"><span class="mord">~</span></span></span></span></span></span></span></span></span></span>, not true labels <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi></mrow><annotation encoding="application/x-tex">Y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span>: when <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover accent="true"><mi>Y</mi><mo>~</mo></mover><mi>i</mi></msub><mo mathvariant="normal">≠</mo><msub><mi>Y</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">\tilde Y_i\ne Y_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1146em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9202em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span><span style="top:-3.6023em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.25em;"><span class="mord">~</span></span></span></span></span></span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.2222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel"><span class="mrel"><span class="mord vbox"><span class="thinbox"><span class="rlap"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="inner"><span class="mord"><span class="mrel"></span></span></span><span class="fix"></span></span></span></span></span><span class="mrel">=</span></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.2222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, a <strong>correct prediction is scored wrong</strong> and a wrong one may be scored right. When top models differ by less than the number of mislabeled test cases, rankings are determined by noise. High-capacity models that learn fine distinctions may <strong>disagree with wrong labels</strong> and look worse, while simpler models that reproduce annotation patterns look better. Northcutt et al. showed rankings <strong>changed after correction</strong> — agreement with benchmark labels ≠ agreement with reality.</p>
 </div></details>
 </section>
 
-<section class="question"><div class="q-head">Q24. Why should public datasets undergo continuous auditing, correction, versioning and maintenance?</div>
+<section class="question"><div class="q-head">Q24. Why should public datasets undergo continuous auditing, correction, versioning, and maintenance?</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Because a dataset is <strong>never finished</strong>: label errors, ambiguity, outdated categories and new uses surface over time. <strong>Auditing</strong> (e.g. Confident Learning + human review) finds errors; <strong>correction</strong> restores trustworthy evaluation; <strong>versioning</strong> (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mo stretchy="false">(</mo><mn>1.0</mn><mo stretchy="false">)</mo><mo separator="true">,</mo><mi>D</mi><mo stretchy="false">(</mo><mn>1.1</mn><mo stretchy="false">)</mo><mo separator="true">,</mo><mi>D</mi><mo stretchy="false">(</mo><mn>2.0</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">D(1.0),D(1.1),D(2.0)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mopen">(</span><span class="mord">1.0</span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mopen">(</span><span class="mord">1.1</span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mopen">(</span><span class="mord">2.0</span><span class="mclose">)</span></span></span></span>, reported in every paper) keeps old and new results comparable and reproducible; <strong>maintenance</strong> provides an error-reporting pathway, owners and an update schedule. Treating benchmarks as immutable truth let errors persist (case 2.11.3) — &quot;the inevitability of maintenance&quot;.</p>
 </div></details>
 </section>
@@ -323,7 +323,7 @@
 </div></details>
 </section>
 
-<section class="question"><div class="q-head">Q26. Identify six useful applications of synthetic data in ML and data engineering.</div>
+<section class="question"><div class="q-head">Q26. Identify six useful applications of synthetic data in machine learning and data engineering.</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><ol>
 <li><strong>Simulating rare events</strong> (rare complications, failures). 2. <strong>Privacy-preserving data access</strong> (develop models without identifiable records). 3. <strong>Augmenting under-represented classes</strong> / <strong>balancing</strong> datasets. 4. <strong>Testing data pipelines and software</strong> before deployment. 5. <strong>Training in unsafe or expensive environments</strong> (robots, vehicles). 6. <strong>Counterfactual scenarios</strong> (&quot;what if average stay were two days shorter?&quot;). (Example 43 uses privacy, balancing, testing and counterfactuals.)</li>
 </ol>
@@ -338,7 +338,7 @@
 </div></details>
 </section>
 
-<section class="question"><div class="q-head">Q28. Define fidelity, utility, privacy, fairness, coverage and realism as validation dimensions for synthetic data.</div>
+<section class="question"><div class="q-head">Q28. Define fidelity, utility, privacy, fairness, coverage, and realism as validation dimensions for synthetic data.</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><blockquote>
 <p><strong>Fidelity</strong> (notes §2.2.8): “Does it preserve relevant distributions and relationships?”</p>
 <p><strong>Utility</strong> (notes §2.2.8): “Does it actually support the intended analysis or model training?”</p>
@@ -413,7 +413,7 @@
 </div></details>
 </section>
 
-<section class="question"><div class="q-head">Q36. Distinguish among formatting, logical, structural and cross-system consistency.</div>
+<section class="question"><div class="q-head">Q36. Distinguish among formatting consistency, logical consistency, structural consistency, and cross-system consistency.</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><blockquote>
 <p><strong>Consistency</strong> (notes §2.3.3): “Consistency asks whether data values agree logically across formats, records, systems, and established rules.”</p>
 </blockquote>
@@ -426,7 +426,7 @@
 </div></details>
 </section>
 
-<section class="question"><div class="q-head">Q37. Explain the differences among freshness, latency, update frequency and validity period.</div>
+<section class="question"><div class="q-head">Q37. Explain the differences among freshness, latency, update frequency, and validity period.</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><blockquote>
 <p><strong>Freshness</strong> (notes §2.3.4): “How old the underlying information actually is.”</p>
 <p><strong>Latency</strong> (notes §2.3.4): “The delay between the real-world event occurring and the data becoming available in the system.”</p>
@@ -445,7 +445,7 @@
 </div></details>
 </section>
 
-<section class="question"><div class="q-head">Q39. Explain the difference between covariate shift, label distribution shift and concept shift.</div>
+<section class="question"><div class="q-head">Q39. Explain the difference between covariate shift, label distribution shift, and concept shift.</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><blockquote>
 <p><strong>Representativeness</strong> (notes §2.3.5): “Representativeness asks whether the data adequately reflects the intended target population and the actual operating conditions of deployment.”</p>
 </blockquote>
@@ -466,7 +466,7 @@
 </section>
 <h2 id="measurement-error-and-construct-validity"><a class="anchor" href="#measurement-error-and-construct-validity" aria-hidden="true">#</a>Measurement Error and Construct Validity</h2>
 
-<section class="question"><div class="q-head">Q41. Distinguish between random and systematic measurement error.</div>
+<section class="question"><div class="q-head">Q41. Distinguish between random measurement error and systematic measurement error.</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><blockquote>
 <p><strong>Measurement error</strong> (notes §2.3.6): “Measurement error is the fundamental difference between an observed value and the true underlying construct or quantity it is intended to measure.”</p>
 </blockquote>

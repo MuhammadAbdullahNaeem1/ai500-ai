@@ -56,17 +56,12 @@
 <p>These are the most &quot;quiz-like&quot; questions: a short case, then diagnosis questions. Practise answering each bullet in 3 to 6 lines using the named concept.</p>
 <h3 id="s1-university-student-support-system"><a class="anchor" href="#s1-university-student-support-system" aria-hidden="true">#</a>S1: University Student Support System</h3>
 
-<details class="orig-q oq-fold"><summary><span class="oq-lab">📄 Original question</span><span class="oq-src">S1 (Module 1 notes)</span><span class="oq-hint">tap to show</span></summary><div class="oq-body"><p>S1: University Student Support System A university plans to build an AI system to identify students who may fail a course. The initial proposal states: Build a machine learning model that predicts student failure. The available data include attendance, assignment grades, learning-platform activity, prior academic performance, financial-aid status, and final examination results. The university intends to use the predictions to allocate a limited number of tutoring appointments. However, the proposal does not specify when the prediction will be made, which students will be included, how failure will be defined, or how many tutoring appointments are available. Questions</p>
-<ul>
-<li>Why is the original problem statement inadequately formulated?</li>
-<li>Rewrite the problem statement by specifying the target population, index time, prediction horizon, outcome, decision-maker, and intended action.</li>
-<li>Which variables may create temporal leakage if the prediction is required during the first four weeks of the semester?</li>
-<li>What are the likely consequences of false-positive and false-negative predictions?</li>
-<li>Should the university evaluate only predictive accuracy, or should it also measure calibration, subgroup performance, and decision utility? Explain briefly.</li>
-</ul>
-</div></details>
+<div class="orig-q"><div class="oq-head"><span class="oq-lab">📄 Original question</span><span class="oq-src">S1: University Student Support System — Module 1 notes</span></div><div class="oq-body"><p>A university plans to build an AI system to identify students who may fail a course. The initial proposal states: Build a machine learning model that predicts student failure. The available data include attendance, assignment grades, learning-platform activity, prior academic performance, financial-aid status, and final examination results. The university intends to use the predictions to allocate a limited number of tutoring appointments. However, the proposal does not specify when the prediction will be made, which students will be included, how failure will be defined, or how many tutoring appointments are available.</p>
+<p><strong>Questions</strong></p>
+<p>(a) Why is the original problem statement inadequately formulated?<br>(b) Rewrite the problem statement by specifying the target population, index time, prediction horizon, outcome, decision-maker, and intended action.<br>(c) Which variables may create temporal leakage if the prediction is required during the first four weeks of the semester?<br>(d) What are the likely consequences of false-positive and false-negative predictions?<br>(e) Should the university evaluate only predictive accuracy, or should it also measure calibration, subgroup performance, and decision utility? Explain briefly.</p>
+</div></div><div class="oq-sol">Worked solution</div>
 
-<section class="question"><div class="q-head">S1(a). Why is the original problem statement (&quot;Build a machine learning model that predicts student failure&quot;) inadequately formulated?</div>
+<section class="question"><div class="q-head">S1(a). Why is the original problem statement inadequately formulated?</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>It is the &quot;poor framing&quot; pattern from the notes. It starts from an algorithm instead of a decision and leaves every key element undefined:</p>
 <ul>
 <li>No index time: we do not know when the prediction is made, so we cannot tell which features are legitimate (leakage risk).</li>
@@ -103,21 +98,18 @@
 </div></details>
 </section>
 
-<section class="question"><div class="q-head">S1(e). Should the university evaluate only predictive accuracy, or also calibration, subgroup performance, and decision utility?</div>
+<section class="question"><div class="q-head">S1(e). Should the university evaluate only predictive accuracy, or should it also measure calibration, subgroup performance, and decision utility? Explain briefly.</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>It should evaluate all of them. Accuracy is misleading when most students pass (class imbalance) and treats all errors equally. Calibration matters because probabilities are used to rank students and decide who gets scarce appointments. Subgroup performance matters because financial-aid status and platform activity may act as proxies for socioeconomic status, and errors may concentrate in some groups. Decision utility matters because the real goal is fewer failures: the system must be compared with the current referral process and ideally tested (for example a pilot) to see whether tutoring the flagged students actually improves outcomes.</p>
 </div></details>
 </section>
 <h3 id="s2-hospital-sepsis-prediction"><a class="anchor" href="#s2-hospital-sepsis-prediction" aria-hidden="true">#</a>S2: Hospital Sepsis Prediction</h3>
 
-<details class="orig-q oq-fold"><summary><span class="oq-lab">📄 Original question</span><span class="oq-src">S2 (Module 1 notes)</span><span class="oq-hint">tap to show</span></summary><div class="oq-body"><p>S2: Hospital Sepsis Prediction A hospital develops a model to predict sepsis within the next six hours. During training, missing blood-pressure values are replaced with the median value for the relevant hospital ward. In production, the software team replaces missing values with zero. The training data also include the number of broad-spectrum antibiotic doses administered. In many records, this value is updated after a physician has already suspected or diagnosed sepsis. The model achieves 98 percent accuracy during development but produces a large number of false alerts after deployment. Questions</p>
-<ul>
-<li>Identify the train-serving mismatch in this case.</li>
-<li>Explain why the antibiotic-dose feature may introduce temporal leakage.</li>
-<li>Why can high offline accuracy coexist with poor real-world performance?</li>
-<li>Which data validation checks should be placed between data ingestion and model inference?</li>
-<li>What fallback action should occur when critical clinical inputs are missing or invalid?</li>
-</ul>
-</div></details>
+<div class="orig-q"><div class="oq-head"><span class="oq-lab">📄 Original question</span><span class="oq-src">S2: Hospital Sepsis Prediction — Module 1 notes</span></div><div class="oq-body"><p>A hospital develops a model to predict sepsis within the next six hours. During training, missing blood-pressure values are replaced with the median value for the relevant hospital ward. In production, the software team replaces missing values with zero.</p>
+<p>The training data also include the number of broad-spectrum antibiotic doses administered.</p>
+<p>In many records, this value is updated after a physician has already suspected or diagnosed sepsis. The model achieves 98 percent accuracy during development but produces a large number of false alerts after deployment.</p>
+<p><strong>Questions</strong></p>
+<p>(a) Identify the train-serving mismatch in this case.<br>(b) Explain why the antibiotic-dose feature may introduce temporal leakage.<br>(c) Why can high offline accuracy coexist with poor real-world performance?<br>(d) Which data validation checks should be placed between data ingestion and model inference?<br>(e) What fallback action should occur when critical clinical inputs are missing or invalid?</p>
+</div></div><div class="oq-sol">Worked solution</div>
 
 <section class="question"><div class="q-head">S2(a). Identify the train-serving mismatch in this case.</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>In training, missing blood-pressure values were imputed with the median for the relevant ward. In production, the software team imputes missing values with zero. A blood pressure of 0 is physiologically impossible and looks like extreme shock to the model, so it produces floods of high-priority false alarms. This is exactly the notes&#39; train-serving mismatch: different preprocessing pipelines in training and live inference, causing &quot;silent and often catastrophic performance degradation&quot; and alert fatigue.</p>
@@ -158,15 +150,13 @@
 </section>
 <h3 id="s3-automated-loan-underwriting"><a class="anchor" href="#s3-automated-loan-underwriting" aria-hidden="true">#</a>S3: Automated Loan Underwriting</h3>
 
-<details class="orig-q oq-fold"><summary><span class="oq-lab">📄 Original question</span><span class="oq-src">S3 (Module 1 notes)</span><span class="oq-hint">tap to show</span></summary><div class="oq-body"><p>S3: Automated Loan Underwriting<br>A bank compares two models for predicting loan default: (a) A deep neural network with 94% accuracy (b) A logistic regression model with 91% accuracy. The deep neural network uses thousands of behavioral features and requires substantial computing resources. Its explanations vary when different post-hoc methods are applied. The logistic regression model uses 15 established financial variables, runs on standard hardware, and provides directly interpretable coefficients. The bank must provide applicants with clear reasons for rejected applications and has limited machine-learning engineering capacity. Questions</p>
-<ul>
-<li>Which model should the bank consider for deployment, and why?</li>
-<li>Why is the model with the highest predictive accuracy not automatically the best operational choice?</li>
-<li>Which criteria beyond accuracy should guide model selection?</li>
-<li>How do interpretability, latency, maintenance cost, and governance requirements affect the decision?</li>
-<li>What information should be documented in a Model Card before deployment?</li>
-</ul>
-</div></details>
+<div class="orig-q"><div class="oq-head"><span class="oq-lab">📄 Original question</span><span class="oq-src">S3: Automated Loan Underwriting — Module 1 notes</span></div><div class="oq-body"><p>A bank compares two models for predicting loan default: (a) A deep neural network with 94% accuracy (b) A logistic regression model with 91% accuracy.</p>
+<p>The deep neural network uses thousands of behavioral features and requires substantial computing resources. Its explanations vary when different post-hoc methods are applied.</p>
+<p>The logistic regression model uses 15 established financial variables, runs on standard hardware, and provides directly interpretable coefficients.</p>
+<p>The bank must provide applicants with clear reasons for rejected applications and has limited machine-learning engineering capacity.</p>
+<p><strong>Questions</strong></p>
+<p>(a) Which model should the bank consider for deployment, and why?<br>(b) Why is the model with the highest predictive accuracy not automatically the best operational choice?<br>(c) Which criteria beyond accuracy should guide model selection?<br>(d) How do interpretability, latency, maintenance cost, and governance requirements affect the decision?<br>(e) What information should be documented in a Model Card before deployment?</p>
+</div></div><div class="oq-sol">Worked solution</div>
 
 <section class="question"><div class="q-head">S3(a). Which model should the bank consider for deployment, and why?</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>The logistic regression model (91%). This is the notes&#39; Example 25. The bank must give applicants clear reasons for rejection (adverse-action reasons, as under the Equal Credit Opportunity Act); logistic regression gives directly interpretable coefficients, while the DNN&#39;s explanations vary across post-hoc methods (unstable SHAP-type explanations). The bank also has limited ML engineering capacity, and logistic regression uses 15 established financial variables on standard hardware, making it easier to maintain, audit, recalibrate and monitor. The 3-point accuracy gain does not outweigh legal, governance and lifecycle costs.</p>
@@ -199,15 +189,13 @@
 </section>
 <h3 id="s4-ai-based-recruitment-ranking"><a class="anchor" href="#s4-ai-based-recruitment-ranking" aria-hidden="true">#</a>S4: AI-Based Recruitment Ranking</h3>
 
-<details class="orig-q oq-fold"><summary><span class="oq-lab">📄 Original question</span><span class="oq-src">S4 (Module 1 notes)</span><span class="oq-hint">tap to show</span></summary><div class="oq-body"><p>S4: AI Based Recruitment Ranking A company trains a ranking model using ten years of historical recruitment data. The model gives higher scores to applicants from a small group of universities because candidates from these institutions were hired more frequently in the past. Recruiters receive a dashboard containing a ranked list of applicants. The interface highlights the top ten candidates in green, while all remaining candidates appear in grey. Recruiters are instructed to review all applications, but most interview invitations are sent only to the highlighted candidates. After one year, the company retrains the model using the new hiring data generated under this process. Questions</p>
-<ul>
-<li>Why should this system be understood as a socio-technical system rather than only as a ranking algorithm?</li>
-<li>How may historical hiring data encode institutional bias?</li>
-<li>How can the dashboard design influence human decisions and create automation bias?</li>
-<li>Explain how retraining on the new hiring data may create a self-reinforcing feedback loop.</li>
-<li>Which stakeholders should be responsible for governing, measuring, and managing the risks of this system?</li>
-</ul>
-</div></details>
+<div class="orig-q"><div class="oq-head"><span class="oq-lab">📄 Original question</span><span class="oq-src">S4: AI Based Recruitment Ranking — Module 1 notes</span></div><div class="oq-body"><p>A company trains a ranking model using ten years of historical recruitment data. The model gives higher scores to applicants from a small group of universities because candidates from these institutions were hired more frequently in the past.</p>
+<p>Recruiters receive a dashboard containing a ranked list of applicants. The interface highlights the top ten candidates in green, while all remaining candidates appear in grey.</p>
+<p>Recruiters are instructed to review all applications, but most interview invitations are sent only to the highlighted candidates.</p>
+<p>After one year, the company retrains the model using the new hiring data generated under this process.</p>
+<p><strong>Questions</strong></p>
+<p>(a) Why should this system be understood as a socio-technical system rather than only as a ranking algorithm?<br>(b) How may historical hiring data encode institutional bias?<br>(c) How can the dashboard design influence human decisions and create automation bias?<br>(d) Explain how retraining on the new hiring data may create a self-reinforcing feedback loop.<br>(e) Which stakeholders should be responsible for governing, measuring, and managing the risks of this system?</p>
+</div></div><div class="oq-sol">Worked solution</div>
 
 <section class="question"><div class="q-head">S4(a). Why should this system be understood as a socio-technical system rather than only as a ranking algorithm?</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Its impact depends on all five layers: the model (ranks applicants), the data infrastructure (ten years of past hiring decisions), the interface (top ten in green, the rest grey), the human workflow (recruiters told to review all, but invitations go mostly to the highlighted ten), and the institutional rules (retraining on new hires, employment law, fairness policy). The outcome, who gets interviewed, is produced by this whole composite, not by the ranking function alone. This is the notes&#39; Example 12.</p>
@@ -235,21 +223,18 @@
 </section>
 <h3 id="s5-smart-warehouse-robot"><a class="anchor" href="#s5-smart-warehouse-robot" aria-hidden="true">#</a>S5: Smart Warehouse Robot</h3>
 
-<details class="orig-q oq-fold"><summary><span class="oq-lab">📄 Original question</span><span class="oq-src">S5 (Module 1 notes)</span><span class="oq-hint">tap to show</span></summary><div class="oq-body"><p>S5: Smart Warehouse Robot A warehouse deploys a robot that identifies packages using cameras, calculates routes through the facility, and transports items to shipping stations. The robot uses:</p>
+<div class="orig-q"><div class="oq-head"><span class="oq-lab">📄 Original question</span><span class="oq-src">S5: Smart Warehouse Robot — Module 1 notes</span></div><div class="oq-body"><p>A warehouse deploys a robot that identifies packages using cameras, calculates routes through the facility, and transports items to shipping stations. The robot uses:</p>
 <ul>
 <li>A deep learning model for package and obstacle recognition</li>
 <li>A search algorithm for route selection</li>
 <li>An optimization procedure for reducing travel time</li>
 <li>Explicit rules that prohibit entry into restricted areas</li>
 <li>A safety controller that stops the robot when collision risk becomes high</li>
-<li>Human review when damaged packages are detected During peak season, the layout of the warehouse changes, new packaging materials are introduced, and the number of workers in the facility increases. The robot begins taking longer routes and occasionally fails to recognize reflective packages. Questions</li>
-<li>Why is this system an example of hybrid AI?</li>
-<li>Which components are statistical, symbolic, search-based, optimization-based, and human-controlled?</li>
-<li>What types of data drift or environmental change are present?</li>
-<li>Which operational indicators should be monitored after deployment?</li>
-<li>Under what conditions should the robot abstain, stop, use a fallback procedure, or request human review? These are take-home reflection questions intended to encourage deep thinking and planning. There are no single correct answers. Each question can’t be answered in a couple sentences. It will push you to think deeply about the concepts, principles, and practices in this module.</li>
+<li>Human review when damaged packages are detected During peak season, the layout of the warehouse changes, new packaging materials are introduced, and the number of workers in the facility increases. The robot begins taking longer routes and occasionally fails to recognize reflective packages.</li>
 </ul>
-</div></details>
+<p><strong>Questions</strong></p>
+<p>(a) Why is this system an example of hybrid AI?<br>(b) Which components are statistical, symbolic, search-based, optimization-based, and human-controlled?<br>(c) What types of data drift or environmental change are present?<br>(d) Which operational indicators should be monitored after deployment?<br>(e) Under what conditions should the robot abstain, stop, use a fallback procedure, or request human review?</p>
+</div></div><div class="oq-sol">Worked solution</div>
 
 <section class="question"><div class="q-head">S5(a). Why is this system an example of hybrid AI?</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>It combines several computational approaches, each used where it fits: deep learning for noisy visual perception, search for routing, optimization for travel time, explicit rules for restricted areas, a safety controller for collisions, and human review for damaged packages. Neither a purely symbolic system (cannot interpret noisy camera images) nor a purely statistical system (might violate safety rules in unfamiliar situations) would be sufficient. This is the notes&#39; Example 9.</p>
@@ -316,17 +301,14 @@
 <p>The notes say these have &quot;no single correct answers&quot; and cannot be answered in a couple of sentences. The answers below give a complete, defensible structure. In a quiz, use the headings as your skeleton and add two or three points under each.</p>
 <h3 id="r1-national-early-warning-system-for-disease-outbreaks"><a class="anchor" href="#r1-national-early-warning-system-for-disease-outbreaks" aria-hidden="true">#</a>R1: National Early Warning System for Disease Outbreaks</h3>
 
-<details class="orig-q oq-fold"><summary><span class="oq-lab">📄 Original question</span><span class="oq-src">R1 (Module 1 notes)</span><span class="oq-hint">tap to show</span></summary><div class="oq-body"><p>R1: National Early Warning System for Disease Outbreaks A national public health agency proposes an AI system to identify emerging infectious disease outbreaks before hospitals become overwhelmed. The proposed system will combine hospital admission records, pharmacy sales, laboratory test orders, school absenteeism, internet search activity, weather conditions, and social media posts. The project team initially defines the objective as follows: Use AI to detect disease outbreaks as early as possible. A machine learning model performs well when tested retrospectively. However, several concerns emerge. Internet search activity changes after media reports about a disease. Laboratory testing is more frequent in wealthy urban areas than in rural regions. Pharmacy sales include purchases made for prevention rather than illness. Social media activity is<br>concentrated among younger populations. The system may also influence future data because issuing an outbreak warning can increase testing, hospital visits, online searches, and public concern. Questions</p>
-<ul>
-<li>Reformulate the problem comprehensively. Define the target population, unit of analysis, index time, prediction horizon, output, decision-maker, intended intervention, resource constraints, and acceptable delay. Explain whether the primary task should be classification, anomaly detection, forecasting, causal estimation, or a hybrid of several problem types.</li>
-<li>Examine the meaning of the available data. For every major source, discuss what phenomenon it directly measures, what it only approximates, and how the data- generation process may differ across regions and populations. Identify the proxies, missing populations, selective labels, and possible measurement biases.</li>
-<li>Design an evaluation strategy that matches the deployment claims. Explain how temporal validation, geographic validation, calibration assessment, subgroup analysis, detection delay, false-alarm rate, and comparison with existing epidemiological surveillance should be incorporated. Discuss why a random train- test split would be inadequate.</li>
-<li>Analyze the feedback loop created by deployment. Explain how an alert could change testing, reporting, public behavior, and future training data. Propose a logging, monitoring, and retraining strategy that distinguishes changes in actual disease prevalence from changes caused by the warning system itself.</li>
-<li>Develop a governance plan. Allocate responsibility across public health officials, data engineers, epidemiologists, model developers, hospitals, communication teams, and government leaders. Apply the Govern, Map, Measure, and Manage functions to determine when the system should issue a warning, abstain, request expert review, or be suspended.</li>
-</ul>
-</div></details>
+<div class="orig-q"><div class="oq-head"><span class="oq-lab">📄 Original question</span><span class="oq-src">R1: National Early Warning System for Disease Outbreaks — Module 1 notes</span></div><div class="oq-body"><p>A national public health agency proposes an AI system to identify emerging infectious disease outbreaks before hospitals become overwhelmed. The proposed system will combine hospital admission records, pharmacy sales, laboratory test orders, school absenteeism, internet search activity, weather conditions, and social media posts. The project team initially defines the objective as follows: Use AI to detect disease outbreaks as early as possible.</p>
+<p>A machine learning model performs well when tested retrospectively. However, several concerns emerge. Internet search activity changes after media reports about a disease.</p>
+<p>Laboratory testing is more frequent in wealthy urban areas than in rural regions. Pharmacy sales include purchases made for prevention rather than illness. Social media activity is concentrated among younger populations. The system may also influence future data because issuing an outbreak warning can increase testing, hospital visits, online searches, and public concern.</p>
+<p><strong>Questions</strong></p>
+<p>(a) Reformulate the problem comprehensively. Define the target population, unit of analysis, index time, prediction horizon, output, decision-maker, intended intervention, resource constraints, and acceptable delay. Explain whether the primary task should be classification, anomaly detection, forecasting, causal estimation, or a hybrid of several problem types.<br>(b) Examine the meaning of the available data. For every major source, discuss what phenomenon it directly measures, what it only approximates, and how the data- generation process may differ across regions and populations. Identify the proxies, missing populations, selective labels, and possible measurement biases.<br>(c) Design an evaluation strategy that matches the deployment claims. Explain how temporal validation, geographic validation, calibration assessment, subgroup analysis, detection delay, false-alarm rate, and comparison with existing epidemiological surveillance should be incorporated. Discuss why a random train- test split would be inadequate.<br>(d) Analyze the feedback loop created by deployment. Explain how an alert could change testing, reporting, public behavior, and future training data. Propose a logging, monitoring, and retraining strategy that distinguishes changes in actual disease prevalence from changes caused by the warning system itself.<br>(e) Develop a governance plan. Allocate responsibility across public health officials, data engineers, epidemiologists, model developers, hospitals, communication teams, and government leaders. Apply the Govern, Map, Measure, and Manage functions to determine when the system should issue a warning, abstain, request expert review, or be suspended.</p>
+</div></div><div class="oq-sol">Worked solution</div>
 
-<section class="question"><div class="q-head">R1(a). Reformulate the problem comprehensively and choose the problem type.</div>
+<section class="question"><div class="q-head">R1(a). Reformulate the problem comprehensively. Define the target population, unit of analysis, index time, prediction horizon, output, decision-maker, intended intervention, resource constraints, and acceptable delay. Explain whether the primary task should be classification, anomaly detection, forecasting, causal estimation, or a hybrid of several problem types.</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Worksheet statement: &quot;Every Monday (index time), for each district in the country (unit of analysis: district-week), using only data received and validated by Sunday midnight (hospital admissions for respiratory and gastrointestinal syndromes, laboratory test orders and positivity, pharmacy sales, school absenteeism, weather, search and social-media signals, each with its reporting lag), produce (i) a calibrated probability that confirmed cases of a target disease will exceed the district&#39;s seasonal epidemic threshold within the next 2 to 4 weeks, (ii) a forecast with prediction intervals of cases and hospital admissions, and (iii) an anomaly flag for unusual syndromic patterns, so that the national public-health agency&#39;s epidemiology team can decide whether to issue an alert, dispatch investigation teams, pre-position test kits, or notify hospitals to prepare surge capacity. The system will be compared with the existing surveillance system and seasonal baselines and evaluated with detection delay, false-alarm rate, sensitivity, calibration, and regional and subgroup performance, while accounting for the cost of missed and late outbreaks, alert fatigue and public panic, data inequality between urban and rural areas, investigation-team capacity, and privacy governance.&quot;</p>
 <ul>
 <li>Target population: the national population, represented by districts; include rural and urban districts; separate pathogens (for example influenza-like illness, cholera, dengue) because signals differ.</li>
@@ -343,7 +325,7 @@
 </div></details>
 </section>
 
-<section class="question"><div class="q-head">R1(b). Examine the meaning of the available data (proxies, missing populations, selective labels, measurement bias).</div>
+<section class="question"><div class="q-head">R1(b). Examine the meaning of the available data. For every major source, discuss what phenomenon it directly measures, what it only approximates, and how the data- generation process may differ across regions and populations. Identify the proxies, missing populations, selective labels, and possible measurement biases.</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><div class="tbl"><table>
 <thead>
 <tr>
@@ -405,7 +387,7 @@
 </div></details>
 </section>
 
-<section class="question"><div class="q-head">R1(c). Design an evaluation strategy that matches the deployment claims.</div>
+<section class="question"><div class="q-head">R1(c). Design an evaluation strategy that matches the deployment claims. Explain how temporal validation, geographic validation, calibration assessment, subgroup analysis, detection delay, false-alarm rate, and comparison with existing epidemiological surveillance should be incorporated. Discuss why a random train- test split would be inadequate.</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
 <li>Temporal validation: train on earlier seasons and test on later ones (rolling-origin validation), because the claim is about predicting future outbreaks. A random train-test split would leak future information (weeks from the same outbreak on both sides, autocorrelated data) and make performance look better than reality.</li>
 <li>Geographic validation: hold out entire regions (especially rural, low-testing regions) to test transportability.</li>
@@ -420,7 +402,7 @@
 </div></details>
 </section>
 
-<section class="question"><div class="q-head">R1(d). Analyze the feedback loop created by deployment and propose a logging, monitoring and retraining strategy.</div>
+<section class="question"><div class="q-head">R1(d). Analyze the feedback loop created by deployment. Explain how an alert could change testing, reporting, public behavior, and future training data. Propose a logging, monitoring, and retraining strategy that distinguishes changes in actual disease prevalence from changes caused by the warning system itself.</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>An alert changes the data-generating process: more testing is ordered (more positives found), more people go to hospital, searches and social-media posts increase, pharmacies sell more. The next week&#39;s data therefore look worse partly because of the alert (a performative effect), and retraining on these data would teach the model that its alert was correct (self-reinforcing bias). Conversely, a successful intervention reduces cases and may make the alert look like a false alarm.</p>
 <p>Strategy:</p>
 <ul>
@@ -434,7 +416,7 @@
 </div></details>
 </section>
 
-<section class="question"><div class="q-head">R1(e). Develop a governance plan using Govern, Map, Measure and Manage.</div>
+<section class="question"><div class="q-head">R1(e). Develop a governance plan. Allocate responsibility across public health officials, data engineers, epidemiologists, model developers, hospitals, communication teams, and government leaders. Apply the Govern, Map, Measure, and Manage functions to determine when the system should issue a warning, abstain, request expert review, or be suspended.</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Responsibilities: public-health officials (own the decision to warn and the response); epidemiologists (define case definitions and thresholds, review every alert); data engineers (pipelines, validation, lineage, privacy); model developers (models, calibration, documentation, model card); hospitals (timely, consistent reporting, surge planning); communication teams (clear public messages that avoid panic); government leaders (mandate, resources, legal basis, accountability).</p>
 <ul>
 <li>Govern: a surveillance governance board chaired by the national public-health authority; a named accountable owner; privacy rules (aggregate district data, no individual social-media tracking), data-sharing agreements, documentation (datasheets, model card), and escalation rules.</li>
@@ -450,17 +432,14 @@
 </section>
 <h3 id="r2-adaptive-traffic-management-for-a-large-city"><a class="anchor" href="#r2-adaptive-traffic-management-for-a-large-city" aria-hidden="true">#</a>R2: Adaptive Traffic Management for a Large City</h3>
 
-<details class="orig-q oq-fold"><summary><span class="oq-lab">📄 Original question</span><span class="oq-src">R2 (Module 1 notes)</span><span class="oq-hint">tap to show</span></summary><div class="oq-body"><p>R2: Adaptive Traffic Management for a Large City A city plans to replace fixed traffic-light schedules with an AI-based traffic-management system. The system will use road cameras, vehicle sensors, mobile-phone location data, public-transport schedules, emergency-service requests, weather information, and historical traffic records. The stated goal is to minimize average travel time. The optimization system learns to give longer green signals to roads with the largest traffic volumes. After deployment, average travel time decreases by 12 percent, but buses become less reliable, pedestrian waiting times increase, cyclists report more dangerous crossings, and traffic is redirected through low-income residential areas.<br>The city argues that the system is successful because it achieved the objective that engineers specified. Questions</p>
-<ul>
-<li>Critique the objective function. Explain why minimizing average vehicle travel time may be mathematically clear but socially incomplete. Propose a multi-objective formulation that accounts for public transport, pedestrians, cyclists, emergency vehicles, air pollution, neighborhood disruption, safety, and equity.</li>
-<li>Distinguish prediction, planning, optimization, and control within this system. Identify the role played by each component and explain why the complete system cannot be described merely as a traffic-prediction model.</li>
-<li>Analyze the representation of the city. Discuss which road users are visible to the data infrastructure and which may be poorly represented. Explain how mobile-phone ownership, camera placement, sensor coverage, and historical planning decisions could produce aggregation bias or proxy encoding.</li>
-<li>Propose a decision-cost framework. Identify the costs of false congestion alarms, missed congestion, delayed emergency vehicles, pedestrian risk, pollution, and workflow failure. Explain how these costs should influence real-time control decisions rather than relying only on average accuracy or travel time.</li>
-<li>Treat the system as a socio-technical composite. Analyze how the model, data infrastructure, public interface, traffic-control workflow, transport policy, legal rules, and public accountability mechanisms jointly determine outcomes. Explain who should have authority to modify objectives, thresholds, and safety constraints.</li>
-</ul>
-</div></details>
+<div class="orig-q"><div class="oq-head"><span class="oq-lab">📄 Original question</span><span class="oq-src">R2: Adaptive Traffic Management for a Large City — Module 1 notes</span></div><div class="oq-body"><p>A city plans to replace fixed traffic-light schedules with an AI-based traffic-management system. The system will use road cameras, vehicle sensors, mobile-phone location data, public-transport schedules, emergency-service requests, weather information, and historical traffic records.</p>
+<p>The stated goal is to minimize average travel time. The optimization system learns to give longer green signals to roads with the largest traffic volumes. After deployment, average travel time decreases by 12 percent, but buses become less reliable, pedestrian waiting times increase, cyclists report more dangerous crossings, and traffic is redirected through low-income residential areas.</p>
+<p>The city argues that the system is successful because it achieved the objective that engineers specified.</p>
+<p><strong>Questions</strong></p>
+<p>(a) Critique the objective function. Explain why minimizing average vehicle travel time may be mathematically clear but socially incomplete. Propose a multi-objective formulation that accounts for public transport, pedestrians, cyclists, emergency vehicles, air pollution, neighborhood disruption, safety, and equity.<br>(b) Distinguish prediction, planning, optimization, and control within this system. Identify the role played by each component and explain why the complete system cannot be described merely as a traffic-prediction model.<br>(c) Analyze the representation of the city. Discuss which road users are visible to the data infrastructure and which may be poorly represented. Explain how mobile-phone ownership, camera placement, sensor coverage, and historical planning decisions could produce aggregation bias or proxy encoding.<br>(d) Propose a decision-cost framework. Identify the costs of false congestion alarms, missed congestion, delayed emergency vehicles, pedestrian risk, pollution, and workflow failure. Explain how these costs should influence real-time control decisions rather than relying only on average accuracy or travel time.<br>(e) Treat the system as a socio-technical composite. Analyze how the model, data infrastructure, public interface, traffic-control workflow, transport policy, legal rules, and public accountability mechanisms jointly determine outcomes. Explain who should have authority to modify objectives, thresholds, and safety constraints.</p>
+</div></div><div class="oq-sol">Worked solution</div>
 
-<section class="question"><div class="q-head">R2(a). Critique the objective function and propose a multi-objective formulation.</div>
+<section class="question"><div class="q-head">R2(a). Critique the objective function. Explain why minimizing average vehicle travel time may be mathematically clear but socially incomplete. Propose a multi-objective formulation that accounts for public transport, pedestrians, cyclists, emergency vehicles, air pollution, neighborhood disruption, safety, and equity.</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Minimizing average vehicle travel time is mathematically clear but socially incomplete: it counts only vehicles (not people), weights every vehicle equally (a bus with 60 passengers counts like a car with one), ignores pedestrians and cyclists, ignores safety, pollution and where traffic goes, and ignores the distribution of costs. Optimization is &quot;ethically blind&quot;; it found the most efficient path to the specified objective by pushing costs onto buses, pedestrians, cyclists and low-income neighbourhoods. The 12% improvement is a success on a proxy objective.</p>
 <p>Multi-objective formulation (minimize over signal plans):</p>
 <p>J = w1·(person-weighted travel time) + w2·(bus delay and schedule deviation) + w3·(pedestrian waiting time) + w4·(cyclist risk) + w5·(emergency response delay) + w6·(emissions) + w7·(neighbourhood through-traffic)</p>
@@ -468,7 +447,7 @@
 </div></details>
 </section>
 
-<section class="question"><div class="q-head">R2(b). Distinguish prediction, planning, optimization and control within this system.</div>
+<section class="question"><div class="q-head">R2(b). Distinguish prediction, planning, optimization, and control within this system. Identify the role played by each component and explain why the complete system cannot be described merely as a traffic-prediction model.</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
 <li>Prediction/forecasting: forecasting traffic volumes, congestion and bus arrivals over the next minutes to hours from cameras, sensors, phone data and history.</li>
 <li>Planning: choosing sequences of signal plans and coordination across corridors (green waves), and planning routes for emergency vehicles.</li>
@@ -479,7 +458,7 @@
 </div></details>
 </section>
 
-<section class="question"><div class="q-head">R2(c). Analyze the representation of the city: who is visible and who is poorly represented?</div>
+<section class="question"><div class="q-head">R2(c). Analyze the representation of the city. Discuss which road users are visible to the data infrastructure and which may be poorly represented. Explain how mobile-phone ownership, camera placement, sensor coverage, and historical planning decisions could produce aggregation bias or proxy encoding.</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
 <li>Vehicles are highly visible (cameras and sensors at intersections); pedestrians and cyclists are poorly represented (sensors often detect only vehicles; camera placement on major roads).</li>
 <li>Mobile-phone location data over-represent people who own smartphones and share location (younger, wealthier); under-represent elderly and poor residents; phone density can be mistaken for demand (proxy encoding).</li>
@@ -490,7 +469,7 @@
 </div></details>
 </section>
 
-<section class="question"><div class="q-head">R2(d). Propose a decision-cost framework.</div>
+<section class="question"><div class="q-head">R2(d). Propose a decision-cost framework. Identify the costs of false congestion alarms, missed congestion, delayed emergency vehicles, pedestrian risk, pollution, and workflow failure. Explain how these costs should influence real-time control decisions rather than relying only on average accuracy or travel time.</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>C(t) = c_FP·P(false congestion alarm) + c_FN·P(missed congestion) + c_emerg·E[emergency delay] + c_ped·(pedestrian risk) + c_poll·(pollution) + c_workflow</p>
 <ul>
 <li>False congestion alarms: unnecessary signal changes, diverted traffic into neighbourhoods, wasted green time.</li>
@@ -504,7 +483,7 @@
 </div></details>
 </section>
 
-<section class="question"><div class="q-head">R2(e). Treat the system as a socio-technical composite and decide who may modify objectives, thresholds and safety constraints.</div>
+<section class="question"><div class="q-head">R2(e). Treat the system as a socio-technical composite. Analyze how the model, data infrastructure, public interface, traffic-control workflow, transport policy, legal rules, and public accountability mechanisms jointly determine outcomes. Explain who should have authority to modify objectives, thresholds, and safety constraints.</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
 <li>Model: forecasting and optimization/control algorithms.</li>
 <li>Data infrastructure: cameras, sensors, phone data, transit feeds, their coverage and quality.</li>
@@ -519,17 +498,15 @@
 </section>
 <h3 id="r3-generative-ai-adviser-for-university-students"><a class="anchor" href="#r3-generative-ai-adviser-for-university-students" aria-hidden="true">#</a>R3: Generative AI Adviser for University Students</h3>
 
-<details class="orig-q oq-fold"><summary><span class="oq-lab">📄 Original question</span><span class="oq-src">R3 (Module 1 notes)</span><span class="oq-hint">tap to show</span></summary><div class="oq-body"><p>R3: Generative AI Adviser for University Students A university introduces a generative AI adviser to help students select courses, understand degree requirements, prepare study plans, and identify academic-support services. The system uses curriculum documents, course descriptions, student records, prerequisite rules, historical enrolment data, and university policies. During a pilot, students report that the adviser is fluent, patient, and available at all hours. However, it occasionally invents course prerequisites, recommends classes that are not being offered, exposes information from another student record, and presents outdated academic regulations with high confidence. Some students begin following its recommendations without consulting faculty advisers. University leadership proposes allowing the system to register students automatically in order to reduce administrative workload. Questions</p>
-<ul>
-<li>Locate this system within the AI landscape. Explain which parts involve generative AI, information retrieval, symbolic rules, search, recommendation, optimization,<br>automation, and human decision support. Develop a hybrid architecture that uses each approach only where it is appropriate.</li>
-<li>Define the boundary between intelligence and autonomy. Discuss whether the adviser should remain passive, operate as decision support, execute routine actions semi-autonomously, or be permitted to register students without immediate human approval. Justify different autonomy levels for low-risk and high-risk actions.</li>
-<li>Design mechanisms for grounding and reliability. Explain how retrieval from authoritative university sources, rule-based prerequisite checking, source citation, uncertainty communication, abstention, version control, and human escalation could reduce confabulation and outdated advice.</li>
-<li>Examine human-system interaction risks. Discuss automation bias, overreliance, interface design, unequal access to human advisers, and the possibility that professionally written but incorrect advice may be accepted without verification. Propose interface features that encourage critical review.</li>
-<li>Develop an end-to-end monitoring plan. Specify indicators for factual accuracy, privacy violations, outdated knowledge, student overrides, human escalations, harmful recommendations, subgroup differences, response latency, system availability, and real-world academic outcomes. Explain what events should trigger rollback or temporary suspension.</li>
-</ul>
-</div></details>
+<div class="orig-q"><div class="oq-head"><span class="oq-lab">📄 Original question</span><span class="oq-src">R3: Generative AI Adviser for University Students — Module 1 notes</span></div><div class="oq-body"><p>A university introduces a generative AI adviser to help students select courses, understand degree requirements, prepare study plans, and identify academic-support services. The system uses curriculum documents, course descriptions, student records, prerequisite rules, historical enrolment data, and university policies.</p>
+<p>During a pilot, students report that the adviser is fluent, patient, and available at all hours.</p>
+<p>However, it occasionally invents course prerequisites, recommends classes that are not being offered, exposes information from another student record, and presents outdated academic regulations with high confidence. Some students begin following its recommendations without consulting faculty advisers.</p>
+<p>University leadership proposes allowing the system to register students automatically in order to reduce administrative workload.</p>
+<p><strong>Questions</strong></p>
+<p>(a) Locate this system within the AI landscape. Explain which parts involve generative AI, information retrieval, symbolic rules, search, recommendation, optimization, automation, and human decision support. Develop a hybrid architecture that uses each approach only where it is appropriate.<br>(b) Define the boundary between intelligence and autonomy. Discuss whether the adviser should remain passive, operate as decision support, execute routine actions semi-autonomously, or be permitted to register students without immediate human approval. Justify different autonomy levels for low-risk and high-risk actions.<br>(c) Design mechanisms for grounding and reliability. Explain how retrieval from authoritative university sources, rule-based prerequisite checking, source citation, uncertainty communication, abstention, version control, and human escalation could reduce confabulation and outdated advice.<br>(d) Examine human-system interaction risks. Discuss automation bias, overreliance, interface design, unequal access to human advisers, and the possibility that professionally written but incorrect advice may be accepted without verification. Propose interface features that encourage critical review.<br>(e) Develop an end-to-end monitoring plan. Specify indicators for factual accuracy, privacy violations, outdated knowledge, student overrides, human escalations, harmful recommendations, subgroup differences, response latency, system availability, and real-world academic outcomes. Explain what events should trigger rollback or temporary suspension.</p>
+</div></div><div class="oq-sol">Worked solution</div>
 
-<section class="question"><div class="q-head">R3(a). Locate the system in the AI landscape and develop a hybrid architecture.</div>
+<section class="question"><div class="q-head">R3(a). Locate this system within the AI landscape. Explain which parts involve generative AI, information retrieval, symbolic rules, search, recommendation, optimization, automation, and human decision support. Develop a hybrid architecture that uses each approach only where it is appropriate.</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><div class="tbl"><table>
 <thead>
 <tr>
@@ -574,7 +551,7 @@
 </div></details>
 </section>
 
-<section class="question"><div class="q-head">R3(b). Define the boundary between intelligence and autonomy.</div>
+<section class="question"><div class="q-head">R3(b). Define the boundary between intelligence and autonomy. Discuss whether the adviser should remain passive, operate as decision support, execute routine actions semi-autonomously, or be permitted to register students without immediate human approval. Justify different autonomy levels for low-risk and high-risk actions.</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Fluency is not authority: &quot;autonomy must not be conflated with intelligence.&quot; Levels by risk:</p>
 <ul>
 <li>Passive/informational (allowed): explaining policies, describing courses with citations.</li>
@@ -586,7 +563,7 @@
 </div></details>
 </section>
 
-<section class="question"><div class="q-head">R3(c). Design mechanisms for grounding and reliability.</div>
+<section class="question"><div class="q-head">R3(c). Design mechanisms for grounding and reliability. Explain how retrieval from authoritative university sources, rule-based prerequisite checking, source citation, uncertainty communication, abstention, version control, and human escalation could reduce confabulation and outdated advice.</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
 <li>Retrieval from authoritative sources: answers generated only from the current, official catalogue, timetable and regulations.</li>
 <li>Rule-based prerequisite checking: every recommended course is checked by a deterministic rule engine against the student&#39;s record and current offerings.</li>
@@ -600,13 +577,13 @@
 </div></details>
 </section>
 
-<section class="question"><div class="q-head">R3(d). Examine human-system interaction risks and propose interface features.</div>
+<section class="question"><div class="q-head">R3(d). Examine human-system interaction risks. Discuss automation bias, overreliance, interface design, unequal access to human advisers, and the possibility that professionally written but incorrect advice may be accepted without verification. Propose interface features that encourage critical review.</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Risks: automation bias and overreliance (students follow fluent advice without checking); interface design that presents answers as authoritative; information integrity (professionally written but incorrect advice accepted without verification, like the junior associate and the NDA); unequal access (students with fewer human advisers or less confidence rely more on the AI, so errors fall unevenly); privacy fears.</p>
 <p>Interface features: visible citations and &quot;last updated&quot; dates; a clear banner that advice is not official until approved; confidence indicators; highlighting any requirement the checker could not verify; a &quot;check with adviser&quot; button and easy booking; showing alternatives rather than one answer; requiring confirmation of key facts before any action; reporting of wrong answers; and guaranteed human-adviser availability for disadvantaged students.</p>
 </div></details>
 </section>
 
-<section class="question"><div class="q-head">R3(e). Develop an end-to-end monitoring plan and rollback triggers.</div>
+<section class="question"><div class="q-head">R3(e). Develop an end-to-end monitoring plan. Specify indicators for factual accuracy, privacy violations, outdated knowledge, student overrides, human escalations, harmful recommendations, subgroup differences, response latency, system availability, and real-world academic outcomes. Explain what events should trigger rollback or temporary suspension.</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><div class="tbl"><table>
 <thead>
 <tr>
@@ -656,17 +633,13 @@
 </section>
 <h3 id="r4-ai-for-climate-smart-agricultural-support"><a class="anchor" href="#r4-ai-for-climate-smart-agricultural-support" aria-hidden="true">#</a>R4: AI for Climate-Smart Agricultural Support</h3>
 
-<details class="orig-q oq-fold"><summary><span class="oq-lab">📄 Original question</span><span class="oq-src">R4 (Module 1 notes)</span><span class="oq-hint">tap to show</span></summary><div class="oq-body"><p>R4: AI for Climate-Smart Agricultural Support An agricultural ministry wants to help smallholder farmers decide when to irrigate, fertilize, plant, and harvest. The proposed system combines satellite images, weather forecasts, soil sensors, crop records, market prices, and farmer-reported observations. It generates personalized recommendations through a mobile application. Most historical data come from large commercial farms with reliable irrigation, high-quality sensors, and stable internet connectivity. Small farms often have incomplete records, different crop varieties, irregular access to water, and limited ability to act on recommendations. The model predicts crop yield accurately, and the ministry assumes that following its recommendations will therefore increase yield. Questions</p>
-<ul>
-<li>Separate prediction from causal reasoning. Explain why accurately predicting yield does not prove that a recommended intervention will improve yield. Formulate the counterfactual questions that must be answered before recommending irrigation, fertilizer, or planting changes.</li>
-<li>Evaluate the target population and data representativeness. Compare the historical training population with the intended deployment population. Discuss distribution shift, missingness, sensor inequality, regional variation, and whether a Datasheet for Datasets would reveal limitations before deployment.</li>
-<li>Design a meaningful representation of the farming process. Explain whether static feature vectors are sufficient or whether temporal sequences, spatial maps, weather uncertainty, resource constraints, and mechanistic crop models are required. Discuss the costs of losing temporal or local context.</li>
-<li>Choose an appropriate combination of computational methods. Consider statistical learning, weather forecasting, optimization, rule-based agronomic constraints, causal estimation, and human expert review. Explain why a single highly complex model may be inferior to a transparent hybrid system.</li>
-<li>Assess the broader decision workflow. A recommendation is useful only if the farmer has water, credit, fertilizer, labor, transport, and market access. Explain how these constraints should affect problem formulation, evaluation, interface design, and claims of system success.</li>
-</ul>
-</div></details>
+<div class="orig-q"><div class="oq-head"><span class="oq-lab">📄 Original question</span><span class="oq-src">R4: AI for Climate-Smart Agricultural Support — Module 1 notes</span></div><div class="oq-body"><p>An agricultural ministry wants to help smallholder farmers decide when to irrigate, fertilize, plant, and harvest. The proposed system combines satellite images, weather forecasts, soil sensors, crop records, market prices, and farmer-reported observations. It generates personalized recommendations through a mobile application.</p>
+<p>Most historical data come from large commercial farms with reliable irrigation, high-quality sensors, and stable internet connectivity. Small farms often have incomplete records, different crop varieties, irregular access to water, and limited ability to act on recommendations. The model predicts crop yield accurately, and the ministry assumes that following its recommendations will therefore increase yield.</p>
+<p><strong>Questions</strong></p>
+<p>(a) Separate prediction from causal reasoning. Explain why accurately predicting yield does not prove that a recommended intervention will improve yield. Formulate the counterfactual questions that must be answered before recommending irrigation, fertilizer, or planting changes.<br>(b) Evaluate the target population and data representativeness. Compare the historical training population with the intended deployment population. Discuss distribution shift, missingness, sensor inequality, regional variation, and whether a Datasheet for Datasets would reveal limitations before deployment.<br>(c) Design a meaningful representation of the farming process. Explain whether static feature vectors are sufficient or whether temporal sequences, spatial maps, weather uncertainty, resource constraints, and mechanistic crop models are required. Discuss the costs of losing temporal or local context.<br>(d) Choose an appropriate combination of computational methods. Consider statistical learning, weather forecasting, optimization, rule-based agronomic constraints, causal estimation, and human expert review. Explain why a single highly complex model may be inferior to a transparent hybrid system.<br>(e) Assess the broader decision workflow. A recommendation is useful only if the farmer has water, credit, fertilizer, labor, transport, and market access. Explain how these constraints should affect problem formulation, evaluation, interface design, and claims of system success.</p>
+</div></div><div class="oq-sol">Worked solution</div>
 
-<section class="question"><div class="q-head">R4(a). Separate prediction from causal reasoning.</div>
+<section class="question"><div class="q-head">R4(a). Separate prediction from causal reasoning. Explain why accurately predicting yield does not prove that a recommended intervention will improve yield. Formulate the counterfactual questions that must be answered before recommending irrigation, fertilizer, or planting changes.</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Predicting yield accurately answers &quot;What is likely to happen?&quot; Recommending irrigation or fertilizer requires &quot;What would happen if the farmer did X instead of Y?&quot; (a causal question). The yield model learned associations from commercial farms, where irrigation and fertilizer use are confounded with wealth, soil quality, seed varieties and management skill; high-yield farms irrigate more, but that does not prove irrigation causes the extra yield on a smallholder plot (like attendance and exam scores). Counterfactual questions to answer:</p>
 <ul>
 <li>Would this farmer&#39;s yield be higher if they irrigated on day d rather than day d + 5, given their water access?</li>
@@ -678,17 +651,17 @@
 </div></details>
 </section>
 
-<section class="question"><div class="q-head">R4(b). Evaluate the target population and data representativeness.</div>
+<section class="question"><div class="q-head">R4(b). Evaluate the target population and data representativeness. Compare the historical training population with the intended deployment population. Discuss distribution shift, missingness, sensor inequality, regional variation, and whether a Datasheet for Datasets would reveal limitations before deployment.</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Training population: large commercial farms with reliable irrigation, good sensors, stable internet, standard varieties. Deployment population: smallholders with incomplete records, different varieties, irregular water and limited capacity. This is distribution shift (population, device and context). Missingness is not random (small farms lack sensors and records, so missing data are correlated with being poor). Sensor inequality means features available in training are absent or noisier in deployment (train-serving mismatch). Regional variation in soils, climate and pests is likely under-represented. A Datasheet for Datasets would reveal all this before deployment by documenting composition (farm types, regions, varieties), collection process (sensor types), missing populations (smallholders) and recommended uses, just as the skin-lesion datasheet would have revealed the skin-tone gap.</p>
 </div></details>
 </section>
 
-<section class="question"><div class="q-head">R4(c). Design a meaningful representation of the farming process.</div>
+<section class="question"><div class="q-head">R4(c). Design a meaningful representation of the farming process. Explain whether static feature vectors are sufficient or whether temporal sequences, spatial maps, weather uncertainty, resource constraints, and mechanistic crop models are required. Discuss the costs of losing temporal or local context.</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Static feature vectors (one row per farm-season) are insufficient: they cause loss of context. Farming is temporal and spatial: timing of rainfall relative to planting, soil moisture over time, growth stages. A good representation includes temporal sequences (daily weather, soil moisture, crop stage), spatial maps (satellite imagery, soil maps, neighbouring plots), weather uncertainty (probabilistic forecasts, not single values), resource constraints (water availability, labour, credit, fertilizer access) and mechanistic crop models that encode known plant physiology. Losing temporal context can make the model recommend irrigation after the critical window; losing local context can apply commercial-farm patterns to very different plots.</p>
 </div></details>
 </section>
 
-<section class="question"><div class="q-head">R4(d). Choose an appropriate combination of computational methods.</div>
+<section class="question"><div class="q-head">R4(d). Choose an appropriate combination of computational methods. Consider statistical learning, weather forecasting, optimization, rule-based agronomic constraints, causal estimation, and human expert review. Explain why a single highly complex model may be inferior to a transparent hybrid system.</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
 <li>Statistical learning: satellite-based crop monitoring, pest and disease detection, yield estimation.</li>
 <li>Weather forecasting: probabilistic short- and seasonal forecasts.</li>
@@ -702,7 +675,7 @@
 </div></details>
 </section>
 
-<section class="question"><div class="q-head">R4(e). Assess the broader decision workflow.</div>
+<section class="question"><div class="q-head">R4(e). Assess the broader decision workflow. A recommendation is useful only if the farmer has water, credit, fertilizer, labor, transport, and market access. Explain how these constraints should affect problem formulation, evaluation, interface design, and claims of system success.</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>A recommendation is useful only if the farmer can act on it: water, credit, fertilizer, labour, transport and market access. Therefore:</p>
 <ul>
 <li>Problem formulation: the decision is &quot;what is the best feasible action for this farmer given their resources&quot;, not &quot;maximize yield&quot;; the objective may be income or risk reduction, not yield.</li>
@@ -714,30 +687,29 @@
 </section>
 <h3 id="r5-automated-prioritization-of-social-welfare-applications"><a class="anchor" href="#r5-automated-prioritization-of-social-welfare-applications" aria-hidden="true">#</a>R5: Automated Prioritization of Social-Welfare Applications</h3>
 
-<details class="orig-q oq-fold"><summary><span class="oq-lab">📄 Original question</span><span class="oq-src">R5 (Module 1 notes)</span><span class="oq-hint">tap to show</span></summary><div class="oq-body"><p>R5: Automated Prioritization of Social-Welfare Applications A government agency receives more social-welfare applications than its staff can process quickly. It proposes an AI system that assigns each applicant a priority score based on income, employment history, family size, location, housing status, prior benefit use, and administrative records. The model is trained to predict which applications were approved historically. It achieves high accuracy and is used to place applicants into three queues:</p>
+<div class="orig-q"><div class="oq-head"><span class="oq-lab">📄 Original question</span><span class="oq-src">R5: Automated Prioritization of Social-Welfare Applications — Module 1 notes</span></div><div class="oq-body"><p>A government agency receives more social-welfare applications than its staff can process quickly. It proposes an AI system that assigns each applicant a priority score based on income, employment history, family size, location, housing status, prior benefit use, and administrative records.</p>
+<p>The model is trained to predict which applications were approved historically. It achieves high accuracy and is used to place applicants into three queues:</p>
 <ul>
 <li>Immediate processing</li>
 <li>Standard processing</li>
-<li>Low priority processing After deployment, applicants from informal employment sectors and remote areas are frequently assigned low priority because their records are incomplete. These cases are reviewed less often, so fewer positive outcomes are observed for these groups. The agency later retrains the model using the newly collected decisions. Questions</li>
-<li>Determine whether the label represents the real objective. Discuss the difference between predicting historical approval and identifying present need or eligibility. Explain how historical administrative decisions may encode policy choices, documentation inequality, resource constraints, and institutional bias.</li>
-<li>Analyze the emerging feedback loop. Explain how low-priority assignment reduces review, how reduced review creates selective labels, and how retraining on these outcomes may make the model increasingly confident in its original decisions.</li>
-<li>Reformulate the problem around a decision or capability. Define the real operational need, target population, index time, prediction horizon, decision alternatives, capacity constraints, and consequences of delay. Consider whether<br>prioritization should be based on need, eligibility uncertainty, urgency, expected benefit, or review complexity.</li>
-<li>Design an evaluation and fairness framework. Identify appropriate measures beyond aggregate accuracy, including false-negative rates, waiting time, calibration, subgroup performance, appeal outcomes, human override rates, and harm caused by delayed assistance. Discuss how evaluation should account for incomplete ground truth.</li>
-<li>Assign responsibility across the socio-technical lifecycle. Explain the responsibilities of policy designers, data collectors, software developers, model developers, caseworkers, agency leaders, auditors, and appeal bodies. Propose safeguards such as human review, explanation requirements, an appeal channel, abstention for incomplete records, monitoring, and decommissioning criteria. Below is a list of application problems designed to help students translate the concepts into concrete planning, documentation, evaluation, and governance artifacts. They reflect the end-to-end view of AI presented in this module, including problem formulation, data documentation, model selection, deployment, monitoring, and failure analysis.</li>
+<li>Low priority processing</li>
 </ul>
-</div></details>
+<p>After deployment, applicants from informal employment sectors and remote areas are frequently assigned low priority because their records are incomplete. These cases are reviewed less often, so fewer positive outcomes are observed for these groups. The agency later retrains the model using the newly collected decisions.</p>
+<p><strong>Questions</strong></p>
+<p>(a) Determine whether the label represents the real objective. Discuss the difference between predicting historical approval and identifying present need or eligibility. Explain how historical administrative decisions may encode policy choices, documentation inequality, resource constraints, and institutional bias.<br>(b) Analyze the emerging feedback loop. Explain how low-priority assignment reduces review, how reduced review creates selective labels, and how retraining on these outcomes may make the model increasingly confident in its original decisions.<br>(c) Reformulate the problem around a decision or capability. Define the real operational need, target population, index time, prediction horizon, decision alternatives, capacity constraints, and consequences of delay. Consider whether prioritization should be based on need, eligibility uncertainty, urgency, expected benefit, or review complexity.<br>(d) Design an evaluation and fairness framework. Identify appropriate measures beyond aggregate accuracy, including false-negative rates, waiting time, calibration, subgroup performance, appeal outcomes, human override rates, and harm caused by delayed assistance. Discuss how evaluation should account for incomplete ground truth.<br>(e) Assign responsibility across the socio-technical lifecycle. Explain the responsibilities of policy designers, data collectors, software developers, model developers, caseworkers, agency leaders, auditors, and appeal bodies. Propose safeguards such as human review, explanation requirements, an appeal channel, abstention for incomplete records, monitoring, and decommissioning criteria.</p>
+</div></div><div class="oq-sol">Worked solution</div>
 
-<section class="question"><div class="q-head">R5(a). Does the label represent the real objective?</div>
+<section class="question"><div class="q-head">R5(a). Determine whether the label represents the real objective. Discuss the difference between predicting historical approval and identifying present need or eligibility. Explain how historical administrative decisions may encode policy choices, documentation inequality, resource constraints, and institutional bias.</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>No. The label is &quot;approved historically&quot;, but the real objective is present need or eligibility. Historical approvals encode policy choices (past rules and quotas), documentation inequality (applicants with complete records were easier to approve), resource constraints (limited staff approved easy cases), and institutional bias (caseworker discretion, stereotypes). Informal-sector workers and remote applicants had incomplete records, so they were approved less, not because they were less needy. The model reproduces &quot;historical, potentially biased institutional decisions rather than discovering an objective, optimal truth&quot; (status quo bias). This mirrors the Obermeyer cost-as-proxy example.</p>
 </div></details>
 </section>
 
-<section class="question"><div class="q-head">R5(b). Analyze the emerging feedback loop.</div>
+<section class="question"><div class="q-head">R5(b). Analyze the emerging feedback loop. Explain how low-priority assignment reduces review, how reduced review creates selective labels, and how retraining on these outcomes may make the model increasingly confident in its original decisions.</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Incomplete records → low-priority queue → reviewed less often and later → fewer approvals observed for these groups (many never get a decision, or give up) → these outcomes become new labels (selective labels: we only see outcomes for cases that were reviewed) → retraining learns an even stronger link between incomplete records, informal work, remote location and non-approval → the model becomes increasingly confident in its original decisions (self-reinforcing bias). The model is judged on outcomes it produced, so it looks more accurate while harming the most vulnerable.</p>
 </div></details>
 </section>
 
-<section class="question"><div class="q-head">R5(c). Reformulate the problem around a decision or capability.</div>
+<section class="question"><div class="q-head">R5(c). Reformulate the problem around a decision or capability. Define the real operational need, target population, index time, prediction horizon, decision alternatives, capacity constraints, and consequences of delay. Consider whether prioritization should be based on need, eligibility uncertainty, urgency, expected benefit, or review complexity.</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
 <li>Real operational need: process applications so that people in urgent need receive assistance quickly and eligible applicants are not wrongly delayed, given limited staff.</li>
 <li>Target population: all applicants in the current period; unit: one application.</li>
@@ -751,7 +723,7 @@
 </div></details>
 </section>
 
-<section class="question"><div class="q-head">R5(d). Design an evaluation and fairness framework.</div>
+<section class="question"><div class="q-head">R5(d). Design an evaluation and fairness framework. Identify appropriate measures beyond aggregate accuracy, including false-negative rates, waiting time, calibration, subgroup performance, appeal outcomes, human override rates, and harm caused by delayed assistance. Discuss how evaluation should account for incomplete ground truth.</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><ul>
 <li>False-negative rate (truly needy applicants placed in low priority) overall and by group (informal sector, remote, gender, disability, ethnicity).</li>
 <li>Waiting time to decision, by group and queue.</li>
@@ -765,7 +737,7 @@
 </div></details>
 </section>
 
-<section class="question"><div class="q-head">R5(e). Assign responsibility across the socio-technical lifecycle and propose safeguards.</div>
+<section class="question"><div class="q-head">R5(e). Assign responsibility across the socio-technical lifecycle. Explain the responsibilities of policy designers, data collectors, software developers, model developers, caseworkers, agency leaders, auditors, and appeal bodies. Propose safeguards such as human review, explanation requirements, an appeal channel, abstention for incomplete records, monitoring, and decommissioning criteria.</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><div class="tbl"><table>
 <thead>
 <tr>
@@ -813,7 +785,10 @@
 <p>These are the assignment-style tasks. Your Assignment 1 already had four of these types (worksheet, model card, datasheet, failure analysis), so the quiz may ask you to produce a short version of any of them. Each answer below is complete; for the quiz, keep the headings and shorten the bullets.</p>
 <h3 id="a1-formulating-an-ai-problem-reducing-unplanned-hospital-readmissions"><a class="anchor" href="#a1-formulating-an-ai-problem-reducing-unplanned-hospital-readmissions" aria-hidden="true">#</a>A1: Formulating an AI Problem (Reducing Unplanned Hospital Readmissions)</h3>
 
-<details class="orig-q oq-fold"><summary><span class="oq-lab">📄 Original question</span><span class="oq-src">A1 (Module 1 notes)</span><span class="oq-hint">tap to show</span></summary><div class="oq-body"><p>A1: Formulating an AI Problem Scenario: Reducing Unplanned Hospital Readmissions A regional hospital reports that many adult patients return to the hospital shortly after discharge. Hospital leadership proposes the following project: Build an AI model that predicts which patients will be readmitted. The hospital has access to demographic information, diagnoses, medications, laboratory results, previous admissions, discharge summaries, appointment history, insurance status, and future claims data. Predictions could be generated at admission, during hospitalization, at discharge, or several days after discharge. The hospital has only 100 follow-up appointment slots each week. The discharge team must decide which patients should receive an early follow-up appointment, a telephone call, standard discharge instructions, or no additional intervention. Task Develop a complete AI problem formulation for this project. Your response must specify:</p>
+<div class="orig-q"><div class="oq-head"><span class="oq-lab">📄 Original question</span><span class="oq-src">A1: Formulating an AI Problem — Module 1 notes</span></div><div class="oq-body"><p>Scenario: Reducing Unplanned Hospital Readmissions A regional hospital reports that many adult patients return to the hospital shortly after discharge. Hospital leadership proposes the following project: Build an AI model that predicts which patients will be readmitted.</p>
+<p>The hospital has access to demographic information, diagnoses, medications, laboratory results, previous admissions, discharge summaries, appointment history, insurance status, and future claims data. Predictions could be generated at admission, during hospitalization, at discharge, or several days after discharge.</p>
+<p>The hospital has only 100 follow-up appointment slots each week. The discharge team must decide which patients should receive an early follow-up appointment, a telephone call, standard discharge instructions, or no additional intervention.</p>
+<p>Task Develop a complete AI problem formulation for this project. Your response must specify:</p>
 <ul>
 <li>The real-world decision or operational capability to be improved.</li>
 <li>The target population and exclusion criteria.</li>
@@ -830,11 +805,12 @@
 <li>The primary performance and calibration measures.</li>
 <li>The subgroup and fairness analyses required.</li>
 <li>The conditions under which the system should abstain or request human review.</li>
-<li>A final problem statement written as one precise paragraph. Also identify any variables in the proposed data that could produce temporal leakage.</li>
+<li>A final problem statement written as one precise paragraph.</li>
 </ul>
-</div></details>
+<p>Also identify any variables in the proposed data that could produce temporal leakage.</p>
+</div></div><div class="oq-sol">Worked solution</div>
 
-<section class="question"><div class="q-head">A1. Develop a complete AI problem formulation for the readmission project and identify variables that could cause temporal leakage.</div>
+<section class="question"><div class="q-head">A1. Answer to the full task above (A1: Formulating an AI Problem)</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><div class="tbl"><table>
 <thead>
 <tr>
@@ -922,48 +898,84 @@
 </section>
 <h3 id="a2-preparing-a-model-card-heart-disease-risk-prediction-model"><a class="anchor" href="#a2-preparing-a-model-card-heart-disease-risk-prediction-model" aria-hidden="true">#</a>A2: Preparing a Model Card (Heart Disease Risk Prediction Model)</h3>
 
-<details class="orig-q oq-fold"><summary><span class="oq-lab">📄 Original question</span><span class="oq-src">A2 (Module 1 notes)</span><span class="oq-hint">tap to show</span></summary><div class="oq-body"><p>A2: Preparing a Model Card Scenario: Heart Disease Risk Prediction Model A hospital has developed a random forest model to estimate the probability that an adult patient has clinically significant heart disease. The following information is available:</p>
+<div class="orig-q"><div class="oq-head"><span class="oq-lab">📄 Original question</span><span class="oq-src">A2: Preparing a Model Card — Module 1 notes</span></div><div class="oq-body"><p>Scenario: Heart Disease Risk Prediction Model A hospital has developed a random forest model to estimate the probability that an adult patient has clinically significant heart disease. The following information is available:</p>
 <ul>
-<li>Training data: 12,000 patient records from two urban hospitals</li>
-<li>Evaluation data: 3,000 records collected later from the same hospitals</li>
-<li>Inputs: age, sex, blood pressure, cholesterol, chest pain category, maximum heart rate, diabetes status, body mass index, and electrocardiogram findings</li>
-<li>Output: probability of heart disease</li>
-<li>Overall accuracy: 86 percent</li>
-<li>Precision: 0.82</li>
-<li>Recall: 0.74</li>
-<li>F1 score: 0.78</li>
-<li>Recall for male patients: 0.80</li>
-<li>Recall for female patients: 0.62</li>
-<li>Recall for patients younger than 40 years: 0.55</li>
-<li>The predicted probabilities are moderately overconfident</li>
-<li>Family history, smoking status, ethnicity, and genetic information are unavailable</li>
-<li>The model has not been externally validated</li>
-<li>The intended use is clinical decision support</li>
-<li>Some administrators have proposed using the model to automatically reject requests for further cardiac testing Task Prepare a complete Model Card for this system. The Model Card must contain:</li>
-<li>Model name, version, type, and architecture.</li>
-<li>Purpose and intended clinical role.</li>
-<li>Intended users.</li>
-<li>Inputs and outputs.</li>
-<li>Training and evaluation data.</li>
-<li>Preprocessing and missing-value handling.</li>
-<li>Overall performance measures.</li>
-<li>Subgroup performance.</li>
-<li>Calibration findings.</li>
-<li>Fairness observations.</li>
-<li>Known limitations.</li>
-<li>Appropriate uses.</li>
-<li>Inappropriate or prohibited uses.</li>
-<li>Human-review requirements.</li>
-<li>Potential harms resulting from false positives and false negatives.</li>
-<li>Generalizability limitations.</li>
-<li>Monitoring requirements after deployment.</li>
-<li>Conditions that should trigger recalibration, retraining, rollback, or withdrawal.</li>
-<li>Future work required before broader deployment. Conclude the Model Card with a clear deployment recommendation: approve, conditionally approve, or do not approve.</li>
+<li><p>Training data: 12,000 patient records from two urban hospitals</p>
+</li>
+<li><p>Evaluation data: 3,000 records collected later from the same hospitals</p>
+</li>
+<li><p>Inputs: age, sex, blood pressure, cholesterol, chest pain category, maximum heart rate, diabetes status, body mass index, and electrocardiogram findings</p>
+</li>
+<li><p>Output: probability of heart disease</p>
+</li>
+<li><p>Overall accuracy: 86 percent</p>
+</li>
+<li><p>Precision: 0.82</p>
+</li>
+<li><p>Recall: 0.74</p>
+</li>
+<li><p>F1 score: 0.78</p>
+</li>
+<li><p>Recall for male patients: 0.80</p>
+</li>
+<li><p>Recall for female patients: 0.62</p>
+</li>
+<li><p>Recall for patients younger than 40 years: 0.55</p>
+</li>
+<li><p>The predicted probabilities are moderately overconfident</p>
+</li>
+<li><p>Family history, smoking status, ethnicity, and genetic information are unavailable</p>
+</li>
+<li><p>The model has not been externally validated</p>
+</li>
+<li><p>The intended use is clinical decision support</p>
+</li>
+<li><p>Some administrators have proposed using the model to automatically reject requests for further cardiac testing Task Prepare a complete Model Card for this system. The Model Card must contain:</p>
+</li>
+<li><p>Model name, version, type, and architecture.</p>
+</li>
+<li><p>Purpose and intended clinical role.</p>
+</li>
+<li><p>Intended users.</p>
+</li>
+<li><p>Inputs and outputs.</p>
+</li>
+<li><p>Training and evaluation data.</p>
+</li>
+<li><p>Preprocessing and missing-value handling.</p>
+</li>
+<li><p>Overall performance measures.</p>
+</li>
+<li><p>Subgroup performance.</p>
+</li>
+<li><p>Calibration findings.</p>
+</li>
+<li><p>Fairness observations.</p>
+</li>
+<li><p>Known limitations.</p>
+</li>
+<li><p>Appropriate uses.</p>
+</li>
+<li><p>Inappropriate or prohibited uses.</p>
+</li>
+<li><p>Human-review requirements.</p>
+</li>
+<li><p>Potential harms resulting from false positives and false negatives.</p>
+</li>
+<li><p>Generalizability limitations.</p>
+</li>
+<li><p>Monitoring requirements after deployment.</p>
+</li>
+<li><p>Conditions that should trigger recalibration, retraining, rollback, or withdrawal.</p>
+</li>
+<li><p>Future work required before broader deployment.</p>
+</li>
 </ul>
-</div></details>
+<p>Conclude the Model Card with a clear deployment recommendation: approve, conditionally approve, or do not approve.</p>
+</div></div><div class="oq-sol">Worked solution</div>
 <p>This Model Card follows the structure of the notes&#39; &quot;Instructive Example of a Model Card&quot; (Section 4.8.1): Model Overview, Data Description, Performance Metrics, Known Limitations, Intended and Inappropriate Uses, Ethical Considerations, Additional Considerations, then Takeaways. Extra items required by the task (calibration, human review, monitoring, triggers, recommendation) are added inside the most relevant section.</p>
 
-<section class="question"><div class="q-head">A2. Prepare a complete Model Card for the heart disease system and give a deployment recommendation.</div>
+<section class="question"><div class="q-head">A2. Answer to the full task above (A2: Preparing a Model Card)</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><p><strong>Model Card: Heart Disease Risk Prediction Model</strong></p>
 <p>Model Overview</p>
 <ul>
@@ -1042,49 +1054,87 @@
 </section>
 <h3 id="a3-preparing-a-datasheet-for-a-dataset-crop-disease-image-dataset"><a class="anchor" href="#a3-preparing-a-datasheet-for-a-dataset-crop-disease-image-dataset" aria-hidden="true">#</a>A3: Preparing a Datasheet for a Dataset (Crop Disease Image Dataset)</h3>
 
-<details class="orig-q oq-fold"><summary><span class="oq-lab">📄 Original question</span><span class="oq-src">A3 (Module 1 notes)</span><span class="oq-hint">tap to show</span></summary><div class="oq-body"><p>A3: Preparing a Datasheet for a Dataset Scenario: Crop Disease Image Dataset An agricultural research institute releases a dataset for developing AI systems that identify crop diseases from leaf images. The dataset contains: o 80,000 images</p>
+<div class="orig-q"><div class="oq-head"><span class="oq-lab">📄 Original question</span><span class="oq-src">A3: Preparing a Datasheet for a Dataset — Module 1 notes</span></div><div class="oq-body"><p>Scenario: Crop Disease Image Dataset An agricultural research institute releases a dataset for developing AI systems that identify crop diseases from leaf images. The dataset contains:</p>
+<p>o 80,000 images</p>
 <ul>
-<li>Four crops: wheat, maize, tomato, and potato</li>
-<li>Twelve disease categories and one healthy category</li>
-<li>Images collected from 35 commercial farms</li>
-<li>Seventy percent of the images collected from two regions</li>
-<li>Most images captured during daylight using high-resolution cameras</li>
-<li>Only 5 percent captured using low-cost mobile phones</li>
-<li>Disease labels assigned by field technicians</li>
-<li>Ten percent of labels independently reviewed by plant pathologists</li>
-<li>Diseased plants photographed more frequently than healthy plants</li>
-<li>Images resized to 512 by 512 pixels</li>
-<li>Backgrounds not removed</li>
-<li>Farm identifiers replaced with coded values</li>
-<li>No images collected during drought conditions</li>
-<li>No data from smallholder farms</li>
-<li>No formal procedure for adding future disease categories</li>
-<li>Intended use described only as crop disease AI research Task Prepare a Datasheet for this dataset. The datasheet must document:</li>
-<li>Motivation for creating the dataset.</li>
-<li>Dataset creators, funders, and responsible maintainers.</li>
-<li>Dataset composition.</li>
-<li>Unit of observation.</li>
-<li>Geographic and seasonal coverage.</li>
-<li>Crop and disease distributions.</li>
-<li>Data-collection process.</li>
-<li>Sampling procedure.</li>
-<li>Label definitions.</li>
-<li>Labeling and verification procedures.</li>
-<li>Preprocessing and transformations.</li>
-<li>Known missing populations and conditions.</li>
-<li>Potential proxies and dataset artifacts.</li>
-<li>Possible class imbalance and selection bias.</li>
-<li>Consent, privacy, licensing, and access considerations.</li>
-<li>Recommended uses.</li>
-<li>Uses that are not supported.</li>
-<li>Risks associated with mobile-phone deployment.</li>
-<li>Generalization limitations.</li>
-<li>Maintenance, correction, versioning, and retirement procedures. Conclude by explaining whether the dataset is suitable for training a system intended for smallholder farmers using low-cost mobile phones.</li>
+<li><p>Four crops: wheat, maize, tomato, and potato</p>
+</li>
+<li><p>Twelve disease categories and one healthy category</p>
+</li>
+<li><p>Images collected from 35 commercial farms</p>
+</li>
+<li><p>Seventy percent of the images collected from two regions</p>
+</li>
+<li><p>Most images captured during daylight using high-resolution cameras</p>
+</li>
+<li><p>Only 5 percent captured using low-cost mobile phones</p>
+</li>
+<li><p>Disease labels assigned by field technicians</p>
+</li>
+<li><p>Ten percent of labels independently reviewed by plant pathologists</p>
+</li>
+<li><p>Diseased plants photographed more frequently than healthy plants</p>
+</li>
+<li><p>Images resized to 512 by 512 pixels</p>
+</li>
+<li><p>Backgrounds not removed</p>
+</li>
+<li><p>Farm identifiers replaced with coded values</p>
+</li>
+<li><p>No images collected during drought conditions</p>
+</li>
+<li><p>No data from smallholder farms</p>
+</li>
+<li><p>No formal procedure for adding future disease categories</p>
+</li>
+<li><p>Intended use described only as crop disease AI research Task Prepare a Datasheet for this dataset. The datasheet must document:</p>
+</li>
+<li><p>Motivation for creating the dataset.</p>
+</li>
+<li><p>Dataset creators, funders, and responsible maintainers.</p>
+</li>
+<li><p>Dataset composition.</p>
+</li>
+<li><p>Unit of observation.</p>
+</li>
+<li><p>Geographic and seasonal coverage.</p>
+</li>
+<li><p>Crop and disease distributions.</p>
+</li>
+<li><p>Data-collection process.</p>
+</li>
+<li><p>Sampling procedure.</p>
+</li>
+<li><p>Label definitions.</p>
+</li>
+<li><p>Labeling and verification procedures.</p>
+</li>
+<li><p>Preprocessing and transformations.</p>
+</li>
+<li><p>Known missing populations and conditions.</p>
+</li>
+<li><p>Potential proxies and dataset artifacts.</p>
+</li>
+<li><p>Possible class imbalance and selection bias.</p>
+</li>
+<li><p>Consent, privacy, licensing, and access considerations.</p>
+</li>
+<li><p>Recommended uses.</p>
+</li>
+<li><p>Uses that are not supported.</p>
+</li>
+<li><p>Risks associated with mobile-phone deployment.</p>
+</li>
+<li><p>Generalization limitations.</p>
+</li>
+<li><p>Maintenance, correction, versioning, and retirement procedures.</p>
+</li>
 </ul>
-</div></details>
+<p>Conclude by explaining whether the dataset is suitable for training a system intended for smallholder farmers using low-cost mobile phones.</p>
+</div></div><div class="oq-sol">Worked solution</div>
 <p>This follows the notes&#39; Datasheet structure (motivation, composition, collection process, preprocessing, recommended uses, limitations) and your Assignment Problem 3.</p>
 
-<section class="question"><div class="q-head">A3. Prepare a Datasheet for the crop disease image dataset and decide whether it suits smallholder farmers using low-cost mobile phones.</div>
+<section class="question"><div class="q-head">A3. Answer to the full task above (A3: Preparing a Datasheet for a Dataset)</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Motivation. Created to support research on AI systems that identify crop diseases from leaf images, enabling early, low-cost detection without waiting for a plant pathologist. The stated intended use is only &quot;crop disease AI research&quot;, which is too vague and must be made specific.</p>
 <p>Creators, funders and maintainers. The agricultural research institute&#39;s field and data teams, with 35 commercial partner farms. The funder must be stated. A named maintainer and contact address are required (currently missing).</p>
 <p>Composition.</p>
@@ -1113,14 +1163,18 @@
 </section>
 <h3 id="a4-deciding-which-model-to-deploy-predictive-maintenance"><a class="anchor" href="#a4-deciding-which-model-to-deploy-predictive-maintenance" aria-hidden="true">#</a>A4: Deciding Which Model to Deploy (Predictive Maintenance)</h3>
 
-<details class="orig-q oq-fold"><summary><span class="oq-lab">📄 Original question</span><span class="oq-src">A4 (Module 1 notes)</span><span class="oq-hint">tap to show</span></summary><div class="oq-body"><p>A4: Deciding Which Model to Deploy Scenario: Predictive Maintenance in a Manufacturing Plant A manufacturing company wants to predict whether a critical machine will fail within the next 24 hours. The system must generate a prediction every minute using vibration, temperature, pressure, load, and maintenance-history data. Three models have been evaluated (Table 3). Additional constraints include:</p>
+<div class="orig-q"><div class="oq-head"><span class="oq-lab">📄 Original question</span><span class="oq-src">A4: Deciding Which Model to Deploy — Module 1 notes</span></div><div class="oq-body"><p>Scenario: Predictive Maintenance in a Manufacturing Plant A manufacturing company wants to predict whether a critical machine will fail within the next 24 hours. The system must generate a prediction every minute using vibration, temperature, pressure, load, and maintenance-history data. Three models have been evaluated (Table 3).</p>
+<p>Additional constraints include:</p>
 <ul>
 <li>The production controller requires a response within 100 milliseconds.</li>
 <li>The plant has no GPU infrastructure.</li>
 <li>Engineers require understandable reasons before stopping a machine.</li>
 <li>Every unnecessary shutdown costs 20,000 dollars.</li>
 <li>A missed failure can cost more than 1 million dollars and may injure workers.</li>
-<li>The internal team has experience with statistical models and tree-based systems but limited deep-learning expertise. Task Select the model that should be deployed and justify the decision. Your analysis must consider:</li>
+<li>The internal team has experience with statistical models and tree-based systems but limited deep-learning expertise.</li>
+</ul>
+<p>Task Select the model that should be deployed and justify the decision. Your analysis must consider:</p>
+<ul>
 <li>Predictive performance.</li>
 <li>Failure recall.</li>
 <li>Calibration.</li>
@@ -1135,9 +1189,10 @@
 <li>Long-term lifecycle cost.</li>
 <li>Monitoring and retraining requirements.</li>
 <li>Whether the selected model should operate automatically or as decision support.</li>
-<li>Whether a hybrid arrangement involving more than one model would be preferable. Do not select a model solely because it has the highest accuracy.</li>
+<li>Whether a hybrid arrangement involving more than one model would be preferable.</li>
 </ul>
-</div></details>
+<p>Do not select a model solely because it has the highest accuracy.</p>
+</div></div><div class="oq-sol">Worked solution</div>
 <p>Table 3 in the notes (page 167) compares the three models:</p>
 <div class="tbl"><table>
 <thead>
@@ -1210,7 +1265,7 @@
 </tr>
 </tbody></table></div>
 
-<section class="question"><div class="q-head">A4. Select the model that should be deployed and justify the decision (do not choose on accuracy alone).</div>
+<section class="question"><div class="q-head">A4. Answer to the full task above (A4: Deciding Which Model to Deploy)</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Decision: deploy Model B (Random Forest) as the primary model, in a hybrid arrangement, operating as decision support with an automatic safety layer. Reject Model C. Keep Model A as the interpretable fallback and benchmark.</p>
 <p>Step 1: eliminate models that violate hard constraints. Model C&#39;s 240 ms latency breaks the controller&#39;s 100 ms requirement; the plant has no GPU and C needs high memory; its explanations are unstable, while engineers &quot;require understandable reasons before stopping a machine&quot;; it has poor calibration, poor performance with missing sensors, and no external validation; it needs monthly retraining and high specialist maintenance, but the team has limited deep-learning expertise. Its extra 3 points of recall cannot compensate. Model C is out.</p>
 <p>Step 2: compare A and B using error costs, not accuracy.</p>
@@ -1242,7 +1297,7 @@
 </section>
 <h3 id="a5-identifying-hidden-technical-debt-food-delivery-recommendation-system"><a class="anchor" href="#a5-identifying-hidden-technical-debt-food-delivery-recommendation-system" aria-hidden="true">#</a>A5: Identifying Hidden Technical Debt (Food Delivery Recommendation System)</h3>
 
-<details class="orig-q oq-fold"><summary><span class="oq-lab">📄 Original question</span><span class="oq-src">A5 (Module 1 notes)</span><span class="oq-hint">tap to show</span></summary><div class="oq-body"><p>A5: Identifying Hidden Technical Debt Scenario: Food Delivery Recommendation System<br>A food delivery company uses a machine-learning model to rank restaurants for each customer. The system has operated for three years. The following conditions are discovered during an internal review:</p>
+<div class="orig-q"><div class="oq-head"><span class="oq-lab">📄 Original question</span><span class="oq-src">A5: Identifying Hidden Technical Debt — Module 1 notes</span></div><div class="oq-body"><p>Scenario: Food Delivery Recommendation System A food delivery company uses a machine-learning model to rank restaurants for each customer. The system has operated for three years. The following conditions are discovered during an internal review:</p>
 <ul>
 <li>Customer, restaurant, payment, location, and promotion data are joined through several undocumented scripts.</li>
 <li>The mobile application team recently renamed several event fields without informing the machine-learning team.</li>
@@ -1259,7 +1314,10 @@
 <li>Feature definitions are duplicated across training, testing, and production pipelines.</li>
 <li>Restaurant availability is refreshed every hour, even though many restaurants open and close within minutes.</li>
 <li>No single person owns the complete pipeline.</li>
-<li>Only recommendation click-through rate is monitored. Task Prepare a hidden technical debt register. For each identified debt item, record:</li>
+<li>Only recommendation click-through rate is monitored.</li>
+</ul>
+<p>Task Prepare a hidden technical debt register. For each identified debt item, record:</p>
+<ul>
 <li>The evidence in the scenario.</li>
 <li>The technical debt category.</li>
 <li>The affected component.</li>
@@ -1268,7 +1326,10 @@
 <li>The method for detecting the problem.</li>
 <li>The proposed corrective action.</li>
 <li>The person or team that should own the corrective action.</li>
-<li>The urgency level. Your register should consider at least:</li>
+<li>The urgency level.</li>
+</ul>
+<p>Your register should consider at least:</p>
+<ul>
 <li>Undeclared consumers</li>
 <li>Unstable data dependencies</li>
 <li>Train-serving mismatch</li>
@@ -1281,11 +1342,12 @@
 <li>Monitoring gaps</li>
 <li>Ownership gaps</li>
 <li>Interface rigidity</li>
-<li>Hidden post-processing Conclude by identifying the three items that create the greatest production risk.</li>
+<li>Hidden post-processing</li>
 </ul>
-</div></details>
+<p>Conclude by identifying the three items that create the greatest production risk.</p>
+</div></div><div class="oq-sol">Worked solution</div>
 
-<section class="question"><div class="q-head">A5. Prepare a hidden technical debt register and identify the three items that create the greatest production risk.</div>
+<section class="question"><div class="q-head">A5. Answer to the full task above (A5: Identifying Hidden Technical Debt)</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Summary register</p>
 <div class="tbl"><table>
 <thead>
@@ -1550,7 +1612,8 @@
 </section>
 <h3 id="a6-completing-a-problem-framing-worksheet-university-tutoring-allocation"><a class="anchor" href="#a6-completing-a-problem-framing-worksheet-university-tutoring-allocation" aria-hidden="true">#</a>A6: Completing a Problem-Framing Worksheet (University Tutoring Allocation)</h3>
 
-<details class="orig-q oq-fold"><summary><span class="oq-lab">📄 Original question</span><span class="oq-src">A6 (Module 1 notes)</span><span class="oq-hint">tap to show</span></summary><div class="oq-body"><p>A6: Completing a Problem-Framing Worksheet Scenario: University Tutoring Allocation A university can provide intensive tutoring to only 200 first-year students each semester. University leadership proposes using AI to identify students who are likely to experience serious academic difficulty. Available information includes:</p>
+<div class="orig-q"><div class="oq-head"><span class="oq-lab">📄 Original question</span><span class="oq-src">A6: Completing a Problem-Framing Worksheet — Module 1 notes</span></div><div class="oq-body"><p>Scenario: University Tutoring Allocation A university can provide intensive tutoring to only 200 first-year students each semester.</p>
+<p>University leadership proposes using AI to identify students who are likely to experience serious academic difficulty. Available information includes:</p>
 <ul>
 <li>Admission scores</li>
 <li>Previous academic records</li>
@@ -1563,7 +1626,13 @@
 <li>Financial-aid information</li>
 <li>Midterm grades</li>
 <li>Final grades</li>
-<li>Withdrawal records Tutoring can begin at the end of week 3, week 6, or after the midterm examination. The existing process relies on voluntary student requests and faculty referrals. Some students may not seek help because of stigma, lack of awareness, or scheduling constraints. Task Complete the following problem-framing worksheet: At [decision time], for [target population or unit], using only [available information], produce [required output] concerning [prediction horizon or outcome period], so that [decision-maker] can [action]. The system will be compared with [baseline] and evaluated using [metrics], while accounting for [error costs, subgroup risks, operational constraints, and governance requirements]. After completing the statement, explain:</li>
+<li>Withdrawal records</li>
+</ul>
+<p>Tutoring can begin at the end of week 3, week 6, or after the midterm examination. The existing process relies on voluntary student requests and faculty referrals. Some students may not seek help because of stigma, lack of awareness, or scheduling constraints.</p>
+<p>Task Complete the following problem-framing worksheet:</p>
+<p>At [decision time], for [target population or unit], using only [available information], produce [required output] concerning [prediction horizon or outcome period], so that [decision-maker] can [action]. The system will be compared with [baseline] and evaluated using [metrics], while accounting for [error costs, subgroup risks, operational constraints, and governance requirements].</p>
+<p>After completing the statement, explain:</p>
+<ul>
 <li>Why the selected decision time is operationally appropriate.</li>
 <li>Which variables are available at that time.</li>
 <li>Which variables would cause temporal leakage.</li>
@@ -1577,9 +1646,9 @@
 <li>How the system should be compared with voluntary requests and faculty referrals.</li>
 <li>What evidence would justify deployment.</li>
 </ul>
-</div></details>
+</div></div><div class="oq-sol">Worked solution</div>
 
-<section class="question"><div class="q-head">A6. Complete the problem-framing worksheet for tutoring allocation and answer the follow-up questions.</div>
+<section class="question"><div class="q-head">A6. Answer to the full task above (A6: Completing a Problem-Framing Worksheet)</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><p>Completed statement: At [the end of week 3 of the semester, before tutoring begins], for [every first-year student enrolled on the census date (one student is the unit of analysis)], using only [information recorded by the end of week 3: admission scores, previous academic records, programme of study, course enrolment, attendance in weeks 1 to 3, weekly quizzes 1 to 3, assignment submissions due by week 3, learning-platform activity in weeks 1 to 3, and financial-aid information as recorded at enrolment], produce [a calibrated probability of serious academic difficulty, a ranked list, and an uncertainty flag for borderline or incomplete records] concerning [the remainder of the semester, from week 3 to the release of final results], so that [the academic-support office, with faculty advisers] can [offer the 200 intensive-tutoring places to the highest-ranked students after human review, with lighter support (study-skills workshops, peer mentoring) for the next band]. The system will be compared with [the current process of voluntary requests and faculty referrals] and evaluated using [recall@200, precision@200, calibration and AUROC, reported overall and by subgroup], while accounting for [the higher cost of missing a struggling student, stigma from being flagged, fairness across financial-aid, programme, gender and first-generation groups, the hard limit of 200 places, and governance requirements including student notice, opt-out, appeal, human review and monitoring].</p>
 <ul>
 <li>Why week 3 is operationally appropriate: early enough that most of the semester remains for tutoring to change the outcome (the horizon must match the window to act), yet late enough to have real behavioural signals (attendance, first quizzes and submissions). After the midterm the model would be more accurate but &quot;accurate but operationally unhelpful&quot;: students may already have failed half the assessments. A defensible variant: allocate about 150 places at week 3 and hold 50 for a week-6 re-scoring of students who start to struggle.</li>
@@ -1599,7 +1668,7 @@
 </section>
 <h3 id="a7-identifying-possible-failures-in-an-ai-project-automated-recruitment-screening"><a class="anchor" href="#a7-identifying-possible-failures-in-an-ai-project-automated-recruitment-screening" aria-hidden="true">#</a>A7: Identifying Possible Failures in an AI Project (Automated Recruitment Screening)</h3>
 
-<details class="orig-q oq-fold"><summary><span class="oq-lab">📄 Original question</span><span class="oq-src">A7 (Module 1 notes)</span><span class="oq-hint">tap to show</span></summary><div class="oq-body"><p>A7: Identifying Possible Failures in an AI Project Scenario: Automated Recruitment Screening A technology company develops an AI system to rank job applicants. The project has the following characteristics:</p>
+<div class="orig-q"><div class="oq-head"><span class="oq-lab">📄 Original question</span><span class="oq-src">A7: Identifying Possible Failures in an AI Project — Module 1 notes</span></div><div class="oq-body"><p>Scenario: Automated Recruitment Screening A technology company develops an AI system to rank job applicants. The project has the following characteristics:</p>
 <ul>
 <li>The objective is stated as finding the best applicants.</li>
 <li>Historical hiring decisions are used as ground-truth labels.</li>
@@ -1618,7 +1687,10 @@
 <li>Applicants cannot request an explanation or appeal.</li>
 <li>The model is automatically retrained every six months using the latest hiring decisions.</li>
 <li>No monitoring is performed for subgroup performance, drift, override rates, or feedback loops.</li>
-<li>No individual or committee has formal responsibility for model governance. Task Conduct an end-to-end failure analysis. Identify possible failures associated with:</li>
+<li>No individual or committee has formal responsibility for model governance.</li>
+</ul>
+<p>Task Conduct an end-to-end failure analysis. Identify possible failures associated with:</p>
+<ul>
 <li>Problem definition.</li>
 <li>Target and label selection.</li>
 <li>Data provenance.</li>
@@ -1640,20 +1712,26 @@
 <li>Retraining.</li>
 <li>Monitoring.</li>
 <li>Accountability and governance.</li>
-<li>Legal, ethical, and organizational constraints. For every failure identified, explain:</li>
+<li>Legal, ethical, and organizational constraints.</li>
+</ul>
+<p>For every failure identified, explain:</p>
+<ul>
 <li>Why it is a failure</li>
 <li>Which stage of the AI pipeline it affects</li>
 <li>The harm it could produce</li>
 <li>How it could be detected</li>
-<li>How it should be prevented or mitigated Conclude with one of the following recommendations and defend it:</li>
+<li>How it should be prevented or mitigated</li>
+</ul>
+<p>Conclude with one of the following recommendations and defend it:</p>
+<ul>
 <li>Proceed to a controlled pilot</li>
 <li>Redesign the project before any pilot</li>
 <li>Replace the machine-learning approach with a simpler process</li>
 <li>Cancel the project because the proposed use is not justified</li>
 </ul>
-</div></details>
+</div></div><div class="oq-sol">Worked solution</div>
 
-<section class="question"><div class="q-head">A7. Conduct an end-to-end failure analysis and recommend proceed, redesign, replace or cancel.</div>
+<section class="question"><div class="q-head">A7. Answer to the full task above (A7: Identifying Possible Failures in an AI Project)</div>
 <details class="solution solution"><summary>Answer</summary><div class="sol-body"><div class="tbl"><table>
 <thead>
 <tr>

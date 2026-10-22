@@ -37,7 +37,7 @@
 <a href="assignments.html">Assignments & computational training</a>
 <a href="a2-missedcare.html">A2 Part A — MissedCare (your answers)</a>
 <details class="grp"><summary>PDFs & past material</summary><a href="resources.html">2026 course PDFs</a><a href="past-papers.html">Past exams & quizzes</a><a href="past-lectures.html">Past lectures</a><a href="past-practice.html">Problem sets & solutions</a><a href="past-tutorials.html">Tutorials & demo code</a></details></nav>
-  <div class="toc"><div class="toc-title">On this page</div><a href="#basic-definitions" class="">Basic Definitions</a><a href="#short-conceptual-questions" class="">Short Conceptual Questions</a><a href="#scenario-ai-assisted-water-pipe-failure-management-21-points" class="">Scenario — AI-assisted water-pipe failure management (21 points)</a><a href="#identifying-biases-8-points" class="">Identifying biases (8 points)</a></div>
+  <div class="toc"><div class="toc-title">On this page</div><a href="#basic-definitions" class="">Basic Definitions</a><a href="#short-conceptual-questions" class="">Short Conceptual Questions</a><a href="#scenario-ai-assisted-water-pipe-failure-management-21-points" class="">Scenario — AI-assisted water-pipe failure management (21 points)</a><a href="#identifying-biases-in-an-ai-system-8-points" class="">Identifying Biases in an AI System (8 points)</a></div>
 </aside>
 <main>
   
@@ -110,68 +110,88 @@
 </tbody></table></div>
 <h2 id="basic-definitions"><a class="anchor" href="#basic-definitions" aria-hidden="true">#</a>Basic Definitions</h2>
 
-<section class="question"><div class="q-head">1(a) [3] Define artificial intelligence (scientific and engineering character, not just ML).</div>
+<section class="question"><div class="q-head">1(a) [3 points] Define artificial intelligence. Your definition should capture both the scientific and engineering character of AI rather than equating AI only with machine learning.</div>
 <details class="solution solution"><summary>Official answer</summary><div class="sol-body"><p>AI is the <strong>scientific and engineering discipline</strong> concerned with developing computational systems that can <strong>receive or perceive information, construct useful representations, reason or learn from evidence, and generate actions or outputs in pursuit of specified objectives under uncertainty and constraints.</strong><br><em>Rubric:</em> discipline (science + engineering) 1 · capabilities (representation, reasoning, learning, perception, action) 1 · objectives + uncertainty/constraints, not reduced to ML 1.</p>
 </div></details>
 </section>
 
-<section class="question"><div class="q-head">1(b) [3] Define temporal leakage. Why does it make an apparently strong evaluation unreliable?</div>
+<section class="question"><div class="q-head">1(b) [3 points] Define temporal leakage in an AI or machine-learning system. Why does the presence of temporal leakage make an apparently strong evaluation result unreliable?</div>
 <details class="solution solution"><summary>Official answer</summary><div class="sol-body"><p>Temporal leakage occurs when a model uses <strong>information that would not have been available at the time the prediction is supposed to be made</strong>, usually because the feature was measured or recorded later. The model effectively gains information <strong>from the future</strong>, so test performance appears <strong>artificially high</strong> though that information won&#39;t exist during real-world prediction.<br><em>Rubric:</em> post-index/future information 1.5 · unavailable at prediction time 0.5 · inflated evaluation / fails to reflect deployment 1.</p>
 </div></details>
 </section>
 
-<section class="question"><div class="q-head">1(c) [3] Define probabilistic calibration; distinguish from discrimination.</div>
+<section class="question"><div class="q-head">1(c) [3 points] Define probabilistic calibration. In one additional sentence, distinguish calibration from discrimination.</div>
 <details class="solution solution"><summary>Official answer</summary><div class="sol-body"><p>A model is <strong>well calibrated</strong> when predictions assigned probability <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> occur approximately a proportion <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> of the time (of cases given 0.8, about 80% have the outcome). <strong>Discrimination</strong> is how well the model <strong>ranks/separates</strong> cases with and without the outcome.<br><em>Rubric:</em> definition 1.5 · predicted probability ↔ observed frequency 0.5 · distinction 1.</p>
 </div></details>
 </section>
 <h2 id="short-conceptual-questions"><a class="anchor" href="#short-conceptual-questions" aria-hidden="true">#</a>Short Conceptual Questions</h2>
 
-<section class="question"><div class="q-head">2(a) [4] Why is AI not synonymous with ML? Give a non-learning AI example.</div>
+<section class="question"><div class="q-head">2(a) [4 points] Explain why artificial intelligence is not synonymous with machine learning. Give one example of an AI system or technique that does not need to learn from data and explain briefly why it can still legitimately be regarded as part of AI.</div>
 <details class="solution solution"><summary>Official answer</summary><div class="sol-body"><p>ML is <strong>one approach within</strong> AI. AI also includes search, symbolic reasoning, planning, constraint satisfaction, optimization, expert systems and rule-based control. Example: a <strong>shortest-path search</strong> explores a state space to choose a route without learning from data — still AI because it performs <strong>goal-directed computational reasoning</strong>.<br><em>Rubric:</em> ML ⊂ AI 1.5 · valid non-learning example 1 · why it is AI 1 · clear distinction (automation alone ≠ AI) 0.5.</p>
 </div></details>
 </section>
 
-<section class="question"><div class="q-head">2(b) [4] Why is a 0.62 readmission probability a prediction, not a decision? Three considerations for triggering an intervention.</div>
+<section class="question"><div class="q-head">2(b) [4 points] A model estimates that a patient has a probability of 0.62 of being readmitted to hospital within 30 days. Explain why this number is a prediction rather than a decision. Identify three considerations that should influence whether an intervention is actually triggered.</div>
 <details class="solution solution"><summary>Official answer</summary><div class="sol-body"><p>0.62 is an <strong>estimated risk</strong>; it specifies no action. A decision needs a <strong>rule/threshold/policy</strong> linking prediction to action. Considerations (any three): relative costs of <strong>FP vs FN</strong>; <strong>capacity</strong> to intervene; expected <strong>benefit</strong> of intervention; <strong>calibration</strong>/reliability; uncertainty; <strong>fairness</strong> and subgroup consequences; availability of <strong>human review</strong>; costs and workflow; alternative interventions/thresholds.</p>
 </div></details>
 </section>
 
-<section class="question"><div class="q-head">2(c) [4] Model A slightly more accurate; Model B simpler, faster, interpretable, cheaper. Why not automatically pick A? Three criteria.</div>
+<section class="question"><div class="q-head">2(c) [4 points] Two models solve the same prediction task. Model A has slightly higher test-set accuracy, whereas Model B is simpler, faster, easier to interpret, and considerably cheaper to maintain. Explain why Model A should not automatically be selected for deployment. Discuss any three criteria other than raw predictive accuracy that should influence the choice.</div>
 <details class="solution solution"><summary>Official answer</summary><div class="sol-body"><p>Higher test accuracy ≠ greater real-world utility. Criteria: <strong>interpretability</strong>, <strong>latency</strong>, <strong>compute requirements</strong>, <strong>maintenance burden</strong>, <strong>robustness</strong> to missing/shifted data, <strong>calibration</strong>, <strong>governance/auditability</strong>, data requirements, team expertise, <strong>lifecycle cost</strong>.</p>
 </div></details>
 </section>
 <h2 id="scenario-ai-assisted-water-pipe-failure-management-21-points"><a class="anchor" href="#scenario-ai-assisted-water-pipe-failure-management-21-points" aria-hidden="true">#</a>Scenario — AI-assisted water-pipe failure management (21 points)</h2>
 
-<div class="orig-q"><div class="oq-head"><span class="oq-lab">📄 Original question</span><span class="oq-src">Case</span></div><div class="oq-body"><p>40,000 pipes; data: age, material, diameter, pressure-sensor readings, rainfall, maintenance records, complaints, <strong>date/time emergency repair completed</strong>, neighbourhood, recorded failures. Random 80/20 split, <strong>95% accuracy</strong>. Policy: probability &gt; 0.5 → <strong>automatically shut valve and dispatch</strong>. Sensors intermittent; coverage poorer in <strong>older neighbourhoods</strong>; repair-completed recorded <strong>after failure</strong>; capacity <strong>20 inspections/day</strong>; shut-offs disrupt supply; missed failures cause flooding and damage.</p>
+<div class="orig-q"><div class="oq-head"><span class="oq-lab">📄 Original question</span><span class="oq-src">AI-Assisted Water-Pipe Failure Management — Quiz 1, Question 3 [21 points]</span></div><div class="oq-body"><p>A city water utility maintains 40,000 underground water pipes. It wants to use AI to identify pipes at risk of failure so that inspection teams can intervene before a major leak occurs. The available historical data include:</p>
+<ul>
+<li>pipe age and material;</li>
+<li>pipe diameter;</li>
+<li>recent water-pressure sensor readings;</li>
+<li>rainfall measurements;</li>
+<li>previous maintenance records;</li>
+<li>customer complaints about low pressure;</li>
+<li>date and time at which an emergency repair was completed;</li>
+<li>neighborhood;</li>
+<li>recorded pipe failures.</li>
+</ul>
+<p>The data science team trains a machine-learning model using a random 80/20 train-test split and reports 95% overall accuracy. Management proposes the following policy: <em>For every pipe whose predicted probability of failure exceeds 0.5, automatically shut the corresponding valve and dispatch an inspection team.</em> However,</p>
+<ul>
+<li>some pressure sensors report intermittently;</li>
+<li>sensor coverage is much poorer in older neighborhoods;</li>
+<li>the emergency-repair-completed field is generally recorded only after a pipe has already failed;</li>
+<li>the city has capacity to inspect only 20 pipes per day;</li>
+<li>unnecessarily shutting a pipe interrupts water supply to homes and businesses;</li>
+<li>failing to identify an actual imminent failure can cause flooding, infrastructure damage, and substantial repair costs.</li>
+</ul>
 </div></div><div class="oq-sol">Worked solution</div>
 
-<section class="question"><div class="q-head">3(a) [5] Formulate: unit of analysis, index time, horizon, decision-maker, action.</div>
+<section class="question"><div class="q-head">3(a) [5 points; Problem Formulation] The statement <em>build an AI model to predict pipe failure</em> is inadequately formulated. Specify: an appropriate unit of analysis; an index time; a reasonable prediction horizon; the decision-maker; and the action that the prediction is intended to support.</div>
 <details class="solution solution"><summary>Official answer</summary><div class="sol-body"><p><strong>Unit:</strong> one pipe at an index time. <strong>Index time:</strong> start of each day, before inspection assignment. <strong>Horizon:</strong> failure within next 24 h / 48 h / 7 days (justified operationally). <strong>Decision-maker:</strong> maintenance/operations manager or dispatch team. <strong>Action:</strong> prioritize pipes for inspection, preventive maintenance, monitoring, or (very high risk) controlled shutdown. <em>&quot;At the beginning of each day, estimate for every operating pipe the probability of failure in the next seven days using only information available then, so the team can prioritize its limited daily capacity.&quot;</em> 1 mark each.</p>
 </div></details>
 </section>
 
-<section class="question"><div class="q-head">3(b) [4] Two data risks (one must use emergency-repair-completed).</div>
+<section class="question"><div class="q-head">3(b) [4 points; Data and representation risks] Identify and explain two distinct risks in the available data. At least one of your answers must consider the emergency-repair-completed variable. Identify two additional aspects of evaluation that should be investigated before deployment.</div>
 <details class="solution solution"><summary>Official answer</summary><div class="sol-body"><p><strong>Temporal leakage:</strong> repair-completed is recorded <strong>after</strong> failure → future information → unrealistically high performance (2). Plus one of: <strong>intermittent sensors/missingness</strong> (possibly related to condition); <strong>unequal sensor coverage / representation bias</strong> in older neighbourhoods; <strong>neighbourhood as proxy</strong>; <strong>selection/measurement bias</strong>; <strong>random split</strong> doesn&#39;t test future deployment (2).</p>
 </div></details>
 </section>
 
-<section class="question"><div class="q-head">3(c) [4] Why is &quot;95% accuracy, ready to deploy&quot; inadequate? Two more evaluations.</div>
+<section class="question"><div class="q-head">3(c) [4 points; Evaluation] Explain why the statement <em>the model achieved 95% accuracy, therefore it is ready for deployment</em> is inadequate. Identify two additional aspects of evaluation that should be investigated before deployment.</div>
 <details class="solution solution"><summary>Official answer</summary><div class="sol-body"><p>Accuracy ignores FP vs FN, misleads under <strong>class imbalance</strong> (failures rare), says nothing about <strong>calibration</strong>, hides <strong>neighbourhood subgroup</strong> differences, robustness to missing sensors, operational usefulness, and came from a random split. Add: <strong>recall/FNR</strong>, <strong>calibration</strong>, <strong>subgroup performance</strong>, <strong>robustness</strong>, <strong>temporal validation</strong>, <strong>decision utility/cost</strong>, <strong>baseline</strong> comparison.</p>
 </div></details>
 </section>
 
-<section class="question"><div class="q-head">3(d) [4] Why is 0.5 not automatically appropriate? Use FP/FN costs and the 20/day capacity.</div>
+<section class="question"><div class="q-head">3(d) [4 points; From prediction to action] Why is the proposed threshold of 0.5 not automatically appropriate? Explain how both: the different consequences of false positives versus false negatives, and the capacity limit of 20 inspections per day, should affect the decision policy.</div>
 <details class="solution solution"><summary>Official answer</summary><div class="sol-body"><p>0.5 is just a number. <strong>Asymmetric costs:</strong> missed failures (flooding) may justify a lower threshold, but false positives interrupt water supply. <strong>Capacity:</strong> 20 inspections/day — a threshold yielding 200 alerts is useless. Best: <strong>rank pipes by risk and select the top cases within capacity</strong>, with triage and human review before any shutdown.</p>
 </div></details>
 </section>
 
-<section class="question"><div class="q-head">3(e) [4] One abstention/fallback condition; one quantity to monitor.</div>
+<section class="question"><div class="q-head">3(e) [4 points; Deployment and monitoring] State: one condition under which the system should abstain or fall back to another procedure, and one quantity or behavior that should be continuously monitored after deployment.</div>
 <details class="solution solution"><summary>Official answer</summary><div class="sol-body"><p><strong>Abstain</strong> if critical sensor values are missing/invalid, inputs violate schema/ranges or are out of distribution, confidence inadequate, pipeline failure, or the pipe is from an unvalidated population → fall back to <strong>manual engineering review / legacy rules / intensified monitoring</strong>. <strong>Monitor:</strong> missing-sensor rate, input drift, calibration, sensitivity/FNR, FPR, missed failures, subgroup performance, alert volume, inspection yield, latency, override rate, real failures after deployment — and say why it matters.</p>
 </div></details>
 </section>
-<h2 id="identifying-biases-8-points"><a class="anchor" href="#identifying-biases-8-points" aria-hidden="true">#</a>Identifying biases (8 points)</h2>
+<h2 id="identifying-biases-in-an-ai-system-8-points"><a class="anchor" href="#identifying-biases-in-an-ai-system-8-points" aria-hidden="true">#</a>Identifying Biases in an AI System (8 points)</h2>
 
-<section class="question"><div class="q-head">4 [8] Hiring ranker trained on ten years of decisions; favoured universities score higher; dashboard highlights top candidates; recruiters rarely look lower; retrained on system-assisted decisions. Four distinct mechanisms.</div>
+<section class="question"><div class="q-head">4 [8 points] A company uses an AI system to rank job applicants. The model is trained on ten years of historical hiring data. Applicants from a small set of universities were hired more frequently in the past, and the model consequently assigns them higher scores. The recruitment dashboard prominently highlights the top-ranked applicants, and recruiters rarely inspect candidates ranked lower down. After one year, the model is retrained using the hiring decisions made with assistance from the system. Identify and briefly explain four distinct sources or forms of bias/problematic feedback present in this scenario.</div>
 <details class="solution solution"><summary>Official answer</summary><div class="sol-body"><p><strong>Historical bias</strong> (past preferences encoded) · <strong>Proxy bias</strong> (university as proxy for socioeconomic opportunity — only if mechanism explained) · <strong>Automation/interface bias</strong> (highlighting changes recruiter behaviour) · <strong>Self-reinforcing feedback loop</strong> (retraining on decisions the model influenced). Also: selective exposure, <strong>selective labels</strong> (outcomes observed only for hired candidates), sampling/representation bias, measurement bias. <strong>Avoid double counting</strong> — &quot;recruiters look at the top&quot; and &quot;lower candidates are rarely reviewed&quot; are one mechanism.</p>
 </div></details>
 </section>
