@@ -14,6 +14,29 @@
       "file": "start-here.md"
     },
     {
+      "section": "Mid-term (Modules 1–2)"
+    },
+    {
+      "id": "mid-guide",
+      "title": "Mid guide",
+      "file": "mid/mid-guide.md"
+    },
+    {
+      "id": "mid-mock-a",
+      "title": "★ Mock Mid A",
+      "file": "mid/mid-mock-a.md"
+    },
+    {
+      "id": "mid-mock-b",
+      "title": "Mock Mid B",
+      "file": "mid/mid-mock-b.md"
+    },
+    {
+      "id": "mid-mock-c",
+      "title": "Mock Mid C",
+      "file": "mid/mid-mock-c.md"
+    },
+    {
       "section": "Modules"
     },
     {
@@ -89,7 +112,23 @@
       ]
     },
     {
+      "id": "m3",
+      "title": "M3 · EDA, Inference & Features (not on mid)",
+      "children": [
+        {
+          "id": "m3-notes",
+          "title": "Chapter map and PDF",
+          "file": "modules/m3.md"
+        }
+      ]
+    },
+    {
       "section": "Quiz 2 (24 Oct)"
+    },
+    {
+      "id": "quiz2-solved",
+      "title": "★ Real Quiz 2 (solved)",
+      "file": "quizzes/quiz2-solved.md"
     },
     {
       "id": "quiz2-guide",

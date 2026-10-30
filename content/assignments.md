@@ -50,6 +50,17 @@ Synthetic multi-hospital deterioration dataset (~250,000 encounters, 118,000 pat
 | 12 | Split before preprocessing | 2.6.3 | [py](files/computational/topic_12_train_validation_test_splitting_before_preprocessing.py) |
 | 13 | Data-leakage demonstration | 2.6 | [py](files/computational/topic_13_data_leakage_demonstration.py) |
 | 14 | Cross-validation appropriate to data structure | 2.6.4 | [py](files/computational/topic_14_cross_validation_appropriate_to_data_structure.py) |
+| 15 | Basic EDA workflow | 3.1.7 (Module 3) | [py](files/computational/topic_15_basic_eda_workflow.py) |
+| 16 | Numerical descriptive statistics | 3.4 (Module 3) | [py](files/computational/topic_16_numerical_descriptive_statistics.py) |
+| 17 | Distribution visualization | 3.3 (Module 3) | [py](files/computational/topic_17_distribution_visualization.py) |
+| 18 | Pathological distributions | 3.2.1 (Module 3) | [py](files/computational/topic_18_pathological_distributions.py) |
+| 19 | Relationship analysis | 3.2.2 (Module 3) | [py](files/computational/topic_19_relationship_analysis.py) |
+| 20 | Aggregate versus subgroup relationships | 3.2.6 (Module 3) | [py](files/computational/topic_20_aggregate_versus_subgroup_relationships.py) |
+| 21 | Subgroup and intersectional EDA | 3.2.6 (Module 3) | [py](files/computational/topic_21_subgroup_and_intersectional_eda.py) |
+| 22 | Transformations of numerical features | 3.5 (Module 3) | [py](files/computational/topic_22_transformations_of_numerical_features.py) |
+| 23 | Scaling and normalization | 3.5.3–3.5.4 (Module 3) | [py](files/computational/topic_23_scaling_and_normalization.py) |
+| 24 | Categorical encoding | 3.5.6 (Module 3) | [py](files/computational/topic_24_categorical_encoding.py) |
+| 25 | Binning and discretization | 3.5.5 (Module 3) | [py](files/computational/topic_25_binning_and_discretization.py) |
 
 ## Python tutorials
 
