@@ -347,3 +347,23 @@ details.oq-fold[open] > .oq-body { margin-top: .5rem; }
 details.oq-fold .oq-body ul { padding-left: 1.2rem; }
 details.oq-fold .oq-body li { margin: .3rem 0; }
 @media print { details.oq-fold > .oq-body { display: block; } }
+
+/* ============ study highlights ============ */
+:root { --hl: #fff1a6; --key: #1d5fa6; --trap: #ffdcd3; --trap-ink: #8f2f1c; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --hl: #5a4a10; --key: #9cc7f5; --trap: #55261c; --trap-ink: #ffc2b4; }
+}
+:root[data-theme="dark"] { --hl: #5a4a10; --key: #9cc7f5; --trap: #55261c; --trap-ink: #ffc2b4; }
+mark.hl, mark.trap {
+  color: inherit; padding: .04em .22em; margin: 0 -.06em; border-radius: .28em .18em .3em .16em;
+  -webkit-box-decoration-break: clone; box-decoration-break: clone;
+}
+mark.hl { background: linear-gradient(100deg, transparent .1em, var(--hl) .24em, var(--hl) calc(100% - .2em), transparent); }
+mark.trap { background: var(--trap); color: var(--trap-ink); }
+.key { color: var(--key); font-weight: 600; }
+.hl-legend { display: flex; flex-wrap: wrap; gap: .45rem 1.3rem; margin: 1.1rem 0 1.5rem; padding: .7rem .95rem;
+  border: 1px solid var(--rule); border-radius: 8px; background: var(--panel); font-family: var(--sans); font-size: 13px; color: var(--muted); }
+.quiz-tools button[aria-pressed="true"] { background: var(--hl); color: var(--ink); border-color: transparent; }
+.recall .sol-body mark.hl { color: transparent; background: var(--code-bg); border-bottom: 2px dashed var(--faint); border-radius: 3px; cursor: pointer; user-select: none; }
+.recall .sol-body mark.hl.shown { color: inherit; background: linear-gradient(100deg, transparent .1em, var(--hl) .24em, var(--hl) calc(100% - .2em), transparent); border-bottom: 0; cursor: default; user-select: auto; }
+@media print { mark.hl, mark.trap { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }

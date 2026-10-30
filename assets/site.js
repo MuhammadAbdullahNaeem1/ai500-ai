@@ -51,6 +51,21 @@
     });
   });
 
+  // ---- Test me: blank the yellow lines, tap one to reveal it
+  var recall = document.querySelector('[data-recall]');
+  if (recall) {
+    recall.addEventListener('click', function () {
+      var on = document.body.classList.toggle('recall');
+      recall.setAttribute('aria-pressed', on);
+      recall.textContent = on ? 'Show highlights' : 'Test me';
+      document.querySelectorAll('mark.hl.shown').forEach(function (m) { m.classList.remove('shown'); });
+    });
+    document.addEventListener('click', function (e) {
+      var m = e.target.closest && e.target.closest('.sol-body mark.hl');
+      if (m && document.body.classList.contains('recall')) m.classList.add('shown');
+    });
+  }
+
   // ---- figure lightbox
   var lb = document.getElementById('lightbox');
   function closeLb() { if (lb && !lb.hidden) { lb.hidden = true; document.body.classList.remove('lb-open'); } }

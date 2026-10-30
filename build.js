@@ -47,6 +47,10 @@ function protect(src, store) {
   src = src.replace(/(^|[^\\$])\$([^\s$](?:[^$\n]*?[^\s\\$])?)\$(?!\d)/g, (m, pre, t) => {
     store.push({ html: renderMath(t, false) }); return `${pre}\uE000${store.length - 1}\uE000`;
   });
+  // study highlights: ==core line==, @@key term@@, !!trap!!
+  src = src.replace(/==([^=\n]+)==/g, '<mark class="hl">$1</mark>')
+    .replace(/@@([^@\n]+)@@/g, '<span class="key">$1</span>')
+    .replace(/!!([^!\n]+)!!/g, '<mark class="trap">$1</mark>');
   return src.replace(/\\\$/g, '$');
 }
 
@@ -189,7 +193,7 @@ function page(p, body, toc) {
 </aside>
 <main>
   ${crumb ? `<div class="crumb">${crumb}</div>` : ''}
-  ${isQuiz ? `<div class="quiz-tools"><button data-sol="open">Show all solutions</button><button data-sol="close">Hide all</button><button onclick="window.print()">Print</button></div>` : ''}
+  ${isQuiz ? `<div class="quiz-tools"><button data-sol="open">Show all solutions</button><button data-sol="close">Hide all</button><button onclick="window.print()">Print</button>${/^m\d-answers/.test(p.id) ? '<button data-recall aria-pressed="false">Test me</button>' : ''}</div>` : ''}
   ${body}
   <nav class="pagenav">
     ${prev ? `<a class="pv" href="${prev.id}.html">← Previous<b>${label(prev)}</b></a>` : '<span></span>'}
