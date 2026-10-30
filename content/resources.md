@@ -6,12 +6,14 @@ Every file from the course folder (except duplicates in the assignment "Garbage"
 
 - [Module 1 notes — The AI/Data Science Landscape and Problem Framing](pdfs/notes/Module-1-Notes.pdf) (170 pages)
 - [Module 2 notes — Data Collection, Curation, Cleaning, Governance, and Ethics](pdfs/notes/Module-2-Notes.pdf) (145 pages; practice questions pp. 130–145)
+- [Module 3 notes — not on the mid](pdfs/notes/Module-3-Notes.pdf) (222 pages; practice questions from p. 203) · [chapter map](m3-notes.html)
 - [Course outline / syllabus 2026](pdfs/course/Syllabus-AI500-2026.pdf)
 - [Computational tutorial 2026](pdfs/tutorials/Computational-Tutorial-2026.pdf) and its [scripts](assignments.html#computational-training-module-2-in-code)
 
 ## Quizzes (2026)
 
 - [Quiz 1 — solution scheme](pdfs/quizzes/Quiz-1-Solution.pdf) · [solved page](quiz1-solved.html)
+- [Quiz 2 — solution scheme](pdfs/quizzes/Quiz-2-Solution.pdf) · [solved page](quiz2-solved.html)
 - [Your Quiz 1 preparation guide (PDF)](pdfs/quizzes/Quiz-1-Prep-Guide.pdf) · [.docx](files/Quiz-1-Prep-Guide.docx)
 
 ## Assignments (2026)
