@@ -1,0 +1,711 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>★ Mock Mid A · AI 500</title>
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#fbfbfa" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#16161a" media="(prefers-color-scheme: dark)">
+<script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<header class="topbar">
+  <button class="iconbtn" id="menuBtn" aria-label="Open contents" aria-expanded="false"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+  <a class="topbrand" href="index.html">AI 500<span>★ Mock Mid A</span></a>
+  <button class="iconbtn themebtn" aria-label="Toggle dark mode"><svg class="i-moon" viewBox="0 0 24 24" width="19" height="19"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg><svg class="i-sun" viewBox="0 0 24 24" width="19" height="19"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg></button>
+</header>
+<div class="scrim" id="scrim"></div>
+<div class="wrap">
+<aside class="side" id="side">
+  <div class="side-head">
+    <a class="brand" href="index.html">AI 500 — Foundations of AI<span>Foundations of AI · Fall 2026</span></a>
+    <button class="iconbtn themebtn" aria-label="Toggle dark mode"><svg class="i-moon" viewBox="0 0 24 24" width="17" height="17"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg><svg class="i-sun" viewBox="0 0 24 24" width="17" height="17"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg></button>
+  </div>
+  <nav><a href="index.html">Home</a>
+<a href="start-here.html">Start here (how to use)</a>
+<div class="nav-section">Mid-term (Modules 1–2)</div>
+<a href="mid-guide.html">Mid guide</a>
+<a href="mid-mock-a.html" class="on" aria-current="page">★ Mock Mid A</a>
+<a href="mid-mock-b.html">Mock Mid B</a>
+<a href="mid-mock-c.html">Mock Mid C</a>
+<div class="nav-section">Modules</div>
+<details class="grp"><summary>M1 · AI Landscape & Problem Framing</summary><a href="m1a-notes.html">Notes A — roots, philosophy, landscape</a><a href="m1b-notes.html">Notes B — pipeline, framing, failures</a><a href="m1-answers.html">Answers Q1–100</a><a href="m1-cases.html">Answers S, R, A</a></details>
+<details class="grp"><summary>M2 · Data Collection, Cleaning, Governance & Ethics</summary><a href="m2a-notes.html">Notes A — constructed data, sources, quality</a><a href="m2b-notes.html">Notes B — curation, cleaning, leakage</a><a href="m2c-notes.html">Notes C — documentation, governance, cases</a><a href="m2-definitions.html">★ Notes-exact definitions</a><a href="m2-answers-1.html">Answers Q1–50</a><a href="m2-answers-2.html">Answers Q51–100</a><a href="m2-scenarios.html">Scenarios S1–S5</a><a href="m2-reflections.html">Reflections R1–R5</a></details>
+<details class="grp"><summary>M3 · EDA, Inference & Features (not on mid)</summary><a href="m3-notes.html">Chapter map and PDF</a></details>
+<div class="nav-section">Quiz 2 (24 Oct)</div>
+<a href="quiz2-solved.html">★ Real Quiz 2 (solved)</a>
+<a href="quiz2-guide.html">Quiz 2 guide</a>
+<a href="quiz2-mock-a.html">★ Mock Quiz 2A</a>
+<a href="quiz2-mock-b.html">Mock Quiz 2B</a>
+<a href="quiz2-mock-c.html">Mock Quiz 2C</a>
+<div class="nav-section">Archive</div>
+<a href="quiz1-solved.html">Real Quiz 1 (solved)</a>
+<a href="assignments.html">Assignments & computational training</a>
+<a href="a2-missedcare.html">A2 Part A — MissedCare (your answers)</a>
+<details class="grp"><summary>PDFs & past material</summary><a href="resources.html">2026 course PDFs</a><a href="past-papers.html">Past exams & quizzes</a><a href="past-lectures.html">Past lectures</a><a href="past-practice.html">Problem sets & solutions</a><a href="past-tutorials.html">Tutorials & demo code</a></details></nav>
+  <div class="toc"><div class="toc-title">On this page</div><a href="#part-i-mcqs-15-points-30-minutes" class="">Part I — MCQs [15 points, 30 minutes]</a><a href="#part-ii-basic-definitions-12-points" class="">Part II — Basic Definitions [12 points]</a><a href="#part-ii-short-conceptual-questions-16-points" class="">Part II — Short Conceptual Questions [16 points]</a><a href="#part-ii-scenario-1-bus-breakdown-prediction-18-points-module-1-focus" class="">Part II — Scenario 1: Bus breakdown prediction [18 points, Module 1 focus]</a><a href="#part-ii-scenario-2-student-dropout-early-warning-18-points-module-2-focus" class="">Part II — Scenario 2: Student dropout early warning [18 points, Module 2 focus]</a><a href="#part-ii-identify-distinct-problems-8-points" class="">Part II — Identify Distinct Problems [8 points]</a><a href="#part-ii-calculation-8-points" class="">Part II — Calculation [8 points]</a></div>
+</aside>
+<main>
+  
+  <div class="quiz-tools"><button data-sol="open">Show all solutions</button><button data-sol="close">Hide all</button><button onclick="window.print()">Print</button></div>
+  <h1>Mock Mid A — Modules 1 and 2</h1>
+<p><strong>95 points · 2 hours 30 minutes · closed book.</strong> Part I: 15 MCQs (15 points, 30 minutes). Part II: 80 points, 2 hours. Module 3 is not examined. Sit it timed, then mark yourself strictly against the rubrics.</p>
+<div class="pdf-links">
+<a href="mid-guide.html">Mid guide</a>
+<a href="mid-mock-b.html">Mock Mid B</a>
+<a href="mid-mock-c.html">Mock Mid C</a>
+</div>
+
+<h2 id="part-i-mcqs-15-points-30-minutes"><a class="anchor" href="#part-i-mcqs-15-points-30-minutes" aria-hidden="true">#</a>Part I — MCQs [15 points, 30 minutes]</h2>
+<p>Each question has one correct answer.</p>
+
+<section class="question"><div class="q-head">1 [1 point] Which statement best captures the relation between AI and machine learning?</div><p>(a) AI and ML are the same field under two names<br>(b) ML is one major approach within AI<br>(c) AI is one approach within ML<br>(d) ML includes search, planning and logic</p>
+
+<details class="solution answer"><summary>Answer</summary><div class="sol-body"><p><strong>(b)</strong> AI also includes search, planning, logic, constraint satisfaction, expert systems and control.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">2 [1 point] A thermostat switches the heating on and off with no human input. In the notes&#39; terms it is:</div><p>(a) Autonomous but not intelligent<br>(b) Intelligent but not autonomous<br>(c) A decision-support system<br>(d) Generative AI</p>
+
+<details class="solution answer"><summary>Answer</summary><div class="sol-body"><p><strong>(a)</strong> Autonomy is not the same as intelligence.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">3 [1 point] &quot;What would happen if every student were required to attend every lecture?&quot; is:</div><p>(a) A prediction question<br>(b) A clustering question<br>(c) An intervention (causal) question<br>(d) A ranking question</p>
+
+<details class="solution answer"><summary>Answer</summary><div class="sol-body"><p><strong>(c)</strong> Prediction says who is likely to succeed. Causal reasoning says which actions improve success.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">4 [1 point] In the NIST AI RMF, which function means prioritizing and acting on risks (mitigate, transfer or accept)?</div><p>(a) Govern<br>(b) Map<br>(c) Measure<br>(d) Manage</p>
+
+<details class="solution answer"><summary>Answer</summary><div class="sol-body"><p><strong>(d)</strong> Govern sets culture and accountability, Map contextualizes, Measure assesses, Manage acts.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">5 [1 point] Which claim requires temporal validation?</div><p>(a) &quot;It works for everyone&quot;<br>(b) &quot;It works in the future&quot;<br>(c) &quot;Its probabilities are meaningful&quot;<br>(d) &quot;It works at other hospitals&quot;</p>
+
+<details class="solution answer"><summary>Answer</summary><div class="sol-body"><p><strong>(b)</strong> Train on the past and test strictly on the future. Everyone → subgroup evaluation; probabilities → calibration; other sites → external validation.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">6 [1 point] Many models fit the training data equally well but behave differently in deployment. This failure mode is:</div><p>(a) Distribution shift<br>(b) Underspecification<br>(c) Data leakage<br>(d) Weak evaluation</p>
+
+<details class="solution answer"><summary>Answer</summary><div class="sol-body"><p><strong>(b)</strong></p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">7 [1 point] Google Flu Trends mainly teaches that:</div><p>(a) Volume removes measurement bias<br>(b) A proxy is useful only while its relation to the target stays stable<br>(c) Search data should never be used<br>(d) Larger models always beat simple baselines</p>
+
+<details class="solution answer"><summary>Answer</summary><div class="sol-body"><p><strong>(b)</strong> The combined GFT + lagged CDC model beat either alone.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">8 [1 point] Mean age is computed on the full dataset before the train–test split. This is:</div><p>(a) Group leakage<br>(b) Target leakage<br>(c) Train–test contamination<br>(d) Site leakage</p>
+
+<details class="solution answer"><summary>Answer</summary><div class="sol-body"><p><strong>(c)</strong> Real Quiz 2 tested exactly this. Compute it on the training data only.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">9 [1 point] Men withhold income more often than women, but within each gender missingness is unrelated to income. This is:</div><p>(a) MCAR<br>(b) MAR<br>(c) MNAR<br>(d) Informative labels</p>
+
+<details class="solution answer"><summary>Answer</summary><div class="sol-body"><p><strong>(b)</strong> Missingness depends on an observed variable, not on the missing value after conditioning.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">10 [1 point] A hospital&#39;s &quot;lactate&quot; is missing mostly for patients doctors judged healthy. Dropping this signal by imputing the mean loses:</div><p>(a) Provenance<br>(b) Informative missingness<br>(c) Licence compatibility<br>(d) Construct validity of the model</p>
+
+<details class="solution answer"><summary>Answer</summary><div class="sol-body"><blockquote>
+<p><strong>Notes wording</strong> — “Missingness itself can be informative.” (M2 p.53)</p>
+</blockquote>
+<p><strong>(b)</strong> The absence itself carries information. Add a missingness indicator.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">11 [1 point] Which is a <em>false merge</em>?</div><p>(a) Two different people combined into one record<br>(b) One person split into two records<br>(c) A record dropped by mistake<br>(d) A duplicated transaction</p>
+
+<details class="solution answer"><summary>Answer</summary><div class="sol-body"><blockquote>
+<p><strong>Notes wording</strong> — “Because matching is imperfect, entity resolution may introduce both false merges (combining different entities) and false splits (failing to combine identical entities), particularly when records are incomplete or inconsistent.” (M2 p.60)</p>
+</blockquote>
+<p><strong>(a)</strong> A false split is (b).</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">12 [1 point] Oversampling should be applied:</div><p>(a) Before splitting, so all partitions are balanced<br>(b) To the test set only<br>(c) Only inside the training partition or training folds<br>(d) Never</p>
+
+<details class="solution answer"><summary>Answer</summary><div class="sol-body"><blockquote>
+<p><strong>Notes wording</strong> — “Resampling should therefore be performed only within the training partition or within each training fold during cross-validation” (§2.5.4)</p>
+</blockquote>
+<p><strong>(c)</strong></p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">13 [1 point] Demographic parity requires equal:</div><p>(a) True positive rates across groups<br>(b) Predicted positive rates across groups<br>(c) Precision across groups<br>(d) Accuracy across groups</p>
+
+<details class="solution answer"><summary>Answer</summary><div class="sol-body"><blockquote>
+<p><strong>Notes wording</strong> — “Predicted positive rates are equal across groups.” (§2.8.8)</p>
+</blockquote>
+<p><strong>(b)</strong></p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">14 [1 point] Which statement about de-identification matches the notes?</div><p>(a) It guarantees anonymity<br>(b) It removes the need for governance<br>(c) It is a risk-reduction strategy, not a guarantee<br>(d) It applies only to images</p>
+
+<details class="solution answer"><summary>Answer</summary><div class="sol-body"><blockquote>
+<p><strong>Notes wording</strong> — “de-identification should be viewed as a risk-reduction strategy rather than a guarantee of anonymity.” (§2.8.3)</p>
+</blockquote>
+<p><strong>(c)</strong></p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">15 [1 point] A pathology dataset is &quot;good&quot; for research but poor for a rural screening tool. This illustrates:</div><p>(a) Data lineage<br>(b) Fitness for purpose <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo stretchy="false">(</mo><mi>D</mi><mo separator="true">,</mo><mi>T</mi><mo separator="true">,</mo><mi>C</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">Q(D,T,C)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">Q</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mclose">)</span></span></span></span><br>(c) Concept shift<br>(d) Equalized odds</p>
+
+<details class="solution answer"><summary>Answer</summary><div class="sol-body"><blockquote>
+<p><strong>Notes wording</strong> — “There is no such thing as a universally good or high-quality dataset in a vacuum. A dataset is only good for a specific purpose under specific conditions.” (§2.1.2)</p>
+</blockquote>
+<p><strong>(b)</strong> Quality is judged for a dataset, a task and a context.</p>
+</div></details>
+</section>
+<h2 id="part-ii-basic-definitions-12-points"><a class="anchor" href="#part-ii-basic-definitions-12-points" aria-hidden="true">#</a>Part II — Basic Definitions [12 points]</h2>
+
+<section class="question"><div class="q-head">1(a) [3 points] Define artificial intelligence so that both its scientific and engineering character are captured.</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><p>AI is the <strong>scientific and engineering discipline</strong> concerned with constructing computational systems that <strong>perceive or receive information, form useful representations, reason or learn from evidence, and select actions or outputs in pursuit of specified objectives under uncertainty and constraints.</strong></p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Discipline: science and engineering</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Capabilities: representation, reasoning, learning, perception, action</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Objectives under uncertainty/constraints; not reduced to ML</td>
+<td>1</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">1(b) [3 points] Define prediction horizon and index time. Why must the horizon fit the decision?</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><blockquote>
+<p><strong>Notes wording</strong> — “Index time: (or prediction origin) is the exact, specific moment in the real world at which the model is required to make its prediction.” (M1 p.100) “The prediction horizon defines the exact temporal window into the future within which the target outcome must occur.” (M1 p.100) “the prediction horizon must strictly align with the operational window available to act.” (M1 p.101)</p>
+</blockquote>
+<p><strong>Index time</strong> is the exact moment the prediction is made; every feature must be available at or before it. <strong>Prediction horizon</strong> is how far ahead the prediction looks. It must fit the window in which someone can act: for the turbine gearbox (Example 36) a 24-hour warning is useless, while 14–30 days allows parts and crews to be arranged.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Index time</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Horizon</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Must match the time needed to act, with an example</td>
+<td>1</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">1(c) [3 points] Define target leakage and give one example.</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><blockquote>
+<p><strong>Notes wording</strong> — “Target leakage occurs when one or more input features directly or indirectly reveal the outcome that the model is intended to predict.” (§2.6.2)</p>
+</blockquote>
+<p>Example: using &quot;antibiotic administered&quot; to predict sepsis, because treatment follows the diagnosis. The model looks excellent in evaluation and then fails live.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Feature reveals the outcome</td>
+<td>1.5</td>
+</tr>
+<tr>
+<td>Valid example</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Consequence: inflated evaluation</td>
+<td>0.5</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">1(d) [3 points] Define construct validity. Why is it described as the most dangerous measurement error?</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><blockquote>
+<p><strong>Notes wording</strong> — “The most dangerous measurement error occurs before the instrument is even used: the chosen variable simply does not measure the intended concept.” (§2.3.6)</p>
+</blockquote>
+<p>It is dangerous because the data can be precise, complete and consistent and still answer the wrong question. More data or a better model cannot fix it. Example: healthcare <strong>cost</strong> used for healthcare <strong>need</strong> (Obermeyer).</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Variable does not measure the intended concept</td>
+<td>1.5</td>
+</tr>
+<tr>
+<td>Why dangerous: survives cleaning and modelling</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Example</td>
+<td>0.5</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+<h2 id="part-ii-short-conceptual-questions-16-points"><a class="anchor" href="#part-ii-short-conceptual-questions-16-points" aria-hidden="true">#</a>Part II — Short Conceptual Questions [16 points]</h2>
+
+<section class="question"><div class="q-head">2(a) [4 points] “Optimization solves the objective that was specified.” Explain what this means and why it is a limitation, using one example from the notes.</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><blockquote>
+<p><strong>Notes wording</strong> — “Optimization solves the objective that was specified.” (M1 p.46)</p>
+</blockquote>
+<p>Training minimizes empirical risk <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>R</mi><mo>^</mo></mover><mo stretchy="false">(</mo><mi>θ</mi><mo stretchy="false">)</mo><mo>=</mo><mfrac><mn>1</mn><mi>n</mi></mfrac><msub><mo>∑</mo><mi>i</mi></msub><mi>L</mi><mo stretchy="false">(</mo><msub><mi>f</mi><mi>θ</mi></msub><mo stretchy="false">(</mo><msub><mi>x</mi><mi>i</mi></msub><mo stretchy="false">)</mo><mo separator="true">,</mo><msub><mi>y</mi><mi>i</mi></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\hat R(\theta)=\tfrac1n\sum_i L(f_\theta(x_i),y_i)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1968em;vertical-align:-0.25em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9468em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span><span style="top:-3.2523em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.1667em;"><span class="mord">^</span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.1901em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:0em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.162em;"><span style="top:-2.4003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2997em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">L</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.1076em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">θ</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> for whichever target <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span> and loss <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi></mrow><annotation encoding="application/x-tex">L</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">L</span></span></span></span> were chosen. It cannot tell whether those were right. Example 20: an algorithm that predicts healthcare <strong>cost</strong> as a stand-in for <strong>need</strong> can be perfectly optimized and still under-serve patients who had less access to care, because lower spending is read as lower need.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Optimizer takes the objective as given</td>
+<td>1.5</td>
+</tr>
+<tr>
+<td>Objective may be the wrong target or loss</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Valid example with mechanism</td>
+<td>1.5</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">2(b) [4 points] Explain why &quot;the same algorithm&quot; can lead to different outcomes in two organizations. Name the five parts of a socio-technical composite.</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><blockquote>
+<p><strong>Notes wording</strong> — “a deployed AI system is not merely an isolated algorithm, but an integrated composite of the Model, Data Infrastructure, Interface, Human Workflow, and Institutional Rules.” (M1 p.26)</p>
+</blockquote>
+<p>A deployed system is <strong>Model + Data infrastructure + Interface + Human workflow + Institutional rules</strong>. Example 12: the same ranking algorithm differs with historical hiring data, whether the dashboard shows a ranking, whether its output is final or advisory, and what law or fairness policy applies. Outcomes come from the composite, not from the model alone.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Five components (1 mark for 3–4, 2 for all five)</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Explains how a non-model component changes outcomes</td>
+<td>2</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">2(c) [4 points] Distinguish covariate shift, label shift and concept shift. Give one example of each.</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><blockquote>
+<p><strong>Notes wording</strong> — “The input variables have changed.” (covariate shift, M2 p.36) “The mapping from X to Y changes.” (concept shift, M2 p.36)</p>
+</blockquote>
+<ul>
+<li><strong>Covariate shift:</strong> the input distribution <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false">(</mo><mi>X</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">P(X)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mclose">)</span></span></span></span> changes while the relation to the outcome holds. Example: a hospital starts treating older patients.</li>
+<li><strong>Label shift:</strong> outcome prevalence <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false">(</mo><mi>Y</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">P(Y)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mclose">)</span></span></span></span> changes. Example: flu rises in winter.</li>
+<li><strong>Concept shift:</strong> the relation <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false">(</mo><mi>Y</mi><mo>∣</mo><mi>X</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">P(Y\mid X)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mclose">)</span></span></span></span> changes. Example: a new treatment changes which patients deteriorate.</li>
+</ul>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th>per shift</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Correct definition</td>
+<td>0.75</td>
+</tr>
+<tr>
+<td>Example</td>
+<td>0.5</td>
+</tr>
+<tr>
+<td>Clear contrast across the three (overall)</td>
+<td>0.25</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">2(d) [4 points] Why may a duplicate record harm a model? What should be done before deleting it?</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><blockquote>
+<p><strong>Notes wording</strong> — “Duplicate records occur when multiple entries represent the same observation or entity.” (§2.5.3)</p>
+</blockquote>
+<p>Harms: inflates sample size, distorts frequencies and class rates, gives some records too much influence, and places the same case in training and test, which inflates performance.<br>Before deleting, <strong>verify</strong> that they are true duplicates by checking transaction or patient IDs, timestamps, source-system logs and record details, then resolve them with a <strong>documented, reproducible rule</strong>. In real Quiz 2, writing &quot;check the duplicates&quot; without saying what to check earned only 0.5.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Two valid harms</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Verify before deleting, naming what is checked</td>
+<td>1.5</td>
+</tr>
+<tr>
+<td>Documented, reproducible rule</td>
+<td>0.5</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+<h2 id="part-ii-scenario-1-bus-breakdown-prediction-18-points-module-1-focus"><a class="anchor" href="#part-ii-scenario-1-bus-breakdown-prediction-18-points-module-1-focus" aria-hidden="true">#</a>Part II — Scenario 1: Bus breakdown prediction [18 points, Module 1 focus]</h2>
+
+<div class="orig-q"><div class="oq-head"><span class="oq-lab">📄 Original question</span><span class="oq-src">Metro bus fleet</span></div><div class="oq-body"><p>A city transit authority runs 900 buses and wants AI to flag buses at risk of breaking down on the road. Data include bus age and model, engine sensor readings, driver fault reports, route, past maintenance logs, the <strong>workshop job-closed timestamp</strong>, and recorded breakdowns. The team builds a model with a random 80/20 split of daily rows and reports <strong>97% accuracy</strong>. Management proposes: <em>any bus with predicted probability above 0.5 is automatically withdrawn from service that morning.</em> Facts:</p>
+<ul>
+<li>newer buses have sensors; older buses rely on driver reports;</li>
+<li>the workshop can inspect only <strong>15 buses per day</strong>;</li>
+<li>a withdrawn bus cancels trips on low-income routes where no spare bus exists;</li>
+<li>a roadside breakdown strands passengers and blocks traffic.</li>
+</ul>
+</div></div><div class="oq-sol">Worked solution</div>
+
+<section class="question"><div class="q-head">3(a) [5 points; Problem formulation] Rewrite &quot;predict bus breakdowns&quot; using the problem-framing worksheet: unit, index time, horizon, decision-maker, action.</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><blockquote>
+<p><strong>Notes wording</strong> — “Every machine learning project must begin by explicitly defining the unit of analysis” (M1 p.99)</p>
+</blockquote>
+<p><em>&quot;At 05:00 each day (index time), for each bus scheduled for service (unit), using only information available by then, estimate the probability of an in-service breakdown within the next 7 days (horizon), so that the maintenance supervisor (decision-maker) can prioritize the 15 available inspection slots (action). Compare with the current inspection schedule (baseline).&quot;</em></p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th>1 mark each</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Unit · index time · horizon · decision-maker · action</td>
+<td>5</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">3(b) [4 points; Data risks] Identify two distinct data risks. One must concern the workshop timestamp.</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><blockquote>
+<p><strong>Notes wording</strong> — “If a model relies on data that has not yet occurred at the index time, it is leaking the future, not demonstrating intelligence.” (M1 p.100)</p>
+</blockquote>
+<ol>
+<li><strong>Temporal/target leakage:</strong> the job-closed timestamp is recorded <strong>after</strong> a fault was repaired, so it reveals the outcome and will not exist at index time. Drop it.</li>
+<li><strong>Unequal measurement:</strong> sensors on new buses, driver reports on old buses. Missingness and quality differ by bus age, so the model is less reliable for old buses (representation and differential measurement error).<br>Also acceptable: driver reporting habits; group leakage (next part is separate, award once).</li>
+</ol>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th>per risk</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Named</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Explained in the case</td>
+<td>1</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">3(c) [4 points; Evaluation] Explain why 97% accuracy does not show readiness. Name a defect in the split and two further analyses.</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><blockquote>
+<p><strong>Notes wording</strong> — “If a model is intended to predict future events, it should be evaluated using temporal validation (trained on past data and evaluated on strictly future data), rather than using randomly shuffled cross-validation that would leak future information into the training process.” (M1 p.64)</p>
+</blockquote>
+<p>Breakdowns are rare, so &quot;no breakdown&quot; may already score about this high, and accuracy hides false negatives. <strong>Split defect:</strong> daily rows of one bus sit in both partitions (<strong>group leakage</strong>) and random splitting ignores time. Use bus-level and temporal validation. Further: <strong>recall/precision or AUPRC</strong>, <strong>calibration</strong>, <strong>subgroup performance</strong> by bus age and route, <strong>baseline</strong> comparison.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Base rate/FP–FN argument</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Split defect with fix</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Two analyses, 1 each</td>
+<td>2</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">3(d) [5 points; Decision] Evaluate the 0.5 automatic-withdrawal policy, considering error costs, capacity and fairness. Propose a better policy.</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><blockquote>
+<p><strong>Notes wording</strong> — “A machine learning prediction is not a decision.” (M1 p.68) “Abstention is a risk-control mechanism that allows a system to defer difficult cases to human review or an alternative process rather than producing potentially unreliable outputs.” (M1 p.79)</p>
+</blockquote>
+<ul>
+<li>0.5 is arbitrary; a threshold must reflect <strong>FP vs FN costs</strong>. Here a false alarm cancels trips while a miss strands passengers.</li>
+<li><strong>Capacity:</strong> a threshold that flags 60 buses cannot be served by 15 inspections.</li>
+<li><strong>Fairness:</strong> withdrawals fall on routes with no spare bus, and old buses have poorer data, so harm concentrates on low-income riders.</li>
+<li><strong>Better:</strong> <strong>rank buses and inspect the top 15 each day</strong>, with a supervisor&#39;s review before any withdrawal; prefer inspection over withdrawal; <strong>fall back</strong> to scheduled checks when sensor data is missing; <strong>monitor</strong> missed breakdowns, alert yield, calibration and subgroup rates.</li>
+</ul>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Error costs</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Capacity → ranking</td>
+<td>1.5</td>
+</tr>
+<tr>
+<td>Fairness/route consequence</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Human review and fallback or monitoring</td>
+<td>1.5</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+<h2 id="part-ii-scenario-2-student-dropout-early-warning-18-points-module-2-focus"><a class="anchor" href="#part-ii-scenario-2-student-dropout-early-warning-18-points-module-2-focus" aria-hidden="true">#</a>Part II — Scenario 2: Student dropout early warning [18 points, Module 2 focus]</h2>
+
+<div class="orig-q"><div class="oq-head"><span class="oq-lab">📄 Original question</span><span class="oq-src">University early-warning system</span></div><div class="oq-body"><p>A university wants to predict which first-year students will <strong>drop out</strong>, so advisors can contact them. It merges admissions records, LMS logins, library card swipes, a voluntary wellbeing survey, fee payments, and the field <strong>&quot;withdrawal form submitted&quot;</strong>. Facts:</p>
+<ul>
+<li>28% of survey responses are missing; students under financial stress respond least;</li>
+<li>students on one campus log in through an older LMS that records only weekly totals;</li>
+<li>student names are matched across systems by fuzzy matching;</li>
+<li>imputation and scaling were fitted on all the data, then rows were split randomly;</li>
+<li>dropout is 8%, and the model scores 92% accuracy.</li>
+</ul>
+</div></div><div class="oq-sol">Worked solution</div>
+
+<section class="question"><div class="q-head">4(a) [4 points; Quality] Identify two data-quality problems and name the quality dimension each violates.</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><blockquote>
+<p><strong>Notes wording</strong> — “Because matching is imperfect, entity resolution may introduce both false merges (combining different entities) and false splits (failing to combine identical entities), particularly when records are incomplete or inconsistent.” (M2 p.60)</p>
+</blockquote>
+<ul>
+<li><strong>Weekly LMS totals on one campus</strong> → <strong>consistency</strong> (different granularity across sources) and possibly timeliness.</li>
+<li><strong>Fuzzy name matching</strong> → <strong>accuracy/consistency</strong>, with false merges and false splits producing wrong histories.</li>
+<li>Also: voluntary survey → <strong>completeness</strong>; a sample of responders → <strong>representativeness</strong>.</li>
+</ul>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th>per problem</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Problem from the case</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Dimension with reason</td>
+<td>1</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">4(b) [4 points; Missingness] Is the survey missingness MCAR, MAR or MNAR? Justify. Why is overall mean imputation problematic here?</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><blockquote>
+<p><strong>Notes wording</strong> — “Under MNAR, the probability of missingness continues to depend on the unobserved values even after accounting for observed information.” (§2.5.1) “These mechanisms describe assumptions about the data-generating process rather than properties that can usually be verified directly from the dataset.” (§2.5.1) “Missingness itself can be informative.” (M2 p.53)</p>
+</blockquote>
+<p>Most plausibly <strong>MNAR</strong>: students under stress, the very quantity the survey measures, respond least. If stress were fully explained by observed fee payments and grades it would be MAR; this cannot be verified from the data, since it is an assumption about the data-generating process.<br>Mean imputation <strong>shrinks variance</strong>, <strong>distorts relationships</strong>, removes <strong>informative missingness</strong>, and here was fitted on all data, causing <strong>contamination</strong>.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Mechanism with justification</td>
+<td>1.5</td>
+</tr>
+<tr>
+<td>Notes that it cannot be verified</td>
+<td>0.5</td>
+</tr>
+<tr>
+<td>Two problems with imputation</td>
+<td>2</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">4(c) [5 points; Leakage] Identify three distinct leakage or contamination problems and give the fix for each.</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><blockquote>
+<p><strong>Notes wording</strong> — “Group leakage occurs when related observations from the same entity appear in multiple data partitions.” (§2.6.6) “Train-test contamination occurs when information from the evaluation dataset influences model development, parameter estimation, or model selection.” (§2.6.3)</p>
+</blockquote>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Target/temporal leakage:</strong> &quot;withdrawal form submitted&quot; appears at or after dropout</td>
+<td>Define the index time; keep only features available then</td>
+</tr>
+<tr>
+<td><strong>Preprocessing contamination:</strong> imputer and scaler fitted on all data</td>
+<td>Split first; fit on training data; apply to test</td>
+</tr>
+<tr>
+<td><strong>Group leakage:</strong> repeated rows of a student across partitions</td>
+<td>Split by student so <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>G</mi><mtext>train</mtext></msub><mo>∩</mo><msub><mi>G</mi><mtext>test</mtext></msub><mo>=</mo><mi mathvariant="normal">∅</mi></mrow><annotation encoding="application/x-tex">G_{\text{train}}\cap G_{\text{test}}=\emptyset</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">G</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3175em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">train</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∩</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">G</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">test</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8056em;vertical-align:-0.0556em;"></span><span class="mord">∅</span></span></span></span></td>
+</tr>
+</tbody></table></div>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Each problem with fix</td>
+<td>1.5 each</td>
+</tr>
+<tr>
+<td>Links leakage to optimistic evaluation</td>
+<td>0.5</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">4(d) [5 points; Governance] Recommend four improvements before deployment. For each, say why it is needed.</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><blockquote>
+<p><strong>Notes wording</strong> — “Data minimization is the principle that organizations should collect, retain, and process only the information reasonably necessary to achieve a clearly defined and legitimate purpose.” (§2.8.5) “Consent explains what participants agreed to, while licensing defines what users are legally permitted to do with the data.” (M2 p.89)</p>
+</blockquote>
+<p>Any four, 0.5 for the action and 0.5 for the reason, plus 1 for tying them to a specific harm: <strong>split by student</strong>; <strong>remove post-outcome fields</strong>; <strong>fit preprocessing on training data</strong>; <strong>audit subgroups</strong> by campus and financial background; <strong>minimize</strong> data, since library swipes and wellbeing answers may not be necessary; <strong>consent</strong> check, because a voluntary wellbeing survey was not collected for risk scoring (secondary use); <strong>document</strong> with a datasheet and lineage; <strong>human advisors decide</strong>, with no automatic penalty; <strong>monitor</strong> after deployment.</p>
+</div></details>
+</section>
+<h2 id="part-ii-identify-distinct-problems-8-points"><a class="anchor" href="#part-ii-identify-distinct-problems-8-points" aria-hidden="true">#</a>Part II — Identify Distinct Problems [8 points]</h2>
+
+<section class="question"><div class="q-head">5 [8 points] A city ranks neighbourhoods for housing-repair grants using complaints made through a mobile app. The app is in English only. Past grants went mainly to wards with active councillors. The dashboard shows the top ten wards in bold, and officers rarely scroll. Each year the model is retrained on which wards received grants. Identify four <strong>distinct</strong> problems (2 points each).</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><p>1 mark for the name, 1 for the mechanism in the case.</p>
+<ol>
+<li><strong>Representation/platform bias:</strong> the app reflects English-speaking smartphone users, not housing need.</li>
+<li><strong>Historical bias:</strong> past grants reflect councillor influence, not need.</li>
+<li><strong>Interface/automation bias:</strong> bold top-ten placement narrows officers&#39; attention.</li>
+<li><strong>Feedback loop:</strong> retraining on grants the system influenced reinforces its first choices.<br>Also: <strong>construct validity</strong> (complaints ≠ need), <strong>selective labels</strong>. <em>No double counting</em> of two symptoms of one mechanism.</li>
+</ol>
+</div></details>
+</section>
+<h2 id="part-ii-calculation-8-points"><a class="anchor" href="#part-ii-calculation-8-points" aria-hidden="true">#</a>Part II — Calculation [8 points]</h2>
+
+<section class="question"><div class="q-head">6 [8 points] A screening model gives these test results. Group A: TP 40, FN 10, FP 30, TN 120. Group B: TP 15, FN 15, FP 10, TN 160. (a) Compute overall accuracy and the accuracy of always predicting negative. (b) Compute the selection rate, TPR, FPR and precision for each group. (c) Which fairness criteria fail? Why might fixing all of them at once be impossible?</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><blockquote>
+<p><strong>Notes wording</strong> — “These fairness criteria may be mutually incompatible, particularly when outcome prevalence differs between populations.” (M2 p.98)</p>
+</blockquote>
+<p><strong>(a)</strong> Accuracy <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>=</mo><mfrac><mrow><mn>40</mn><mo>+</mo><mn>120</mn><mo>+</mo><mn>15</mn><mo>+</mo><mn>160</mn></mrow><mn>400</mn></mfrac><mo>=</mo><mfrac><mn>335</mn><mn>400</mn></mfrac><mo>=</mo><mn>0.8375</mn></mrow><annotation encoding="application/x-tex">=\frac{40+120+15+160}{400}=\frac{335}{400}=0.8375</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.1901em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">400</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">40</span><span class="mbin mtight">+</span><span class="mord mtight">120</span><span class="mbin mtight">+</span><span class="mord mtight">15</span><span class="mbin mtight">+</span><span class="mord mtight">160</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.1901em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">400</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">335</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.8375</span></span></span></span>. Positives <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>=</mo><mn>50</mn><mo>+</mo><mn>30</mn><mo>=</mo><mn>80</mn></mrow><annotation encoding="application/x-tex">=50+30=80</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">50</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">30</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">80</span></span></span></span>, so all-negative gives <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>320</mn><mn>400</mn></mfrac><mo>=</mo><mn>0.80</mn></mrow><annotation encoding="application/x-tex">\frac{320}{400}=0.80</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1901em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">400</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">320</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.80</span></span></span></span>. The gain over the trivial model is small.</p>
+<p><strong>(b)</strong></p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th></th>
+<th>Selection rate</th>
+<th>TPR</th>
+<th>FPR</th>
+<th>Precision</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A</td>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>70</mn><mi mathvariant="normal">/</mi><mn>200</mn><mo>=</mo><mn>0.35</mn></mrow><annotation encoding="application/x-tex">70/200=0.35</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">70/200</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.35</span></span></span></span></td>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>40</mn><mi mathvariant="normal">/</mi><mn>50</mn><mo>=</mo><mn>0.80</mn></mrow><annotation encoding="application/x-tex">40/50=0.80</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">40/50</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.80</span></span></span></span></td>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>30</mn><mi mathvariant="normal">/</mi><mn>150</mn><mo>=</mo><mn>0.20</mn></mrow><annotation encoding="application/x-tex">30/150=0.20</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">30/150</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.20</span></span></span></span></td>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>40</mn><mi mathvariant="normal">/</mi><mn>70</mn><mo>=</mo><mn>0.571</mn></mrow><annotation encoding="application/x-tex">40/70=0.571</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">40/70</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.571</span></span></span></span></td>
+</tr>
+<tr>
+<td>B</td>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>25</mn><mi mathvariant="normal">/</mi><mn>200</mn><mo>=</mo><mn>0.125</mn></mrow><annotation encoding="application/x-tex">25/200=0.125</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">25/200</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.125</span></span></span></span></td>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>15</mn><mi mathvariant="normal">/</mi><mn>30</mn><mo>=</mo><mn>0.50</mn></mrow><annotation encoding="application/x-tex">15/30=0.50</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">15/30</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.50</span></span></span></span></td>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10</mn><mi mathvariant="normal">/</mi><mn>170</mn><mo>=</mo><mn>0.059</mn></mrow><annotation encoding="application/x-tex">10/170=0.059</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">10/170</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.059</span></span></span></span></td>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>15</mn><mi mathvariant="normal">/</mi><mn>25</mn><mo>=</mo><mn>0.60</mn></mrow><annotation encoding="application/x-tex">15/25=0.60</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">15/25</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.60</span></span></span></span></td>
+</tr>
+</tbody></table></div>
+<p><strong>(c)</strong> <strong>Demographic parity</strong> fails (0.35 vs 0.125). <strong>Equal opportunity</strong> fails (0.80 vs 0.50). <strong>Equalized odds</strong> fails (TPR and FPR differ). <strong>Predictive parity</strong> nearly holds (0.57 vs 0.60). Base rates differ (0.25 vs 0.15), and when they differ these criteria generally cannot all hold at once, so the choice is a value decision tied to which harm matters most.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>(a) both values</td>
+<td>1.5</td>
+</tr>
+<tr>
+<td>(b) table</td>
+<td>4</td>
+</tr>
+<tr>
+<td>(c) criteria and incompatibility</td>
+<td>2.5</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+
+  <nav class="pagenav">
+    <a class="pv" href="mid-guide.html">← Previous<b>Mid guide</b></a>
+    <a class="nx" href="mid-mock-b.html">Next →<b>Mock Mid B</b></a>
+  </nav>
+  <div class="foot">AI 500 · Fall 2026 · study notes</div>
+</main>
+</div>
+<div class="lightbox" id="lightbox" hidden><img alt=""><button class="iconbtn lb-close" aria-label="Close">✕</button></div>
+<script src="assets/site.js" defer></script>
+</body></html>

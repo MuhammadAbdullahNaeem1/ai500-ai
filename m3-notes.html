@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>M3 · EDA, Inference & Features (not on mid) — Chapter map and PDF · AI 500</title>
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#fbfbfa" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#16161a" media="(prefers-color-scheme: dark)">
+<script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<header class="topbar">
+  <button class="iconbtn" id="menuBtn" aria-label="Open contents" aria-expanded="false"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+  <a class="topbrand" href="index.html">AI 500<span>M3 · EDA, Inference & Features (not on mid)</span></a>
+  <button class="iconbtn themebtn" aria-label="Toggle dark mode"><svg class="i-moon" viewBox="0 0 24 24" width="19" height="19"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg><svg class="i-sun" viewBox="0 0 24 24" width="19" height="19"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg></button>
+</header>
+<div class="scrim" id="scrim"></div>
+<div class="wrap">
+<aside class="side" id="side">
+  <div class="side-head">
+    <a class="brand" href="index.html">AI 500 — Foundations of AI<span>Foundations of AI · Fall 2026</span></a>
+    <button class="iconbtn themebtn" aria-label="Toggle dark mode"><svg class="i-moon" viewBox="0 0 24 24" width="17" height="17"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg><svg class="i-sun" viewBox="0 0 24 24" width="17" height="17"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg></button>
+  </div>
+  <nav><a href="index.html">Home</a>
+<a href="start-here.html">Start here (how to use)</a>
+<div class="nav-section">Mid-term (Modules 1–2)</div>
+<a href="mid-guide.html">Mid guide</a>
+<a href="mid-mock-a.html">★ Mock Mid A</a>
+<a href="mid-mock-b.html">Mock Mid B</a>
+<a href="mid-mock-c.html">Mock Mid C</a>
+<div class="nav-section">Modules</div>
+<details class="grp"><summary>M1 · AI Landscape & Problem Framing</summary><a href="m1a-notes.html">Notes A — roots, philosophy, landscape</a><a href="m1b-notes.html">Notes B — pipeline, framing, failures</a><a href="m1-answers.html">Answers Q1–100</a><a href="m1-cases.html">Answers S, R, A</a></details>
+<details class="grp"><summary>M2 · Data Collection, Cleaning, Governance & Ethics</summary><a href="m2a-notes.html">Notes A — constructed data, sources, quality</a><a href="m2b-notes.html">Notes B — curation, cleaning, leakage</a><a href="m2c-notes.html">Notes C — documentation, governance, cases</a><a href="m2-definitions.html">★ Notes-exact definitions</a><a href="m2-answers-1.html">Answers Q1–50</a><a href="m2-answers-2.html">Answers Q51–100</a><a href="m2-scenarios.html">Scenarios S1–S5</a><a href="m2-reflections.html">Reflections R1–R5</a></details>
+<details class="grp" open><summary>M3 · EDA, Inference & Features (not on mid)</summary><a href="m3-notes.html" class="on" aria-current="page">Chapter map and PDF</a></details>
+<div class="nav-section">Quiz 2 (24 Oct)</div>
+<a href="quiz2-solved.html">★ Real Quiz 2 (solved)</a>
+<a href="quiz2-guide.html">Quiz 2 guide</a>
+<a href="quiz2-mock-a.html">★ Mock Quiz 2A</a>
+<a href="quiz2-mock-b.html">Mock Quiz 2B</a>
+<a href="quiz2-mock-c.html">Mock Quiz 2C</a>
+<div class="nav-section">Archive</div>
+<a href="quiz1-solved.html">Real Quiz 1 (solved)</a>
+<a href="assignments.html">Assignments & computational training</a>
+<a href="a2-missedcare.html">A2 Part A — MissedCare (your answers)</a>
+<details class="grp"><summary>PDFs & past material</summary><a href="resources.html">2026 course PDFs</a><a href="past-papers.html">Past exams & quizzes</a><a href="past-lectures.html">Past lectures</a><a href="past-practice.html">Problem sets & solutions</a><a href="past-tutorials.html">Tutorials & demo code</a></details></nav>
+  <div class="toc"><div class="toc-title">On this page</div><a href="#chapter-map" class="">Chapter map</a><a href="#source-material" class="">Source material</a></div>
+</aside>
+<main>
+  <div class="crumb">M3 · EDA, Inference & Features (not on mid)</div>
+  
+  <h1>M3 · Exploratory Data Analysis, Inference and Feature Engineering</h1>
+<p><strong>Not examined on the mid.</strong> Module 3 notes (222 PDF pages): a chapter map for study after the mid. Use it to find topics in the PDF; it does not yet have the detailed notes and worked answers that Modules 1 and 2 have.</p>
+<div class="pdf-links">
+<a href="pdfs/notes/Module-3-Notes.pdf">Module 3 notes (PDF)</a>
+<a href="assignments.html#computational-training-module-2-in-code">Computational tutorial scripts 15–25</a>
+<a class="jump" href="#source-material">Read them all on this page ↓</a>
+</div>
+
+<h2 id="chapter-map"><a class="anchor" href="#chapter-map" aria-hidden="true">#</a>Chapter map</h2>
+<p>Page numbers are PDF pages.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Section</th>
+<th>Page</th>
+<th>Topics</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>3.1</td>
+<td>5</td>
+<td>What EDA is, the EDA pipeline, exploratory vs confirmatory analysis, separating exploration from confirmation, unit of analysis, recommended workflow</td>
+</tr>
+<tr>
+<td>3.2</td>
+<td>18</td>
+<td>Distributions, relationships, anomalies, missingness, identifying bias, subgroup behaviour</td>
+</tr>
+<tr>
+<td>3.3</td>
+<td>56</td>
+<td>Why visualize; histograms, boxplots, scatterplots, correlation heatmaps, pair plots, time-series plots, categorical summaries; responsible visualization</td>
+</tr>
+<tr>
+<td>3.4</td>
+<td>78</td>
+<td>Mean, weighted mean, median, variance and standard deviation, quantiles, skewness, covariance, correlation</td>
+</tr>
+<tr>
+<td>3.5</td>
+<td>93</td>
+<td>Feature engineering inside the pipeline; scaling, normalization, binning, encoding, interaction, polynomial, time-window and cyclical features; risks</td>
+</tr>
+<tr>
+<td>3.6</td>
+<td>126</td>
+<td>Population vs sample, target population, sampling methods and bias, sampling variability, estimator bias and variance, sources of uncertainty</td>
+</tr>
+<tr>
+<td>3.7</td>
+<td>143</td>
+<td>Confidence intervals, point vs interval estimates, interval width, bootstrap</td>
+</tr>
+<tr>
+<td>3.8</td>
+<td>153</td>
+<td>Null and alternative hypotheses, test statistic, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span>-value and what it does not mean, Type I and II errors</td>
+</tr>
+<tr>
+<td>3.9</td>
+<td>161</td>
+<td>Effect size; statistical vs practical significance</td>
+</tr>
+<tr>
+<td>3.10</td>
+<td>167</td>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span>-hacking, multiple comparisons, correlation mistaken for causation, other recurring mistakes</td>
+</tr>
+<tr>
+<td>3.11</td>
+<td>179</td>
+<td>Worked examples of Cohen&#39;s <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>κ</mi></mrow><annotation encoding="application/x-tex">\kappa</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">κ</span></span></span></span> and Fleiss&#39; <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>κ</mi></mrow><annotation encoding="application/x-tex">\kappa</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">κ</span></span></span></span></td>
+</tr>
+<tr>
+<td>3.12</td>
+<td>185</td>
+<td>Case studies: Anscombe&#39;s Quartet and the Datasaurus Dozen; UC Berkeley admissions and Simpson&#39;s paradox; Many Analysts, One Dataset</td>
+</tr>
+<tr>
+<td>Practice</td>
+<td>203</td>
+<td>Practice questions, scenario questions and take-home reflections for quizzes and exams</td>
+</tr>
+</tbody></table></div>
+<h2 id="source-material"><a class="anchor" href="#source-material" aria-hidden="true">#</a>Source material</h2>
+<p>The original documents behind these notes. Pick a tab to read it here, page by page, or open it in a new tab.</p>
+<div class="src-viewer" data-sources='[{"url":"pdfs/notes/Module-3-Notes.pdf","title":"Module 3 notes (PDF)"}]'></div>
+
+  <nav class="pagenav">
+    <a class="pv" href="m2-reflections.html">← Previous<b>M2 · Reflections R1–R5</b></a>
+    <a class="nx" href="quiz2-solved.html">Next →<b>★ Real Quiz 2 (solved)</b></a>
+  </nav>
+  <div class="foot">AI 500 · Fall 2026 · study notes</div>
+</main>
+</div>
+<div class="lightbox" id="lightbox" hidden><img alt=""><button class="iconbtn lb-close" aria-label="Close">✕</button></div>
+<script src="assets/site.js" defer></script>
+</body></html>

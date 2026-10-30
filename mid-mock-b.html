@@ -1,0 +1,704 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mock Mid B · AI 500</title>
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#fbfbfa" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#16161a" media="(prefers-color-scheme: dark)">
+<script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<header class="topbar">
+  <button class="iconbtn" id="menuBtn" aria-label="Open contents" aria-expanded="false"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+  <a class="topbrand" href="index.html">AI 500<span>Mock Mid B</span></a>
+  <button class="iconbtn themebtn" aria-label="Toggle dark mode"><svg class="i-moon" viewBox="0 0 24 24" width="19" height="19"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg><svg class="i-sun" viewBox="0 0 24 24" width="19" height="19"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg></button>
+</header>
+<div class="scrim" id="scrim"></div>
+<div class="wrap">
+<aside class="side" id="side">
+  <div class="side-head">
+    <a class="brand" href="index.html">AI 500 — Foundations of AI<span>Foundations of AI · Fall 2026</span></a>
+    <button class="iconbtn themebtn" aria-label="Toggle dark mode"><svg class="i-moon" viewBox="0 0 24 24" width="17" height="17"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg><svg class="i-sun" viewBox="0 0 24 24" width="17" height="17"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg></button>
+  </div>
+  <nav><a href="index.html">Home</a>
+<a href="start-here.html">Start here (how to use)</a>
+<div class="nav-section">Mid-term (Modules 1–2)</div>
+<a href="mid-guide.html">Mid guide</a>
+<a href="mid-mock-a.html">★ Mock Mid A</a>
+<a href="mid-mock-b.html" class="on" aria-current="page">Mock Mid B</a>
+<a href="mid-mock-c.html">Mock Mid C</a>
+<div class="nav-section">Modules</div>
+<details class="grp"><summary>M1 · AI Landscape & Problem Framing</summary><a href="m1a-notes.html">Notes A — roots, philosophy, landscape</a><a href="m1b-notes.html">Notes B — pipeline, framing, failures</a><a href="m1-answers.html">Answers Q1–100</a><a href="m1-cases.html">Answers S, R, A</a></details>
+<details class="grp"><summary>M2 · Data Collection, Cleaning, Governance & Ethics</summary><a href="m2a-notes.html">Notes A — constructed data, sources, quality</a><a href="m2b-notes.html">Notes B — curation, cleaning, leakage</a><a href="m2c-notes.html">Notes C — documentation, governance, cases</a><a href="m2-definitions.html">★ Notes-exact definitions</a><a href="m2-answers-1.html">Answers Q1–50</a><a href="m2-answers-2.html">Answers Q51–100</a><a href="m2-scenarios.html">Scenarios S1–S5</a><a href="m2-reflections.html">Reflections R1–R5</a></details>
+<details class="grp"><summary>M3 · EDA, Inference & Features (not on mid)</summary><a href="m3-notes.html">Chapter map and PDF</a></details>
+<div class="nav-section">Quiz 2 (24 Oct)</div>
+<a href="quiz2-solved.html">★ Real Quiz 2 (solved)</a>
+<a href="quiz2-guide.html">Quiz 2 guide</a>
+<a href="quiz2-mock-a.html">★ Mock Quiz 2A</a>
+<a href="quiz2-mock-b.html">Mock Quiz 2B</a>
+<a href="quiz2-mock-c.html">Mock Quiz 2C</a>
+<div class="nav-section">Archive</div>
+<a href="quiz1-solved.html">Real Quiz 1 (solved)</a>
+<a href="assignments.html">Assignments & computational training</a>
+<a href="a2-missedcare.html">A2 Part A — MissedCare (your answers)</a>
+<details class="grp"><summary>PDFs & past material</summary><a href="resources.html">2026 course PDFs</a><a href="past-papers.html">Past exams & quizzes</a><a href="past-lectures.html">Past lectures</a><a href="past-practice.html">Problem sets & solutions</a><a href="past-tutorials.html">Tutorials & demo code</a></details></nav>
+  <div class="toc"><div class="toc-title">On this page</div><a href="#part-i-mcqs-15-points-30-minutes" class="">Part I — MCQs [15 points, 30 minutes]</a><a href="#part-ii-basic-definitions-12-points" class="">Part II — Basic Definitions [12 points]</a><a href="#part-ii-short-conceptual-questions-16-points" class="">Part II — Short Conceptual Questions [16 points]</a><a href="#part-ii-scenario-1-flood-early-warning-18-points-module-1-focus" class="">Part II — Scenario 1: Flood early warning [18 points, Module 1 focus]</a><a href="#part-ii-scenario-2-phone-data-microloans-18-points-module-2-focus" class="">Part II — Scenario 2: Phone-data microloans [18 points, Module 2 focus]</a><a href="#part-ii-identify-distinct-problems-8-points" class="">Part II — Identify Distinct Problems [8 points]</a><a href="#part-ii-calculation-8-points" class="">Part II — Calculation [8 points]</a></div>
+</aside>
+<main>
+  
+  <div class="quiz-tools"><button data-sol="open">Show all solutions</button><button data-sol="close">Hide all</button><button onclick="window.print()">Print</button></div>
+  <h1>Mock Mid B — Modules 1 and 2</h1>
+<p><strong>95 points · 2 hours 30 minutes · closed book.</strong> Part I: 15 MCQs (15 points, 30 minutes). Part II: 80 points, 2 hours. Module 3 is not examined.</p>
+<div class="pdf-links">
+<a href="mid-guide.html">Mid guide</a>
+<a href="mid-mock-a.html">Mock Mid A</a>
+<a href="mid-mock-c.html">Mock Mid C</a>
+</div>
+
+<h2 id="part-i-mcqs-15-points-30-minutes"><a class="anchor" href="#part-i-mcqs-15-points-30-minutes" aria-hidden="true">#</a>Part I — MCQs [15 points, 30 minutes]</h2>
+<p>Each question has one correct answer.</p>
+
+<section class="question"><div class="q-head">1 [1 point] Who proposed the imitation game as an operational test of machine intelligence?</div><p>(a) Norbert Wiener<br>(b) Claude Shannon<br>(c) Alan Turing<br>(d) John McCarthy</p>
+
+<details class="solution answer"><summary>Answer</summary><div class="sol-body"><p><strong>(c)</strong> Wiener: cybernetics. Shannon: information theory. McCarthy: Dartmouth, the name &quot;artificial intelligence&quot;.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">2 [1 point] Shannon&#39;s information theory shows that:</div><p>(a) Information equals meaning<br>(b) Information is measurable, but information is not meaning<br>(c) Machines can understand language<br>(d) Entropy measures model fairness</p>
+
+<details class="solution answer"><summary>Answer</summary><div class="sol-body"><p><strong>(b)</strong> See Example 6: pixels are encoded easily, yet &quot;happy&quot; remains a contested label.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">3 [1 point] Which is a limitation of symbolic AI?</div><p>(a) Opaque decisions<br>(b) Needs large labelled datasets<br>(c) Brittleness under ambiguity and combinatorial explosion<br>(d) Cannot encode domain rules</p>
+
+<details class="solution answer"><summary>Answer</summary><div class="sol-body"><p><strong>(c)</strong></p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">4 [1 point] In the four classical views, a rational agent:</div><p>(a) Must imitate humans<br>(b) Is always perfect<br>(c) Selects actions expected to advance its objectives given its information and constraints<br>(d) Uses only formal logic</p>
+
+<details class="solution answer"><summary>Answer</summary><div class="sol-body"><blockquote>
+<p><strong>Notes wording</strong> — “A rational agent selects actions expected to advance its objectives, given its information and constraints.” (M1 p.35) “Rational action does not mean perfect action.” (M1 p.35)</p>
+</blockquote>
+<p><strong>(c)</strong> Rational does not mean perfect.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">5 [1 point] A fraud system blocks clear fraud and routes borderline cases to staff. Its autonomy level is:</div><p>(a) Passive analytical<br>(b) Decision support<br>(c) Semi-autonomous<br>(d) Fully autonomous</p>
+
+<details class="solution answer"><summary>Answer</summary><div class="sol-body"><p><strong>(c)</strong> See Example 16.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">6 [1 point] Training uses a median for missing blood pressure while production uses 0. This is:</div><p>(a) Proxy encoding<br>(b) Aggregation bias<br>(c) Train–serving mismatch<br>(d) Identity error</p>
+
+<details class="solution answer"><summary>Answer</summary><div class="sol-body"><p><strong>(c)</strong> See the six representation risks in §1.5.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">7 [1 point] The main framing error in forecasting is:</div><p>(a) Random splits of time-ordered data<br>(b) Ignoring position in the list<br>(c) Treating clusters as real categories<br>(d) Equating fluency with truth</p>
+
+<details class="solution answer"><summary>Answer</summary><div class="sol-body"><p><strong>(a)</strong></p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">8 [1 point] A good evaluation plan should be:</div><p>(a) Chosen after seeing which metric looks best<br>(b) Locked before training<br>(c) Based only on accuracy<br>(d) Written by the vendor alone</p>
+
+<details class="solution answer"><summary>Answer</summary><div class="sol-body"><p><strong>(b)</strong> This prevents metric shopping.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">9 [1 point] The Epic Sepsis Model&#39;s external validation showed that:</div><p>(a) It reached AUROC near 0.95<br>(b) AUROC was about 0.63 and most sepsis cases were missed at the chosen score<br>(c) It raised no alerts<br>(d) It was validated at one site only</p>
+
+<details class="solution answer"><summary>Answer</summary><div class="sol-body"><p><strong>(b)</strong> AUROC ≈ 0.63, 67% of sepsis cases missed at score ≥ 6.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">10 [1 point] Administrative data encodes:</div><p>(a) Objective reality<br>(b) Institutional behaviour<br>(c) Only financial records<br>(d) Survey responses</p>
+
+<details class="solution answer"><summary>Answer</summary><div class="sol-body"><blockquote>
+<p><strong>Notes wording</strong> — “Administrative data encodes institutional behavior not objective reality.” (§2.2.5)</p>
+</blockquote>
+<p><strong>(b)</strong></p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">11 [1 point] A sampling frame misses homes without telephones. This is:</div><p>(a) Nonresponse bias<br>(b) Coverage error<br>(c) Measurement error<br>(d) Concept shift</p>
+
+<details class="solution answer"><summary>Answer</summary><div class="sol-body"><blockquote>
+<p><strong>Notes wording</strong> — “The sampling frame misses parts of the target population.” (§2.2.1)</p>
+</blockquote>
+<p><strong>(b)</strong> Nonresponse bias is when those who refuse differ from those who respond.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">12 [1 point] &quot;When the real-world action actually occurred&quot; defines:</div><p>(a) Recording time<br>(b) Arrival time<br>(c) Processing time<br>(d) Event time</p>
+
+<details class="solution answer"><summary>Answer</summary><div class="sol-body"><blockquote>
+<p><strong>Notes wording</strong> — “When the real-world action actually occurred.” (§2.2.4)</p>
+</blockquote>
+<p><strong>(d)</strong></p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">13 [1 point] Which is true of synthetic data?</div><p>(a) It is automatically anonymous<br>(b) It removes historical bias<br>(c) It must be validated for fidelity, utility, privacy, fairness, coverage and realism<br>(d) It cannot be memorized by a generator</p>
+
+<details class="solution answer"><summary>Answer</summary><div class="sol-body"><blockquote>
+<p><strong>Notes wording</strong> — “Synthetic data can substantially improve privacy, experimentation, and model development, but it is not automatically safe or representative.” (M2 p.30)</p>
+</blockquote>
+<p><strong>(c)</strong></p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">14 [1 point] A consent form allows research use only. A company wants to train a commercial model. The issue is:</div><p>(a) Secondary use beyond consent conditions<br>(b) Group leakage<br>(c) Random error<br>(d) Label shift</p>
+
+<details class="solution answer"><summary>Answer</summary><div class="sol-body"><blockquote>
+<p><strong>Notes wording</strong> — “Consent explains what participants agreed to, while licensing defines what users are legally permitted to do with the data.” (M2 p.89)</p>
+</blockquote>
+<p><strong>(a)</strong> A licence and consent are separate checks, and neither replaces the other.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">15 [1 point] Gender Shades mainly demonstrated:</div><p>(a) Better overall accuracy solves fairness<br>(b) Aggregate accuracy can hide large intersectional error disparities<br>(c) Cost is a good proxy for need<br>(d) Label errors do not affect benchmarks</p>
+
+<details class="solution answer"><summary>Answer</summary><div class="sol-body"><blockquote>
+<p><strong>Notes wording</strong> — “commercial facial recognition systems, which performed well on overall gender and overall skin type, failed catastrophically when evaluated at the intersection of darker skin and female gender.” (M2 p.37)</p>
+</blockquote>
+<p><strong>(b)</strong></p>
+</div></details>
+</section>
+<h2 id="part-ii-basic-definitions-12-points"><a class="anchor" href="#part-ii-basic-definitions-12-points" aria-hidden="true">#</a>Part II — Basic Definitions [12 points]</h2>
+
+<section class="question"><div class="q-head">1(a) [3 points] Define machine learning and data science. State one way in which data science is broader than &quot;training a model&quot;.</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><blockquote>
+<p><strong>Notes wording</strong> — “Machine learning, conversely, is fundamentally rooted in prediction – seeking to accurately map inputs to outputs.” (M1 p.42)</p>
+</blockquote>
+<p><strong>Machine learning</strong> studies how a system can improve a task by learning patterns or parameters from data or experience; it is a major approach within AI. <strong>Data science</strong> covers how data are acquired, prepared, analysed, modelled, interpreted and communicated. It is broader: framing, collection, cleaning, EDA, communication and decisions are all part of it, and it may use no AI.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ML</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Data science</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Breadth</td>
+<td>1</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">1(b) [3 points] Define class imbalance. Explain the accuracy paradox.</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><blockquote>
+<p><strong>Notes wording</strong> — “Overall accuracy may provide an overly optimistic assessment of performance when classes are highly imbalanced.” (M2 p.64)</p>
+</blockquote>
+<blockquote>
+<p><strong>Notes wording</strong> — “Class imbalance occurs when one or more classes are substantially less frequent than others.” (§2.5.4)</p>
+</blockquote>
+<p><strong>Accuracy paradox:</strong> when positives are rare, predicting the majority class for everyone gives high accuracy while detecting none. At 6% prevalence the trivial model scores 94% (real Quiz 2).</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Definition</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Trivial majority model has high accuracy</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Detects no positives</td>
+<td>1</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">1(c) [3 points] Define data provenance and data lineage. Why do both matter for an audit?</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><blockquote>
+<p><strong>Notes wording</strong> — “Data provenance describes the origin of data and the processes used to generate them.” “Data lineage records how data evolve as they move through processing pipelines.” (§2.7.3)</p>
+</blockquote>
+<p>They allow an auditor to reproduce results, trace a defect to its step, verify permitted use, and roll back.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Provenance</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Lineage</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Audit value</td>
+<td>1</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">1(d) [3 points] Define data minimization and say how it conflicts with the urge to &quot;collect everything&quot;.</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><blockquote>
+<p><strong>Notes wording</strong> — “Data minimization is the principle that organizations should collect, retain, and process only the information reasonably necessary to achieve a clearly defined and legitimate purpose.” (§2.8.5)</p>
+</blockquote>
+<p>&quot;Collect everything&quot; widens privacy risk, breach impact and proxy leakage without a stated purpose. Each variable must be justified against the task.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Definition</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Conflict explained</td>
+<td>1</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+<h2 id="part-ii-short-conceptual-questions-16-points"><a class="anchor" href="#part-ii-short-conceptual-questions-16-points" aria-hidden="true">#</a>Part II — Short Conceptual Questions [16 points]</h2>
+
+<section class="question"><div class="q-head">2(a) [4 points] Explain what a model card records and how it differs from a datasheet.</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><blockquote>
+<p><strong>Notes wording</strong> — “By documenting critical aspects such as data sources, performance metrics, and fairness considerations, the Model Card helps users understand the model&#39;s behavior, its potential biases, and its limitations.” (M1 p.85) “this practice recommends comprehensive documentation of a dataset&#39;s motivation, composition, collection methods, preprocessing steps, recommended uses, and inherent limitations.” (M1 p.53)</p>
+</blockquote>
+<p>A <strong>model card</strong> documents a <strong>model</strong>: intended use, evaluation procedure, conditions of good performance, subgroup results, limitations. A <strong>datasheet</strong> documents a <strong>dataset</strong>: motivation, composition, collection, preprocessing, uses, distribution and maintenance.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Two or more model-card items</td>
+<td>1.5</td>
+</tr>
+<tr>
+<td>Two or more datasheet items</td>
+<td>1.5</td>
+</tr>
+<tr>
+<td>Clear distinction model vs dataset</td>
+<td>1</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">2(b) [4 points] A high-AUROC model is badly calibrated. Why can this still harm decisions? Name a way to fix it.</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><blockquote>
+<p><strong>Notes wording</strong> — “They check discrimination (the model successfully ranks high-risk patients above low-risk ones) but also check calibration.” (M1 p.63)</p>
+</blockquote>
+<p>AUROC measures <strong>ranking</strong> only. If the model says 0.8 and only 40% of those cases have the outcome, staff act on inflated risk, thresholds lose meaning, and capacity and cost planning go wrong. Fix: <strong>recalibrate</strong> with Platt scaling or isotonic regression on a validation set, then check with a calibration curve at the true prevalence.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Discrimination vs calibration</td>
+<td>1.5</td>
+</tr>
+<tr>
+<td>Decision harm</td>
+<td>1.5</td>
+</tr>
+<tr>
+<td>Fix</td>
+<td>1</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">2(c) [4 points] Why might removing an outlier be wrong? What is the correct procedure?</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><blockquote>
+<p><strong>Notes wording</strong> — “An outlier is an observation that differs substantially from the expected pattern of the data.” (§2.5.2) “Consequently, outliers should be investigated rather than automatically removed.” (M2 p.55) “These methods identify observations for further investigation rather than providing automatic criteria for deletion.” (M2 p.55)</p>
+</blockquote>
+<p>An outlier may be a <strong>true rare event</strong>, such as fraud or a critical patient, and deleting it removes the cases the model most needs. It may also be an error. <strong>Procedure:</strong> investigate the cause (domain check, source records); classify it as error, rare valid value or different population; then correct, retain or exclude under a <strong>documented rule</strong>. z-scores and IQR flag observations for investigation; they are not automatic criteria for deletion.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Rare but valid</td>
+<td>1.5</td>
+</tr>
+<tr>
+<td>Investigate cause</td>
+<td>1.5</td>
+</tr>
+<tr>
+<td>Documented decision</td>
+<td>1</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">2(d) [4 points] Differentiate site leakage from group leakage and name the correct validation for each.</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><blockquote>
+<p><strong>Notes wording</strong> — “Group leakage occurs when related observations from the same entity appear in multiple data partitions.” (§2.6.6) “When deployment is intended for previously unseen institutions, random patient-level partitioning within the same hospitals does not adequately evaluate generalization.” (M2 p.79)</p>
+</blockquote>
+<p><strong>Group leakage:</strong> related observations from one entity (patient, customer) appear in several partitions. Use <strong>group k-fold</strong> or an entity-level split. <strong>Site leakage:</strong> the model learns site-specific signals (scanner, hospital protocol, label habits), so results do not transfer. Use <strong>leave-one-site-out</strong> or site hold-out.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Each definition</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Each validation</td>
+<td>1</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+<h2 id="part-ii-scenario-1-flood-early-warning-18-points-module-1-focus"><a class="anchor" href="#part-ii-scenario-1-flood-early-warning-18-points-module-1-focus" aria-hidden="true">#</a>Part II — Scenario 1: Flood early warning [18 points, Module 1 focus]</h2>
+
+<div class="orig-q"><div class="oq-head"><span class="oq-lab">📄 Original question</span><span class="oq-src">River-flood warning system</span></div><div class="oq-body"><p>A provincial disaster authority wants AI to warn villages along a river about flooding. Data: rainfall gauges, upstream dam releases, satellite imagery, river-level sensors, and past flood records. Past records come mainly from villages near the district headquarters. The team shuffles hourly rows, splits 80/20 and reports an <strong>RMSE of 4 cm</strong>. Facts:</p>
+<ul>
+<li>evacuation takes <strong>36 hours</strong>;</li>
+<li>two river gauges are offline for weeks during monsoon;</li>
+<li>a false evacuation costs families income and reduces trust in later warnings;</li>
+<li>a missed flood can cost lives.</li>
+</ul>
+</div></div><div class="oq-sol">Worked solution</div>
+
+<section class="question"><div class="q-head">3(a) [5 points; Type and framing] What type of AI problem is this? State the unit, index time, horizon, decision-maker and action.</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><blockquote>
+<p><strong>Notes wording</strong> — “the prediction horizon must strictly align with the operational window available to act.” (M1 p.101)</p>
+</blockquote>
+<p><strong>Forecasting</strong> (with a decision layer). <strong>Unit:</strong> a village or river segment. <strong>Index time:</strong> each 6-hour update, using data available then. <strong>Horizon:</strong> at least 36 hours, e.g. 48 hours, since evacuation takes 36. <strong>Decision-maker:</strong> district disaster officer. <strong>Action:</strong> issue a staged alert and begin evacuation.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Type</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Each of four elements, 1 mark; horizon must be ≥ 36 h for full credit</td>
+<td>4</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">3(b) [4 points; Evaluation] Why does the RMSE of 4 cm not show the model is fit for use?</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><blockquote>
+<p><strong>Notes wording</strong> — “Random splitting leaked this future knowledge into the past; temporal validation exposed the flaw.” (M1 p.66)</p>
+</blockquote>
+<p>Shuffled hourly rows of a <strong>time series</strong> let neighbouring hours sit on both sides of the split, which is temporal leakage. Use a forward-chaining split. RMSE averages over calm days; what matters is <strong>performance on rare flood peaks</strong>, detection delay, false alarms, and performance at distant villages. Also compare with a <strong>baseline</strong> such as persistence or the existing bulletin.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Random split leak</td>
+<td>1.5</td>
+</tr>
+<tr>
+<td>Average hides flood events</td>
+<td>1.5</td>
+</tr>
+<tr>
+<td>Baseline or event metrics</td>
+<td>1</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">3(c) [4 points; Data risks] Identify two distinct data risks and how to handle each.</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><blockquote>
+<p><strong>Notes wording</strong> — “Not all missing values indicate poor data quality; in many situations, they are expected and informative.” (M2 p.50)</p>
+</blockquote>
+<ul>
+<li><strong>Representation/selection bias:</strong> records near headquarters leave distant villages under-represented. Collect local records; evaluate by region.</li>
+<li><strong>Missing sensors in monsoon:</strong> missingness is tied to the conditions of interest (not MCAR). Add indicators; use a fallback, not silent imputation.</li>
+<li>Also: flood-record <strong>label quality</strong>, and dam-release <strong>availability time</strong>.</li>
+</ul>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th>per risk</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Risk named and explained</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Handling</td>
+<td>1</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">3(d) [5 points; Deployment] Propose a decision policy, one abstention condition, and two monitored quantities.</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><blockquote>
+<p><strong>Notes wording</strong> — “Abstention is a risk-control mechanism that allows a system to defer difficult cases to human review or an alternative process rather than producing potentially unreliable outputs.” (M1 p.79)</p>
+</blockquote>
+<p><strong>Policy:</strong> missed floods cost lives, so tolerate more false alarms but stage them: <em>watch → prepare → evacuate</em>, with an officer confirming evacuation. A staged alert protects trust. <strong>Abstain/fallback:</strong> when key gauges are offline or inputs are out of range, fall back to the hydrologist&#39;s manual bulletin. <strong>Monitor:</strong> sensor-missing rate, calibration of warnings, lead time achieved, missed floods, false-alarm rate by district, and input drift.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Asymmetric costs justify the policy</td>
+<td>1.5</td>
+</tr>
+<tr>
+<td>Human confirmation/staging</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Abstain with fallback</td>
+<td>1.5</td>
+</tr>
+<tr>
+<td>Two monitored quantities</td>
+<td>1</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+<h2 id="part-ii-scenario-2-phone-data-microloans-18-points-module-2-focus"><a class="anchor" href="#part-ii-scenario-2-phone-data-microloans-18-points-module-2-focus" aria-hidden="true">#</a>Part II — Scenario 2: Phone-data microloans [18 points, Module 2 focus]</h2>
+
+<div class="orig-q"><div class="oq-head"><span class="oq-lab">📄 Original question</span><span class="oq-src">Mobile-phone credit scoring</span></div><div class="oq-body"><p>A fintech lender wants to score applicants with no credit history. It buys a telecom dataset containing call patterns, top-up behaviour, location history and contacts, and merges it with its past loan outcomes. The vendor&#39;s licence allows &quot;internal analytics only&quot;. Names and phone numbers were removed before transfer. Facts:</p>
+<ul>
+<li>labels exist only for applicants who were approved;</li>
+<li>women in the data often share a phone with relatives;</li>
+<li>postal area, top-up amount and contact count are strong predictors;</li>
+<li>the model will be sold to two other lenders;</li>
+<li>the product team says: &quot;We removed gender, so the model is fair.&quot;</li>
+</ul>
+</div></div><div class="oq-sol">Worked solution</div>
+
+<section class="question"><div class="q-head">4(a) [4 points; Licence and consent] Identify two legal or ethical problems with how the data are being used.</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><blockquote>
+<p><strong>Notes wording</strong> — “A data license specifies the conditions under which a dataset may be accessed, used, modified, or redistributed.” (M2 p.87) “Consent explains what participants agreed to, while licensing defines what users are legally permitted to do with the data.” (M2 p.89)</p>
+</blockquote>
+<ul>
+<li><strong>Licence:</strong> &quot;internal analytics only&quot; does not permit selling a model trained on the data; licence compatibility extends to derived models.</li>
+<li><strong>Consent/secondary use:</strong> subscribers agreed to phone service, not to credit scoring. Consent does not transfer to a new purpose.</li>
+<li>Also: <strong>minimization</strong>, as location history and contacts may not be necessary.</li>
+</ul>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th>per problem</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Problem named</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Applied to the case</td>
+<td>1</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">4(b) [4 points; Privacy] &quot;We removed names and numbers, so the data is anonymous.&quot; Evaluate this.</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><blockquote>
+<p><strong>Notes wording</strong> — “de-identification should be viewed as a risk-reduction strategy rather than a guarantee of anonymity.” (§2.8.3)</p>
+</blockquote>
+<p>Location traces and contact graphs are <strong>quasi-identifiers</strong>: a few home–work points can re-identify a person, especially via linkage with other data. So the claim fails; add access controls, aggregation and minimization.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Rejects the claim, with notes&#39; idea</td>
+<td>1.5</td>
+</tr>
+<tr>
+<td>Quasi-identifiers/linkage in the case</td>
+<td>1.5</td>
+</tr>
+<tr>
+<td>Mitigation</td>
+<td>1</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">4(c) [5 points; Bias] Explain why removing gender does not give fairness. Name a label problem and a measurement problem in this case.</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><blockquote>
+<p><strong>Notes wording</strong> — “Other variables may function as proxies for the omitted attribute” (M2 p.94)</p>
+</blockquote>
+<blockquote>
+<p><strong>Notes wording</strong> — “Excluding a sensitive variable from a predictive model does not necessarily prevent discriminatory outcomes.” (§2.8.6)</p>
+</blockquote>
+<p><strong>Proxies:</strong> postal area, top-ups and contacts can stand in for gender and income. <strong>Keep</strong> gender under restricted access to audit outcomes. <strong>Label problem:</strong> selective labels, because repayment is known only for approved applicants, and rejected applicants are unseen. <strong>Measurement:</strong> shared phones mean behaviour is attributed to one woman but produced by several people, a differential measurement error.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Proxy mechanism</td>
+<td>1.5</td>
+</tr>
+<tr>
+<td>Retain for auditing</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Selective labels</td>
+<td>1.25</td>
+</tr>
+<tr>
+<td>Shared-phone measurement error</td>
+<td>1.25</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">4(d) [5 points; Audit] Apply <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo stretchy="false">(</mo><mi>D</mi><mo separator="true">,</mo><mi>T</mi><mo separator="true">,</mo><mi>C</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">Q(D,T,C)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">Q</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mclose">)</span></span></span></span> and give a verdict on using this data for this task.</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><blockquote>
+<p><strong>Notes wording</strong> — “There is no such thing as a universally good or high-quality dataset in a vacuum. A dataset is only good for a specific purpose under specific conditions.” (§2.1.2)</p>
+</blockquote>
+<p><strong>D:</strong> telecom behaviour with approved-only labels. <strong>T:</strong> credit scoring. <strong>C:</strong> multi-lender deployment in a regulated, high-stakes setting. <strong>Verdict:</strong> not fit as it stands. The licence and consent do not permit the use, labels are selective, and groups are measured unequally. <strong>Conditions:</strong> renegotiate the licence and consent; reduce the variables; evaluate subgroup error; test on applicant populations for each lender; provide a route to appeal and human review.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>D, T and C, 1 each</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Reasoned verdict</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Conditions</td>
+<td>1</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+<h2 id="part-ii-identify-distinct-problems-8-points"><a class="anchor" href="#part-ii-identify-distinct-problems-8-points" aria-hidden="true">#</a>Part II — Identify Distinct Problems [8 points]</h2>
+
+<section class="question"><div class="q-head">5 [8 points] A hospital predicts which patients will miss appointments and double-books them. Training data come from the wealthiest of its four clinics. &quot;Missed&quot; is recorded differently at each clinic. The model is 89% accurate overall but much worse for patients who need interpreters. Double-booked patients wait longer, and more of them then stop attending, which enters the next training data. Identify four <strong>distinct</strong> problems (2 points each).</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><ol>
+<li><strong>Representation bias:</strong> one wealthy clinic does not represent all four.</li>
+<li><strong>Measurement/label inconsistency:</strong> &quot;missed&quot; differs across clinics (consistency, construct validity).</li>
+<li><strong>Aggregation/evaluation bias:</strong> an overall 89% hides failure for patients needing interpreters.</li>
+<li><strong>Feedback loop/performative effect:</strong> double-booking worsens the waits that cause missed visits, and this feeds retraining.<br>Also accepted: <strong>deployment harm</strong>, because the action penalizes those predicted to miss.</li>
+</ol>
+</div></details>
+</section>
+<h2 id="part-ii-calculation-8-points"><a class="anchor" href="#part-ii-calculation-8-points" aria-hidden="true">#</a>Part II — Calculation [8 points]</h2>
+
+<section class="question"><div class="q-head">6 [8 points] (a) Two nurses label 200 notes as urgent or not. Both say urgent: 60. Only nurse 1 says urgent: 20. Only nurse 2 says urgent: 10. Both say not urgent: 110. Compute observed agreement and Cohen&#39;s <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>κ</mi></mrow><annotation encoding="application/x-tex">\kappa</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">κ</span></span></span></span>. Why is <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>κ</mi></mrow><annotation encoding="application/x-tex">\kappa</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">κ</span></span></span></span> preferred to raw agreement? (b) Resting heart rates have <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Q</mi><mn>1</mn></msub><mo>=</mo><mn>48</mn></mrow><annotation encoding="application/x-tex">Q_1=48</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">Q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">48</span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Q</mi><mn>3</mn></msub><mo>=</mo><mn>64</mn></mrow><annotation encoding="application/x-tex">Q_3=64</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">Q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">64</span></span></span></span>, mean 56, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo>=</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">s=10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">s</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">10</span></span></span></span>. Compute the IQR and the screening fences. Are 95 and 20 flagged? Give their z-scores. What should happen next?</div>
+<details class="solution solution"><summary>Solution &amp; marking</summary><div class="sol-body"><blockquote>
+<p><strong>Notes wording</strong> — “These methods identify observations for further investigation rather than providing automatic criteria for deletion.” (M2 p.55)</p>
+</blockquote>
+<p><strong>(a)</strong> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mi>o</mi></msub><mo>=</mo><mfrac><mrow><mn>60</mn><mo>+</mo><mn>110</mn></mrow><mn>200</mn></mfrac><mo>=</mo><mn>0.85</mn></mrow><annotation encoding="application/x-tex">p_o=\frac{60+110}{200}=0.85</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">o</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.1901em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">200</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">60</span><span class="mbin mtight">+</span><span class="mord mtight">110</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.85</span></span></span></span>. Nurse 1 urgent <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>=</mo><mfrac><mn>80</mn><mn>200</mn></mfrac><mo>=</mo><mn>0.40</mn></mrow><annotation encoding="application/x-tex">=\frac{80}{200}=0.40</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.1901em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">200</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">80</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.40</span></span></span></span>, nurse 2 urgent <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>=</mo><mfrac><mn>70</mn><mn>200</mn></mfrac><mo>=</mo><mn>0.35</mn></mrow><annotation encoding="application/x-tex">=\frac{70}{200}=0.35</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.1901em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">200</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">70</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.35</span></span></span></span>. <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mi>e</mi></msub><mo>=</mo><mn>0.40</mn><mo stretchy="false">(</mo><mn>0.35</mn><mo stretchy="false">)</mo><mo>+</mo><mn>0.60</mn><mo stretchy="false">(</mo><mn>0.65</mn><mo stretchy="false">)</mo><mo>=</mo><mn>0.14</mn><mo>+</mo><mn>0.39</mn><mo>=</mo><mn>0.53</mn></mrow><annotation encoding="application/x-tex">p_e=0.40(0.35)+0.60(0.65)=0.14+0.39=0.53</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">e</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">0.40</span><span class="mopen">(</span><span class="mord">0.35</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">0.60</span><span class="mopen">(</span><span class="mord">0.65</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">0.14</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.39</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.53</span></span></span></span>.<br><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>κ</mi><mo>=</mo><mfrac><mrow><msub><mi>p</mi><mi>o</mi></msub><mo>−</mo><msub><mi>p</mi><mi>e</mi></msub></mrow><mrow><mn>1</mn><mo>−</mo><msub><mi>p</mi><mi>e</mi></msub></mrow></mfrac><mo>=</mo><mfrac><mrow><mn>0.85</mn><mo>−</mo><mn>0.53</mn></mrow><mn>0.47</mn></mfrac><mo>≈</mo><mn>0.68</mn></mrow><annotation encoding="application/x-tex">\kappa=\frac{p_o-p_e}{1-p_e}=\frac{0.85-0.53}{0.47}\approx0.68</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">κ</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.1408em;vertical-align:-0.8804em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.2603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">e</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">o</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">e</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8804em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.0074em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">0.47</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">0.85</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">0.53</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.68</span></span></span></span></span><br><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>κ</mi></mrow><annotation encoding="application/x-tex">\kappa</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">κ</span></span></span></span> corrects for agreement expected by chance, which raw agreement ignores.</p>
+<p><strong>(b)</strong> IQR <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>=</mo><mn>64</mn><mo>−</mo><mn>48</mn><mo>=</mo><mn>16</mn></mrow><annotation encoding="application/x-tex">=64-48=16</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">64</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">48</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">16</span></span></span></span>. Fences <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>=</mo><mo stretchy="false">[</mo><mn>48</mn><mo>−</mo><mn>24</mn><mo separator="true">,</mo><mtext> </mtext><mn>64</mn><mo>+</mo><mn>24</mn><mo stretchy="false">]</mo><mo>=</mo><mo stretchy="false">[</mo><mn>24</mn><mo separator="true">,</mo><mtext> </mtext><mn>88</mn><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">=[48-24,\ 64+24]=[24,\ 88]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">48</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">24</span><span class="mpunct">,</span><span class="mspace"> </span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">64</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">24</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">24</span><span class="mpunct">,</span><span class="mspace"> </span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">88</span><span class="mclose">]</span></span></span></span>. Both 95 and 20 are flagged. <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>z</mi><mn>95</mn></msub><mo>=</mo><mfrac><mrow><mn>95</mn><mo>−</mo><mn>56</mn></mrow><mn>10</mn></mfrac><mo>=</mo><mn>3.9</mn></mrow><annotation encoding="application/x-tex">z_{95}=\frac{95-56}{10}=3.9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.044em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">95</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.1901em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">10</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">95</span><span class="mbin mtight">−</span><span class="mord mtight">56</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">3.9</span></span></span></span> and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>z</mi><mn>20</mn></msub><mo>=</mo><mfrac><mrow><mn>20</mn><mo>−</mo><mn>56</mn></mrow><mn>10</mn></mfrac><mo>=</mo><mo>−</mo><mn>3.6</mn></mrow><annotation encoding="application/x-tex">z_{20}=\frac{20-56}{10}=-3.6</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.044em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">20</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.1901em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">10</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">20</span><span class="mbin mtight">−</span><span class="mord mtight">56</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">−</span><span class="mord">3.6</span></span></span></span>. Next: <strong>investigate</strong>. 95 could be a real tachycardic reading in a resting record, and 20 could be a sensor fault. Do not delete automatically.</p>
+
+<div class="callout warn"><div class="callout-title">Common trap: Typo in the notes</div><p>§2.5.2 prints the upper fence as <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Q</mi><mn>3</mn></msub><mo>−</mo><mn>1.5</mn><mtext> </mtext><mtext>IQR</mtext></mrow><annotation encoding="application/x-tex">Q_3-1.5\,\text{IQR}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">Q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord">1.5</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord text"><span class="mord">IQR</span></span></span></span></span>. The correct upper fence is <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Q</mi><mn>3</mn></msub><mo>+</mo><mn>1.5</mn><mtext> </mtext><mtext>IQR</mtext></mrow><annotation encoding="application/x-tex">Q_3+1.5\,\text{IQR}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">Q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord">1.5</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord text"><span class="mord">IQR</span></span></span></span></span>, as the notes&#39; own footnote 213 shows.</p>
+</div>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rubric</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mi>o</mi></msub></mrow><annotation encoding="application/x-tex">p_o</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">o</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mi>e</mi></msub></mrow><annotation encoding="application/x-tex">p_e</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">e</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></td>
+<td>2</td>
+</tr>
+<tr>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>κ</mi></mrow><annotation encoding="application/x-tex">\kappa</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">κ</span></span></span></span> with reason</td>
+<td>2</td>
+</tr>
+<tr>
+<td>IQR, fences, flags</td>
+<td>2</td>
+</tr>
+<tr>
+<td>z-scores and investigation</td>
+<td>2</td>
+</tr>
+</tbody></table></div>
+</div></details>
+</section>
+
+  <nav class="pagenav">
+    <a class="pv" href="mid-mock-a.html">← Previous<b>★ Mock Mid A</b></a>
+    <a class="nx" href="mid-mock-c.html">Next →<b>Mock Mid C</b></a>
+  </nav>
+  <div class="foot">AI 500 · Fall 2026 · study notes</div>
+</main>
+</div>
+<div class="lightbox" id="lightbox" hidden><img alt=""><button class="iconbtn lb-close" aria-label="Close">✕</button></div>
+<script src="assets/site.js" defer></script>
+</body></html>

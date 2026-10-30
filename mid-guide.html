@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mid guide · AI 500</title>
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#fbfbfa" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#16161a" media="(prefers-color-scheme: dark)">
+<script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<header class="topbar">
+  <button class="iconbtn" id="menuBtn" aria-label="Open contents" aria-expanded="false"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+  <a class="topbrand" href="index.html">AI 500<span>Mid guide</span></a>
+  <button class="iconbtn themebtn" aria-label="Toggle dark mode"><svg class="i-moon" viewBox="0 0 24 24" width="19" height="19"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg><svg class="i-sun" viewBox="0 0 24 24" width="19" height="19"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg></button>
+</header>
+<div class="scrim" id="scrim"></div>
+<div class="wrap">
+<aside class="side" id="side">
+  <div class="side-head">
+    <a class="brand" href="index.html">AI 500 — Foundations of AI<span>Foundations of AI · Fall 2026</span></a>
+    <button class="iconbtn themebtn" aria-label="Toggle dark mode"><svg class="i-moon" viewBox="0 0 24 24" width="17" height="17"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg><svg class="i-sun" viewBox="0 0 24 24" width="17" height="17"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg></button>
+  </div>
+  <nav><a href="index.html">Home</a>
+<a href="start-here.html">Start here (how to use)</a>
+<div class="nav-section">Mid-term (Modules 1–2)</div>
+<a href="mid-guide.html" class="on" aria-current="page">Mid guide</a>
+<a href="mid-mock-a.html">★ Mock Mid A</a>
+<a href="mid-mock-b.html">Mock Mid B</a>
+<a href="mid-mock-c.html">Mock Mid C</a>
+<div class="nav-section">Modules</div>
+<details class="grp"><summary>M1 · AI Landscape & Problem Framing</summary><a href="m1a-notes.html">Notes A — roots, philosophy, landscape</a><a href="m1b-notes.html">Notes B — pipeline, framing, failures</a><a href="m1-answers.html">Answers Q1–100</a><a href="m1-cases.html">Answers S, R, A</a></details>
+<details class="grp"><summary>M2 · Data Collection, Cleaning, Governance & Ethics</summary><a href="m2a-notes.html">Notes A — constructed data, sources, quality</a><a href="m2b-notes.html">Notes B — curation, cleaning, leakage</a><a href="m2c-notes.html">Notes C — documentation, governance, cases</a><a href="m2-definitions.html">★ Notes-exact definitions</a><a href="m2-answers-1.html">Answers Q1–50</a><a href="m2-answers-2.html">Answers Q51–100</a><a href="m2-scenarios.html">Scenarios S1–S5</a><a href="m2-reflections.html">Reflections R1–R5</a></details>
+<details class="grp"><summary>M3 · EDA, Inference & Features (not on mid)</summary><a href="m3-notes.html">Chapter map and PDF</a></details>
+<div class="nav-section">Quiz 2 (24 Oct)</div>
+<a href="quiz2-solved.html">★ Real Quiz 2 (solved)</a>
+<a href="quiz2-guide.html">Quiz 2 guide</a>
+<a href="quiz2-mock-a.html">★ Mock Quiz 2A</a>
+<a href="quiz2-mock-b.html">Mock Quiz 2B</a>
+<a href="quiz2-mock-c.html">Mock Quiz 2C</a>
+<div class="nav-section">Archive</div>
+<a href="quiz1-solved.html">Real Quiz 1 (solved)</a>
+<a href="assignments.html">Assignments & computational training</a>
+<a href="a2-missedcare.html">A2 Part A — MissedCare (your answers)</a>
+<details class="grp"><summary>PDFs & past material</summary><a href="resources.html">2026 course PDFs</a><a href="past-papers.html">Past exams & quizzes</a><a href="past-lectures.html">Past lectures</a><a href="past-practice.html">Problem sets & solutions</a><a href="past-tutorials.html">Tutorials & demo code</a></details></nav>
+  <div class="toc"><div class="toc-title">On this page</div><a href="#1-what-the-real-papers-show" class="">1. What the real papers show</a><a href="#2-rubric-lessons" class="">2. Rubric lessons</a><a href="#3-ten-things-to-get-right" class="">3. Ten things to get right</a><a href="#4-revision-order-for-tonight" class="">4. Revision order for tonight</a><a href="#5-formulas-for-the-calculation-section" class="">5. Formulas for the calculation section</a><a href="#6-exact-lines-from-the-notes" class="">6. Exact lines from the notes</a></div>
+</aside>
+<main>
+  
+  
+  <h1>Mid guide — Modules 1 and 2</h1>
+<p><strong>Examined: Module 1 and Module 2. Module 3 is not examined on the mid.</strong> The syllabus states closed books, closed notes, in person, and 25% of the grade.</p>
+<div class="pdf-links">
+<a href="mid-mock-a.html">★ Mock Mid A</a>
+<a href="mid-mock-b.html">Mock Mid B</a>
+<a href="mid-mock-c.html">Mock Mid C</a>
+<a href="quiz2-solved.html">Real Quiz 2 (solved)</a>
+<a href="quiz1-solved.html">Real Quiz 1 (solved)</a>
+<a href="m2-definitions.html">Notes-exact definitions</a>
+</div>
+
+<div class="callout warn"><div class="callout-title">Common trap: The real format is not confirmed</div><p>No 2026 mid paper or format announcement is in the course folder. The mocks borrow their layout from the <strong>Fall 2025 mid</strong> (Part I: 14 MCQs in 30 minutes; Part II: 50 points in 2 hours) and their question style and rubrics from this year&#39;s <strong>Quiz 1 and Quiz 2</strong>. Last year&#39;s syllabus was different, so use it for layout only. Follow any instruction from class over this page.</p>
+</div>
+<h2 id="1-what-the-real-papers-show"><a class="anchor" href="#1-what-the-real-papers-show" aria-hidden="true">#</a>1. What the real papers show</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Paper</th>
+<th>Marks</th>
+<th>Time</th>
+<th>Structure</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Fall 2025 mid</td>
+<td>15 + 50</td>
+<td>30 min + 2 h</td>
+<td>MCQs, then worked problems</td>
+</tr>
+<tr>
+<td>2026 Quiz 1</td>
+<td>50</td>
+<td>60 min</td>
+<td>Definitions 9, conceptual 12, scenario 21, four biases 8</td>
+</tr>
+<tr>
+<td>2026 Quiz 2</td>
+<td>20</td>
+<td>30 min</td>
+<td>One case, parts (a)–(e)</td>
+</tr>
+</tbody></table></div>
+<h2 id="2-rubric-lessons"><a class="anchor" href="#2-rubric-lessons" aria-hidden="true">#</a>2. Rubric lessons</h2>
+<ul>
+<li><strong>Name it, then tie it to the case.</strong> Quiz 1 and 2 both award one part for the name and one for the explanation.</li>
+<li><strong>&quot;Without explanation&quot; earns half.</strong> In Quiz 2, a metric with no explanation earned 0.5 of 1, and &quot;check the duplicates&quot; with no detail earned 0.5.</li>
+<li><strong>Say what is wrong and how to fix it.</strong> Quiz 2 Q(c) required a correction for each leak.</li>
+<li><strong>Do not double count.</strong> Choose mechanisms from different stages: data, label, evaluation, deployment, feedback.</li>
+<li><strong>Connect leakage to its effect:</strong> unrealistically optimistic evaluation. Quiz 2 gave 0.5 for this sentence.</li>
+<li><strong>Accuracy trap:</strong> state that always predicting the majority class already achieves the same score and detects nothing.</li>
+</ul>
+<h2 id="3-ten-things-to-get-right"><a class="anchor" href="#3-ten-things-to-get-right" aria-hidden="true">#</a>3. Ten things to get right</h2>
+<ol>
+<li>Problem-framing sentence: unit, index time, horizon, decision-maker, action, baseline.</li>
+<li>Calibration vs discrimination.</li>
+<li>A prediction is not a decision: costs, capacity, fairness, human review.</li>
+<li>Claims and validations: future → temporal; elsewhere → external; everyone → subgroup; probabilities → calibration; decisions → workflow trial.</li>
+<li>Leakage types with fixes: target, temporal, group, site, preprocessing contamination.</li>
+<li>MCAR, MAR, MNAR, and why the mechanism cannot usually be verified from the data.</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo stretchy="false">(</mo><mi>D</mi><mo separator="true">,</mo><mi>T</mi><mo separator="true">,</mo><mi>C</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">Q(D,T,C)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">Q</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mclose">)</span></span></span></span> and the six quality dimensions.</li>
+<li>Proxies and why sensitive attributes are kept for auditing.</li>
+<li>Fairness metrics and why they conflict when base rates differ.</li>
+<li>Case studies: Google Flu Trends, Epic Sepsis, TFX, Gender Shades, Obermeyer, Northcutt.</li>
+</ol>
+<h2 id="4-revision-order-for-tonight"><a class="anchor" href="#4-revision-order-for-tonight" aria-hidden="true">#</a>4. Revision order for tonight</h2>
+<ol>
+<li><a href="quiz2-solved.html">Real Quiz 2</a> and <a href="quiz1-solved.html">real Quiz 1</a>: read the rubrics.</li>
+<li><a href="mid-mock-a.html">Mock Mid A</a>, timed. Mark it strictly.</li>
+<li>Revise the weak topics in <a href="m1b-notes.html">M1 Part B</a>, <a href="m2b-notes.html">M2 Part B</a> and <a href="m2-definitions.html">definitions</a>.</li>
+<li>Use Mocks B and C for scenarios and MCQs if time allows, then sleep.</li>
+</ol>
+<h2 id="5-formulas-for-the-calculation-section"><a class="anchor" href="#5-formulas-for-the-calculation-section" aria-hidden="true">#</a>5. Formulas for the calculation section</h2>
+<p>Quiz 2 was announced as having no numerical problems, and the mid may be the same. Assignment 2 did include calculations, so they are worth 15 minutes.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Formula</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Accuracy</td>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>T</mi><mi>P</mi><mo>+</mo><mi>T</mi><mi>N</mi><mo stretchy="false">)</mo><mi mathvariant="normal">/</mi><mi>N</mi></mrow><annotation encoding="application/x-tex">(TP+TN)/N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.13889em;">TP</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">TN</span><span class="mclose">)</span><span class="mord">/</span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span></td>
+</tr>
+<tr>
+<td>Precision</td>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mi>P</mi><mi mathvariant="normal">/</mi><mo stretchy="false">(</mo><mi>T</mi><mi>P</mi><mo>+</mo><mi>F</mi><mi>P</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">TP/(TP+FP)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">TP</span><span class="mord">/</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.13889em;">TP</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">FP</span><span class="mclose">)</span></span></span></span></td>
+</tr>
+<tr>
+<td>Recall / TPR</td>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mi>P</mi><mi mathvariant="normal">/</mi><mo stretchy="false">(</mo><mi>T</mi><mi>P</mi><mo>+</mo><mi>F</mi><mi>N</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">TP/(TP+FN)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">TP</span><span class="mord">/</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.13889em;">TP</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">FN</span><span class="mclose">)</span></span></span></span></td>
+</tr>
+<tr>
+<td>FPR</td>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mi>P</mi><mi mathvariant="normal">/</mi><mo stretchy="false">(</mo><mi>F</mi><mi>P</mi><mo>+</mo><mi>T</mi><mi>N</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">FP/(FP+TN)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">FP</span><span class="mord">/</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.13889em;">FP</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">TN</span><span class="mclose">)</span></span></span></span></td>
+</tr>
+<tr>
+<td>Selection rate</td>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>T</mi><mi>P</mi><mo>+</mo><mi>F</mi><mi>P</mi><mo stretchy="false">)</mo><mi mathvariant="normal">/</mi><mi>N</mi></mrow><annotation encoding="application/x-tex">(TP+FP)/N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.13889em;">TP</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">FP</span><span class="mclose">)</span><span class="mord">/</span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span></td>
+</tr>
+<tr>
+<td>Cohen&#39;s <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>κ</mi></mrow><annotation encoding="application/x-tex">\kappa</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">κ</span></span></span></span></td>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><msub><mi>p</mi><mi>o</mi></msub><mo>−</mo><msub><mi>p</mi><mi>e</mi></msub><mo stretchy="false">)</mo><mi mathvariant="normal">/</mi><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><msub><mi>p</mi><mi>e</mi></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(p_o-p_e)/(1-p_e)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">o</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">e</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mord">/</span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">e</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></td>
+</tr>
+<tr>
+<td>IQR fences</td>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><msub><mi>Q</mi><mn>1</mn></msub><mo>−</mo><mn>1.5</mn><mtext> </mtext><mtext>IQR</mtext><mo separator="true">,</mo><mtext> </mtext><msub><mi>Q</mi><mn>3</mn></msub><mo>+</mo><mn>1.5</mn><mtext> </mtext><mtext>IQR</mtext><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[Q_1-1.5\,\text{IQR},\ Q_3+1.5\,\text{IQR}]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord"><span class="mord mathnormal">Q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord">1.5</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord text"><span class="mord">IQR</span></span><span class="mpunct">,</span><span class="mspace"> </span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">Q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1.5</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord text"><span class="mord">IQR</span></span><span class="mclose">]</span></span></span></span></td>
+</tr>
+<tr>
+<td>z-score</td>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>x</mi><mo>−</mo><mover accent="true"><mi>x</mi><mo>ˉ</mo></mover><mo stretchy="false">)</mo><mi mathvariant="normal">/</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">(x-\bar x)/s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.5678em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal">x</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.2222em;"><span class="mord">ˉ</span></span></span></span></span></span></span><span class="mclose">)</span><span class="mord">/</span><span class="mord mathnormal">s</span></span></span></span></td>
+</tr>
+<tr>
+<td>Platt scaling</td>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo>=</mo><mn>1</mn><mi mathvariant="normal">/</mi><mo stretchy="false">(</mo><mn>1</mn><mo>+</mo><mi>exp</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>A</mi><mi>s</mi><mo>+</mo><mi>B</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">P=1/(1+\exp(As+B))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1/</span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop">exp</span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mord mathnormal">s</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mclose">))</span></span></span></span></td>
+</tr>
+<tr>
+<td>Threshold cost</td>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>c</mi><mrow><mi>F</mi><mi>P</mi></mrow></msub><mo>⋅</mo><mi>F</mi><mi>P</mi><mo>+</mo><msub><mi>c</mi><mrow><mi>F</mi><mi>N</mi></mrow></msub><mo>⋅</mo><mi>F</mi><mi>N</mi></mrow><annotation encoding="application/x-tex">c_{FP}\cdot FP+c_{FN}\cdot FN</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5945em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">FP</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">FP</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.5945em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">c</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.10903em;">FN</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">FN</span></span></span></span></td>
+</tr>
+<tr>
+<td>Alert volume</td>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">#</mi><mtext>encounters</mtext><mo>×</mo><mi>P</mi><mo stretchy="false">(</mo><mover accent="true"><mi>p</mi><mo>^</mo></mover><mo>≥</mo><mi>t</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\#\text{encounters}\times P(\hat p\ge t)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord">#</span><span class="mord text"><span class="mord">encounters</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord accent"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.6944em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal">p</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.1667em;"><span class="mord">^</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1944em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">t</span><span class="mclose">)</span></span></span></span></td>
+</tr>
+</tbody></table></div>
+<p>The notes print the upper IQR fence with a minus sign in §2.5.2. The plus sign above is correct, as footnote 213 confirms.</p>
+<h2 id="6-exact-lines-from-the-notes"><a class="anchor" href="#6-exact-lines-from-the-notes" aria-hidden="true">#</a>6. Exact lines from the notes</h2>
+<p>Write these as they are, then add the mechanism and an example. The Module 2 list is on <a href="m2-definitions.html">Notes-exact definitions</a>.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Topic</th>
+<th>Notes wording</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Prediction vs decision</td>
+<td>A machine learning prediction is not a decision.</td>
+<td>M1 p.68</td>
+</tr>
+<tr>
+<td>Optimization</td>
+<td>Optimization solves the objective that was specified.</td>
+<td>M1 p.46</td>
+</tr>
+<tr>
+<td>Index time</td>
+<td>Index time: (or prediction origin) is the exact, specific moment in the real world at which the model is required to make its prediction.</td>
+<td>M1 p.100</td>
+</tr>
+<tr>
+<td>Feature availability</td>
+<td>every single input feature must be strictly available at or before this index time.</td>
+<td>M1 p.100</td>
+</tr>
+<tr>
+<td>Horizon</td>
+<td>The prediction horizon defines the exact temporal window into the future within which the target outcome must occur.</td>
+<td>M1 p.100</td>
+</tr>
+<tr>
+<td>Unit of analysis</td>
+<td>the fundamental, independent entity the model is evaluating, predicting for, or learning from.</td>
+<td>M1 p.99</td>
+</tr>
+<tr>
+<td>Rational agent</td>
+<td>A rational agent selects actions expected to advance its objectives, given its information and constraints.</td>
+<td>M1 p.35</td>
+</tr>
+<tr>
+<td>Model choice</td>
+<td>the most complex model is not automatically the best model.</td>
+<td>M1 p.59</td>
+</tr>
+<tr>
+<td>Deployment</td>
+<td>Ultimately, a highly accurate model sitting in a Jupyter notebook is not a deployed AI system.</td>
+<td>M1 p.75</td>
+</tr>
+<tr>
+<td>Abstention</td>
+<td>Abstention is a risk-control mechanism that allows a system to defer difficult cases to human review or an alternative process rather than producing potentially unreliable outputs.</td>
+<td>M1 p.79</td>
+</tr>
+<tr>
+<td>Temporal validation</td>
+<td>If a model is intended to predict future events, it should be evaluated using temporal validation (trained on past data and evaluated on strictly future data), rather than using randomly shuffled cross-validation that would leak future information into the training process.</td>
+<td>M1 p.64</td>
+</tr>
+<tr>
+<td>Missingness</td>
+<td>Not all missing values indicate poor data quality; in many situations, they are expected and informative.</td>
+<td>M2 p.50</td>
+</tr>
+<tr>
+<td>Outliers</td>
+<td>Consequently, outliers should be investigated rather than automatically removed.</td>
+<td>M2 p.55</td>
+</tr>
+<tr>
+<td>Resampling</td>
+<td>Resampling should therefore be performed only within the training partition or within each training fold during cross-validation</td>
+<td>§2.5.4</td>
+</tr>
+<tr>
+<td>Consent vs licence</td>
+<td>Consent explains what participants agreed to, while licensing defines what users are legally permitted to do with the data.</td>
+<td>M2 p.89</td>
+</tr>
+<tr>
+<td>Fairness conflict</td>
+<td>These fairness criteria may be mutually incompatible, particularly when outcome prevalence differs between populations.</td>
+<td>M2 p.98</td>
+</tr>
+</tbody></table></div>
+
+  <nav class="pagenav">
+    <a class="pv" href="start-here.html">← Previous<b>Start here (how to use)</b></a>
+    <a class="nx" href="mid-mock-a.html">Next →<b>★ Mock Mid A</b></a>
+  </nav>
+  <div class="foot">AI 500 · Fall 2026 · study notes</div>
+</main>
+</div>
+<div class="lightbox" id="lightbox" hidden><img alt=""><button class="iconbtn lb-close" aria-label="Close">✕</button></div>
+<script src="assets/site.js" defer></script>
+</body></html>

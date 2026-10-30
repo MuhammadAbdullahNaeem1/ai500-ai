@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>★ Real Quiz 2 (solved) · AI 500</title>
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#fbfbfa" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#16161a" media="(prefers-color-scheme: dark)">
+<script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<header class="topbar">
+  <button class="iconbtn" id="menuBtn" aria-label="Open contents" aria-expanded="false"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+  <a class="topbrand" href="index.html">AI 500<span>★ Real Quiz 2 (solved)</span></a>
+  <button class="iconbtn themebtn" aria-label="Toggle dark mode"><svg class="i-moon" viewBox="0 0 24 24" width="19" height="19"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg><svg class="i-sun" viewBox="0 0 24 24" width="19" height="19"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg></button>
+</header>
+<div class="scrim" id="scrim"></div>
+<div class="wrap">
+<aside class="side" id="side">
+  <div class="side-head">
+    <a class="brand" href="index.html">AI 500 — Foundations of AI<span>Foundations of AI · Fall 2026</span></a>
+    <button class="iconbtn themebtn" aria-label="Toggle dark mode"><svg class="i-moon" viewBox="0 0 24 24" width="17" height="17"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg><svg class="i-sun" viewBox="0 0 24 24" width="17" height="17"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg></button>
+  </div>
+  <nav><a href="index.html">Home</a>
+<a href="start-here.html">Start here (how to use)</a>
+<div class="nav-section">Mid-term (Modules 1–2)</div>
+<a href="mid-guide.html">Mid guide</a>
+<a href="mid-mock-a.html">★ Mock Mid A</a>
+<a href="mid-mock-b.html">Mock Mid B</a>
+<a href="mid-mock-c.html">Mock Mid C</a>
+<div class="nav-section">Modules</div>
+<details class="grp"><summary>M1 · AI Landscape & Problem Framing</summary><a href="m1a-notes.html">Notes A — roots, philosophy, landscape</a><a href="m1b-notes.html">Notes B — pipeline, framing, failures</a><a href="m1-answers.html">Answers Q1–100</a><a href="m1-cases.html">Answers S, R, A</a></details>
+<details class="grp"><summary>M2 · Data Collection, Cleaning, Governance & Ethics</summary><a href="m2a-notes.html">Notes A — constructed data, sources, quality</a><a href="m2b-notes.html">Notes B — curation, cleaning, leakage</a><a href="m2c-notes.html">Notes C — documentation, governance, cases</a><a href="m2-definitions.html">★ Notes-exact definitions</a><a href="m2-answers-1.html">Answers Q1–50</a><a href="m2-answers-2.html">Answers Q51–100</a><a href="m2-scenarios.html">Scenarios S1–S5</a><a href="m2-reflections.html">Reflections R1–R5</a></details>
+<details class="grp"><summary>M3 · EDA, Inference & Features (not on mid)</summary><a href="m3-notes.html">Chapter map and PDF</a></details>
+<div class="nav-section">Quiz 2 (24 Oct)</div>
+<a href="quiz2-solved.html" class="on" aria-current="page">★ Real Quiz 2 (solved)</a>
+<a href="quiz2-guide.html">Quiz 2 guide</a>
+<a href="quiz2-mock-a.html">★ Mock Quiz 2A</a>
+<a href="quiz2-mock-b.html">Mock Quiz 2B</a>
+<a href="quiz2-mock-c.html">Mock Quiz 2C</a>
+<div class="nav-section">Archive</div>
+<a href="quiz1-solved.html">Real Quiz 1 (solved)</a>
+<a href="assignments.html">Assignments & computational training</a>
+<a href="a2-missedcare.html">A2 Part A — MissedCare (your answers)</a>
+<details class="grp"><summary>PDFs & past material</summary><a href="resources.html">2026 course PDFs</a><a href="past-papers.html">Past exams & quizzes</a><a href="past-lectures.html">Past lectures</a><a href="past-practice.html">Problem sets & solutions</a><a href="past-tutorials.html">Tutorials & demo code</a></details></nav>
+  
+</aside>
+<main>
+  
+  <div class="quiz-tools"><button data-sol="open">Show all solutions</button><button data-sol="close">Hide all</button><button onclick="window.print()">Print</button></div>
+  <h1>Real Quiz 2 (solved) — 24 October 2026</h1>
+<p><strong>20 points · 30 minutes · Module 2.</strong> The instructor&#39;s solution scheme, condensed. The best guide available to how the mid may be marked.</p>
+<div class="pdf-links">
+<a href="pdfs/quizzes/Quiz-2-Solution.pdf">Quiz 2 solution scheme (PDF)</a>
+<a href="mid-guide.html">Mid guide</a>
+<a href="m2b-notes.html">Module 2 Part B</a>
+</div>
+
+<div class="orig-q"><div class="oq-head"><span class="oq-lab">📄 Original question</span><span class="oq-src">Predicting Customer Complaints for an Online Store [CLO 1, CLO 2]</span></div><div class="oq-body"><p>An online retailer wants an AI system to predict whether a newly placed order is likely to result in a <strong>customer complaint within 14 days</strong>, to identify orders needing attention before shipment. Fields: product category, order value, delivery method, customer region, previous orders, previous complaints, customer age, website activity, payment method, final delivery time, whether the customer contacted support, whether a complaint was filed.</p>
+<ul>
+<li>age is missing for 30% of customers because entering it is optional;</li>
+<li>some customers place several orders, so one customer appears many times;</li>
+<li>several orders appear twice because payments are occasionally resubmitted;</li>
+<li>only 6% of orders result in complaints;</li>
+<li>missing ages are replaced by the mean of the entire dataset before splitting;</li>
+<li>orders are randomly split, so a customer&#39;s orders may occur in both sets;</li>
+<li><code>final_delivery_time</code> and <code>whether_the_customer_contacted_support</code> are predictors though both may become known only after the order is placed;</li>
+<li>the model achieves 94% accuracy.</li>
+</ul>
+<p>Management concludes the data is clean and the model is ready.</p>
+</div></div><div class="oq-sol">Worked solution</div>
+
+<section class="question"><div class="q-head">(a)(i) [2 points] Is a missing value for customer age necessarily a data-quality error?</div>
+<details class="solution solution"><summary>Official answer</summary><div class="sol-body"><p><strong>No.</strong> Age is optional, so a missing value may simply mean the customer chose not to give it. What matters is <strong>why</strong> it is missing and whether that affects the task; the absence may itself carry information.<br><em>Rubric:</em> not automatically an error 1 · optional entry or reason for missingness 1.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">(a)(ii) [2 points] Why might replacing every missing age with the overall mean be problematic? Give two reasons.</div>
+<details class="solution solution"><summary>Official answer</summary><div class="sol-body"><p>Any two: <strong>distorts the distribution</strong> (artificial spike, lower variance); <strong>distorts relationships</strong> between variables; <strong>removes informative missingness</strong>; computed on the entire dataset, so it causes <strong>train–test contamination</strong>.<br><em>Rubric:</em> 1 per reason.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">(b)(i) [2 points] Why can duplicate records be harmful?</div>
+<details class="solution solution"><summary>Official answer</summary><div class="sol-body"><p>They inflate the number of orders, distort frequencies and the complaint rate, give duplicates too much influence, place one transaction in training and test, and produce overly optimistic estimates.<br><em>Rubric:</em> 1 per consequence.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">(b)(ii) [1 point] What should the data team do before simply deleting them?</div>
+<details class="solution solution"><summary>Official answer</summary><div class="sol-body"><p>Establish whether they are <strong>true duplicates</strong> by checking order IDs, timestamps, payment identifiers, customer IDs, product details and source-system logs. Resolve confirmed cases with a <strong>documented, reproducible rule</strong>.<br><em>Rubric:</em> investigates/verifies before deletion 1 · &quot;check the duplicates&quot; without saying what is checked 0.5.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">(c) [5 points] Identify and explain three distinct leakage or contamination problems, and state how each should be corrected.</div>
+<details class="solution solution"><summary>Official answer</summary><div class="sol-body"><div class="tbl"><table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>What is wrong</th>
+<th>Correction</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Preprocessing contamination</strong></td>
+<td>Mean age uses the entire dataset</td>
+<td>Split first; compute the mean on training data; apply that value to both</td>
+</tr>
+<tr>
+<td><strong>Group leakage</strong></td>
+<td>One customer&#39;s orders in both sets</td>
+<td>Partition by customer so <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>G</mi><mtext>train</mtext></msub><mo>∩</mo><msub><mi>G</mi><mtext>test</mtext></msub><mo>=</mo><mi mathvariant="normal">∅</mi></mrow><annotation encoding="application/x-tex">G_{\text{train}}\cap G_{\text{test}}=\emptyset</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">G</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3175em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">train</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∩</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">G</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">test</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8056em;vertical-align:-0.0556em;"></span><span class="mord">∅</span></span></span></span></td>
+</tr>
+<tr>
+<td><strong>Temporal/target leakage</strong></td>
+<td><code>final_delivery_time</code> and support contact are unknown at prediction time</td>
+<td>Define the index time; retain only variables available by then</td>
+</tr>
+</tbody></table></div>
+<p><em>Rubric:</em> 1.5 per problem with correction · 0.5 for connecting leakage to unrealistically optimistic evaluation.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">(d)(i) [2 points] Explain why 94% accuracy may provide very little evidence that the model is useful.</div>
+<details class="solution solution"><summary>Official answer</summary><div class="sol-body"><p>94% of orders have no complaint, so predicting <strong>no complaint for every order</strong> gives 94% accuracy while detecting <strong>zero</strong> complaints.<br><em>Rubric:</em> class imbalance 1 · the always-&quot;no complaint&quot; argument 1.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">(d)(ii) [2 points] Give two better ways of evaluating the model and briefly explain what each would reveal.</div>
+<details class="solution solution"><summary>Official answer</summary><div class="sol-body"><p>Any two: <strong>recall</strong> (share of real complaints caught), <strong>precision</strong> (share of flags that are real), <strong>F1</strong>, <strong>AUPRC</strong>, <strong>confusion matrix</strong>, <strong>calibration</strong>, <strong>subgroup analysis</strong>.<br><em>Rubric:</em> 1 each with explanation · 0.5 without.</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">(e) [4 points] Recommend four improvements before deployment.</div>
+<details class="solution solution"><summary>Official answer</summary><div class="sol-body"><p>Any four, with a reason: handle missing age carefully · fit preprocessing on training data · deduplicate verified duplicates · split by customer · remove future information · address imbalance · use suitable metrics · assess representativeness · improve documentation · record provenance and lineage · apply minimization and privacy controls · monitor the deployed pipeline.<br><em>Rubric:</em> 0.5 for the action, 0.5 for why, four times.</p>
+</div></details>
+</section>
+
+  <nav class="pagenav">
+    <a class="pv" href="m3-notes.html">← Previous<b>M3 · Chapter map and PDF</b></a>
+    <a class="nx" href="quiz2-guide.html">Next →<b>Quiz 2 guide</b></a>
+  </nav>
+  <div class="foot">AI 500 · Fall 2026 · study notes</div>
+</main>
+</div>
+<div class="lightbox" id="lightbox" hidden><img alt=""><button class="iconbtn lb-close" aria-label="Close">✕</button></div>
+<script src="assets/site.js" defer></script>
+</body></html>
