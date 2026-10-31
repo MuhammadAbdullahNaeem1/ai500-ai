@@ -7,6 +7,7 @@
 <a href="mid-mock-b.html">Mock Mid B</a>
 <a href="mid-mock-c.html">Mock Mid C</a>
 <a href="quiz2-solved.html">Real Quiz 2 (solved)</a>
+<a href="quiz2-numericals.html">Quiz 2 numericals</a>
 <a href="quiz1-solved.html">Real Quiz 1 (solved)</a>
 <a href="m2-definitions.html">Notes-exact definitions</a>
 </div>
@@ -54,14 +55,16 @@ No 2026 mid paper or format announcement is in the course folder. The mocks borr
 
 ## 5. Formulas for the calculation section
 
-Quiz 2 was announced as having no numerical problems, and the mid may be the same. Assignment 2 did include calculations, so they are worth 15 minutes.
+These can appear: the class of 17 October worked a full confusion-matrix example, and Assignment 2 had calculations too. See **[Quiz 2 numericals](quiz2-numericals.html)**.
 
 | Item | Formula |
 |---|---|
 | Accuracy | $(TP+TN)/N$ |
 | Precision | $TP/(TP+FP)$ |
-| Recall / TPR | $TP/(TP+FN)$ |
-| FPR | $FP/(FP+TN)$ |
+| Recall / Sensitivity / TPR | $TP/(TP+FN)$ |
+| Specificity / TNR | $TN/(TN+FP)$ |
+| $F_1$ | $2PR/(P+R)=2TP/(2TP+FP+FN)$ |
+| FPR | $FP/(FP+TN)=1-\text{Specificity}$ |
 | Selection rate | $(TP+FP)/N$ |
 | Cohen's $\kappa$ | $(p_o-p_e)/(1-p_e)$ |
 | IQR fences | $[Q_1-1.5\,\text{IQR},\ Q_3+1.5\,\text{IQR}]$ |

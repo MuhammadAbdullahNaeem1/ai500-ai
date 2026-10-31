@@ -7,6 +7,7 @@
 <a href="quiz2-mock-b.html">Mock Quiz 2B</a>
 <a href="quiz2-mock-c.html">Mock Quiz 2C</a>
 <a href="quiz1-solved.html">Real Quiz 1 (solved)</a>
+<a href="quiz2-numericals.html">Quiz 2 numericals</a>
 <a href="pdfs/quizzes/Quiz-1-Solution.pdf">Quiz 1 solution PDF</a>
 </div>
 

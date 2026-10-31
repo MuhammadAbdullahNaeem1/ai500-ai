@@ -4,6 +4,7 @@
 
 <div class="pdf-links">
 <a href="pdfs/quizzes/Quiz-2-Solution.pdf">Quiz 2 solution scheme (PDF)</a>
+<a href="quiz2-numericals.html">Quiz 2 numericals</a>
 <a href="mid-guide.html">Mid guide</a>
 <a href="m2b-notes.html">Module 2 Part B</a>
 </div>

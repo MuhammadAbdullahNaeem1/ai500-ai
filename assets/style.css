@@ -367,3 +367,6 @@ mark.trap { background: var(--trap); color: var(--trap-ink); }
 .recall .sol-body mark.hl { color: transparent; background: var(--code-bg); border-bottom: 2px dashed var(--faint); border-radius: 3px; cursor: pointer; user-select: none; }
 .recall .sol-body mark.hl.shown { color: inherit; background: linear-gradient(100deg, transparent .1em, var(--hl) .24em, var(--hl) calc(100% - .2em), transparent); border-bottom: 0; cursor: default; user-select: auto; }
 @media print { mark.hl, mark.trap { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
+.board { margin: 1.2rem 0; }
+.board img { display: block; width: 100%; height: auto; border-radius: 8px; }
+.board figcaption { margin-top: .45rem; font-family: var(--sans); font-size: 13px; color: var(--muted); }
