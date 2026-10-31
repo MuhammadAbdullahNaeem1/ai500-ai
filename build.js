@@ -193,7 +193,7 @@ function page(p, body, toc) {
 </aside>
 <main>
   ${crumb ? `<div class="crumb">${crumb}</div>` : ''}
-  ${isQuiz ? `<div class="quiz-tools"><button data-sol="open">Show all solutions</button><button data-sol="close">Hide all</button><button onclick="window.print()">Print</button>${/^m\d-answers/.test(p.id) ? '<button data-recall aria-pressed="false">Test me</button>' : ''}</div>` : ''}
+  ${isQuiz ? `<div class="quiz-tools"><button data-sol="open">Show all solutions</button><button data-sol="close">Hide all</button><button onclick="window.print()">Print</button>${/^m\d-answers|^quiz2-numericals/.test(p.id) ? '<button data-recall aria-pressed="false">Test me</button>' : ''}</div>` : ''}
   ${body}
   <nav class="pagenav">
     ${prev ? `<a class="pv" href="${prev.id}.html">← Previous<b>${label(prev)}</b></a>` : '<span></span>'}

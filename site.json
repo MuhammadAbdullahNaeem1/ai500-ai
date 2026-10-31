@@ -108,6 +108,11 @@
           "id": "m2-reflections",
           "title": "Reflections R1–R5",
           "file": "practice/m2-reflections.md"
+        },
+        {
+          "id": "quiz2-numericals",
+          "title": "★ Quiz 2 numericals",
+          "file": "quizzes/quiz2-numericals.md"
         }
       ]
     },
@@ -129,6 +134,10 @@
       "id": "quiz2-solved",
       "title": "★ Real Quiz 2 (solved)",
       "file": "quizzes/quiz2-solved.md"
+    },
+    {
+      "id": "quiz2-numericals",
+      "title": "★ Quiz 2 numericals"
     },
     {
       "id": "quiz2-guide",

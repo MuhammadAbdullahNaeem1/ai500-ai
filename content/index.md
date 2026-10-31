@@ -9,7 +9,7 @@ Fall 2026 · LUMS · Dr. Hassan Mohy-ud-Din · study notes, practice answers and
 
 ## 🎯 Up next: Mid-term — Modules 1 and 2
 
-**Module 3 is not examined.** [Mid guide](mid-guide.html) · **[★ Mock Mid A](mid-mock-a.html) · [Mock Mid B](mid-mock-b.html) · [Mock Mid C](mid-mock-c.html)** — full papers with rubric-style solutions. Real papers: [Quiz 1 solved](quiz1-solved.html) · [Quiz 2 solved](quiz2-solved.html). The mid's format has not been confirmed; the guide says what the mocks are based on.
+**Module 3 is not examined.** [Mid guide](mid-guide.html) · **[★ Mock Mid A](mid-mock-a.html) · [Mock Mid B](mid-mock-b.html) · [Mock Mid C](mid-mock-c.html)** — full papers with rubric-style solutions. Real papers: [Quiz 1 solved](quiz1-solved.html) · [Quiz 2 solved](quiz2-solved.html) · **[Quiz 2 numericals](quiz2-numericals.html)**. The mid's format has not been confirmed; the guide says what the mocks are based on.
 
 ## Modules so far
 
