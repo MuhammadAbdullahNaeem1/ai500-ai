@@ -67,13 +67,15 @@ These can appear: the class of 17 October worked a full confusion-matrix example
 | FPR | $FP/(FP+TN)=1-\text{Specificity}$ |
 | Selection rate | $(TP+FP)/N$ |
 | Cohen's $\kappa$ | $(p_o-p_e)/(1-p_e)$ |
+| Fleiss' $\kappa$ | $(\bar P-\bar P_e)/(1-\bar P_e)$, with $\bar P_e=\sum p_j^2$ |
+| IQR | $Q_3-Q_1$ |
 | IQR fences | $[Q_1-1.5\,\text{IQR},\ Q_3+1.5\,\text{IQR}]$ |
 | z-score | $(x-\bar x)/s$ |
 | Platt scaling | $P=1/(1+\exp(As+B))$ |
 | Threshold cost | $c_{FP}\cdot FP+c_{FN}\cdot FN$ |
 | Alert volume | $\#\text{encounters}\times P(\hat p\ge t)$ |
 
-The notes print the upper IQR fence with a minus sign in §2.5.2. The plus sign above is correct, as footnote 213 confirms.
+The notes print the upper IQR fence with a minus sign in §2.5.2. The plus sign above is correct, as footnote 213 confirms. Example 52's second heading should also read "Correct approach". IQR and both kappas are taught from the basics on [Quiz 2 numericals](quiz2-numericals.html).
 
 ## 6. Exact lines from the notes
 
