@@ -14,7 +14,30 @@
       "file": "start-here.md"
     },
     {
-      "section": "Mid-term (Modules 1–2)"
+      "section": "Quiz 3 (28 Nov) — Module 3, §3.1–3.5"
+    },
+    {
+      "id": "quiz3-guide",
+      "title": "★ Quiz 3 guide",
+      "file": "quizzes/quiz3-guide.md"
+    },
+    {
+      "id": "quiz3-mock-a",
+      "title": "★ Mock Quiz 3A",
+      "file": "quizzes/quiz3-mock-a.md"
+    },
+    {
+      "id": "quiz3-mock-b",
+      "title": "Mock Quiz 3B",
+      "file": "quizzes/quiz3-mock-b.md"
+    },
+    {
+      "id": "quiz3-mock-c",
+      "title": "Mock Quiz 3C",
+      "file": "quizzes/quiz3-mock-c.md"
+    },
+    {
+      "section": "Mid-term (31 Oct, Modules 1–2)"
     },
     {
       "id": "mid-guide",
@@ -118,8 +141,18 @@
     },
     {
       "id": "m3",
-      "title": "M3 · EDA, Inference & Features (not on mid)",
+      "title": "M3 · EDA, Features & Statistical Thinking",
       "children": [
+        {
+          "id": "m3a-notes",
+          "title": "Notes A — EDA, unit of analysis, goals (3.1–3.2)",
+          "file": "modules/m3a.md"
+        },
+        {
+          "id": "m3b-notes",
+          "title": "Notes B — plots, statistics, features (3.3–3.5)",
+          "file": "modules/m3b.md"
+        },
         {
           "id": "m3-notes",
           "title": "Chapter map and PDF",

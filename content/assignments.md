@@ -1,11 +1,12 @@
 # Assignments & computational training
 
-Both written assignments, your submissions, and the Module 2 computational tutorial. Assignment 1 covered Module 1 (problem framing, model card, datasheet, failure analysis); Assignment 2 covers Module 2 (MissedCare) — its Part A is the closest thing to Quiz 2 practice you have already done.
+All three assignments, your submissions, and the computational tutorial. Assignment 1 covered Module 1 (problem framing, model card, datasheet, failure analysis); Assignment 2 covers Module 2 (MissedCare) — its Part A is the closest thing to Quiz 2 practice you have already done.
 
 <div class="pdf-links">
 <a href="a2-missedcare.html">★ A2 Part A — your answers (Module 2)</a>
 <a href="pdfs/assignments/Assignment-1.pdf">Assignment 1</a>
 <a href="pdfs/assignments/Assignment-2.pdf">Assignment 2</a>
+<a href="pdfs/assignments/Assignment-3.pdf">Assignment 3</a>
 <a href="pdfs/tutorials/Computational-Tutorial-2026.pdf">Computational tutorial</a>
 </div>
 
@@ -29,6 +30,16 @@ Both written assignments, your submissions, and the Module 2 computational tutor
 | Coding guide (Part B) | [PDF](pdfs/assignments/Assignment-2-Coding-Guide.pdf) |
 | Your PA2 notebook | [.ipynb](files/26280047_Naeem_PA2.ipynb) |
 | Your Part A answers, readable | [A2 Part A page](a2-missedcare.html) |
+
+## Assignment 3 — Supervised Learning: Classification and Regression
+
+Two case studies: **classification** on the UCI Dry Bean dataset (13,611 beans, 16 shape measurements, 7 varieties — two-class models first: logistic regression, k-NN with scaling, trees and ensembles, Naive Bayes; then class imbalance and the seven-class problem), and **regression** of concrete compressive strength from mixture ingredients and curing age (model flexibility, and leakage-free cross-validation on previously unseen recipes).
+
+| File | |
+|---|---|
+| Assignment brief | [PDF](pdfs/assignments/Assignment-3.pdf) |
+| Your report | [PDF](pdfs/assignments/Assignment-3-Report-26280047.pdf) |
+| Your notebooks | [classification .ipynb](files/26280047_PA3_Classification.ipynb) · [regression .ipynb](files/26280047_PA3_Regression.ipynb) |
 
 ## Computational training — Module 2 in code
 
@@ -61,6 +72,12 @@ Synthetic multi-hospital deterioration dataset (~250,000 encounters, 118,000 pat
 | 23 | Scaling and normalization | 3.5.3–3.5.4 (Module 3) | [py](files/computational/topic_23_scaling_and_normalization.py) |
 | 24 | Categorical encoding | 3.5.6 (Module 3) | [py](files/computational/topic_24_categorical_encoding.py) |
 | 25 | Binning and discretization | 3.5.5 (Module 3) | [py](files/computational/topic_25_binning_and_discretization.py) |
+
+### Model training, inference and evaluation (13 November)
+
+Trains a linear SVM, an RBF SVM or a random forest on the same deterioration data, saves the model, evaluation results, feature importance and test predictions, and plots decision boundaries for the top-$k$ features. Run e.g. `python main.py --classifier random-forest --boundary-top-k 5`.
+
+[main.py](files/computational/model-training/main.py) · [data.py](files/computational/model-training/data.py) · [model.py](files/computational/model-training/model.py) · [evaluation.py](files/computational/model-training/evaluation.py) · [inference.py](files/computational/model-training/inference.py) · [decision_boundary.py](files/computational/model-training/decision_boundary.py)
 
 ## Python tutorials
 

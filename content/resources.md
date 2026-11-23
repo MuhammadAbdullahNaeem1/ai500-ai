@@ -6,7 +6,7 @@ Every file from the course folder (except duplicates in the assignment "Garbage"
 
 - [Module 1 notes — The AI/Data Science Landscape and Problem Framing](pdfs/notes/Module-1-Notes.pdf) (170 pages)
 - [Module 2 notes — Data Collection, Curation, Cleaning, Governance, and Ethics](pdfs/notes/Module-2-Notes.pdf) (145 pages; practice questions pp. 130–145)
-- [Module 3 notes — not on the mid](pdfs/notes/Module-3-Notes.pdf) (222 pages; practice questions from p. 203) · [chapter map](m3-notes.html)
+- [Module 3 notes — EDA, Feature Engineering, and Statistical Thinking](pdfs/notes/Module-3-Notes.pdf) (222 pages; practice questions from p. 203) · [Notes A](m3a-notes.html) · [Notes B](m3b-notes.html) · [chapter map](m3-notes.html)
 - [Course outline / syllabus 2026](pdfs/course/Syllabus-AI500-2026.pdf)
 - [Computational tutorial 2026](pdfs/tutorials/Computational-Tutorial-2026.pdf) and its [scripts](assignments.html#computational-training-module-2-in-code)
 
@@ -16,12 +16,21 @@ Every file from the course folder (except duplicates in the assignment "Garbage"
 - [Quiz 2 — solution scheme](pdfs/quizzes/Quiz-2-Solution.pdf) · [solved page](quiz2-solved.html) · [numericals](quiz2-numericals.html) · [board photos](pdfs/quizzes/Board-Numericals-17-Oct.pdf)
 - [Your Quiz 1 preparation guide (PDF)](pdfs/quizzes/Quiz-1-Prep-Guide.pdf) · [.docx](files/Quiz-1-Prep-Guide.docx)
 
+## Mid-term (2026)
+
+The 31 October mid-term was set in three versions, each one case study with a solution scheme and rubric:
+
+- [Cafeteria-lunch counter delays — solution](pdfs/exams/Midterm-2026-Cafeteria-Lunch-Solution.pdf)
+- [Campus shuttle — solution](pdfs/exams/Midterm-2026-Campus-Shuttle-Solution.pdf)
+- [Hostel laundry — solution](pdfs/exams/Midterm-2026-Hostel-Laundry-Solution.pdf)
+
 ## Assignments (2026)
 
 | | Brief | Your submission |
 |---|---|---|
 | Assignment 1 | [PDF](pdfs/assignments/Assignment-1.pdf) | [Report](pdfs/assignments/Assignment-1-Report-26280047.pdf) · [PA1 notebook](files/26280047_Naeem_PA1.ipynb) |
 | Assignment 2 | [PDF](pdfs/assignments/Assignment-2.pdf) · [Coding guide](pdfs/assignments/Assignment-2-Coding-Guide.pdf) | [PA2 notebook](files/26280047_Naeem_PA2.ipynb) · [Part A answers page](a2-missedcare.html) |
+| Assignment 3 | [PDF](pdfs/assignments/Assignment-3.pdf) | [Report](pdfs/assignments/Assignment-3-Report-26280047.pdf) · [classification notebook](files/26280047_PA3_Classification.ipynb) · [regression notebook](files/26280047_PA3_Regression.ipynb) |
 
 ## AI 500 — previous offering (different syllabus: search, ML, neural networks)
 
