@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>M3 · EDA, Features & Statistical Thinking — Notes A — EDA, unit of analysis, goals (3.1–3.2) · AI 500</title>
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#fbfbfa" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#16161a" media="(prefers-color-scheme: dark)">
+<script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<header class="topbar">
+  <button class="iconbtn" id="menuBtn" aria-label="Open contents" aria-expanded="false"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+  <a class="topbrand" href="index.html">AI 500<span>M3 · EDA, Features & Statistical Thinking</span></a>
+  <button class="iconbtn themebtn" aria-label="Toggle dark mode"><svg class="i-moon" viewBox="0 0 24 24" width="19" height="19"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg><svg class="i-sun" viewBox="0 0 24 24" width="19" height="19"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg></button>
+</header>
+<div class="scrim" id="scrim"></div>
+<div class="wrap">
+<aside class="side" id="side">
+  <div class="side-head">
+    <a class="brand" href="index.html">AI 500 — Foundations of AI<span>Foundations of AI · Fall 2026</span></a>
+    <button class="iconbtn themebtn" aria-label="Toggle dark mode"><svg class="i-moon" viewBox="0 0 24 24" width="17" height="17"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg><svg class="i-sun" viewBox="0 0 24 24" width="17" height="17"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg></button>
+  </div>
+  <nav><a href="index.html">Home</a>
+<a href="start-here.html">Start here (how to use)</a>
+<div class="nav-section">Quiz 3 (28 Nov) — Module 3, §3.1–3.5</div>
+<a href="quiz3-guide.html">★ Quiz 3 guide</a>
+<a href="quiz3-mock-a.html">★ Mock Quiz 3A</a>
+<a href="quiz3-mock-b.html">Mock Quiz 3B</a>
+<a href="quiz3-mock-c.html">Mock Quiz 3C</a>
+<div class="nav-section">Mid-term (31 Oct, Modules 1–2)</div>
+<a href="mid-guide.html">Mid guide</a>
+<a href="mid-mock-a.html">★ Mock Mid A</a>
+<a href="mid-mock-b.html">Mock Mid B</a>
+<a href="mid-mock-c.html">Mock Mid C</a>
+<div class="nav-section">Modules</div>
+<details class="grp"><summary>M1 · AI Landscape & Problem Framing</summary><a href="m1a-notes.html">Notes A — roots, philosophy, landscape</a><a href="m1b-notes.html">Notes B — pipeline, framing, failures</a><a href="m1-answers.html">Answers Q1–100</a><a href="m1-cases.html">Answers S, R, A</a></details>
+<details class="grp"><summary>M2 · Data Collection, Cleaning, Governance & Ethics</summary><a href="m2a-notes.html">Notes A — constructed data, sources, quality</a><a href="m2b-notes.html">Notes B — curation, cleaning, leakage</a><a href="m2c-notes.html">Notes C — documentation, governance, cases</a><a href="m2-definitions.html">★ Notes-exact definitions</a><a href="m2-answers-1.html">Answers Q1–50</a><a href="m2-answers-2.html">Answers Q51–100</a><a href="m2-scenarios.html">Scenarios S1–S5</a><a href="m2-reflections.html">Reflections R1–R5</a><a href="quiz2-numericals.html">★ Quiz 2 numericals</a></details>
+<details class="grp" open><summary>M3 · EDA, Features & Statistical Thinking</summary><a href="m3a-notes.html" class="on" aria-current="page">Notes A — EDA, unit of analysis, goals (3.1–3.2)</a><a href="m3b-notes.html">Notes B — plots, statistics, features (3.3–3.5)</a><a href="m3-notes.html">Chapter map and PDF</a></details>
+<div class="nav-section">Quiz 2 (24 Oct)</div>
+<a href="quiz2-solved.html">★ Real Quiz 2 (solved)</a>
+<a href="quiz2-numericals.html">★ Quiz 2 numericals</a>
+<a href="quiz2-guide.html">Quiz 2 guide</a>
+<a href="quiz2-mock-a.html">★ Mock Quiz 2A</a>
+<a href="quiz2-mock-b.html">Mock Quiz 2B</a>
+<a href="quiz2-mock-c.html">Mock Quiz 2C</a>
+<div class="nav-section">Archive</div>
+<a href="quiz1-solved.html">Real Quiz 1 (solved)</a>
+<a href="assignments.html">Assignments & computational training</a>
+<a href="a2-missedcare.html">A2 Part A — MissedCare (your answers)</a>
+<details class="grp"><summary>PDFs & past material</summary><a href="resources.html">2026 course PDFs</a><a href="past-papers.html">Past exams & quizzes</a><a href="past-lectures.html">Past lectures</a><a href="past-practice.html">Problem sets & solutions</a><a href="past-tutorials.html">Tutorials & demo code</a></details></nav>
+  <div class="toc"><div class="toc-title">On this page</div><a href="#3-1-1-what-is-exploratory-data-analysis" class="">3.1.1 What is exploratory data analysis?</a><a href="#3-1-2-the-eda-pipeline" class="">3.1.2 The EDA pipeline</a><a href="#3-1-3-exploratory-versus-confirmatory-analysis" class="">3.1.3 Exploratory versus confirmatory analysis</a><a href="#3-1-4-separating-exploration-from-confirmation" class="">3.1.4 Separating exploration from confirmation</a><a href="#3-1-5-the-unit-of-analysis-must-be-defined-first" class="">3.1.5 The unit of analysis must be defined first</a><a href="#3-1-6-why-the-unit-of-analysis-matters" class="">3.1.6 Why the unit of analysis matters</a><a href="#3-1-7-recommended-eda-workflow" class="">3.1.7 Recommended EDA workflow</a><a href="#3-2-1-understanding-distributions" class="">3.2.1 Understanding distributions</a><a href="#pathological-examples" class="h3">Pathological examples</a><a href="#3-2-2-understanding-relationships" class="">3.2.2 Understanding relationships</a><a href="#3-2-3-detecting-anomalies" class="">3.2.3 Detecting anomalies</a><a href="#3-2-4-understanding-missingness" class="">3.2.4 Understanding missingness</a><a href="#3-2-5-identifying-bias" class="">3.2.5 Identifying bias</a><a href="#quot-just-collect-more-data-quot-the-big-data-paradox" class="h3">&quot;Just collect more data&quot;? — the Big Data paradox</a><a href="#3-2-6-subgroup-behaviour" class="">3.2.6 Subgroup behaviour</a><a href="#source-material" class="">Source material</a></div>
+</aside>
+<main>
+  <div class="crumb">M3 · EDA, Features & Statistical Thinking</div>
+  
+  <h1>M3 · Notes A — What EDA is, and its core goals (§3.1–3.2)</h1>
+<p>Module 3 notes, <em>Exploratory Data Analysis, Feature Engineering, and Statistical Thinking</em>, pp. 315–365 (PDF pages 5–55) · <strong>Quiz 3 syllabus</strong> (with Notes B)</p>
+<div class="pdf-links">
+<a href="pdfs/notes/Module-3-Notes.pdf">Module 3 notes (PDF)</a>
+<a href="quiz3-guide.html">Quiz 3 guide</a>
+<a href="assignments.html#computational-training-module-2-in-code">Code: computational scripts 15–25</a>
+<a class="jump" href="#source-material">Read them all on this page ↓</a>
+</div>
+
+<p>EDA is the stage where you get to know a dataset before you model it or test anything. In order, this page covers: what EDA is and its iterative pipeline (3.1.1–3.1.2); exploratory versus confirmatory analysis and how to keep them apart (3.1.3–3.1.4); the unit of analysis and why it matters (3.1.5–3.1.6); the recommended workflow (3.1.7); and the six core goals of EDA — distributions (with the pathological-plot gallery), relationships, anomalies, missingness, bias (including the Big Data paradox) and subgroups (3.2.1–3.2.6).</p>
+<h2 id="3-1-1-what-is-exploratory-data-analysis"><a class="anchor" href="#3-1-1-what-is-exploratory-data-analysis" aria-hidden="true">#</a>3.1.1 What is exploratory data analysis?</h2>
+
+<div class="callout def"><div class="callout-title">Definition: EDA</div><p><strong>Exploratory data analysis</strong> is the systematic investigation of a dataset <em>before</em> formal modelling, hypothesis testing or confirmatory inference. It was established by <strong>John W. Tukey</strong> (<em>Exploratory Data Analysis</em>, 1977), who argued that analysts should explore data for unexpected structure rather than only confirm hypotheses chosen in advance.</p>
+</div>
+<p>EDA is <strong>not</strong> &quot;make nice graphs and compute averages&quot;. It is a process of <em>asking questions</em> of the data with numerical and graphical tools. Through it an analyst can:</p>
+<ul>
+<li>understand the structure and composition of the dataset, and each variable&#39;s distribution;</li>
+<li>find patterns, trends and relationships;</li>
+<li>spot missing, duplicated, inconsistent or wrong values, outliers and unusual cases;</li>
+<li>check whether statistical assumptions look reasonable;</li>
+<li>generate hypotheses, decide on transformations and preprocessing;</li>
+<li>judge whether the task is feasible, and guide the choice of models.</li>
+</ul>
+<p>It is <em>exploratory</em> because you do not start from one fixed conclusion: you look, notice something, ask a new question, and look again. The <strong>NIST handbook</strong> puts the aims as: maximise insight, uncover structure, detect outliers and anomalies, test assumptions, develop parsimonious models, and determine good factor settings.</p>
+
+<div class="callout remember"><div class="callout-title">Remember</div><p>EDA = systematic, question-driven investigation of data before formal modelling or testing (Tukey, 1977).</p>
+</div>
+<h2 id="3-1-2-the-eda-pipeline"><a class="anchor" href="#3-1-2-the-eda-pipeline" aria-hidden="true">#</a>3.1.2 The EDA pipeline</h2>
+
+<div class="figs"><figure><a href="assets/fig/m3-p007.jpg" class="zoom"><img src="assets/fig/m3-p007.jpg" alt="Figure 22 — The iterative EDA cycle" loading="lazy" decoding="async"></a><figcaption>Module 3 notes · PDF p.7 — Figure 22 — The iterative EDA cycle</figcaption></figure></div>
+<p>EDA is a <strong>cycle</strong>, not a straight line: a question → a visualization and numerical summary → an unexpected pattern → a new hypothesis → a refined question. Example: a scatterplot shows two variables are related but also shows a few odd points; numerical summaries of those points raise a new question — are they genuine cases, measurement errors or data-entry problems?</p>
+<p><strong>Graphical</strong> methods (histograms, boxplots, scatterplots, bar charts, density and time-series plots) reveal patterns that numbers hide; <strong>numerical</strong> summaries (mean, median, SD, range, quartiles, correlation) quantify what the plots show. EDA uses both.</p>
+<p><strong>Why it pays off:</strong> it catches problems before they are carried into modelling — heavy missingness, extreme outliers, strong skew, duplicates, wrong values, unexpected relationships. But EDA is a <strong>foundation for</strong>, not a <strong>replacement of</strong>, formal inference: a pattern found in exploration may be due to chance, selection or quirks of this dataset.</p>
+
+<div class="callout example"><div class="callout-title">Worked example: Sleep and exam scores (Example 65)</div><p>EDA shows students sleeping 7–8 hours score higher than those sleeping under 5. That is a <strong>hypothesis</strong>, not a causal finding: longer sleepers may also be less stressed, study better or have steadier schedules. A later confirmatory analysis (e.g. regression controlling for study time and stress) would test it properly.</p>
+</div>
+
+<div class="callout remember"><div class="callout-title">Remember</div><p>EDA is iterative — each finding raises the next question — and combines plots with numbers; it generates hypotheses, it does not confirm them.</p>
+</div>
+<h2 id="3-1-3-exploratory-versus-confirmatory-analysis"><a class="anchor" href="#3-1-3-exploratory-versus-confirmatory-analysis" aria-hidden="true">#</a>3.1.3 Exploratory versus confirmatory analysis</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th></th>
+<th>exploratory (EDA)</th>
+<th>confirmatory</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>goal</td>
+<td>discover what the data may reveal</td>
+<td>evaluate a specific claim</td>
+</tr>
+<tr>
+<td>hypotheses</td>
+<td>generated <em>from</em> the data</td>
+<td>specified <em>before</em> seeing the data</td>
+</tr>
+<tr>
+<td>procedure</td>
+<td>flexible, iterative</td>
+<td>fixed in advance (design, model, decision rule)</td>
+</tr>
+<tr>
+<td>output</td>
+<td>patterns, questions, candidate hypotheses</td>
+<td>evidence for or against a hypothesis (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span>-values, intervals)</td>
+</tr>
+</tbody></table></div>
+<p>The danger is <strong>data-dependent decisions</strong>. If the same data are used to</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>search for a pattern</mtext><mo>→</mo><mtext>select a hypothesis</mtext><mo>→</mo><mtext>choose variables</mtext><mo>→</mo><mtext>choose a model</mtext><mo>→</mo><mtext>test it</mtext><mo separator="true">,</mo></mrow><annotation encoding="application/x-tex">\text{search for a pattern}\to\text{select a hypothesis}\to\text{choose variables}\to\text{choose a model}\to\text{test it},</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">search for a pattern</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">select a hypothesis</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord text"><span class="mord">choose variables</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord text"><span class="mord">choose a model</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8623em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">test it</span></span><span class="mpunct">,</span></span></span></span></span></p>
+<p>the final <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span>-value or confidence interval no longer means what it would if the hypothesis had been fixed in advance — the result looks stronger than it is, because the data were used both to <em>find</em> the result and to <em>prove</em> it.</p>
+
+<div class="callout example"><div class="callout-title">Worked example: Six lifestyle variables (Example 66)</div><p>A researcher explores sleep, exercise, screen time, breakfast, caffeine and study time for 500 students, notices sleep looks related to scores, picks the regression that makes the relationship strongest, and reports &quot;significant&quot;. With six candidates examined, one strong-looking relationship can appear by chance. The exploration was useful — it found a hypothesis — but it should be tested on <strong>new data, a held-out sample, or a pre-registered analysis</strong>.</p>
+</div>
+<blockquote>
+<p>Exploration uses data to discover what <em>might</em> be interesting; confirmation uses independent or properly controlled evidence to decide whether it is likely to be <em>genuine</em>.</p>
+</blockquote>
+<h2 id="3-1-4-separating-exploration-from-confirmation"><a class="anchor" href="#3-1-4-separating-exploration-from-confirmation" aria-hidden="true">#</a>3.1.4 Separating exploration from confirmation</h2>
+<p>Ways to keep the two roles apart:</p>
+<ul>
+<li><strong>separate datasets</strong> — one to explore, one to test;</li>
+<li><strong>train / validation / test partitions</strong> in predictive modelling;</li>
+<li><strong>pre-registration</strong> of hypotheses, variables and analysis before the confirmatory study;</li>
+<li><strong>replication</strong> on an independent sample;</li>
+<li><strong>transparent reporting</strong> of every analytical decision (variable selection, exclusions, transformations, model choice).</li>
+</ul>
+
+<div class="callout remember"><div class="callout-title">Remember</div><p>Never treat a pattern found by exploring a dataset as confirmed by that same dataset; confirm it on separate, pre-specified or new data.</p>
+</div>
+<h2 id="3-1-5-the-unit-of-analysis-must-be-defined-first"><a class="anchor" href="#3-1-5-the-unit-of-analysis-must-be-defined-first" aria-hidden="true">#</a>3.1.5 The unit of analysis must be defined first</h2>
+<p>The first question about any dataset: <strong>what does one row represent?</strong> A row might be a person, a hospital admission, an image, a transaction, a sensor reading, a household, a region, a session, a device-day, or a student-course pair. When many rows belong to one entity, <strong>row count is not sample size</strong>: 50,000 X-ray images from 2,000 patients are not 50,000 independent patients.</p>
+
+<div class="callout def"><div class="callout-title">Definition: The four units to document</div><ul>
+<li><strong>Unit of observation:</strong> what one record is.</li>
+<li><strong>Unit of prediction:</strong> the entity a prediction is made for.</li>
+<li><strong>Unit of sampling:</strong> the entity or group that was selected into the data.</li>
+<li><strong>Unit of evaluation:</strong> the entity at which performance or results are assessed.</li>
+</ul>
+<p>They can coincide, but often do not.</p>
+</div>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>application</th>
+<th>observation</th>
+<th>prediction</th>
+<th>sampling</th>
+<th>evaluation</th>
+<th>trap</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>30-day readmission</td>
+<td>an admission</td>
+<td>a patient admission</td>
+<td>hospital/department</td>
+<td>an admission</td>
+<td>repeat admissions of one patient are related</td>
+</tr>
+<tr>
+<td>customer churn</td>
+<td>a customer-month</td>
+<td>a customer</td>
+<td>region/account group</td>
+<td>a customer</td>
+<td>one customer in both train and test</td>
+</tr>
+<tr>
+<td>crop yield</td>
+<td>a field plot in a season</td>
+<td>a field</td>
+<td>a farm</td>
+<td>a field</td>
+<td>fields on the same farm share soil and weather</td>
+</tr>
+<tr>
+<td>student dropout</td>
+<td>a student-year</td>
+<td>a student</td>
+<td>university/department</td>
+<td>a student</td>
+<td>sampled by institution, predicted per student</td>
+</tr>
+</tbody></table></div>
+<h2 id="3-1-6-why-the-unit-of-analysis-matters"><a class="anchor" href="#3-1-6-why-the-unit-of-analysis-matters" aria-hidden="true">#</a>3.1.6 Why the unit of analysis matters</h2>
+<p>Getting it wrong causes:</p>
+<ul>
+<li><strong>overstated sample sizes</strong> (repeated rows counted as independent);</li>
+<li><strong>underestimated standard errors</strong> (dependence ignored → false confidence);</li>
+<li><strong>data leakage</strong> — rows from the same entity in both train and test, so the model is tested on people it has effectively seen;</li>
+<li><strong>misleading subgroup summaries</strong> when some entities contribute far more rows;</li>
+<li><strong>wrong tests or models</strong> when the assumed independence does not hold.</li>
+</ul>
+
+<div class="callout remember"><div class="callout-title">Remember</div><p>Before anything else, decide what one row is, whether rows are independent, and which unit matters for the question — then split, summarise and evaluate at that unit.</p>
+</div>
+<h2 id="3-1-7-recommended-eda-workflow"><a class="anchor" href="#3-1-7-recommended-eda-workflow" aria-hidden="true">#</a>3.1.7 Recommended EDA workflow</h2>
+
+<div class="figs"><figure><a href="assets/fig/m3-p017.jpg" class="zoom"><img src="assets/fig/m3-p017.jpg" alt="Figure 23 — Recommended EDA workflow" loading="lazy" decoding="async"></a><figcaption>Module 3 notes · PDF p.17 — Figure 23 — Recommended EDA workflow</figcaption></figure></div>
+<p>A structured, iterative workflow beats an unplanned pile of charts: understand the <strong>context</strong> in which the data were produced → inspect <strong>structure</strong> and individual <strong>variables</strong> → examine <strong>relationships</strong>, <strong>time</strong> behaviour and <strong>subgroups</strong> → <strong>document</strong> findings, assumptions, decisions and open uncertainties so they inform modelling.</p>
+<h2 id="3-2-1-understanding-distributions"><a class="anchor" href="#3-2-1-understanding-distributions" aria-hidden="true">#</a>3.2.1 Understanding distributions</h2>
+<p>For each variable ask: where are values concentrated? Symmetric or skewed? One mode or several? Gaps? Natural bounds? Heavy or light tails? Extremes? Different across subgroups?</p>
+
+<div class="figs"><figure><a href="assets/fig/m3-p019.jpg" class="zoom"><img src="assets/fig/m3-p019.jpg" alt="Figure 24 — Five characteristics of a numerical distribution" loading="lazy" decoding="async"></a><figcaption>Module 3 notes · PDF p.19 — Figure 24 — Five characteristics of a numerical distribution</figcaption></figure><figure><a href="assets/fig/m3-p020.jpg" class="zoom"><img src="assets/fig/m3-p020.jpg" alt="Figure 25 — Graphical methods that complement numerical summaries" loading="lazy" decoding="async"></a><figcaption>Module 3 notes · PDF p.20 — Figure 25 — Graphical methods that complement numerical summaries</figcaption></figure></div>
+<p>A distribution has five complementary characteristics:</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>characteristic</th>
+<th>meaning</th>
+<th>measured by</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>location</strong></td>
+<td>where values centre</td>
+<td>mean, median</td>
+</tr>
+<tr>
+<td><strong>spread</strong></td>
+<td>how widely they vary</td>
+<td>range, variance, SD, IQR</td>
+</tr>
+<tr>
+<td><strong>shape</strong></td>
+<td>symmetry, skew, modality, concentration</td>
+<td>histogram, density, skewness</td>
+</tr>
+<tr>
+<td><strong>tails</strong></td>
+<td>behaviour far from the centre</td>
+<td>Q–Q plot, ECDF, upper quantiles</td>
+</tr>
+<tr>
+<td><strong>unusual observations</strong></td>
+<td>legitimate extremes or data errors</td>
+<td>boxplot, inspection</td>
+</tr>
+</tbody></table></div>
+<h3 id="pathological-examples"><a class="anchor" href="#pathological-examples" aria-hidden="true">#</a>Pathological examples</h3>
+<p>A &quot;pathological&quot; pattern departs from the simple, symmetric, single-peaked shape that many methods assume. It may be <strong>genuine structure</strong> or a <strong>data-quality or plotting artefact</strong> — and looking at the same variable with several plot types is how you tell them apart.</p>
+
+<div class="figs"><figure><a href="assets/fig/m3-p021.jpg" class="zoom"><img src="assets/fig/m3-p021.jpg" alt="Figure 26 — Pathological distributions" loading="lazy" decoding="async"></a><figcaption>Module 3 notes · PDF p.21 — Figure 26 — Pathological distributions</figcaption></figure></div>
+<p><strong>Pathological distributions</strong> — heavy tails, strong skew, multimodality, zero-inflation, truncation, heterogeneous mixtures. They arise from subpopulations, physical or administrative limits, rare extreme events, excess zeros, or non-linear processes. Then the mean and SD can mislead, and methods assuming normality, constant variance or one homogeneous population may fail. <em>Real examples:</em> income and wealth (right-skewed), insurance claims and losses (heavy tails), hospital length of stay (right-skewed), healthcare visits (zero-inflated), data pooled across hospitals or scanners (multimodal).</p>
+
+<div class="figs"><figure><a href="assets/fig/m3-p022.jpg" class="zoom"><img src="assets/fig/m3-p022.jpg" alt="Figure 27 — Pathological histograms" loading="lazy" decoding="async"></a><figcaption>Module 3 notes · PDF p.22 — Figure 27 — Pathological histograms</figcaption></figure></div>
+<p><strong>Pathological histograms</strong> — apparent gaps, isolated spikes, heaping at particular values, a pile-up at zero, domination by extremes, and a picture that changes dramatically with the number of bins. Causes may be genuine, or rounding, digit preference, measurement resolution, censoring, coding conventions or poor binning. <em>Real examples:</em> self-reported ages spiking at multiples of 5 or 10; prices clustering at 9.99/19.99; manual blood pressure heaped at multiples of 5 or 10 mmHg; sensor gaps from device ranges or downtime; household expenditure compressed by a few huge values.</p>
+
+<div class="figs"><figure><a href="assets/fig/m3-p023.jpg" class="zoom"><img src="assets/fig/m3-p023.jpg" alt="Figure 28 — Pathological density plots" loading="lazy" decoding="async"></a><figcaption>Module 3 notes · PDF p.23 — Figure 28 — Pathological density plots</figcaption></figure></div>
+<p><strong>Pathological density plots</strong> — the KDE depends on its <strong>bandwidth</strong>: too much smoothing erases real peaks, too little invents spurious ones. <strong>Boundary bias</strong> puts density outside a variable&#39;s possible range (below 0, or outside <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><mn>0</mn><mo separator="true">,</mo><mn>1</mn><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[0,1]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">1</span><span class="mclose">]</span></span></span></span> for proportions). Watch for multiple modes, shoulders, heavy tails, abrupt cut-offs and sharp spikes from zero-inflation or detection limits. A density plot is an <em>estimate</em> of shape, not the data. <em>Examples:</em> BMI with several modes (mixed populations), lab values piled at a detection limit, shoulders from mixing hospitals or scanners.</p>
+
+<div class="figs"><figure><a href="assets/fig/m3-p024.jpg" class="zoom"><img src="assets/fig/m3-p024.jpg" alt="Figure 29 — Pathological box plots" loading="lazy" decoding="async"></a><figcaption>Module 3 notes · PDF p.24 — Figure 29 — Pathological box plots</figcaption></figure></div>
+<p><strong>Pathological box plots</strong> — many flagged points, very long whiskers, a median pushed to one side of the box, unusually small or large IQRs, large differences between groups. Points beyond the <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1.5</mn><mo>×</mo></mrow><annotation encoding="application/x-tex">1.5\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">1.5</span><span class="mord">×</span></span></span></span>IQR fences are <strong>not automatically errors</strong> — skewed or heavy-tailed data produce many legitimate ones. A boxplot is a diagnostic that points to what to investigate, not a deletion rule. <em>Examples:</em> hospital charges (many upper outliers), delivery times (long upper whisker), manufacturing dimensions (narrow box, a few faults), house prices by region (different medians and IQRs).</p>
+
+<div class="figs"><figure><a href="assets/fig/m3-p025.jpg" class="zoom"><img src="assets/fig/m3-p025.jpg" alt="Figure 30 — Pathological ECDFs" loading="lazy" decoding="async"></a><figcaption>Module 3 notes · PDF p.25 — Figure 30 — Pathological ECDFs</figcaption></figure></div>
+<p><strong>Pathological ECDFs</strong> — the empirical CDF (proportion of observations <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≤</mo></mrow><annotation encoding="application/x-tex">\le</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719em;vertical-align:-0.136em;"></span><span class="mrel">≤</span></span></span></span> each value) needs <strong>no bins and no smoothing</strong>, which makes it good at exposing discreteness, repeated values, truncation, censoring and mixtures. <strong>Big vertical steps</strong> = many identical values; <strong>long flat stretches</strong> = ranges with no data; <strong>changes of slope</strong> = different groups or thresholds; <strong>abrupt ends or pile-ups</strong> = truncation/censoring. <em>Examples:</em> five-point Likert scores (staircase), rounded glucose values, survival times censored at study end, waiting times from two service regimes (two slopes).</p>
+
+<div class="figs"><figure><a href="assets/fig/m3-p027.jpg" class="zoom"><img src="assets/fig/m3-p027.jpg" alt="Figure 31 — Diagnosing departures with Q–Q plots" loading="lazy" decoding="async"></a><figcaption>Module 3 notes · PDF p.27 — Figure 31 — Diagnosing departures with Q–Q plots</figcaption></figure></div>
+<p><strong>Pathological Q–Q plots</strong> — the Q–Q plot compares observed quantiles with a reference (usually normal); a good match lies on a straight line. <strong>Ends bending outward</strong> = heavy tails; <strong>inward</strong> = light tails; <strong>curved one way</strong> = skew; <strong>changes of slope or clusters</strong> = mixtures; <strong>isolated far points</strong> = outliers. <em>Examples:</em> financial returns (both tails heavy), concentrations (right skew until log-transformed), regression residuals S-shaped from mixed subpopulations, bounded test scores (light upper tail).</p>
+
+<div class="callout remember"><div class="callout-title">Remember</div><p>Look at a distribution&#39;s location, spread, shape, tails and unusual points, with more than one plot type; a strange shape may be real structure or an artefact of measurement or plotting.</p>
+</div>
+<h2 id="3-2-2-understanding-relationships"><a class="anchor" href="#3-2-2-understanding-relationships" aria-hidden="true">#</a>3.2.2 Understanding relationships</h2>
+
+<div class="figs"><figure><a href="assets/fig/m3-p028.jpg" class="zoom"><img src="assets/fig/m3-p028.jpg" alt="Figure 32 — Possible forms of association" loading="lazy" decoding="async"></a><figcaption>Module 3 notes · PDF p.28 — Figure 32 — Possible forms of association</figcaption></figure></div>
+<p>Two variables can be related positively or negatively and linearly; non-linearly; monotonically but non-linearly; through a <strong>threshold</strong>; through an <strong>interaction</strong> with a third variable; through <strong>clusters</strong>; not at all; only because of <strong>outliers</strong>; or <strong>differently (even reversed) in different subgroups</strong>. So look at relationships both <strong>overall and within relevant subgroups</strong>.</p>
+
+<div class="callout example"><div class="callout-title">Worked example: Exercise and blood pressure, stratified (Example 68)</div><p>Across 1,000 adults, more exercise goes with lower blood pressure, strongly. Split by age: weak in young adults, moderate in middle age, strong in older adults. Part of the overall association reflects that older adults both exercise less and have higher blood pressure — the aggregate pattern does not describe every group.</p>
+</div>
+<p><strong>Association is not causation.</strong> A relationship between <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi></mrow><annotation encoding="application/x-tex">X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span> and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi></mrow><annotation encoding="application/x-tex">Y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span> can arise because <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi></mrow><annotation encoding="application/x-tex">X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span> causes <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi></mrow><annotation encoding="application/x-tex">Y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span>; <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Y</mi></mrow><annotation encoding="application/x-tex">Y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span></span></span></span> causes <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi></mrow><annotation encoding="application/x-tex">X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span> (<strong>reverse causation</strong>); a third variable drives both (<strong>confounding</strong>); the <strong>sampling/selection</strong> process created it; <strong>measurement or processing</strong> created it; or <strong>chance</strong>. EDA can describe direction, strength and form — it cannot tell which explanation is right. Causal claims need randomised experiments (RCTs) or explicit causal models and assumptions (Pearl).</p>
+
+<div class="callout example"><div class="callout-title">Worked example: Exercise and blood pressure, causally (Example 69)</div><p>A clear negative association in 2,000 adults is compatible with: exercise lowers BP; people with high BP exercise less (reverse); healthier diet/lower stress/better healthcare go with both (confounding); people who choose to exercise differ systematically (selection). A randomised exercise programme would settle it.</p>
+</div>
+
+<div class="callout remember"><div class="callout-title">Remember</div><p>Describe a relationship&#39;s direction, strength and form overall and within subgroups — and never read cause from an association.</p>
+</div>
+<h2 id="3-2-3-detecting-anomalies"><a class="anchor" href="#3-2-3-detecting-anomalies" aria-hidden="true">#</a>3.2.3 Detecting anomalies</h2>
+<p>An <strong>anomaly</strong> is an observation, combination or pattern very different from what the data-generating process would normally produce: a body temperature of 350 °C, a negative age, thousands of transactions per second, a sudden jump in a sensor signal, individually plausible values that are jointly impossible, an error pattern concentrated in one subgroup.</p>
+<p>An anomaly may be a data-entry or unit-conversion error, an equipment failure — or a <strong>rare but legitimate</strong> case, <strong>fraud</strong>, an important <strong>discovery</strong>, or evidence that the <strong>distribution has shifted</strong>. So investigate, don&#39;t delete.</p>
+
+<div class="figs"><figure><a href="assets/fig/m3-p032.jpg" class="zoom"><img src="assets/fig/m3-p032.jpg" alt="Figure 33 — Workflow for investigating anomalies" loading="lazy" decoding="async"></a><figcaption>Module 3 notes · PDF p.32 — Figure 33 — Workflow for investigating anomalies</figcaption></figure></div>
+<p><strong>Workflow:</strong> <strong>flag</strong> → <strong>verify</strong> (source records, units, devices) → <strong>explain</strong> the cause → <strong>correct</strong> confirmed errors or <strong>retain</strong> valid rare cases → <strong>document</strong> the decision and the observation&#39;s influence on later analysis.</p>
+
+<div class="callout remember"><div class="callout-title">Remember</div><p>Anomalies are investigated, not automatically removed: flag, verify, explain, correct or retain, document.</p>
+</div>
+<h2 id="3-2-4-understanding-missingness"><a class="anchor" href="#3-2-4-understanding-missingness" aria-hidden="true">#</a>3.2.4 Understanding missingness</h2>
+<p>Missing data carry information about how the data were generated, and they affect inference and model performance. Examine missingness at <strong>four levels</strong>:</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>level</th>
+<th>quantity</th>
+<th>what it reveals</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>variable</strong></td>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>r</mi><mi>j</mi></msub><mo>=</mo><mstyle displaystyle="true" scriptlevel="0"><mfrac><mrow><mi mathvariant="normal">#</mi><mtext> missing in feature </mtext><mi>j</mi></mrow><mi>n</mi></mfrac></mstyle></mrow><annotation encoding="application/x-tex">r_j=\dfrac{\#\text{ missing in feature }j}{n}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7167em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.0574em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3714em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">n</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">#</span><span class="mord text"><span class="mord"> missing in feature </span></span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></td>
+<td>which features are badly incomplete</td>
+</tr>
+<tr>
+<td><strong>record</strong></td>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>r</mi><mi>i</mi></msub><mo>=</mo><mstyle displaystyle="true" scriptlevel="0"><mfrac><mrow><mi mathvariant="normal">#</mi><mtext> missing features in record </mtext><mi>i</mi></mrow><mi>p</mi></mfrac></mstyle></mrow><annotation encoding="application/x-tex">r_i=\dfrac{\#\text{ missing features in record }i}{p}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.2519em;vertical-align:-0.8804em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3714em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">p</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">#</span><span class="mord text"><span class="mord"> missing features in record </span></span><span class="mord mathnormal">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8804em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></td>
+<td>unusually incomplete observations (system failures, particular people)</td>
+</tr>
+<tr>
+<td><strong>pattern</strong></td>
+<td>which variables are missing <strong>together</strong></td>
+<td>a shared cause: a failed monitor (BP and heart rate), declined sensitive questions (income and employment), tests not ordered</td>
+</tr>
+<tr>
+<td><strong>subgroup</strong></td>
+<td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false">(</mo><mtext>feature </mtext><mi>j</mi><mtext> missing</mtext><mo>∣</mo><mi>G</mi><mo>=</mo><mi>g</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">P(\text{feature }j\text{ missing}\mid G=g)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord text"><span class="mord">feature </span></span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mord text"><span class="mord"> missing</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mclose">)</span></span></span></span></td>
+<td>groups with much more missing data</td>
+</tr>
+</tbody></table></div>
+<p>Big subgroup differences cause <strong>unequal effective sample sizes</strong>, <strong>differential imputation error</strong>, <strong>distorted feature distributions</strong> and <strong>unequal model reliability</strong> — and an overall missing percentage can hide all of this.</p>
+
+<div class="callout example"><div class="callout-title">Worked example: Income missing by insurance group (Example 71)</div><p>Diabetes-risk data: income missing for 55% of Medicare (elderly) patients, 10% of Medicaid (income is documented to qualify) and 25% of privately insured. Dropping incomplete rows keeps 45% / 90% / 75% of each group, so Medicaid patients dominate what the model learns about income. Imputation is least accurate for Medicare; the observed Medicare incomes may come from an unrepresentative subset; and predictions are least reliable for Medicare patients — hidden behind one overall AUC. <strong>Remedies:</strong> report missingness by subgroup (in the datasheet), add <strong>missingness-indicator</strong> features, evaluate performance per subgroup (in the model card), and consider not using income for a group where it is mostly missing.</p>
+</div>
+
+<div class="callout example"><div class="callout-title">Worked example: Lab tests by risk group (Example 70)</div><p>Labs missing for 2% of low-risk, 4% of moderate-risk and 15% of high-risk patients: the available lab data under-represent high-risk patients, so a model trained on complete cases may do worst exactly where it matters.</p>
+</div>
+
+<div class="callout remember"><div class="callout-title">Remember</div><p>Measure missingness per variable, per record, as patterns and per subgroup; missingness is rarely random, and &quot;missing&quot; can itself be a useful feature.</p>
+</div>
+<h2 id="3-2-5-identifying-bias"><a class="anchor" href="#3-2-5-identifying-bias" aria-hidden="true">#</a>3.2.5 Identifying bias</h2>
+<p>Bias here is a systematic distortion of <strong>validity</strong>, <strong>fairness</strong> or <strong>generalisability</strong> — often from how data were collected, measured, selected or labelled, not from analyst error.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>bias</th>
+<th>definition</th>
+<th>notes&#39; examples</th>
+<th>consequence</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>sampling</strong></td>
+<td>sample differs systematically from the target population</td>
+<td>online health survey (no internet users missing); study-skills workshop attendees; recent purchasers only; gym recruits</td>
+<td>estimates don&#39;t generalise (satisfaction, study time, activity overestimated)</td>
+</tr>
+<tr>
+<td><strong>measurement</strong></td>
+<td>variable measured differently across groups, sites, devices or time</td>
+<td>miscalibrated BP device at one hospital; easier test at one school; sensor reading 2 °C high; tax records vs self-reported income; new weighing scale</td>
+<td>apparent differences that are measurement artefacts</td>
+</tr>
+<tr>
+<td><strong>label</strong></td>
+<td>recorded outcome is an imperfect proxy for the construct</td>
+<td>&quot;dropout&quot; includes transfers; diagnosis depends on doctor/resources; default only observed for those given credit; manager ratings; complaints ≠ dissatisfaction</td>
+<td>the model learns the proxy, not the construct</td>
+</tr>
+<tr>
+<td><strong>survivorship</strong></td>
+<td>only units that &quot;survived&quot; a process remain</td>
+<td>10-year-old companies; existing funds; graduates; long-tenure employees; treatment completers</td>
+<td>success rates and effects overestimated</td>
+</tr>
+<tr>
+<td><strong>selection</strong></td>
+<td>inclusion depends on variables related to the outcome</td>
+<td>hospital patients only (smoking–heart disease); admitted students (grades–performance); employed people (health–income); completers</td>
+<td>associations created or distorted</td>
+</tr>
+<tr>
+<td><strong>historical</strong></td>
+<td>data faithfully record an unequal past process</td>
+<td>hiring/promotion records; past admissions; past treatment decisions; credit access; arrest records (policing)</td>
+<td>the model reproduces past inequality</td>
+</tr>
+</tbody></table></div>
+<h3 id="quot-just-collect-more-data-quot-the-big-data-paradox"><a class="anchor" href="#quot-just-collect-more-data-quot-the-big-data-paradox" aria-hidden="true">#</a>&quot;Just collect more data&quot;? — the Big Data paradox</h3>
+<p>More data reduces <strong>random</strong> error, not <strong>systematic</strong> bias. Meng (2018) showed the error of a sample mean decomposes as</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mover accent="true"><mi>X</mi><mo>ˉ</mo></mover><mi>S</mi></msub><mo>−</mo><msub><mover accent="true"><mi>X</mi><mo>ˉ</mo></mover><mi>U</mi></msub><mo>=</mo><munder><munder><msub><mi>ρ</mi><mrow><mi>R</mi><mo separator="true">,</mo><mi>X</mi></mrow></msub><mo stretchy="true">⏟</mo></munder><mtext>data quality</mtext></munder><mo>×</mo><munder><munder><msqrt><mfrac><mrow><mi>N</mi><mo>−</mo><mi>n</mi></mrow><mi>n</mi></mfrac></msqrt><mo stretchy="true">⏟</mo></munder><mtext>data quantity</mtext></munder><mo>×</mo><munder><munder><msub><mi>σ</mi><mi>X</mi></msub><mo stretchy="true">⏟</mo></munder><mtext>problem difficulty</mtext></munder><mo separator="true">,</mo></mrow><annotation encoding="application/x-tex">\bar X_S-\bar X_U=\underbrace{\rho_{R,X}}_{\text{data quality}}\times\underbrace{\sqrt{\frac{N-n}{n}}}_{\text{data quantity}}\times\underbrace{\sigma_X}_{\text{problem difficulty}},</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9701em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8201em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span><span style="top:-3.2523em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.1667em;"><span class="mord">ˉ</span></span></span></span></span></span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.0785em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05764em;">S</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.9701em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8201em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span><span style="top:-3.2523em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.1667em;"><span class="mord">ˉ</span></span></span></span></span></span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.0785em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.10903em;">U</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.3397em;vertical-align:-1.7563em;"></span><span class="mord munder"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.4306em;"><span style="top:-1.3798em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">data quality</span></span></span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord munder"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.4306em;"><span class="svg-align" style="top:-2.0659em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.548em;min-width:1.6em;"><span class="brace-left" style="height:0.548em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="0.548em" viewBox="0 0 400000 548" preserveAspectRatio="xMinYMin slice"><path d="M0 6l6-6h17c12.688 0 19.313.3 20 1 4 4 7.313 8.3 10 13
+ 35.313 51.3 80.813 93.8 136.5 127.5 55.688 33.7 117.188 55.8 184.5 66.5.688
+ 0 2 .3 4 1 18.688 2.7 76 4.3 172 5h399450v120H429l-6-1c-124.688-8-235-61.7
+-331-161C60.687 138.7 32.312 99.3 7 54L0 41V6z"/></svg></span><span class="brace-center" style="height:0.548em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="0.548em" viewBox="0 0 400000 548" preserveAspectRatio="xMidYMin slice"><path d="M199572 214
+c100.7 8.3 195.3 44 280 108 55.3 42 101.7 93 139 153l9 14c2.7-4 5.7-8.7 9-14
+ 53.3-86.7 123.7-153 211-199 66.7-36 137.3-56.3 212-62h199568v120H200432c-178.3
+ 11.7-311.7 78.3-403 201-6 8-9.7 12-11 12-.7.7-6.7 1-18 1s-17.3-.3-18-1c-1.3 0
+-5-4-11-12-44.7-59.3-101.3-106.3-170-141s-145.3-54.3-229-60H0V214z"/></svg></span><span class="brace-right" style="height:0.548em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="0.548em" viewBox="0 0 400000 548" preserveAspectRatio="xMaxYMin slice"><path d="M399994 0l6 6v35l-6 11c-56 104-135.3 181.3-238 232-57.3
+ 28.7-117 45-179 50H-300V214h399897c43.3-7 81-15 113-26 100.7-33 179.7-91 237
+-174 2.7-5 6-9 10-13 .7-1 7.3-1 20-1h17z"/></svg></span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal">ρ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.00773em;">R</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight" style="margin-right:0.07847em;">X</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.9341em;"><span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.7563em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:3.9102em;vertical-align:-2.2392em;"></span><span class="mord munder"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.671em;"><span style="top:-1.568em;"><span class="pstrut" style="height:3.671em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">data quantity</span></span></span></span></span><span style="top:-3.671em;"><span class="pstrut" style="height:3.671em;"></span><span class="mord munder"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.671em;"><span class="svg-align" style="top:-2.2541em;"><span class="pstrut" style="height:3.671em;"></span><span class="stretchy" style="height:0.548em;min-width:1.6em;"><span class="brace-left" style="height:0.548em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="0.548em" viewBox="0 0 400000 548" preserveAspectRatio="xMinYMin slice"><path d="M0 6l6-6h17c12.688 0 19.313.3 20 1 4 4 7.313 8.3 10 13
+ 35.313 51.3 80.813 93.8 136.5 127.5 55.688 33.7 117.188 55.8 184.5 66.5.688
+ 0 2 .3 4 1 18.688 2.7 76 4.3 172 5h399450v120H429l-6-1c-124.688-8-235-61.7
+-331-161C60.687 138.7 32.312 99.3 7 54L0 41V6z"/></svg></span><span class="brace-center" style="height:0.548em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="0.548em" viewBox="0 0 400000 548" preserveAspectRatio="xMidYMin slice"><path d="M199572 214
+c100.7 8.3 195.3 44 280 108 55.3 42 101.7 93 139 153l9 14c2.7-4 5.7-8.7 9-14
+ 53.3-86.7 123.7-153 211-199 66.7-36 137.3-56.3 212-62h199568v120H200432c-178.3
+ 11.7-311.7 78.3-403 201-6 8-9.7 12-11 12-.7.7-6.7 1-18 1s-17.3-.3-18-1c-1.3 0
+-5-4-11-12-44.7-59.3-101.3-106.3-170-141s-145.3-54.3-229-60H0V214z"/></svg></span><span class="brace-right" style="height:0.548em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="0.548em" viewBox="0 0 400000 548" preserveAspectRatio="xMaxYMin slice"><path d="M399994 0l6 6v35l-6 11c-56 104-135.3 181.3-238 232-57.3
+ 28.7-117 45-179 50H-300V214h399897c43.3-7 81-15 113-26 100.7-33 179.7-91 237
+-174 2.7-5 6-9 10-13 .7-1 7.3-1 20-1h17z"/></svg></span></span></span><span style="top:-3.671em;"><span class="pstrut" style="height:3.671em;"></span><span class="mord"><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.671em;"><span class="svg-align" style="top:-4.4em;"><span class="pstrut" style="height:4.4em;"></span><span class="mord" style="padding-left:1em;"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">n</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span><span style="top:-3.631em;"><span class="pstrut" style="height:4.4em;"></span><span class="hide-tail" style="min-width:1.02em;height:2.48em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="2.48em" viewBox="0 0 400000 2592" preserveAspectRatio="xMinYMin slice"><path d="M424,2478
+c-1.3,-0.7,-38.5,-172,-111.5,-514c-73,-342,-109.8,-513.3,-110.5,-514
+c0,-2,-10.7,14.3,-32,49c-4.7,7.3,-9.8,15.7,-15.5,25c-5.7,9.3,-9.8,16,-12.5,20
+s-5,7,-5,7c-4,-3.3,-8.3,-7.7,-13,-13s-13,-13,-13,-13s76,-122,76,-122s77,-121,77,-121
+s209,968,209,968c0,-2,84.7,-361.7,254,-1079c169.3,-717.3,254.7,-1077.7,256,-1081
+l0 -0c4,-6.7,10,-10,18,-10 H400000
+v40H1014.6
+s-87.3,378.7,-272.6,1166c-185.3,787.3,-279.3,1182.3,-282,1185
+c-2,6,-10,9,-24,9
+c-8,0,-12,-0.7,-12,-2z M1001 80
+h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.769em;"><span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.417em;"><span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.2392em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:2.0508em;vertical-align:-1.6202em;"></span><span class="mord munder"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.4306em;"><span style="top:-1.5159em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">problem difficulty</span></span></span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord munder"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.4306em;"><span class="svg-align" style="top:-2.202em;"><span class="pstrut" style="height:3em;"></span><span class="stretchy" style="height:0.548em;min-width:1.6em;"><span class="brace-left" style="height:0.548em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="0.548em" viewBox="0 0 400000 548" preserveAspectRatio="xMinYMin slice"><path d="M0 6l6-6h17c12.688 0 19.313.3 20 1 4 4 7.313 8.3 10 13
+ 35.313 51.3 80.813 93.8 136.5 127.5 55.688 33.7 117.188 55.8 184.5 66.5.688
+ 0 2 .3 4 1 18.688 2.7 76 4.3 172 5h399450v120H429l-6-1c-124.688-8-235-61.7
+-331-161C60.687 138.7 32.312 99.3 7 54L0 41V6z"/></svg></span><span class="brace-center" style="height:0.548em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="0.548em" viewBox="0 0 400000 548" preserveAspectRatio="xMidYMin slice"><path d="M199572 214
+c100.7 8.3 195.3 44 280 108 55.3 42 101.7 93 139 153l9 14c2.7-4 5.7-8.7 9-14
+ 53.3-86.7 123.7-153 211-199 66.7-36 137.3-56.3 212-62h199568v120H200432c-178.3
+ 11.7-311.7 78.3-403 201-6 8-9.7 12-11 12-.7.7-6.7 1-18 1s-17.3-.3-18-1c-1.3 0
+-5-4-11-12-44.7-59.3-101.3-106.3-170-141s-145.3-54.3-229-60H0V214z"/></svg></span><span class="brace-right" style="height:0.548em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="0.548em" viewBox="0 0 400000 548" preserveAspectRatio="xMaxYMin slice"><path d="M399994 0l6 6v35l-6 11c-56 104-135.3 181.3-238 232-57.3
+ 28.7-117 45-179 50H-300V214h399897c43.3-7 81-15 113-26 100.7-33 179.7-91 237
+-174 2.7-5 6-9 10-13 .7-1 7.3-1 20-1h17z"/></svg></span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.07847em;">X</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.798em;"><span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.6202em;"><span></span></span></span></span></span><span class="mpunct">,</span></span></span></span></span></p>
+<p>where <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mi>j</mi></msub><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">R_j=1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0077em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> if unit <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.854em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span></span></span></span> is in the dataset, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ρ</mi><mrow><mi>R</mi><mo separator="true">,</mo><mi>X</mi></mrow></msub></mrow><annotation encoding="application/x-tex">\rho_{R,X}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7167em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal">ρ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.00773em;">R</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight" style="margin-right:0.07847em;">X</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span> is the correlation between being included and the value <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi></mrow><annotation encoding="application/x-tex">X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span> is the population size, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span> the sample size and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>σ</mi><mi>X</mi></msub></mrow><annotation encoding="application/x-tex">\sigma_X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.07847em;">X</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> the population SD.</p>
+<ul>
+<li><strong>Random sample:</strong> inclusion is unrelated to <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi></mrow><annotation encoding="application/x-tex">X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span>, so <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ρ</mi><mrow><mi>R</mi><mo separator="true">,</mo><mi>X</mi></mrow></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\rho_{R,X}=0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7167em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal">ρ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.00773em;">R</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight" style="margin-right:0.07847em;">X</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span> and only random error remains, shrinking as <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span> grows.</li>
+<li><strong>Big, self-selected data</strong> (social media, voluntary apps, scraped data): <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ρ</mi><mrow><mi>R</mi><mo separator="true">,</mo><mi>X</mi></mrow></msub><mo mathvariant="normal">≠</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\rho_{R,X}\neq0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9805em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal">ρ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.00773em;">R</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight" style="margin-right:0.07847em;">X</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel"><span class="mrel"><span class="mord vbox"><span class="thinbox"><span class="rlap"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="inner"><span class="mord"><span class="mrel"></span></span></span><span class="fix"></span></span></span></span></span><span class="mrel">=</span></span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span>, so bias persists however large <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span> is — and confidence intervals become <strong>deceptively narrow</strong> around a wrong value.</li>
+<li><strong>Law of large populations:</strong> for fixed <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span>, the error grows like <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msqrt><mi>N</mi></msqrt></mrow><annotation encoding="application/x-tex">\sqrt N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.04em;vertical-align:-0.1133em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9267em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;padding-left:0.833em;">N</span></span><span style="top:-2.8867em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice"><path d="M95,702
+c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
+c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
+c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
+s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
+c69,-144,104.5,-217.7,106.5,-221
+l0 -0
+c5.3,-9.3,12,-14,20,-14
+H400000v40H845.2724
+s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
+c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
+M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1133em;"><span></span></span></span></span></span></span></span></span> — the same biased 100,000 does worse in a population of 10 million than of 100,000.</li>
+<li><strong>Slow improvement:</strong> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10</mn><mo>×</mo></mrow><annotation encoding="application/x-tex">10\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">10</span><span class="mord">×</span></span></span></span> more data shrinks the quantity term only by <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msqrt><mn>10</mn></msqrt><mo>≈</mo><mn>3.16</mn></mrow><annotation encoding="application/x-tex">\sqrt{10}\approx3.16</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.04em;vertical-align:-0.1328em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9072em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord">10</span></span></span><span style="top:-2.8672em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice"><path d="M95,702
+c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
+c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
+c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
+s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
+c69,-144,104.5,-217.7,106.5,-221
+l0 -0
+c5.3,-9.3,12,-14,20,-14
+H400000v40H845.2724
+s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
+c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
+M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1328em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">3.16</span></span></span></span>.</li>
+<li>Meng&#39;s 2016 US-election example: about 2.3 million self-reports (≈1% of voters) had an error comparable to a genuine random sample of only <strong>about 400</strong> people.</li>
+</ul>
+
+<div class="callout remember"><div class="callout-title">Remember</div><p>Name the bias (sampling, measurement, label, survivorship, selection, historical); a bigger dataset does not fix it, because error <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>=</mo><msub><mi>ρ</mi><mrow><mi>R</mi><mo separator="true">,</mo><mi>X</mi></mrow></msub><msqrt><mrow><mo stretchy="false">(</mo><mi>N</mi><mo>−</mo><mi>n</mi><mo stretchy="false">)</mo><mi mathvariant="normal">/</mi><mi>n</mi></mrow></msqrt><mtext> </mtext><msub><mi>σ</mi><mi>X</mi></msub></mrow><annotation encoding="application/x-tex">=\rho_{R,X}\sqrt{(N-n)/n}\,\sigma_X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.24em;vertical-align:-0.305em;"></span><span class="mord"><span class="mord mathnormal">ρ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.00773em;">R</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight" style="margin-right:0.07847em;">X</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.935em;"><span class="svg-align" style="top:-3.2em;"><span class="pstrut" style="height:3.2em;"></span><span class="mord" style="padding-left:1em;"><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal">n</span><span class="mclose">)</span><span class="mord">/</span><span class="mord mathnormal">n</span></span></span><span style="top:-2.895em;"><span class="pstrut" style="height:3.2em;"></span><span class="hide-tail" style="min-width:1.02em;height:1.28em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.28em" viewBox="0 0 400000 1296" preserveAspectRatio="xMinYMin slice"><path d="M263,681c0.7,0,18,39.7,52,119
+c34,79.3,68.167,158.7,102.5,238c34.3,79.3,51.8,119.3,52.5,120
+c340,-704.7,510.7,-1060.3,512,-1067
+l0 -0
+c4.7,-7.3,11,-11,19,-11
+H40000v40H1012.3
+s-271.3,567,-271.3,567c-38.7,80.7,-84,175,-136,283c-52,108,-89.167,185.3,-111.5,232
+c-22.3,46.7,-33.8,70.3,-34.5,71c-4.7,4.7,-12.3,7,-23,7s-12,-1,-12,-1
+s-109,-253,-109,-253c-72.7,-168,-109.3,-252,-110,-252c-10.7,8,-22,16.7,-34,26
+c-22,17.3,-33.3,26,-34,26s-26,-26,-26,-26s76,-59,76,-59s76,-60,76,-60z
+M1001 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.305em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.07847em;">X</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>.</p>
+</div>
+<h2 id="3-2-6-subgroup-behaviour"><a class="anchor" href="#3-2-6-subgroup-behaviour" aria-hidden="true">#</a>3.2.6 Subgroup behaviour</h2>
+<p>Aggregates can hide group differences. For groups <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi><mo>=</mo><mn>1</mn><mo separator="true">,</mo><mo>…</mo><mo separator="true">,</mo><mi>G</mi></mrow><annotation encoding="application/x-tex">g=1,\dots,G</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">G</span></span></span></span>, compute<br><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mover accent="true"><mi>x</mi><mo>ˉ</mo></mover><mi>g</mi></msub><mo separator="true">,</mo><mspace width="2em"/><msub><mi>s</mi><mi>g</mi></msub><mo separator="true">,</mo><mspace width="2em"/><mi>P</mi><mo stretchy="false">(</mo><mi>Y</mi><mo>=</mo><mn>1</mn><mo>∣</mo><mi>G</mi><mo>=</mo><mi>g</mi><mo stretchy="false">)</mo><mo separator="true">,</mo><mspace width="2em"/><mi>P</mi><mo stretchy="false">(</mo><mi>X</mi><mtext> missing</mtext><mo>∣</mo><mi>G</mi><mo>=</mo><mi>g</mi><mo stretchy="false">)</mo><mo separator="true">,</mo></mrow><annotation encoding="application/x-tex">\bar x_g,\qquad s_g,\qquad P(Y=1\mid G=g),\qquad P(X\text{ missing}\mid G=g),</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0361em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.5678em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal">x</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.2222em;"><span class="mord">ˉ</span></span></span></span></span></span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">g</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:2em;"></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">g</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:2em;"></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.22222em;">Y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:2em;"></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mord text"><span class="mord"> missing</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mclose">)</span><span class="mpunct">,</span></span></span></span></span><br>for groups defined by age, sex/gender, geography, socio-economic status, language, device, institution, time period, disease severity or customer segment — and sometimes <strong>intersections</strong> such as (gender, age group, region), which reveal what single variables hide.</p>
+<p>But fine-grained subgroups bring <strong>small, unstable estimates</strong> and <strong>chance findings</strong> when many arbitrary groups are tested. So:</p>
+<ul>
+<li>choose subgroups by <strong>domain knowledge</strong> and relevance (age for a blood-pressure drug, not birth month or shoe size);</li>
+<li>ensure <strong>adequate <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span></strong> per subgroup;</li>
+<li><strong>adjust for multiple comparisons</strong> when many are tested;</li>
+<li>keep <strong>pre-specified</strong> subgroup analyses separate from <strong>post-hoc</strong> findings;</li>
+<li>never keep splitting the data until something &quot;significant&quot; appears.</li>
+</ul>
+<p>Subgroup analysis is also how you find <strong>where a model fails</strong>: e.g. a readmission model that is weaker for one clinical category, or a churn model that is good for long-term but poor for new customers (too little history).</p>
+
+<div class="callout remember"><div class="callout-title">Remember</div><p>Report summaries and model performance per meaningful subgroup, chosen in advance with enough data — not by searching until something appears.</p>
+</div>
+<h2 id="source-material"><a class="anchor" href="#source-material" aria-hidden="true">#</a>Source material</h2>
+<p>The original documents behind these notes. Pick a tab to read it here, page by page, or open it in a new tab.</p>
+<div class="src-viewer" data-sources='[{"url":"pdfs/notes/Module-3-Notes.pdf","title":"Module 3 notes (PDF)"}]'></div>
+
+  <nav class="pagenav">
+    <a class="pv" href="quiz2-numericals.html">← Previous<b>M2 · ★ Quiz 2 numericals</b></a>
+    <a class="nx" href="m3b-notes.html">Next →<b>M3 · Notes B — plots, statistics, features (3.3–3.5)</b></a>
+  </nav>
+  <div class="foot">AI 500 · Fall 2026 · study notes</div>
+</main>
+</div>
+<div class="lightbox" id="lightbox" hidden><img alt=""><button class="iconbtn lb-close" aria-label="Close">✕</button></div>
+<script src="assets/site.js" defer></script>
+</body></html>

@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>★ Mock Quiz 3A · AI 500</title>
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#fbfbfa" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#16161a" media="(prefers-color-scheme: dark)">
+<script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<header class="topbar">
+  <button class="iconbtn" id="menuBtn" aria-label="Open contents" aria-expanded="false"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+  <a class="topbrand" href="index.html">AI 500<span>★ Mock Quiz 3A</span></a>
+  <button class="iconbtn themebtn" aria-label="Toggle dark mode"><svg class="i-moon" viewBox="0 0 24 24" width="19" height="19"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg><svg class="i-sun" viewBox="0 0 24 24" width="19" height="19"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg></button>
+</header>
+<div class="scrim" id="scrim"></div>
+<div class="wrap">
+<aside class="side" id="side">
+  <div class="side-head">
+    <a class="brand" href="index.html">AI 500 — Foundations of AI<span>Foundations of AI · Fall 2026</span></a>
+    <button class="iconbtn themebtn" aria-label="Toggle dark mode"><svg class="i-moon" viewBox="0 0 24 24" width="17" height="17"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg><svg class="i-sun" viewBox="0 0 24 24" width="17" height="17"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg></button>
+  </div>
+  <nav><a href="index.html">Home</a>
+<a href="start-here.html">Start here (how to use)</a>
+<div class="nav-section">Quiz 3 (28 Nov) — Module 3, §3.1–3.5</div>
+<a href="quiz3-guide.html">★ Quiz 3 guide</a>
+<a href="quiz3-mock-a.html" class="on" aria-current="page">★ Mock Quiz 3A</a>
+<a href="quiz3-mock-b.html">Mock Quiz 3B</a>
+<a href="quiz3-mock-c.html">Mock Quiz 3C</a>
+<div class="nav-section">Mid-term (31 Oct, Modules 1–2)</div>
+<a href="mid-guide.html">Mid guide</a>
+<a href="mid-mock-a.html">★ Mock Mid A</a>
+<a href="mid-mock-b.html">Mock Mid B</a>
+<a href="mid-mock-c.html">Mock Mid C</a>
+<div class="nav-section">Modules</div>
+<details class="grp"><summary>M1 · AI Landscape & Problem Framing</summary><a href="m1a-notes.html">Notes A — roots, philosophy, landscape</a><a href="m1b-notes.html">Notes B — pipeline, framing, failures</a><a href="m1-answers.html">Answers Q1–100</a><a href="m1-cases.html">Answers S, R, A</a></details>
+<details class="grp"><summary>M2 · Data Collection, Cleaning, Governance & Ethics</summary><a href="m2a-notes.html">Notes A — constructed data, sources, quality</a><a href="m2b-notes.html">Notes B — curation, cleaning, leakage</a><a href="m2c-notes.html">Notes C — documentation, governance, cases</a><a href="m2-definitions.html">★ Notes-exact definitions</a><a href="m2-answers-1.html">Answers Q1–50</a><a href="m2-answers-2.html">Answers Q51–100</a><a href="m2-scenarios.html">Scenarios S1–S5</a><a href="m2-reflections.html">Reflections R1–R5</a><a href="quiz2-numericals.html">★ Quiz 2 numericals</a></details>
+<details class="grp"><summary>M3 · EDA, Features & Statistical Thinking</summary><a href="m3a-notes.html">Notes A — EDA, unit of analysis, goals (3.1–3.2)</a><a href="m3b-notes.html">Notes B — plots, statistics, features (3.3–3.5)</a><a href="m3-notes.html">Chapter map and PDF</a></details>
+<div class="nav-section">Quiz 2 (24 Oct)</div>
+<a href="quiz2-solved.html">★ Real Quiz 2 (solved)</a>
+<a href="quiz2-numericals.html">★ Quiz 2 numericals</a>
+<a href="quiz2-guide.html">Quiz 2 guide</a>
+<a href="quiz2-mock-a.html">★ Mock Quiz 2A</a>
+<a href="quiz2-mock-b.html">Mock Quiz 2B</a>
+<a href="quiz2-mock-c.html">Mock Quiz 2C</a>
+<div class="nav-section">Archive</div>
+<a href="quiz1-solved.html">Real Quiz 1 (solved)</a>
+<a href="assignments.html">Assignments & computational training</a>
+<a href="a2-missedcare.html">A2 Part A — MissedCare (your answers)</a>
+<details class="grp"><summary>PDFs & past material</summary><a href="resources.html">2026 course PDFs</a><a href="past-papers.html">Past exams & quizzes</a><a href="past-lectures.html">Past lectures</a><a href="past-practice.html">Problem sets & solutions</a><a href="past-tutorials.html">Tutorials & demo code</a></details></nav>
+  
+</aside>
+<main>
+  
+  <div class="quiz-tools"><button data-sol="open">Show all solutions</button><button data-sol="close">Hide all</button><button onclick="window.print()">Print</button></div>
+  <h1>Mock Quiz 3A — Hospital emergency department</h1>
+<p>Module 3, §3.1–3.5 · in the style announced for Quiz 3 · try each question before opening the model answer. Marks follow the midterm&#39;s rubric style: one mark per distinct, justified point.</p>
+<div class="pdf-links">
+<a href="quiz3-guide.html">Quiz 3 guide</a>
+<a href="m3a-notes.html">M3 Notes A</a>
+<a href="m3b-notes.html">M3 Notes B</a>
+</div>
+
+<p><strong>Scenario.</strong> A hospital wants to understand emergency-department (ED) waiting times before building a model that flags patients at risk of waiting more than 4 hours. The dataset has one row per <strong>ED visit</strong> for 18 months: arrival time, triage category (1 = most urgent … 5 = least urgent), age, sex, insurance type, whether a lab test was ordered, the lab result (if any), waiting time in minutes, and whether the patient left without being seen. About 40,000 visits come from 22,000 patients.</p>
+
+<section class="question"><div class="q-head">Q1 (4 marks) — Choose your tools</div><p>The manager asks: &quot;How long do patients usually wait, and how bad are the worst waits?&quot; Which exploratory approach would you use — numerical, graphical or hybrid? Name the specific tools and justify the choice.</p>
+
+<details class="solution solution"><summary>Solution & marking</summary><div class="sol-body"><p>A <strong>hybrid</strong> approach (1).</p>
+<ul>
+<li><strong>Graphical:</strong> a histogram of waiting time (checked with at least two bin widths) to see the shape — waiting times are expected to be strongly right-skewed with a long upper tail — and/or an ECDF, which shows the proportion of patients waiting at most any given time without binning choices (1).</li>
+<li><strong>Numerical:</strong> the <strong>median</strong> for the typical wait (the mean would be pulled up by the long tail) and the <strong>90th/95th percentiles</strong> for the worst waits, plus the IQR for spread (1).</li>
+<li><strong>Why hybrid / caveat:</strong> the plot shows the skew and any heaping or gaps; the quantiles answer the manager&#39;s two questions in numbers. State the quantile method used, and report the results <strong>by triage category</strong>, because a pooled figure mixes urgent and non-urgent patients (1).</li>
+</ul>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q2 (4 marks) — Analyse a plot</div><p>The analyst shows a boxplot of waiting time for all visits. The box sits between 35 and 140 minutes, the median is at 70 minutes, the upper whisker reaches 297 minutes, and there are <strong>hundreds</strong> of points plotted above it, some beyond 900 minutes. The analyst proposes deleting every point above the whisker as &quot;outliers&quot;. Analyse the plot and respond to the proposal.</p>
+
+<details class="solution solution"><summary>Solution & marking</summary><div class="sol-body"><ul>
+<li><strong>Reading:</strong> IQR <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>=</mo><mn>140</mn><mo>−</mo><mn>35</mn><mo>=</mo><mn>105</mn></mrow><annotation encoding="application/x-tex">=140-35=105</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">140</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">35</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">105</span></span></span></span> min, so the upper fence is <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>140</mn><mo>+</mo><mn>1.5</mn><mo stretchy="false">(</mo><mn>105</mn><mo stretchy="false">)</mo><mo>=</mo><mn>297.5</mn></mrow><annotation encoding="application/x-tex">140+1.5(105)=297.5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">140</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1.5</span><span class="mopen">(</span><span class="mord">105</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">297.5</span></span></span></span> min. The median sits nearer the bottom of the box and the upper side is much longer: <strong>strong right skew</strong> (1).</li>
+<li><strong>Points above the whisker are not automatically errors.</strong> In a right-skewed, heavy-tailed variable like waiting time, many legitimate long waits lie beyond <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1.5</mn><mo>×</mo></mrow><annotation encoding="application/x-tex">1.5\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">1.5</span><span class="mord">×</span></span></span></span>IQR — and they are exactly the cases the model is meant to flag (&gt; 240 min). Deleting them would remove the target cases and understate the problem (1).</li>
+<li><strong>Investigate instead:</strong> flag → verify → explain → correct or retain → document. Values beyond 900 min (15 h) may be genuine (boarding patients) or errors (a missing discharge time filled with the next day&#39;s timestamp, clock errors) — check them against the visit records (1).</li>
+<li><strong>Limitations of the plot:</strong> a single pooled boxplot hides multimodality and group differences; plot waiting time <strong>by triage category</strong> (and add the individual points or a violin plot) (1).</li>
+</ul>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q3 (4 marks) — Is this enough?</div><p>A scatterplot of age (x) against waiting time (y) shows a weak positive trend with Pearson <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>=</mo><mn>0.18</mn></mrow><annotation encoding="application/x-tex">r=0.18</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.18</span></span></span></span>. The analyst concludes: &quot;Age barely matters for waiting time, so we can drop it.&quot; Is this analysis enough? What else needs to be done, and why?</p>
+
+<details class="solution solution"><summary>Solution & marking</summary><div class="sol-body"><p><strong>No</strong> (the conclusion is not supported).</p>
+<ul>
+<li><strong>Form of the relationship:</strong> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi></mrow><annotation encoding="application/x-tex">r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span></span></span></span> measures only <em>linear</em> association. Waiting time could relate to age non-linearly (e.g. children and the very old triaged faster or slower); look at the scatterplot shape and Spearman&#39;s <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ρ</mi><mi>S</mi></msub></mrow><annotation encoding="application/x-tex">\rho_S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">ρ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05764em;">S</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> or age bands (1).</li>
+<li><strong>Subgroups / confounding:</strong> triage category affects both age mix and waiting time. Within triage groups the age relationship may be stronger, weaker or reversed; stratify by triage (1).</li>
+<li><strong>Unit of analysis:</strong> rows are visits, not patients — 22,000 patients contribute 40,000 visits, so frequent attenders are over-represented and rows are not independent (1).</li>
+<li><strong>Overplotting / heteroscedasticity:</strong> with 40,000 points the scatterplot needs transparency or hexbin; spread may fan out with age. And a weak <em>marginal</em> association does not mean the feature is useless in a model (it may interact with triage) (1).</li>
+</ul>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q4 (4 marks) — Missingness</div><p>Lab results are missing for 62% of visits overall. By triage category the missing rate is 15% (cat. 1), 30% (cat. 2), 70% (cat. 4) and 90% (cat. 5). Interpret this pattern and say what it means for the model.</p>
+
+<details class="solution solution"><summary>Solution & marking</summary><div class="sol-body"><ul>
+<li><strong>The missingness is not random:</strong> it depends strongly on triage (a subgroup-specific pattern, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false">(</mo><mtext>lab missing</mtext><mo>∣</mo><mi>G</mi><mo>=</mo><mi>g</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">P(\text{lab missing}\mid G=g)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord text"><span class="mord">lab missing</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∣</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">G</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mclose">)</span></span></span></span>). Labs are ordered mostly for urgent patients, so &quot;missing&quot; largely means &quot;the clinician did not think a test was needed&quot; (1).</li>
+<li><strong>Consequence 1:</strong> dropping incomplete rows keeps mostly urgent patients — the effective sample size collapses for categories 4–5 and the data no longer represent the ED population (1).</li>
+<li><strong>Consequence 2:</strong> imputing lab values for category 5 patients would be unreliable and could distort their distribution (differential imputation error) (1).</li>
+<li><strong>What to do:</strong> keep a <strong>missingness indicator</strong> as a feature (the fact a test was not ordered is informative), report missingness by subgroup, and evaluate the model separately by triage category (1).</li>
+</ul>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q5 (4 marks) — Feature engineering</div><p>Propose features from <strong>arrival time</strong> and <strong>triage category</strong>, and name one leakage risk.</p>
+
+<details class="solution solution"><summary>Solution & marking</summary><div class="sol-body"><ul>
+<li><strong>Arrival time:</strong> hour of day and day of week with <strong>cyclical</strong> encoding, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>sin</mi><mo>⁡</mo><mo stretchy="false">(</mo><mn>2</mn><mi>π</mi><mi>h</mi><mi mathvariant="normal">/</mi><mn>24</mn><mo stretchy="false">)</mo><mo separator="true">,</mo><mi>cos</mi><mo>⁡</mo><mo stretchy="false">(</mo><mn>2</mn><mi>π</mi><mi>h</mi><mi mathvariant="normal">/</mi><mn>24</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\sin(2\pi h/24),\cos(2\pi h/24)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop">sin</span><span class="mopen">(</span><span class="mord">2</span><span class="mord mathnormal">πh</span><span class="mord">/24</span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop">cos</span><span class="mopen">(</span><span class="mord">2</span><span class="mord mathnormal">πh</span><span class="mord">/24</span><span class="mclose">)</span></span></span></span>, so 23:00 and 00:00 are neighbours; a weekend/holiday indicator (1).</li>
+<li><strong>Time-window features:</strong> number of arrivals in the previous hour (current crowding), rolling mean waiting time over the previous 3 hours — computed <strong>only from information available at the patient&#39;s arrival</strong> (1).</li>
+<li><strong>Triage category:</strong> it is <strong>ordinal</strong>, so an ordinal code 1–5 is defensible; one-hot encoding is also safe for a linear model (drop one category as the reference) (1).</li>
+<li><strong>Leakage risk:</strong> using &quot;left without being seen&quot;, the lab result, or a centred rolling average that includes later arrivals — none of these is known when the flag must be raised. Also fit any scaling or encoding on the training period only and split by time and by patient (1).</li>
+</ul>
+</div></details>
+</section>
+
+  <nav class="pagenav">
+    <a class="pv" href="quiz3-guide.html">← Previous<b>★ Quiz 3 guide</b></a>
+    <a class="nx" href="quiz3-mock-b.html">Next →<b>Mock Quiz 3B</b></a>
+  </nav>
+  <div class="foot">AI 500 · Fall 2026 · study notes</div>
+</main>
+</div>
+<div class="lightbox" id="lightbox" hidden><img alt=""><button class="iconbtn lb-close" aria-label="Close">✕</button></div>
+<script src="assets/site.js" defer></script>
+</body></html>

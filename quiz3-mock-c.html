@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mock Quiz 3C · AI 500</title>
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#fbfbfa" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#16161a" media="(prefers-color-scheme: dark)">
+<script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<header class="topbar">
+  <button class="iconbtn" id="menuBtn" aria-label="Open contents" aria-expanded="false"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+  <a class="topbrand" href="index.html">AI 500<span>Mock Quiz 3C</span></a>
+  <button class="iconbtn themebtn" aria-label="Toggle dark mode"><svg class="i-moon" viewBox="0 0 24 24" width="19" height="19"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg><svg class="i-sun" viewBox="0 0 24 24" width="19" height="19"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg></button>
+</header>
+<div class="scrim" id="scrim"></div>
+<div class="wrap">
+<aside class="side" id="side">
+  <div class="side-head">
+    <a class="brand" href="index.html">AI 500 — Foundations of AI<span>Foundations of AI · Fall 2026</span></a>
+    <button class="iconbtn themebtn" aria-label="Toggle dark mode"><svg class="i-moon" viewBox="0 0 24 24" width="17" height="17"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="currentColor"/></svg><svg class="i-sun" viewBox="0 0 24 24" width="17" height="17"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg></button>
+  </div>
+  <nav><a href="index.html">Home</a>
+<a href="start-here.html">Start here (how to use)</a>
+<div class="nav-section">Quiz 3 (28 Nov) — Module 3, §3.1–3.5</div>
+<a href="quiz3-guide.html">★ Quiz 3 guide</a>
+<a href="quiz3-mock-a.html">★ Mock Quiz 3A</a>
+<a href="quiz3-mock-b.html">Mock Quiz 3B</a>
+<a href="quiz3-mock-c.html" class="on" aria-current="page">Mock Quiz 3C</a>
+<div class="nav-section">Mid-term (31 Oct, Modules 1–2)</div>
+<a href="mid-guide.html">Mid guide</a>
+<a href="mid-mock-a.html">★ Mock Mid A</a>
+<a href="mid-mock-b.html">Mock Mid B</a>
+<a href="mid-mock-c.html">Mock Mid C</a>
+<div class="nav-section">Modules</div>
+<details class="grp"><summary>M1 · AI Landscape & Problem Framing</summary><a href="m1a-notes.html">Notes A — roots, philosophy, landscape</a><a href="m1b-notes.html">Notes B — pipeline, framing, failures</a><a href="m1-answers.html">Answers Q1–100</a><a href="m1-cases.html">Answers S, R, A</a></details>
+<details class="grp"><summary>M2 · Data Collection, Cleaning, Governance & Ethics</summary><a href="m2a-notes.html">Notes A — constructed data, sources, quality</a><a href="m2b-notes.html">Notes B — curation, cleaning, leakage</a><a href="m2c-notes.html">Notes C — documentation, governance, cases</a><a href="m2-definitions.html">★ Notes-exact definitions</a><a href="m2-answers-1.html">Answers Q1–50</a><a href="m2-answers-2.html">Answers Q51–100</a><a href="m2-scenarios.html">Scenarios S1–S5</a><a href="m2-reflections.html">Reflections R1–R5</a><a href="quiz2-numericals.html">★ Quiz 2 numericals</a></details>
+<details class="grp"><summary>M3 · EDA, Features & Statistical Thinking</summary><a href="m3a-notes.html">Notes A — EDA, unit of analysis, goals (3.1–3.2)</a><a href="m3b-notes.html">Notes B — plots, statistics, features (3.3–3.5)</a><a href="m3-notes.html">Chapter map and PDF</a></details>
+<div class="nav-section">Quiz 2 (24 Oct)</div>
+<a href="quiz2-solved.html">★ Real Quiz 2 (solved)</a>
+<a href="quiz2-numericals.html">★ Quiz 2 numericals</a>
+<a href="quiz2-guide.html">Quiz 2 guide</a>
+<a href="quiz2-mock-a.html">★ Mock Quiz 2A</a>
+<a href="quiz2-mock-b.html">Mock Quiz 2B</a>
+<a href="quiz2-mock-c.html">Mock Quiz 2C</a>
+<div class="nav-section">Archive</div>
+<a href="quiz1-solved.html">Real Quiz 1 (solved)</a>
+<a href="assignments.html">Assignments & computational training</a>
+<a href="a2-missedcare.html">A2 Part A — MissedCare (your answers)</a>
+<details class="grp"><summary>PDFs & past material</summary><a href="resources.html">2026 course PDFs</a><a href="past-papers.html">Past exams & quizzes</a><a href="past-lectures.html">Past lectures</a><a href="past-practice.html">Problem sets & solutions</a><a href="past-tutorials.html">Tutorials & demo code</a></details></nav>
+  
+</aside>
+<main>
+  
+  <div class="quiz-tools"><button data-sol="open">Show all solutions</button><button data-sol="close">Hide all</button><button onclick="window.print()">Print</button></div>
+  <h1>Mock Quiz 3C — Air-quality sensors and student data</h1>
+<p>Module 3, §3.1–3.5 · in the style announced for Quiz 3 · try each question before opening the model answer.</p>
+<div class="pdf-links">
+<a href="quiz3-guide.html">Quiz 3 guide</a>
+<a href="m3a-notes.html">M3 Notes A</a>
+<a href="m3b-notes.html">M3 Notes B</a>
+</div>
+
+<p><strong>Scenario A.</strong> A city has 30 low-cost PM2.5 sensors reporting every 10 minutes for one year. Some sensors were replaced in June with a newer model. The goal is to explore pollution patterns and later forecast next-day PM2.5.</p>
+
+<section class="question"><div class="q-head">Q1 (4 marks) — Choose your tools</div><p>Which exploratory tools would you use to understand (a) how PM2.5 changes over the year and the day, and (b) whether the 30 sensors agree with each other? Justify.</p>
+
+<details class="solution solution"><summary>Solution & marking</summary><div class="sol-body"><p>(a) <strong>Time-series plots</strong> of the raw readings with a moving average overlaid, to see trend, seasonality (winter smog) and daily cycles; plot average by hour of day to show the daily pattern. Keep raw data visible because smoothing hides short spikes; mark missing periods (2).</p>
+<p>(b) <strong>Side-by-side boxplots</strong> (or violins) of each sensor&#39;s readings with <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span> per sensor, plus a <strong>correlation heatmap / scatterplots</strong> between nearby sensors. Strongly correlated neighbours that differ by a constant offset suggest calibration differences; a sensor that disagrees with all neighbours suggests a fault (2).</p>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q2 (4 marks) — Analyse a time-series plot</div><p>One sensor&#39;s series shows a sudden <strong>step up of about 20 µg/m³ in mid-June</strong> that persists for the rest of the year; its neighbours show no such step. Analyse.</p>
+
+<details class="solution solution"><summary>Solution & marking</summary><div class="sol-body"><ul>
+<li><strong>Pattern:</strong> an abrupt level shift / regime change in one series only (1).</li>
+<li><strong>Likely cause:</strong> the sensor replacement in June — a <strong>measurement bias</strong> (the new device reads systematically higher), not a real pollution change, because neighbours do not show it (1).</li>
+<li><strong>Check:</strong> confirm the replacement date for that sensor, compare its readings with neighbours before and after, and look for drift in other replaced sensors (1).</li>
+<li><strong>Action:</strong> document it; correct with a calibration offset estimated from co-located/neighbour data, or add a &quot;device version&quot; feature — don&#39;t let the model learn a fake trend (1).</li>
+</ul>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q3 (4 marks) — Pathological density plot</div><p>A KDE of hourly PM2.5 shows probability mass <strong>below 0</strong>, and a separate tall narrow spike at exactly 5 µg/m³. Explain both features.</p>
+
+<details class="solution solution"><summary>Solution & marking</summary><div class="sol-body"><ul>
+<li><strong>Mass below zero:</strong> <strong>boundary bias</strong> of the kernel density — PM2.5 cannot be negative, but a smooth kernel near the boundary spills probability past 0. It is an artefact of the estimator, not real data (1). Use a boundary-aware method or show a histogram/ECDF, which cannot go below the smallest value (1).</li>
+<li><strong>Spike at 5:</strong> a <strong>detection limit</strong> — readings below the sensor&#39;s lower limit are recorded as the same value, producing a pile-up (truncation/censoring) (1). Treat these as &quot;≤ 5&quot; (censored) rather than exact values, and say so when reporting means (1).</li>
+</ul>
+</div></details>
+</section>
+<p><strong>Scenario B.</strong> A university studies 3,000 students: weekly study hours, attendance (%), first-year GPA, department, and whether they graduated within 4 years. A dataset of <strong>graduates only</strong> is used to show &quot;high attendance leads to high GPA&quot;.</p>
+
+<section class="question"><div class="q-head">Q4 (4 marks) — Bias and causation</div><p>Identify the problems in the claim and explain how each could distort the conclusion.</p>
+
+<details class="solution solution"><summary>Solution & marking</summary><div class="sol-body"><ul>
+<li><strong>Survivorship / selection bias:</strong> using only graduates excludes students who dropped out — often those with low GPA and low attendance — so the observed relationship (and the average GPA) does not represent all students (1).</li>
+<li><strong>Restricted range:</strong> after selection, attendance and GPA vary less, which can weaken or distort the correlation (1).</li>
+<li><strong>Causation:</strong> &quot;leads to&quot; is causal; EDA only shows association. Alternatives: motivation or prior ability drives both (confounding), poor grades lower attendance (reverse causation) (1).</li>
+<li><strong>Subgroups:</strong> department differences in grading and attendance rules may create or mask the pattern; check within departments (1).</li>
+</ul>
+</div></details>
+</section>
+
+<section class="question"><div class="q-head">Q5 (4 marks) — Feature engineering choices</div><p>For predicting graduation, propose (a) a treatment for <strong>weekly study hours</strong>, which is right-skewed with a few students reporting 80+ hours, and (b) a treatment for <strong>attendance</strong> for a logistic regression. Mention one risk of each.</p>
+
+<details class="solution solution"><summary>Solution & marking</summary><div class="sol-body"><p>(a) <strong>Study hours:</strong> a <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>log</mi><mo>⁡</mo><mo stretchy="false">(</mo><mn>1</mn><mo>+</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\log(1+x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span> or <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msqrt><mi>x</mi></msqrt></mrow><annotation encoding="application/x-tex">\sqrt x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.04em;vertical-align:-0.2397em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8003em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="padding-left:0.833em;">x</span></span><span style="top:-2.7603em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice"><path d="M95,702
+c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
+c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
+c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
+s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
+c69,-144,104.5,-217.7,106.5,-221
+l0 -0
+c5.3,-9.3,12,-14,20,-14
+H400000v40H845.2724
+s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
+c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
+M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2397em;"><span></span></span></span></span></span></span></span></span> transform reduces skew, or <strong>robust scaling</strong> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>x</mi><mo>−</mo><mtext>median</mtext><mo stretchy="false">)</mo><mi mathvariant="normal">/</mi><mtext>IQR</mtext></mrow><annotation encoding="application/x-tex">(x-\text{median})/\text{IQR}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">median</span></span><span class="mclose">)</span><span class="mord">/</span><span class="mord text"><span class="mord">IQR</span></span></span></span></span>; first check whether 80+ hours are genuine or entry errors (1). <em>Risk:</em> the transformed scale is harder to interpret; the same transform must be applied at deployment (train–serving consistency) (1).</p>
+<p>(b) <strong>Attendance:</strong> standardise with the <strong>training</strong> mean and SD, or bin into domain-meaningful bands (e.g. below the 75% attendance requirement) if there is a real policy threshold (1). <em>Risk:</em> binning discards information and creates artificial jumps near the cut-points; fitting scaling on the full dataset leaks test information (1).</p>
+</div></details>
+</section>
+
+  <nav class="pagenav">
+    <a class="pv" href="quiz3-mock-b.html">← Previous<b>Mock Quiz 3B</b></a>
+    <a class="nx" href="mid-guide.html">Next →<b>Mid guide</b></a>
+  </nav>
+  <div class="foot">AI 500 · Fall 2026 · study notes</div>
+</main>
+</div>
+<div class="lightbox" id="lightbox" hidden><img alt=""><button class="iconbtn lb-close" aria-label="Close">✕</button></div>
+<script src="assets/site.js" defer></script>
+</body></html>
