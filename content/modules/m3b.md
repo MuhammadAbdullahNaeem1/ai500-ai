@@ -290,9 +290,9 @@ m3-p102|Figure 52 — Risks of binning blood pressure
 - **Frequency encoding** $f_k=n_k/n$ — one compact column for high cardinality (cities: LHR 0.4, KHI 0.3, ISL 0.2, PEW 0.1), but categories with equal frequencies become indistinguishable even if they behave very differently.
 - **Target encoding** $\hat\mu_k=\mathbb E[Y\mid C=k]$ — powerful for high cardinality, but **leaks the target**: a row's own outcome feeds its own feature; a category with one row (a lone Engineer who defaulted) is encoded as exactly its label, 1.00. Remedies: **out-of-fold / cross-fitting** (encode each fold with the other folds' targets), **smoothing** towards the global mean
 $$
-\text{TE}(c)=\frac{n_c\bar y_c+\lambda\bar y}{n_c+\lambda}\quad\Big(\text{lone Engineer: }\frac{1(1)+10(0.5)}{11}=0.455\Big),
+\text{TE}(c)=\frac{n_c\bar y_c+\lambda\bar y}{n_c+\lambda}\quad\Big(\text{lone Engineer: }\frac{1(1)+10(0.5)}{11}=\frac{6}{11}\approx0.545\Big),
 $$
-and an explicit rule (global mean) for categories unseen in training.
+and an explicit rule (global mean) for categories unseen in training. *(The notes print 0.455 for the lone Engineer; $6/11$ is $0.545$ — the encoding still moves from 1.00 towards the global 0.5, which is the point.)*
 - **Rare and unseen categories** — merge rare levels into "Other"; **hashing** into a fixed number of buckets; **hierarchical grouping** (employer → industry → sector); **learned embeddings** (neural nets); an explicit **unknown** category or global default at deployment. A *rare* category has little data; an *unseen* one has none.
 
 ## 3.5.7–3.5.8 Interaction and polynomial features

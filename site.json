@@ -22,6 +22,26 @@
       "file": "quizzes/quiz3-guide.md"
     },
     {
+      "id": "quiz3-numericals",
+      "title": "★ Quiz 3 numericals",
+      "file": "quizzes/quiz3-numericals.md"
+    },
+    {
+      "id": "m3-answers-1",
+      "title": "★ Back questions Q1–36",
+      "file": "practice/m3-answers-1.md"
+    },
+    {
+      "id": "m3-answers-2",
+      "title": "★ Back questions Q37–72",
+      "file": "practice/m3-answers-2.md"
+    },
+    {
+      "id": "m3-scenarios",
+      "title": "★ Scenarios S1–S4 · Reflections R1–R3",
+      "file": "practice/m3-scenarios.md"
+    },
+    {
       "id": "quiz3-mock-a",
       "title": "★ Mock Quiz 3A",
       "file": "quizzes/quiz3-mock-a.md"
@@ -152,6 +172,22 @@
           "id": "m3b-notes",
           "title": "Notes B — plots, statistics, features (3.3–3.5)",
           "file": "modules/m3b.md"
+        },
+        {
+          "id": "m3-answers-1",
+          "title": "★ Back questions Q1–36"
+        },
+        {
+          "id": "m3-answers-2",
+          "title": "★ Back questions Q37–72"
+        },
+        {
+          "id": "m3-scenarios",
+          "title": "★ Scenarios S1–S4 · Reflections R1–R3"
+        },
+        {
+          "id": "quiz3-numericals",
+          "title": "★ Quiz 3 numericals"
         },
         {
           "id": "m3-notes",

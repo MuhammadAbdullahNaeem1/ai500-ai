@@ -1,6 +1,10 @@
 # Quiz 3 guide — Module 3, §3.1–3.5 (Saturday 28 November, in class)
 
 <div class="pdf-links">
+<a href="quiz3-numericals.html">★ Quiz 3 numericals</a>
+<a href="m3-answers-1.html">★ Back questions Q1–36</a>
+<a href="m3-answers-2.html">★ Back questions Q37–72</a>
+<a href="m3-scenarios.html">★ Scenarios S1–S4 · R1–R3</a>
 <a href="m3a-notes.html">M3 Notes A (§3.1–3.2)</a>
 <a href="m3b-notes.html">M3 Notes B (§3.3–3.5)</a>
 <a href="quiz3-mock-a.html">Mock Quiz 3A</a>
@@ -129,12 +133,17 @@ For any odd-looking plot: name the pattern, give a genuine and an artefact expla
 - **Covariance, Pearson $r$** (unit-free, $[-1,1]$), **Spearman** $\rho_S=1-\dfrac{6\sum d_i^2}{n(n^2-1)}$ (no ties).
 - **Missingness rates:** $r_j$ per variable, $r_i$ per record, $P(\text{missing}\mid G=g)$.
 - **Standardisation** $z=(x-\mu_{\text{train}})/\sigma_{\text{train}}$, **min–max** $(x-x_{\min})/(x_{\max}-x_{\min})$, **robust** $(x-\text{median})/\text{IQR}$.
-- **Target encoding with smoothing:** $\dfrac{n_c\bar y_c+\lambda\bar y}{n_c+\lambda}$ (notes: $n_c=1$, $\bar y_c=1$, $\bar y=0.5$, $\lambda=10$ → $0.455$).
+- **Target encoding with smoothing:** $\dfrac{n_c\bar y_c+\lambda\bar y}{n_c+\lambda}$ (notes: $n_c=1$, $\bar y_c=1$, $\bar y=0.5$, $\lambda=10$ → $\frac{1+5}{11}=0.545$; !!the notes print 0.455, an arithmetic slip!!).
 - **Cyclical encoding:** $\big(\sin\frac{2\pi x}{P},\cos\frac{2\pi x}{P}\big)$ with $P=24,7,12$.
 - **Big Data paradox:** error $=\rho_{R,X}\sqrt{(N-n)/n}\;\sigma_X$ — a 10× bigger biased sample only shrinks the error by $\sqrt{10}\approx3.16$.
 - **Quantile conventions (notes Q42):** latencies $[120,135,142,150,165]$, SLA $Q_{0.8}\le155$. Type 7: position $1+4(0.8)=4.2$ → $153$ ms (pass). Type 6: position $6(0.8)=4.8$ → $162$ ms (fail).
 - **Missingness rate (notes Q19):** income missing for 450 of 2,000 patients → $r_j=0.225$; to see whether it is concentrated in groups you need $P(\text{missing}\mid G=g)$ by age, insurance, site, etc.
 
-## 7. Practice questions in the notes
+## 7. The notes' back questions — answered
 
-The notes' own list (PDF pp. 203–206) has the right flavour for this quiz. The ones closest to the announced types: **Q8** (50,000 images from 2,000 patients), **Q13–Q16** (bins, KDE smoothing, anomalies, boxplot whiskers), **Q19–Q21** (missingness), **Q27–Q36** (visualization tools and their limits), **Q38** (mean vs median), **Q42** (percentile SLA), **Q44** (log transforms), **Q48–Q52** (Pearson vs Spearman, ordinal codes, time trends, stratification). Answer them with the skeletons in §1.
+The end of the Module 3 notes (PDF pp. 203–221) has 100 practice questions, five scenarios and five reflections. For Quiz 3 (§3.1–3.5) the relevant ones are **Q1–Q72**, **S1–S4**, and the EDA and feature-engineering parts of **R1–R3**; Q73–Q100, S5, R4 and R5 are mainly about sampling, confidence intervals and hypothesis tests (§3.6 onwards).
+
+- **[Answers Q1–36](m3-answers-1.html)** — EDA foundations, distributions and anomalies, missingness and bias, visualization.
+- **[Answers Q37–72](m3-answers-2.html)** — descriptive statistics, correlation and causation, feature engineering.
+- **[Scenarios S1–S4 and Reflections R1–R3](m3-scenarios.html)** — the closest match to the announced question types.
+- **[Quiz 3 numericals](quiz3-numericals.html)** — every calculation in §3.1–3.5, worked, plus practice.
