@@ -2,6 +2,7 @@
 
 <div class="pdf-links">
 <a href="quiz3-numericals.html">★ Quiz 3 numericals</a>
+<a href="pdfs/quizzes/Quiz-3-Practice-Set-shared.pdf">★ Shared practice set (PDF)</a>
 <a href="m3-answers-1.html">★ Back questions Q1–36</a>
 <a href="m3-answers-2.html">★ Back questions Q37–72</a>
 <a href="m3-scenarios.html">★ Scenarios S1–S4 · R1–R3</a>
@@ -147,3 +148,7 @@ The end of the Module 3 notes (PDF pp. 203–221) has 100 practice questions, fi
 - **[Answers Q37–72](m3-answers-2.html)** — descriptive statistics, correlation and causation, feature engineering.
 - **[Scenarios S1–S4 and Reflections R1–R3](m3-scenarios.html)** — the closest match to the announced question types.
 - **[Quiz 3 numericals](quiz3-numericals.html)** — every calculation in §3.1–3.5, worked, plus practice.
+
+## 8. Shared practice set (PDF)
+
+**[Quiz 3 EDA practice set with model answers](pdfs/quizzes/Quiz-3-Practice-Set-shared.pdf)** (28 pages) — 40 exam-style questions with model answers and drawn plots to analyse, grouped by the announced question types. Shared by a classmate; **not official course material**. One correction: in Q21, income is missing for **23.5%** overall, not 22% ((480 + 900 + 1,440) / 12,000). Its strength is the plots: use Q15–Q21 and Q29–Q35 to practise reading a given plot and diagnosing odd-looking visualizations.

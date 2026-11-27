@@ -14,6 +14,7 @@ Every file from the course folder (except duplicates in the assignment "Garbage"
 
 - [Quiz 1 — solution scheme](pdfs/quizzes/Quiz-1-Solution.pdf) · [solved page](quiz1-solved.html)
 - [Quiz 2 — solution scheme](pdfs/quizzes/Quiz-2-Solution.pdf) · [solved page](quiz2-solved.html) · [numericals](quiz2-numericals.html) · [board photos](pdfs/quizzes/Board-Numericals-17-Oct.pdf)
+- [Quiz 3 EDA practice set with model answers](pdfs/quizzes/Quiz-3-Practice-Set-shared.pdf) — shared by a classmate, not official; Q21 overall missing rate should read 23.5%
 - [Your Quiz 1 preparation guide (PDF)](pdfs/quizzes/Quiz-1-Prep-Guide.pdf) · [.docx](files/Quiz-1-Prep-Guide.docx)
 
 ## Mid-term (2026)

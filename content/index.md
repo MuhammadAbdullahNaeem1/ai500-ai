@@ -11,7 +11,7 @@ Fall 2026 · LUMS · Dr. Hassan Mohy-ud-Din · study notes, practice answers and
 
 **Module 3, sections 3.1–3.5:** EDA and the unit of analysis, the goals of EDA (distributions, relationships, anomalies, missingness, bias, subgroups), visualization, descriptive statistics and feature engineering. The announced questions are all judgement questions: choose a tool for a scenario, weigh a tool's advantages and limitations, analyse a plot, say whether one analysis is enough, and diagnose pathological visualizations.
 
-**[★ Quiz 3 guide](quiz3-guide.html)** · **[★ Numericals](quiz3-numericals.html)** · **[★ Back questions Q1–36](m3-answers-1.html) · [Q37–72](m3-answers-2.html) · [Scenarios & reflections](m3-scenarios.html)** · (answer skeletons, tool-choice table, pros-and-cons table, pathology diagnosis table) · **[★ Mock Quiz 3A](quiz3-mock-a.html) · [Mock Quiz 3B](quiz3-mock-b.html) · [Mock Quiz 3C](quiz3-mock-c.html)** · notes: **[M3 Notes A](m3a-notes.html)** (3.1–3.2) and **[M3 Notes B](m3b-notes.html)** (3.3–3.5).
+**[★ Quiz 3 guide](quiz3-guide.html)** · **[★ Numericals](quiz3-numericals.html)** · **[★ Shared practice set (PDF, 40 Qs with plots)](pdfs/quizzes/Quiz-3-Practice-Set-shared.pdf)** · **[★ Back questions Q1–36](m3-answers-1.html) · [Q37–72](m3-answers-2.html) · [Scenarios & reflections](m3-scenarios.html)** · (answer skeletons, tool-choice table, pros-and-cons table, pathology diagnosis table) · **[★ Mock Quiz 3A](quiz3-mock-a.html) · [Mock Quiz 3B](quiz3-mock-b.html) · [Mock Quiz 3C](quiz3-mock-c.html)** · notes: **[M3 Notes A](m3a-notes.html)** (3.1–3.2) and **[M3 Notes B](m3b-notes.html)** (3.3–3.5).
 
 The mid-term (31 October) is done: the [three solution schemes](resources.html#mid-term-2026) are under PDFs.
 
